@@ -1,4 +1,6 @@
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "./AnimatedSection";
 
 const reviews = [
   {
@@ -17,41 +19,43 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section className="py-24 bg-noir relative">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-24 bg-noir relative">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-20">
-          <span className="font-accent text-fire italic tracking-[4px] uppercase text-sm">
+        <AnimatedSection className="text-center mb-12 sm:mb-20">
+          <span className="font-accent text-fire italic tracking-[4px] uppercase text-xs sm:text-sm">
             Testimonianze
           </span>
-          <h2 className="font-elegant text-4xl sm:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
+          <h2 className="font-elegant text-3xl sm:text-5xl lg:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
             Dicono di Noi
           </h2>
-          <p className="font-accent text-lg text-gold-light italic mt-10 max-w-2xl mx-auto">
+          <p className="font-accent text-base sm:text-lg text-gold-light italic mt-8 sm:mt-10 max-w-2xl mx-auto px-4">
             Le parole dei nostri clienti sono il nostro più grande orgoglio
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {reviews.map((review, i) => (
-            <div
-              key={i}
-              className="bg-charcoal/50 border border-gold/20 p-8 hover:border-fire hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(139,21,56,0.3)] transition-all duration-400"
-            >
-              {/* Stars */}
-              <div className="flex gap-1 text-fire mb-6">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-              <p className="font-accent text-lg text-gold-light italic leading-relaxed mb-6">
-                "{review.text}"
-              </p>
-              <div className="font-semibold text-cream uppercase tracking-wide text-sm">
-                — {review.author}
-              </div>
-            </div>
+            <AnimatedSection key={i} delay={i * 0.15}>
+              <motion.div
+                whileHover={{ y: -5, boxShadow: "0 15px 40px rgba(139,21,56,0.3)" }}
+                className="bg-charcoal/50 border border-gold/20 p-6 sm:p-8 hover:border-fire transition-all duration-400 h-full"
+              >
+                {/* Stars */}
+                <div className="flex gap-1 text-fire mb-4 sm:mb-6">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
+                  ))}
+                </div>
+                <p className="font-accent text-base sm:text-lg text-gold-light italic leading-relaxed mb-4 sm:mb-6">
+                  "{review.text}"
+                </p>
+                <div className="font-semibold text-cream uppercase tracking-wide text-xs sm:text-sm">
+                  — {review.author}
+                </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
