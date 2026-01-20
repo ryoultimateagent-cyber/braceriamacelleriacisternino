@@ -53,7 +53,7 @@ const Footer = () => {
               Contatti
             </h4>
             <div className="space-y-2 sm:space-y-3 text-gold-light text-sm sm:text-base">
-              <p>Via Mentana, 50</p>
+              <p>Via Paolo VI, 47/49</p>
               <p>70042 Mola di Bari (BA)</p>
               <a
                 href="tel:+393403824158"
