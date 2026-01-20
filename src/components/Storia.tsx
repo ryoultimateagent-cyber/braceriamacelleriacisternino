@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import AnimatedSection from "./AnimatedSection";
 
 const timelineData = [
   {
@@ -26,89 +28,84 @@ const stats = [
 ];
 
 const Storia = () => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setVisibleItems((prev) => [...new Set([...prev, index])]);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    itemRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <section id="storia" className="py-24 bg-noir relative">
-      <div className="container mx-auto px-6">
+    <section id="storia" ref={ref} className="py-16 sm:py-24 bg-noir relative overflow-hidden">
+      <motion.div 
+        style={{ y: bgY }}
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,21,56,0.1)_0%,transparent_60%)]" 
+      />
+      
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <span className="font-accent text-fire italic tracking-[4px] uppercase text-sm">
+        <AnimatedSection className="text-center mb-12 sm:mb-20">
+          <span className="font-accent text-fire italic tracking-[4px] uppercase text-xs sm:text-sm">
             La Nostra Eredità
           </span>
-          <h2 className="font-elegant text-4xl sm:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
+          <h2 className="font-elegant text-3xl sm:text-5xl lg:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
             Dal 1920
           </h2>
-          <p className="font-accent text-lg text-gold-light italic mt-10 max-w-2xl mx-auto">
+          <p className="font-accent text-base sm:text-lg text-gold-light italic mt-8 sm:mt-10 max-w-2xl mx-auto px-4">
             Oltre un secolo di dedizione, passione e maestria nella selezione della carne e nell'arte della brace
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
           {/* Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px timeline-line hidden md:block" />
+          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-fire to-gold hidden sm:block" style={{ transform: "translateX(-50%)" }} />
 
           {timelineData.map((item, i) => (
-            <div
-              key={i}
-              ref={(el) => (itemRefs.current[i] = el)}
-              data-index={i}
-              className={`flex flex-col md:flex-row mb-16 relative transition-all duration-800 ${
-                visibleItems.includes(i) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              } ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+            <AnimatedSection 
+              key={i} 
+              delay={i * 0.2}
+              className={`flex flex-col sm:flex-row mb-12 sm:mb-16 relative ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
             >
-              <div className="md:w-[45%] p-8 bg-charcoal/50 backdrop-blur-sm border border-gold/20 hover:border-fire transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(139,21,56,0.3)]">
-                <div className="font-elegant text-5xl font-bold text-fire opacity-60 leading-none mb-4">
+              <motion.div 
+                whileHover={{ y: -5, boxShadow: "0 10px 40px rgba(139,21,56,0.3)" }}
+                className="sm:w-[45%] p-6 sm:p-8 bg-charcoal/50 backdrop-blur-sm border border-gold/20 hover:border-fire transition-all duration-400 ml-8 sm:ml-0"
+              >
+                <div className="font-elegant text-4xl sm:text-5xl font-bold text-fire opacity-60 leading-none mb-4">
                   {item.year}
                 </div>
-                <h3 className="font-elegant text-2xl font-semibold text-cream mb-4">
+                <h3 className="font-elegant text-xl sm:text-2xl font-semibold text-cream mb-4">
                   {item.title}
                 </h3>
-                <p className="text-gold-light leading-relaxed">{item.text}</p>
-              </div>
+                <p className="text-gold-light leading-relaxed text-sm sm:text-base">{item.text}</p>
+              </motion.div>
 
               {/* Dot */}
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-fire border-[3px] border-noir shadow-[0_0_0_3px] shadow-fire rounded-full" />
-            </div>
+              <div className="hidden sm:block absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-fire border-[3px] border-noir shadow-[0_0_0_3px] shadow-fire rounded-full top-8" />
+              
+              {/* Mobile dot */}
+              <div className="sm:hidden absolute left-4 w-3 h-3 bg-fire rounded-full top-8" />
+            </AnimatedSection>
           ))}
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16 sm:mt-20">
           {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="text-center p-8 bg-charcoal/30 border border-gold/20 hover:border-fire transition-all duration-400 hover:-translate-y-2 hover:bg-charcoal/50 hover:shadow-[0_10px_30px_rgba(139,21,56,0.3)] group"
-            >
-              <div className="font-elegant text-5xl font-bold text-gold group-hover:text-fire transition-colors leading-none mb-4">
-                {stat.number}
-              </div>
-              <div className="text-sm uppercase tracking-wider text-gold-light">
-                {stat.label}
-              </div>
-            </div>
+            <AnimatedSection key={i} delay={i * 0.1}>
+              <motion.div
+                whileHover={{ y: -10, boxShadow: "0 10px 30px rgba(139,21,56,0.3)" }}
+                className="text-center p-6 sm:p-8 bg-charcoal/30 border border-gold/20 hover:border-fire transition-all duration-400 hover:bg-charcoal/50 group"
+              >
+                <div className="font-elegant text-3xl sm:text-5xl font-bold text-gold group-hover:text-fire transition-colors leading-none mb-3 sm:mb-4">
+                  {stat.number}
+                </div>
+                <div className="text-xs sm:text-sm uppercase tracking-wider text-gold-light">
+                  {stat.label}
+                </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Storia from "@/components/Storia";
 import Tagli from "@/components/Tagli";
+import Galleria from "@/components/Galleria";
 import Menu from "@/components/Menu";
 import Vini from "@/components/Vini";
 import Takeaway from "@/components/Takeaway";
@@ -19,6 +20,7 @@ const Index = () => {
       <Intro />
       <Storia />
       <Tagli />
+      <Galleria />
       <Menu />
       <Vini />
       <Takeaway />
