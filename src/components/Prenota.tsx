@@ -25,7 +25,7 @@ const Prenota = () => {
               <p className="text-xl lg:text-2xl text-gold-light/90 font-accent italic leading-relaxed mb-12">
                 "Ti aspettiamo nel cuore di Mola di Bari per un'esperienza che coinvolge tutti i sensi. 
                 Il calore del fuoco, l'aroma della carne selezionata e l'accoglienza di una famiglia che 
-                da un secolo celebra il gusto autentico."
+                da oltre quarant'anni celebra il gusto autentico."
               </p>
               
               <div className="flex items-center gap-6 mb-12">
