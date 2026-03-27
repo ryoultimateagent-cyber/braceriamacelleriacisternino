@@ -30,17 +30,23 @@ const FireBackground = memo(() => {
       {embers.map((ember) => (
         <div
           key={ember.id}
-          className={`absolute bottom-0 rounded-full animate-ember ${ember.isBright ? 'bg-gold animate-crackle shadow-[0_0_10px_rgba(212,175,55,0.8)]' : 'bg-ember shadow-[0_0_6px_rgba(184,36,44,0.4)]'}`}
+          className="absolute bottom-0 animate-ember"
           style={{
             left: ember.left,
-            width: ember.size,
-            height: ember.size,
-            opacity: ember.opacity,
             '--duration': ember.duration,
             '--delay': ember.delay,
             '--sway': `${ember.sway}px`,
           } as React.CSSProperties}
-        />
+        >
+          <div
+            className={`rounded-full ${ember.isBright ? 'bg-gold animate-crackle shadow-[0_0_10px_rgba(212,175,55,0.8)]' : 'bg-ember shadow-[0_0_6px_rgba(184,36,44,0.4)]'}`}
+            style={{
+              width: ember.size,
+              height: ember.size,
+              opacity: ember.opacity,
+            }}
+          />
+        </div>
       ))}
 
       {/* Extreme Low Layer Glow */}
