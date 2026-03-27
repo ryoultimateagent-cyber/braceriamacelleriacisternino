@@ -36,15 +36,6 @@ const Index = () => {
       <main id="main-content" role="main" className="flex-grow">
         <Hero />
         <Intro />
-        <Storia />
-        <Tagli />
-        <Galleria />
-        <Menu />
-        <Vini />
-        <Takeaway />
-        <Prenota />
-        <Recensioni />
-        <DoveSiamo />
       </main>
       
       <Footer />
