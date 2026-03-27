@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ChefHat } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeader from "./SectionHeader";
 
 const Intro = () => {
   const ref = useRef(null);
@@ -20,7 +21,12 @@ const Intro = () => {
   ];
 
   return (
-    <section id="intro" ref={ref} className="py-24 lg:py-40 bg-charcoal relative overflow-hidden">
+    <section 
+      id="intro" 
+      ref={ref} 
+      className="py-24 lg:py-40 bg-charcoal relative overflow-hidden"
+      aria-label="Introduzione alla nostra filosofia"
+    >
       {/* Decorative Parallax Background Layer */}
       <motion.div 
         style={{ y }}
@@ -40,16 +46,11 @@ const Intro = () => {
           </AnimatedSection>
 
           {/* Heading with Modern Typography */}
-          <AnimatedSection delay={0.2} className="text-center mb-12">
-            <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-              Benvenuti nel Nostro Mondo
-            </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-cream mb-8 leading-[1.1]">
-              Un'Arte Tramandata<br />
-              con Passione Autentica
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
-          </AnimatedSection>
+          <SectionHeader 
+            subtitle="Benvenuti nel Nostro Mondo"
+            title="Un'Arte Tramandata con Passione Autentica"
+            className="mb-12"
+          />
 
           {/* Description with Refined Spacing */}
           <AnimatedSection delay={0.4} className="text-center max-w-3xl mx-auto">
@@ -74,7 +75,7 @@ const Intro = () => {
                   <h3 className="text-gold text-sm lg:text-base font-bold uppercase tracking-widest mb-3">
                     {item.label}
                   </h3>
-                  <p className="text-gold-light/60 text-xs lg:text-sm tracking-wide leading-relaxed">
+                  <p className="text-gold-light/70 text-xs lg:text-sm tracking-wide leading-relaxed">
                     {item.text}
                   </p>
                 </motion.div>

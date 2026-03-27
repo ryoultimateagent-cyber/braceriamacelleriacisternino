@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeader from "./SectionHeader";
 import { Badge } from "@/components/ui/badge";
 
 const tagli = [
@@ -46,7 +47,12 @@ const Tagli = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="brace" ref={ref} className="py-24 lg:py-40 bg-charcoal relative overflow-hidden">
+    <section 
+      id="brace" 
+      ref={ref} 
+      className="py-24 lg:py-40 bg-charcoal relative overflow-hidden"
+      aria-label="I nostri tagli di carne"
+    >
       {/* Background Parallax Layer */}
       <motion.div 
         style={{ y: bgY }}
@@ -55,15 +61,11 @@ const Tagli = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-20 lg:mb-32">
-          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-            Materia Prima d'Eccellenza
-          </span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
-            I Nostri Tagli Scelti
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
-        </AnimatedSection>
+        <SectionHeader 
+          subtitle="Materia Prima d'Eccellenza"
+          title="I Nostri Tagli Scelti"
+          className="mb-20 lg:mb-32"
+        />
 
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -74,7 +76,7 @@ const Tagli = () => {
                 className="group relative bg-noir/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-fire/20 transition-all duration-500 shadow-2xl h-full flex flex-col"
               >
                 {/* Visual Placeholder / Icon */}
-                <div className="h-64 bg-gradient-to-br from-noir to-charcoal flex items-center justify-center text-7xl relative overflow-hidden">
+                <div className="h-48 md:h-64 bg-gradient-to-br from-noir to-charcoal flex items-center justify-center text-7xl relative overflow-hidden">
                   <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity bg-[url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center" />
                   <span className="relative z-10 filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-500">🥩</span>
                   
@@ -90,12 +92,12 @@ const Tagli = () => {
                   <h3 className="text-2xl lg:text-3xl font-display font-bold text-cream mb-4 group-hover:text-gold transition-colors">
                     {taglio.name}
                   </h3>
-                  <p className="text-gold-light/60 leading-relaxed text-sm lg:text-base tracking-wide flex-1">
+                  <p className="text-gold-light/70 leading-relaxed text-sm lg:text-base tracking-wide flex-1">
                     {taglio.desc}
                   </p>
                   
                   <div className="mt-8 pt-8 border-t border-white/5">
-                    <button className="text-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 group/btn">
+                    <button className="text-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 group/btn" aria-label={`Scopri di più su ${taglio.name}`}>
                       Scopri di più
                       <span className="w-8 h-px bg-gold/40 group-hover/btn:w-12 transition-all" />
                     </button>

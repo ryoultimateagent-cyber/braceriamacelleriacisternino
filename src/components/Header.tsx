@@ -35,6 +35,7 @@ const Header = () => {
 
   return (
     <motion.header
+      role="banner"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -84,7 +85,7 @@ const Header = () => {
             asChild 
             variant="gold" 
             size="lg" 
-            className="h-12 px-8 uppercase tracking-widest text-[10px]"
+            className="h-14 px-8 uppercase tracking-widest text-[10px]"
           >
             <a href="tel:+393403824158" className="flex items-center gap-3">
               <Phone className="w-4 h-4" />
@@ -116,7 +117,7 @@ const Header = () => {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="xl:hidden fixed inset-0 bg-noir z-40 flex flex-col p-8 pt-24"
           >
-            <nav className="flex flex-col gap-6" aria-label="Mobile Navigation">
+            <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.href}
@@ -140,7 +141,7 @@ const Header = () => {
                   asChild 
                   variant="gold" 
                   size="lg" 
-                  className="w-full h-16 text-lg uppercase tracking-widest"
+                  className="w-full h-14 text-lg uppercase tracking-widest"
                 >
                   <a href="tel:+393403824158" onClick={() => setIsMobileMenuOpen(false)}>
                     <Phone className="w-5 h-5 mr-3" />
@@ -150,7 +151,7 @@ const Header = () => {
               </motion.div>
             </nav>
             
-            <div className="mt-auto pt-12 text-center text-white/40 text-sm">
+            <div className="mt-auto pt-12 text-center text-white/60 text-sm">
               <p>© {new Date().getFullYear()} Macelleria Braceria Belvedere</p>
               <p className="mt-2 uppercase tracking-tighter">Eccellenza e Qualità</p>
             </div>

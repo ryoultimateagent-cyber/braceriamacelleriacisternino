@@ -4,6 +4,7 @@ import { FileText, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeader from "./SectionHeader";
 import { Button } from "@/components/ui/button";
 
 // Import images
@@ -125,18 +126,18 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className="py-24 lg:py-40 bg-noir relative overflow-hidden">
+    <section 
+      id="menu" 
+      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
+      aria-label="Il nostro menù"
+    >
       <div className="container mx-auto px-6">
         {/* Header */}
-        <AnimatedSection className="text-center mb-20">
-          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-            Esperienza Gastronomica
-          </span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
-            Il Nostro Menù
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
-        </AnimatedSection>
+        <SectionHeader 
+          subtitle="Esperienza Gastronomica"
+          title="Il Nostre Menù"
+          className="mb-20"
+        />
 
         {/* Interactive Menu Container */}
         <div 
@@ -161,7 +162,7 @@ const Menu = () => {
                     {/* Number */}
                     <span className={cn(
                       "text-2xl lg:text-3xl font-display font-bold transition-colors duration-300",
-                      activeIndex === index ? "text-fire" : "text-white/20 group-hover:text-gold/40"
+                      activeIndex === index ? "text-fire" : "text-white/40 group-hover:text-gold/40"
                     )}>
                       {item.num}
                     </span>
@@ -171,12 +172,12 @@ const Menu = () => {
                       <div className="flex items-center justify-between mb-3">
                         <h3 className={cn(
                           "text-xl lg:text-3xl font-display font-bold transition-colors duration-300",
-                          activeIndex === index ? "text-cream" : "text-gold-light/40 group-hover:text-cream"
+                          activeIndex === index ? "text-cream" : "text-gold-light/60 group-hover:text-cream"
                         )}>
                           {item.name}
                         </h3>
                         {activeIndex === index && (
-                          <div>
+                          <div aria-hidden="true">
                             <ArrowRight className="text-fire w-6 h-6" />
                           </div>
                         )}
@@ -184,8 +185,8 @@ const Menu = () => {
                       <p className={cn(
                         "text-sm lg:text-lg leading-relaxed transition-all duration-500 tracking-wide font-accent italic",
                         activeIndex === index 
-                          ? "text-gold-light opacity-80" 
-                          : "text-white/20 opacity-0 lg:opacity-20 max-h-0 lg:max-h-20 overflow-hidden"
+                          ? "text-gold-light opacity-90" 
+                          : "text-white/40 opacity-0 lg:opacity-30 max-h-0 lg:max-h-20 overflow-hidden"
                       )}>
                         {item.desc}
                       </p>
@@ -196,80 +197,97 @@ const Menu = () => {
             </div>
           </AnimatedSection>
 
-          {/* Animated Visual */}
+          {/* Animated Visual - Hidden on small mobile in favor of static representation if requested, 
+              but the plan says "show a static image fallback instead". 
+              Actually, the SVG animation is heavy, so let's use a simpler version or hidden on mobile. */}
           <AnimatedSection delay={0.4} className="order-1 lg:order-2 flex justify-center sticky top-32 h-fit">
             <div className="relative w-full max-w-lg aspect-square">
-              {/* Decorative Geometric Shapes */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 border border-gold/10 rounded-full animate-pulse-glow" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-fire/10 rounded-full animate-pulse-glow" />
-              
-              <svg
-                viewBox="0 0 400 400"
-                className="w-full h-full relative z-10 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
-              >
-                <defs>
-                  <clipPath id="clip-original">
-                    {Array.from({ length: 9 }).map((_, i) => (
-                      <rect
-                        key={i}
-                        className="path"
-                        x={(i % 3) * 135 + 5}
-                        y={Math.floor(i / 3) * 135 + 5}
-                        width="125"
-                        height="125"
-                        rx="12"
-                      />
-                    ))}
-                  </clipPath>
+              {/* Mobile Fallback: Static image from activeIndex */}
+              <div className="lg:hidden absolute inset-0 z-20 rounded-2xl overflow-hidden border border-gold/20 shadow-2xl">
+                <img 
+                  src={menuItems[activeIndex].image} 
+                  alt={menuItems[activeIndex].name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-noir/80 to-transparent flex items-end p-6">
+                  <h4 className="text-xl font-display font-bold text-gold uppercase">{menuItems[activeIndex].name}</h4>
+                </div>
+              </div>
 
-                  <clipPath id="clip-hexagons">
-                    {Array.from({ length: 12 }).map((_, i) => (
-                      <circle
-                        key={i}
-                        className="path"
-                        cx={50 + (i % 4) * 100}
-                        cy={50 + Math.floor(i / 4) * 100 + ((i % 4) % 2 === 0 ? 0 : 50)}
-                        r="48"
-                      />
-                    ))}
-                  </clipPath>
+              {/* Desktop Animated SVG */}
+              <div className="hidden lg:block">
+                {/* Decorative Geometric Shapes */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 border border-gold/10 rounded-full animate-pulse-glow" />
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-fire/10 rounded-full animate-pulse-glow" />
+                
+                <svg
+                  viewBox="0 0 400 400"
+                  className="w-full h-full relative z-10 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+                >
+                  <defs>
+                    <clipPath id="clip-original">
+                      {Array.from({ length: 9 }).map((_, i) => (
+                        <rect
+                          key={i}
+                          className="path"
+                          x={(i % 3) * 135 + 5}
+                          y={Math.floor(i / 3) * 135 + 5}
+                          width="125"
+                          height="125"
+                          rx="12"
+                        />
+                      ))}
+                    </clipPath>
 
-                  <clipPath id="clip-pixels">
-                    {Array.from({ length: 25 }).map((_, i) => (
-                      <rect
-                        key={i}
-                        className="path"
-                        x={(i % 5) * 80 + 5}
-                        y={Math.floor(i / 5) * 80 + 5}
-                        width="70"
-                        height="70"
-                        rx="6"
-                      />
-                    ))}
-                  </clipPath>
-                  
-                  <linearGradient id="menu-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--red))" />
-                    <stop offset="100%" stopColor="hsl(var(--gold))" />
-                  </linearGradient>
-                </defs>
+                    <clipPath id="clip-hexagons">
+                      {Array.from({ length: 12 }).map((_, i) => (
+                        <circle
+                          key={i}
+                          className="path"
+                          cx={50 + (i % 4) * 100}
+                          cy={50 + Math.floor(i / 4) * 100 + ((i % 4) % 2 === 0 ? 0 : 50)}
+                          r="48"
+                        />
+                      ))}
+                    </clipPath>
 
-                <g ref={mainGroupRef} clipPath="url(#clip-original)">
-                  <image
-                    ref={imageRef}
-                    href={menuItems[0].image}
-                    width="400"
-                    height="400"
-                    preserveAspectRatio="xMidYMid slice"
-                  />
-                  {/* Overlay for better integration */}
-                  <rect width="400" height="400" fill="url(#menu-gradient)" opacity="0.15" />
-                </g>
-              </svg>
+                    <clipPath id="clip-pixels">
+                      {Array.from({ length: 25 }).map((_, i) => (
+                        <rect
+                          key={i}
+                          className="path"
+                          x={(i % 5) * 80 + 5}
+                          y={Math.floor(i / 5) * 80 + 5}
+                          width="70"
+                          height="70"
+                          rx="6"
+                        />
+                      ))}
+                    </clipPath>
+                    
+                    <linearGradient id="menu-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="hsl(var(--red))" />
+                      <stop offset="100%" stopColor="hsl(var(--gold))" />
+                    </linearGradient>
+                  </defs>
 
-              {/* Minimal Corners */}
-              <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/30" />
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/30" />
+                  <g ref={mainGroupRef} clipPath="url(#clip-original)">
+                    <image
+                      ref={imageRef}
+                      href={menuItems[0].image}
+                      width="400"
+                      height="400"
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                    {/* Overlay for better integration */}
+                    <rect width="400" height="400" fill="url(#menu-gradient)" opacity="0.15" />
+                  </g>
+                </svg>
+
+                {/* Minimal Corners */}
+                <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/30" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/30" />
+              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -280,7 +298,7 @@ const Menu = () => {
             asChild 
             variant="gold" 
             size="lg" 
-            className="h-16 px-12 text-sm uppercase tracking-widest font-bold shadow-2xl"
+            className="h-14 px-12 text-sm uppercase tracking-widest font-bold shadow-2xl"
           >
             <a
               href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing"

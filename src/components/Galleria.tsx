@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeader from "./SectionHeader";
 
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
@@ -23,33 +24,55 @@ const Galleria = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => setSelectedIndex(index);
-  const closeLightbox = () => setSelectedIndex(null);
+  const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex + 1) % images.length);
     }
-  };
+  }, [selectedIndex]);
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
     }
-  };
+  }, [selectedIndex]);
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      
+      switch (e.key) {
+        case "Escape":
+          closeLightbox();
+          break;
+        case "ArrowRight":
+          goNext();
+          break;
+        case "ArrowLeft":
+          goPrev();
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section id="galleria" className="py-24 lg:py-40 bg-noir relative overflow-hidden">
+    <section 
+      id="galleria" 
+      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
+      aria-label="Galleria immagini"
+    >
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-20 lg:mb-32">
-          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-            Visione del Gusto
-          </span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
-            I Nostri Scatti
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
-        </AnimatedSection>
+        <SectionHeader 
+          subtitle="Visione del Gusto"
+          title="I Nostri Scatti"
+          className="mb-20 lg:mb-32"
+        />
 
         {/* Dynamic Masonry-like Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -57,8 +80,17 @@ const Galleria = () => {
             <AnimatedSection key={i} delay={i * 0.1}>
               <motion.div
                 whileHover={{ y: -10 }}
-                className="group relative aspect-[4/5] lg:aspect-square overflow-hidden cursor-pointer rounded-3xl shadow-2xl border border-white/5"
+                className="group relative aspect-[4/5] lg:aspect-square overflow-hidden cursor-pointer rounded-2xl shadow-2xl border border-white/5"
                 onClick={() => openLightbox(i)}
+                role="button"
+                aria-label={`Visualizza ${img.title} a tutto schermo`}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(i);
+                  }
+                }}
               >
                 <img
                   src={img.src}
@@ -80,7 +112,7 @@ const Galleria = () => {
                     <h3 className="text-xl lg:text-3xl font-display font-bold text-cream mb-2 uppercase tracking-wide">
                       {img.title}
                     </h3>
-                    <p className="text-gold-light/60 text-sm lg:text-base tracking-wide font-accent italic">
+                    <p className="text-gold-light/70 text-sm lg:text-base tracking-wide font-accent italic">
                       {img.desc}
                     </p>
                   </motion.div>
@@ -103,11 +135,14 @@ const Galleria = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-noir/98 backdrop-blur-2xl flex items-center justify-center p-6"
             onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Galleria immagini a tutto schermo"
           >
             {/* Control Buttons */}
             <div className="absolute top-10 right-10 flex gap-6 z-[110]">
               <button
-                className="text-white/40 hover:text-gold transition-colors p-3 hover:bg-white/5 rounded-full"
+                className="text-white/40 hover:text-gold transition-colors p-3 hover:bg-white/5 rounded-full focus-visible:ring-2 focus-visible:ring-gold outline-none"
                 onClick={closeLightbox}
                 aria-label="Chiudi galleria"
               >
@@ -116,7 +151,7 @@ const Galleria = () => {
             </div>
 
             <button
-              className="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 text-white/20 hover:text-gold transition-all z-[110] p-4 group"
+              className="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 text-white/20 hover:text-gold transition-all z-[110] p-4 group focus-visible:ring-2 focus-visible:ring-gold outline-none rounded-full"
               onClick={(e) => {
                 e.stopPropagation();
                 goPrev();
@@ -127,7 +162,7 @@ const Galleria = () => {
             </button>
 
             <button
-              className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 text-white/20 hover:text-gold transition-all z-[110] p-4 group"
+              className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 text-white/20 hover:text-gold transition-all z-[110] p-4 group focus-visible:ring-2 focus-visible:ring-gold outline-none rounded-full"
               onClick={(e) => {
                 e.stopPropagation();
                 goNext();
@@ -168,7 +203,7 @@ const Galleria = () => {
                 <h3 className="text-3xl lg:text-5xl font-display font-bold text-cream mb-4 uppercase tracking-widest leading-none">
                   {images[selectedIndex].title}
                 </h3>
-                <p className="text-gold-light/60 text-lg lg:text-xl font-accent italic leading-relaxed">
+                <p className="text-gold-light/70 text-lg lg:text-xl font-accent italic leading-relaxed">
                   {images[selectedIndex].desc}
                 </p>
               </div>
