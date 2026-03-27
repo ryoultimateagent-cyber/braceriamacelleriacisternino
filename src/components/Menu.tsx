@@ -176,9 +176,9 @@ const Menu = () => {
                           {item.name}
                         </h3>
                         {activeIndex === index && (
-                          <motion.div layoutId="arrow">
+                          <div>
                             <ArrowRight className="text-fire w-6 h-6" />
-                          </motion.div>
+                          </div>
                         )}
                       </div>
                       <p className={cn(
