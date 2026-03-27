@@ -1,4 +1,4 @@
-import { Phone, Sparkles, MapPin, Clock } from "lucide-react";
+import { Phone, Sparkles, MapPin, Clock, Flame } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
