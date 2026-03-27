@@ -250,4 +250,25 @@
   .perspective-1000 {
     perspective: 1000px;
   }
+
+  .bg-gradient-premium {
+    background: var(--gradient-premium-dark);
+  }
+
+  .bg-gradient-ember {
+    background: var(--gradient-ember-dark);
+  }
+
+  .bg-gradient-gold-radial {
+    background: var(--gradient-gold-radial);
+  }
+
+  .bg-gradient-wine {
+    background: var(--gradient-wine-dark);
+  }
+
+  .bg-noise {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+  }
 }
