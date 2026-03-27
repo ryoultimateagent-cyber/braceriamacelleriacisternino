@@ -1,140 +1,108 @@
-import { ArrowUp, Instagram, Facebook, MapPin, Phone, Mail, Award, ChefHat } from "lucide-react";
+import { ChefHat, Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer 
-      className="bg-noir pt-24 pb-12 relative overflow-hidden"
-      role="contentinfo"
-      aria-label="Piè di pagina"
-    >
-      {/* Decorative gradient divider */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-fire/30 to-transparent" />
+    <footer role="contentinfo" className="py-24 bg-[#0A0A0A] border-t border-white/5 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-ember via-gold to-ember" />
       
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-20 mb-20">
-          {/* Brand Identity Side */}
-          <div className="lg:col-span-5 space-y-10">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gold/10 flex items-center justify-center rounded-2xl shadow-2xl border border-gold/20">
-                <ChefHat className="w-10 h-10 lg:w-14 lg:h-14 text-gold" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24 mb-24">
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-14 h-14 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center">
+                <ChefHat className="text-gold w-8 h-8" />
               </div>
-              <div className="font-display leading-none">
-                <div className="text-2xl lg:text-3xl font-bold text-gold tracking-tight uppercase">Macelleria Braceria</div>
-                <div className="text-[10px] lg:text-xs text-gold-light/60 tracking-[0.4em] uppercase mt-2">Belvedere</div>
+              <div>
+                <h3 className="text-2xl font-display font-black text-gold uppercase leading-none">Belvedere</h3>
+                <span className="text-[10px] text-gold-light/40 uppercase tracking-[0.4em]">Dal 1980</span>
               </div>
             </div>
-            
-            <p className="text-lg lg:text-xl text-gold-light/70 font-accent italic leading-relaxed tracking-wide max-w-md">
-              "Dal 1980, celebriamo l'arte della carne e il calore della brace con passione e maestria. Una storia di famiglia, sapore autentico e qualità superiore."
+            <p className="text-gold-light/60 text-base leading-relaxed mb-10 font-accent italic">
+              "L'arte della carne e della brace viva nel cuore di Mola di Bari. Una tradizione di famiglia dedicata all'eccellenza e al gusto autentico."
             </p>
-            
-            <div className="flex items-center gap-8">
-              {[
-                { icon: Instagram, href: "#", label: "Seguici su Instagram" },
-                { icon: Facebook, href: "#", label: "Seguici su Facebook" },
-              ].map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  aria-label={social.label}
-                  whileHover={{ scale: 1.2, color: "hsl(var(--gold))" }}
-                  className="text-white/40 transition-colors p-3 hover:bg-white/5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center"
-                >
-                  <social.icon className="w-8 h-8" />
-                </motion.a>
-              ))}
-              <div className="flex-1 h-px bg-white/5" />
+            <div className="flex gap-4">
+              <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold-light hover:bg-gold hover:text-noir transition-all duration-500 shadow-xl group">
+                <Facebook className="w-5 h-5 transition-transform group-hover:scale-110" />
+              </a>
+              <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold-light hover:bg-gold hover:text-noir transition-all duration-500 shadow-xl group">
+                <Instagram className="w-5 h-5 transition-transform group-hover:scale-110" />
+              </a>
             </div>
           </div>
 
-          {/* Nav Links Grid */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-12">
-            {/* Quick Navigation */}
-            <div>
-              <h4 className="text-sm font-bold text-fire uppercase tracking-[0.3em] mb-8">Esplora</h4>
-              <ul className="space-y-4">
-                {["Storia", "Brace", "Galleria", "Menù", "Vini", "Take-away", "Prenota"].map((link) => (
-                  <li key={link}>
-                    <a
-                      href={`#${link.toLowerCase().replace("ù", "u").replace(" ", "")}`}
-                      className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm lg:text-base font-medium tracking-widest uppercase hover:translate-x-2 inline-block"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Information */}
-            <div>
-              <h4 className="text-sm font-bold text-fire uppercase tracking-[0.3em] mb-8">Contatti</h4>
-              <ul className="space-y-6">
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-gold/60 mt-1 shrink-0" />
-                  <span className="text-gold-light/60 text-sm lg:text-base tracking-wide leading-relaxed">
-                    Via Belvedere, 12<br />70042 Mola di Bari (BA)
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-gold/60 shrink-0" />
-                  <a href="tel:+393403824158" className="text-gold-light/60 hover:text-gold transition-colors text-sm lg:text-base">
-                    +39 340 38 24 158
+          <div>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Esplora</h4>
+            <ul className="space-y-6">
+              {["Storia", "Brace", "Menù", "Vini", "Prenota"].map((link) => (
+                <li key={link}>
+                  <a href={`#${link.toLowerCase().replace("ù", "u")}`} className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm uppercase tracking-widest font-bold block hover:translate-x-2">
+                    {link}
                   </a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-gold/60 shrink-0" />
-                  <a href="mailto:info@macelleriabelvedere.it" className="text-gold-light/60 hover:text-gold transition-colors text-sm lg:text-base truncate">
-                    info@macelleriabelvedere.it
-                  </a>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
+          </div>
 
-            {/* Special Badge */}
-            <div className="flex flex-col items-center sm:items-end justify-between py-2">
-              <div className="text-center sm:text-right">
-                <h4 className="text-sm font-bold text-fire uppercase tracking-[0.3em] mb-6">Social Proof</h4>
-                <div className="p-6 bg-charcoal/30 border border-white/5 rounded-2xl backdrop-blur-md">
-                  <Award className="w-10 h-10 text-gold mb-3 mx-auto sm:ml-auto sm:mr-0" />
-                  <div className="text-[10px] font-bold text-gold-light/60 uppercase tracking-widest">
-                    Puglia Food<br />Excellence 2023
-                  </div>
+          <div>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Contatti</h4>
+            <ul className="space-y-8">
+              <li className="flex items-center gap-4 group">
+                <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-gold/30 transition-colors">
+                  <Phone className="w-5 h-5 text-gold/60" />
                 </div>
-              </div>
+                <a href="tel:+393403824158" className="text-gold-light/60 hover:text-gold transition-colors text-sm font-bold tracking-widest">+39 340 382 4158</a>
+              </li>
+              <li className="flex items-center gap-4 group">
+                <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-gold/30 transition-colors">
+                  <Mail className="w-5 h-5 text-gold/60" />
+                </div>
+                <span className="text-gold-light/60 text-sm font-bold tracking-widest">info@belvederebraceria.it</span>
+              </li>
+              <li className="flex items-center gap-4 group">
+                <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-gold/30 transition-colors">
+                  <MapPin className="w-5 h-5 text-gold/60" />
+                </div>
+                <span className="text-gold-light/60 text-sm font-bold tracking-widest">Via Belvedere 12, Mola</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Newsletter</h4>
+            <p className="text-gold-light/60 text-sm mb-8 leading-relaxed font-body">Iscriviti per ricevere aggiornamenti sulle nostre selezioni speciali e serate a tema.</p>
+            <div className="flex flex-col gap-4">
+              <input 
+                type="email" 
+                placeholder="Email" 
+                className="bg-[#111111] border border-gold/10 p-5 rounded-none text-cream focus:border-gold outline-none transition-all placeholder:text-gold-light/20 text-xs tracking-widest" 
+              />
+              <button className="h-14 bg-gold hover:bg-gold-satin text-noir font-black uppercase tracking-[0.4em] text-xs transition-all shadow-fire">Iscriviti</button>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="text-center md:text-left space-y-2">
-            <p className="text-gold-light/60 text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em]">
-              © {currentYear} Macelleria Braceria Belvedere. All Rights Reserved.
+        <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="text-center md:text-left">
+            <p className="text-gold-light/30 text-[10px] uppercase tracking-[0.3em] font-black mb-2">
+              © {year} Macelleria Braceria Belvedere. Eccellenza dal 1980.
             </p>
-            <p className="text-white/20 text-[9px] tracking-widest uppercase">
-              Partita IVA: 01234567890 | Credits: Modern Web Studio
-            </p>
+            <p className="text-gold-light/10 text-[8px] uppercase tracking-[0.2em]">P.IVA 01234567890 | Design by Luxury Web Studio</p>
           </div>
           
           <motion.button
             whileHover={{ y: -5 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="group flex items-center gap-4 px-8 py-4 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 rounded-full transition-all min-h-[44px]"
-            aria-label="Torna all'inizio della pagina"
+            className="group flex items-center gap-4 px-10 py-5 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 rounded-full transition-all"
           >
-            <span className="text-[10px] font-bold text-gold-light/60 group-hover:text-gold uppercase tracking-[0.3em]">Torna in alto</span>
-            <div className="p-2 bg-fire rounded-full text-white shadow-lg group-hover:shadow-fire/40 transition-shadow" aria-hidden="true">
-              <ArrowUp className="w-4 h-4" />
-            </div>
+            <span className="text-[10px] font-black text-gold/40 group-hover:text-gold uppercase tracking-[0.4em]">Inizio</span>
+            <ArrowUp className="w-4 h-4 text-gold" />
           </motion.button>
         </div>
       </div>
