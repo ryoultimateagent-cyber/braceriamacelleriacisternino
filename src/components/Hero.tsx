@@ -1,121 +1,124 @@
-import { Phone, ChevronDown } from "lucide-react";
+import { Phone, ChevronDown, Award } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import logo from "@/assets/logo-cisternino.jpg";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const y = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-noir">
       {/* Parallax Background Image */}
       <motion.div
         style={{ y }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
       >
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center scale-110"
           style={{ backgroundImage: `url(${heroBg})` }}
+          aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/90 via-[#050505]/70 to-[#050505]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(139,21,56,0.2)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(212,175,55,0.15)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/60 to-noir" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(139,21,56,0.15)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(212,175,55,0.1)_0%,transparent_50%)]" />
       </motion.div>
 
-      {/* Content */}
+      {/* Content Container */}
       <motion.div 
         style={{ opacity }}
-        className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-20 sm:pt-24"
+        className="relative z-10 text-center px-6 max-w-6xl mx-auto pt-24 lg:pt-32"
       >
-        {/* Badge */}
+        {/* Badge / Intro */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-block px-6 sm:px-8 py-2 sm:py-3 border border-gold text-gold font-accent text-xs sm:text-sm font-semibold tracking-[4px] sm:tracking-[6px] uppercase mb-6 sm:mb-8 relative"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-flex items-center gap-3 px-6 py-2 border border-gold/30 bg-gold/5 backdrop-blur-sm rounded-full mb-8"
         >
-          <span className="absolute -top-1 -left-1 w-2 h-2 bg-fire" />
-          <span className="absolute -bottom-1 -right-1 w-2 h-2 bg-fire" />
-          Dal 1920
+          <Award className="w-4 h-4 text-gold" />
+          <span className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-[0.4em]">
+            Tradizione Pugliese dal 1920
+          </span>
         </motion.div>
 
-        {/* Logo in intro */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex justify-center mb-6 sm:mb-8"
-        >
-          <img
-            src={logo}
-            alt="Braceria Macelleria Cisternino Logo"
-            className="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-lg shadow-2xl"
-          />
-        </motion.div>
+        {/* Main Titles */}
+        <div className="mb-10 lg:mb-14 overflow-hidden">
+          <motion.h1 
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="text-cream text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase mb-2"
+          >
+            Il Tempio
+          </motion.h1>
+          <motion.h1 
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-red to-gold text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase italic"
+          >
+            Della Brace
+          </motion.h1>
+        </div>
 
-        {/* Title - Stylized italic font */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="hero-title text-4xl sm:text-6xl lg:text-8xl xl:text-9xl text-cream mb-2 sm:mb-4"
-        >
-          Il Tempio
-        </motion.h1>
-        <motion.h1 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="hero-title text-gradient-fire text-4xl sm:text-6xl lg:text-8xl xl:text-9xl mb-6 sm:mb-8"
-        >
-          della Brace
-        </motion.h1>
-
-        {/* Subtitle */}
+        {/* Description */}
         <motion.p 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="font-accent text-lg sm:text-xl lg:text-2xl text-gold-light italic tracking-wide mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+          className="text-lg md:text-2xl text-gold-light/80 font-accent italic tracking-wide mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          Dove tradizione, passione e eccellenza<br className="hidden sm:block" />
-          <span className="sm:hidden"> </span>si incontrano dal 1920
+          Dove passione, maestria e selezione si incontrano<br className="hidden md:block" />
+          per creare un'esperienza gastronomica senza tempo
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* Call to Actions */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center"
         >
-          <a
-            href="tel:+393403824158"
-            className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-fire to-fire-dark text-cream font-bold uppercase tracking-wider text-xs sm:text-sm shadow-[0_10px_30px_rgba(139,21,56,0.3)] hover:translate-y-[-3px] hover:shadow-[0_15px_40px_rgba(139,21,56,0.5)] transition-all duration-400 flex items-center justify-center gap-3"
+          <Button 
+            asChild 
+            variant="gold" 
+            size="lg" 
+            className="h-16 px-10 text-sm md:text-base uppercase tracking-widest font-bold"
           >
-            <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-            Prenota il Tuo Tavolo
-          </a>
-          <a
-            href="#menu"
-            className="px-6 sm:px-10 py-4 sm:py-5 border-2 border-cream text-cream font-bold uppercase tracking-wider text-xs sm:text-sm hover:bg-cream hover:text-noir hover:translate-y-[-3px] transition-all duration-400"
+            <a href="tel:+393403824158" className="flex items-center gap-3">
+              <Phone className="w-5 h-5" />
+              Prenota un Tavolo
+            </a>
+          </Button>
+          
+          <Button 
+            asChild 
+            variant="outline" 
+            size="lg" 
+            className="h-16 px-10 text-sm md:text-base uppercase tracking-widest font-bold border-white/20 hover:border-white/40"
           >
-            Esplora il Menù
-          </a>
+            <a href="#menu">
+              Esplora il Menù
+            </a>
+          </Button>
         </motion.div>
       </motion.div>
+
+      {/* Decorative Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-noir to-transparent z-10 pointer-events-none" />
 
       {/* Scroll Indicator */}
       <motion.a
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
         href="#intro"
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-gold animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold z-20 hover:text-white transition-colors p-4 focus-visible:text-white"
+        aria-label="Scroll down to introduction"
       >
-        <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8" />
+        <ChevronDown className="w-8 h-8" />
       </motion.a>
     </section>
   );

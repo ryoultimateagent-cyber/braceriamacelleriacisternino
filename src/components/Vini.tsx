@@ -1,7 +1,8 @@
-import { Wine } from "lucide-react";
+import { Wine, ArrowRight, Award } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
+import { Button } from "@/components/ui/button";
 
 const Vini = () => {
   const ref = useRef(null);
@@ -10,56 +11,87 @@ const Vini = () => {
     offset: ["start end", "end start"]
   });
   
-  const imageY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   return (
-    <section id="vini" ref={ref} className="py-16 sm:py-24 bg-charcoal relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <AnimatedSection className="text-center mb-12 sm:mb-20">
-          <span className="font-accent text-fire italic tracking-[4px] uppercase text-xs sm:text-sm">
-            Selezione Curata
-          </span>
-          <h2 className="font-elegant text-3xl sm:text-5xl lg:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
-            Carta Vini
-          </h2>
-        </AnimatedSection>
+    <section id="vini" ref={ref} className="py-24 lg:py-40 bg-charcoal relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-7xl mx-auto">
+          {/* Text Content */}
+          <AnimatedSection delay={0.2} className="relative z-10">
+            <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
+              Selezione Enologica
+            </span>
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
+              La Nostra Cantina
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mb-12 rounded-full" />
+            
+            <div className="space-y-6 lg:space-y-8">
+              <p className="text-lg lg:text-xl text-gold-light/90 font-accent italic leading-relaxed">
+                "Il vino è il compagno ideale della brace. Abbiamo curato una selezione che celebra 
+                il carattere forte della Puglia e l'eleganza delle migliori vigne italiane."
+              </p>
+              
+              <div className="space-y-4">
+                {[
+                  "Primitivo di Manduria e Gioia del Colle",
+                  "Negroamaro del Salento",
+                  "Nero di Troia della Daunia",
+                  "Selezione di Bollicine Metodo Classico"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 group">
+                    <div className="w-1.5 h-1.5 bg-fire rounded-full group-hover:scale-150 transition-transform" />
+                    <span className="text-gold-light/60 font-display text-sm lg:text-base tracking-wider uppercase group-hover:text-gold transition-colors">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center max-w-6xl mx-auto">
-          <AnimatedSection delay={0.2}>
-            <h3 className="font-elegant text-2xl sm:text-3xl font-semibold text-fire mb-4 sm:mb-6">
-              Vini d'Eccellenza
-            </h3>
-            <p className="text-gold-light leading-relaxed text-base sm:text-lg mb-4 sm:mb-6">
-              Una selezione curata di vini pugliesi e nazionali, scelti per esaltare 
-              i sapori intensi della brace. Primitivo, Negroamaro, Nero di Troia e 
-              grandi etichette italiane che raccontano il territorio e la tradizione.
-            </p>
-            <p className="text-gold-light leading-relaxed text-base sm:text-lg mb-6 sm:mb-8">
-              Ogni bottiglia racconta una storia, ogni sorso è un'emozione unica. 
-              Il nostro personale esperto saprà consigliarti l'abbinamento perfetto 
-              per rendere indimenticabile la tua esperienza gastronomica.
-            </p>
-            <a
-              href="https://drive.google.com/file/d/1CYEh6u9jwJT04kDssM7RbBK_p04M-QZj/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-fire to-fire-dark text-cream font-bold uppercase tracking-wider text-xs sm:text-sm shadow-[0_10px_30px_rgba(139,21,56,0.3)] hover:translate-y-[-3px] hover:shadow-[0_15px_40px_rgba(139,21,56,0.5)] transition-all duration-400"
-            >
-              <Wine className="w-4 h-4 sm:w-5 sm:h-5" />
-              Scarica Carta Vini
-            </a>
+              <div className="pt-10">
+                <Button 
+                  asChild 
+                  variant="gold" 
+                  size="lg" 
+                  className="h-16 px-10 text-sm uppercase tracking-widest font-bold shadow-2xl"
+                >
+                  <a
+                    href="https://drive.google.com/file/d/1CYEh6u9jwJT04kDssM7RbBK_p04M-QZj/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4"
+                  >
+                    <Wine className="w-5 h-5" />
+                    Sfoglia la Carta Vini
+                  </a>
+                </Button>
+              </div>
+            </div>
           </AnimatedSection>
 
-          {/* Wine Visual with parallax */}
-          <AnimatedSection delay={0.4}>
+          {/* Visual Side */}
+          <AnimatedSection delay={0.4} className="relative">
             <motion.div 
-              style={{ y: imageY }}
-              className="h-[300px] sm:h-[400px] lg:h-[500px] bg-charcoal/50 border border-fire/30 flex items-center justify-center text-7xl sm:text-9xl hover:border-fire hover:shadow-[0_20px_50px_rgba(139,21,56,0.4)] transition-all duration-400"
+              style={{ y: imageY, rotate }}
+              className="relative aspect-[4/5] bg-noir/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden shadow-2xl group flex items-center justify-center text-[10rem] lg:text-[14rem] select-none"
             >
-              🍷
+              <div className="absolute inset-0 bg-gradient-to-br from-fire/10 via-transparent to-gold/10 opacity-30" />
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity" />
+              
+              <span className="relative z-10 filter drop-shadow-[0_20px_50px_rgba(139,21,56,0.5)] group-hover:scale-105 transition-transform duration-700">
+                🍷
+              </span>
+              
+              {/* Floating Award/Badge */}
+              <div className="absolute top-10 right-10 bg-noir/80 backdrop-blur-md border border-gold/40 p-6 rounded-full rotate-12 group-hover:rotate-0 transition-transform">
+                <Award className="text-gold w-8 h-8" />
+              </div>
             </motion.div>
+            
+            {/* Background Decorative Rings */}
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-fire/10 rounded-full scale-150 animate-pulse-glow" />
           </AnimatedSection>
         </div>
       </div>

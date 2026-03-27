@@ -1,31 +1,38 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
+import { Badge } from "@/components/ui/badge";
 
 const tagli = [
   {
     name: "Fiorentina Premium",
-    desc: "T-Bone da ~1kg, perfetta per 2 persone. Cottura al sangue per esaltare la morbidezza estrema e il sapore profondo della migliore carne selezionata.",
+    category: "Cottura alla Brace",
+    desc: "T-Bone selezionata (~1kg), frollata minimun 30 giorni. La massima espressione della carne bovina, cotta rigorosamente al sangue su brace di quercia.",
   },
   {
     name: "Costata di Scottona",
-    desc: "400/500g di pura eccellenza. Marezzatura perfetta che si scioglie in bocca. Il nostro bestseller assoluto, amato da tutti gli intenditori di carne.",
+    category: "Selezione Puglia",
+    desc: "400/500g di pura eccellenza locale. Marezzatura intramuscolare perfetta che garantisce una tenerezza e un sapore ineguagliabili.",
   },
   {
-    name: "Tartare Esplosiva",
-    desc: "Carne cruda di primissima scelta, tagliata al momento. Classica o con il nostro twist piccante che fa la differenza.",
+    name: "Tartare Signature",
+    category: "Specialità Cruda",
+    desc: "Punta d'anca battuta al coltello al momento. Condita con olio EVO pugliese, sale di Maldon e il nostro tocco segreto dello chef.",
   },
   {
-    name: "Tagliata Signature",
-    desc: "Scottona ~300g su letto di rucola fresca. Il classico pugliese reinterpretato con maestria dalla nostra tradizione centenaria.",
+    name: "Tagliata di Angus",
+    category: "Internazionale",
+    desc: "Scottona ~300g servita su letto di rucola selvatica e scaglie di Grana Padano DOP 24 mesi. Un classico intramontabile.",
   },
   {
-    name: "Costine BBQ Slow",
-    desc: "Cottura lenta sulla brace per ore. Morbidezza estrema, affumicatura naturale, glassa homemade. Un'esperienza unica.",
+    name: "Ribs BBQ Slow Cook",
+    category: "Affumicatura",
+    desc: "Costine di maiale cotte a bassa temperatura per 12 ore e rifinite sulla brace con la nostra salsa BBQ artigianale.",
   },
   {
     name: "Bombette Tradizionali",
-    desc: "Le autentiche bombette pugliesi servite al tavolo sulla brace. Tradizione pura che scalda il cuore e delizia il palato.",
+    category: "Street Food Gourmet",
+    desc: "Le autentiche bombette molesi: involtini di capocollo ripieni di formaggio canestrato e spezie, cotti fino a doratura perfetta.",
   },
 ];
 
@@ -36,47 +43,63 @@ const Tagli = () => {
     offset: ["start end", "end start"]
   });
   
-  const bgY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const bgY = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="brace" ref={ref} className="py-16 sm:py-24 bg-charcoal relative overflow-hidden">
+    <section id="brace" ref={ref} className="py-24 lg:py-40 bg-charcoal relative overflow-hidden">
+      {/* Background Parallax Layer */}
       <motion.div 
         style={{ y: bgY }}
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.08)_0%,transparent_60%)]" 
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.08)_0%,transparent_60%)] pointer-events-none" 
       />
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Header */}
-        <AnimatedSection className="text-center mb-12 sm:mb-20">
-          <span className="font-accent text-fire italic tracking-[4px] uppercase text-xs sm:text-sm">
-            Selezioni Premium
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <AnimatedSection className="text-center mb-20 lg:mb-32">
+          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
+            Materia Prima d'Eccellenza
           </span>
-          <h2 className="font-elegant text-3xl sm:text-5xl lg:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
-            I Nostri Tagli
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
+            I Nostri Tagli Scelti
           </h2>
-          <p className="font-accent text-base sm:text-lg text-gold-light italic mt-8 sm:mt-10 max-w-2xl mx-auto px-4">
-            Ogni taglio è selezionato con cura maniacale e cotto alla perfezione sulla brace
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
         </AnimatedSection>
 
-        {/* Grid - responsive columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {tagli.map((taglio, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <motion.div
-                whileHover={{ y: -15, scale: 1.02 }}
-                className="bg-charcoal/50 border border-gold/20 overflow-hidden hover:border-fire hover:shadow-[0_25px_60px_rgba(139,21,56,0.4)] transition-all duration-500 group"
+                whileHover={{ y: -15 }}
+                className="group relative bg-noir/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-fire/20 transition-all duration-500 shadow-2xl h-full flex flex-col"
               >
-                {/* Image placeholder */}
-                <div className="h-48 sm:h-64 bg-gradient-to-br from-fire/30 to-copper/30 flex items-center justify-center text-5xl sm:text-6xl relative overflow-hidden">
-                  🥩
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-fire/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Visual Placeholder / Icon */}
+                <div className="h-64 bg-gradient-to-br from-noir to-charcoal flex items-center justify-center text-7xl relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity bg-[url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center" />
+                  <span className="relative z-10 filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-500">🥩</span>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-6 left-6 z-20">
+                    <Badge variant="outline" className="bg-noir/80 border-gold/40 text-gold text-[10px] uppercase tracking-widest px-3 py-1">
+                      {taglio.category}
+                    </Badge>
+                  </div>
                 </div>
-                <div className="p-6 sm:p-8">
-                  <h3 className="font-elegant text-xl sm:text-2xl font-semibold text-gold group-hover:text-fire transition-colors mb-3 sm:mb-4">
+
+                <div className="p-8 lg:p-10 flex-1 flex flex-col">
+                  <h3 className="text-2xl lg:text-3xl font-display font-bold text-cream mb-4 group-hover:text-gold transition-colors">
                     {taglio.name}
                   </h3>
-                  <p className="text-gold-light leading-relaxed text-sm sm:text-base">{taglio.desc}</p>
+                  <p className="text-gold-light/60 leading-relaxed text-sm lg:text-base tracking-wide flex-1">
+                    {taglio.desc}
+                  </p>
+                  
+                  <div className="mt-8 pt-8 border-t border-white/5">
+                    <button className="text-gold text-xs font-bold uppercase tracking-widest flex items-center gap-2 group/btn">
+                      Scopri di più
+                      <span className="w-8 h-px bg-gold/40 group-hover/btn:w-12 transition-all" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </AnimatedSection>
