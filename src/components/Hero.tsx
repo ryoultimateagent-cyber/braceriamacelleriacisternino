@@ -1,24 +1,32 @@
 import { Phone, ChevronDown, Award } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const shouldReduceMotion = useReducedMotion();
+  
+  const y = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : 200]);
+  const opacity = useTransform(scrollY, [0, 400], [1, shouldReduceMotion ? 1 : 0]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-noir">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-noir"
+      aria-label="Introduzione e Benvenuto"
+      role="region"
+    >
       {/* Parallax Background Image */}
       <motion.div
         style={{ y }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 z-0"
       >
         <div 
           className="absolute inset-0 bg-cover bg-center scale-110"
           style={{ backgroundImage: `url(${heroBg})` }}
           aria-hidden="true"
+          // @ts-ignore - fetchpriority is a valid attribute but not in all types yet
+          fetchpriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/60 to-noir" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(139,21,56,0.15)_0%,transparent_50%)]" />
@@ -49,7 +57,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-cream text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase mb-2"
+            className="text-cream text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase mb-2"
           >
             Macelleria
           </motion.h1>
@@ -57,7 +65,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="text-transparent bg-clip-text bg-gradient-to-r from-red to-gold text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase italic"
+            className="text-transparent bg-clip-text bg-gradient-to-r from-red to-gold text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase italic"
           >
             Belvedere
           </motion.h1>
@@ -85,7 +93,7 @@ const Hero = () => {
             asChild 
             variant="gold" 
             size="lg" 
-            className="h-16 px-10 text-sm md:text-base uppercase tracking-widest font-bold"
+            className="h-14 px-10 text-sm md:text-base uppercase tracking-widest font-bold"
           >
             <a href="tel:+393403824158" className="flex items-center gap-3">
               <Phone className="w-5 h-5" />
@@ -97,7 +105,7 @@ const Hero = () => {
             asChild 
             variant="outline" 
             size="lg" 
-            className="h-16 px-10 text-sm md:text-base uppercase tracking-widest font-bold border-white/20 hover:border-white/40"
+            className="h-14 px-10 text-sm md:text-base uppercase tracking-widest font-bold border-white/20 hover:border-white/40"
           >
             <a href="#menu">
               Esplora il Menù
@@ -116,7 +124,7 @@ const Hero = () => {
         transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
         href="#intro"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold z-20 hover:text-white transition-colors p-4 focus-visible:text-white"
-        aria-label="Scroll down to introduction"
+        aria-label="Scorri verso il basso"
       >
         <ChevronDown className="w-8 h-8" />
       </motion.a>
