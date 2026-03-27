@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
-import { FileText } from "lucide-react";
+import { FileText, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import AnimatedSection from "./AnimatedSection";
+import { Button } from "@/components/ui/button";
 
 // Import images
 import menuAntipasti from "@/assets/menu-antipasti.jpg";
@@ -85,14 +86,12 @@ const Menu = () => {
 
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
-    // 1. IN (Expo Out)
     tl.to(selector, {
       scale: 1,
       duration: 0.8,
       stagger: { amount: 0.4, from: "random" },
       ease: "expo.out",
     })
-    // 2. IDLE (Sine Breath)
     .to(selector, {
       scale: 1.05,
       duration: 1.5,
@@ -101,7 +100,6 @@ const Menu = () => {
       ease: "sine.inOut",
       stagger: { amount: 0.2, from: "center" }
     })
-    // 3. OUT (Expo In)
     .to(selector, {
       scale: 0,
       duration: 0.6,
@@ -126,63 +124,67 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className="py-16 sm:py-24 bg-noir relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="menu" className="py-24 lg:py-40 bg-noir relative overflow-hidden">
+      <div className="container mx-auto px-6">
         {/* Header */}
-        <AnimatedSection className="text-center mb-12 sm:mb-16">
-          <span className="font-accent text-fire italic tracking-[4px] uppercase text-xs sm:text-sm">
-            Le Nostre Proposte
+        <AnimatedSection className="text-center mb-20">
+          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
+            Esperienza Gastronomica
           </span>
-          <h2 className="font-elegant text-3xl sm:text-5xl lg:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
             Il Nostro Menù
           </h2>
-          <p className="font-accent text-base sm:text-lg text-gold-light italic mt-8 sm:mt-10 max-w-2xl mx-auto px-4">
-            Un viaggio nei sapori autentici della Puglia, dalla tradizione all'innovazione
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
         </AnimatedSection>
 
-        {/* Interactive Menu */}
+        {/* Interactive Menu Container */}
         <div 
           ref={containerRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-7xl mx-auto items-center"
         >
-          {/* LEFT SIDE: MENU LIST */}
+          {/* Menu List */}
           <AnimatedSection delay={0.2} className="order-2 lg:order-1">
-            <div className="space-y-2 sm:space-y-3">
+            <div className="space-y-4">
               {menuItems.map((item, index) => (
                 <div
                   key={index}
                   onMouseEnter={() => handleItemHover(index)}
-                  onClick={() => handleItemHover(index)}
-                  className="group cursor-pointer"
+                  className="group"
                 >
                   <div className={cn(
-                    "flex items-start gap-4 sm:gap-6 p-4 sm:p-5 transition-all duration-500 border-l-4",
+                    "flex items-start gap-6 p-6 lg:p-8 transition-all duration-500 rounded-2xl border",
                     activeIndex === index 
-                      ? "bg-charcoal/60 border-fire" 
-                      : "bg-charcoal/20 border-gold/30 hover:bg-charcoal/40 hover:border-gold"
+                      ? "bg-charcoal/40 border-gold/20 shadow-xl" 
+                      : "bg-transparent border-transparent hover:bg-white/5"
                   )}>
                     {/* Number */}
                     <span className={cn(
-                      "font-accent text-2xl sm:text-3xl font-bold transition-colors duration-300",
-                      activeIndex === index ? "text-fire" : "text-gold/50 group-hover:text-gold"
+                      "text-2xl lg:text-3xl font-display font-bold transition-colors duration-300",
+                      activeIndex === index ? "text-fire" : "text-white/20 group-hover:text-gold/40"
                     )}>
                       {item.num}
                     </span>
                     
                     {/* Content */}
                     <div className="flex-1">
-                      <h3 className={cn(
-                        "font-elegant text-xl sm:text-2xl font-semibold transition-colors duration-300 mb-2",
-                        activeIndex === index ? "text-cream" : "text-gold-light group-hover:text-cream"
-                      )}>
-                        {item.name}
-                      </h3>
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className={cn(
+                          "text-xl lg:text-3xl font-display font-bold transition-colors duration-300",
+                          activeIndex === index ? "text-cream" : "text-gold-light/40 group-hover:text-cream"
+                        )}>
+                          {item.name}
+                        </h3>
+                        {activeIndex === index && (
+                          <motion.div layoutId="arrow">
+                            <ArrowRight className="text-fire w-6 h-6" />
+                          </motion.div>
+                        )}
+                      </div>
                       <p className={cn(
-                        "text-sm leading-relaxed transition-all duration-500",
+                        "text-sm lg:text-lg leading-relaxed transition-all duration-500 tracking-wide font-accent italic",
                         activeIndex === index 
-                          ? "text-gold-light opacity-100 max-h-20" 
-                          : "text-gold/60 opacity-70 max-h-0 overflow-hidden lg:max-h-20 lg:opacity-70"
+                          ? "text-gold-light opacity-80" 
+                          : "text-white/20 opacity-0 lg:opacity-20 max-h-0 lg:max-h-20 overflow-hidden"
                       )}>
                         {item.desc}
                       </p>
@@ -193,20 +195,18 @@ const Menu = () => {
             </div>
           </AnimatedSection>
 
-          {/* RIGHT SIDE: ANIMATED IMAGE */}
-          <AnimatedSection delay={0.4} className="order-1 lg:order-2 flex justify-center">
-            <div className="relative w-full max-w-md aspect-square">
-              {/* Decorative border */}
-              <div className="absolute inset-0 border-2 border-gold/30 transform rotate-3" />
-              <div className="absolute inset-0 border-2 border-fire/30 transform -rotate-3" />
+          {/* Animated Visual */}
+          <AnimatedSection delay={0.4} className="order-1 lg:order-2 flex justify-center sticky top-32 h-fit">
+            <div className="relative w-full max-w-lg aspect-square">
+              {/* Decorative Geometric Shapes */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 border border-gold/10 rounded-full animate-pulse-glow" />
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-fire/10 rounded-full animate-pulse-glow" />
               
               <svg
                 viewBox="0 0 400 400"
-                className="w-full h-full relative z-10"
-                style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.5))" }}
+                className="w-full h-full relative z-10 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
               >
                 <defs>
-                  {/* Original - Large Rectangles */}
                   <clipPath id="clip-original">
                     {Array.from({ length: 9 }).map((_, i) => (
                       <rect
@@ -216,12 +216,11 @@ const Menu = () => {
                         y={Math.floor(i / 3) * 135 + 5}
                         width="125"
                         height="125"
-                        rx="8"
+                        rx="12"
                       />
                     ))}
                   </clipPath>
 
-                  {/* Hexagons Pattern */}
                   <clipPath id="clip-hexagons">
                     {Array.from({ length: 12 }).map((_, i) => (
                       <circle
@@ -229,12 +228,11 @@ const Menu = () => {
                         className="path"
                         cx={50 + (i % 4) * 100}
                         cy={50 + Math.floor(i / 4) * 100 + ((i % 4) % 2 === 0 ? 0 : 50)}
-                        r="45"
+                        r="48"
                       />
                     ))}
                   </clipPath>
 
-                  {/* Pixels - Small Squares */}
                   <clipPath id="clip-pixels">
                     {Array.from({ length: 25 }).map((_, i) => (
                       <rect
@@ -244,10 +242,15 @@ const Menu = () => {
                         y={Math.floor(i / 5) * 80 + 5}
                         width="70"
                         height="70"
-                        rx="4"
+                        rx="6"
                       />
                     ))}
                   </clipPath>
+                  
+                  <linearGradient id="menu-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(var(--red))" />
+                    <stop offset="100%" stopColor="hsl(var(--gold))" />
+                  </linearGradient>
                 </defs>
 
                 <g ref={mainGroupRef} clipPath="url(#clip-original)">
@@ -258,44 +261,36 @@ const Menu = () => {
                     height="400"
                     preserveAspectRatio="xMidYMid slice"
                   />
+                  {/* Overlay for better integration */}
+                  <rect width="400" height="400" fill="url(#menu-gradient)" opacity="0.15" />
                 </g>
-
-                {/* Overlay gradient */}
-                <rect 
-                  width="400" 
-                  height="400" 
-                  fill="url(#menu-gradient)" 
-                  opacity="0.3"
-                  style={{ pointerEvents: 'none' }}
-                />
-                <defs>
-                  <linearGradient id="menu-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--fire))" />
-                    <stop offset="100%" stopColor="hsl(var(--gold))" />
-                  </linearGradient>
-                </defs>
               </svg>
 
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gold" />
+              {/* Minimal Corners */}
+              <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/30" />
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/30" />
             </div>
           </AnimatedSection>
         </div>
 
-        {/* Download Button */}
-        <AnimatedSection delay={0.6} className="text-center mt-12 sm:mt-16">
-          <a
-            href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-fire to-fire-dark text-cream font-bold uppercase tracking-wider text-xs sm:text-sm shadow-[0_10px_30px_rgba(139,21,56,0.3)] hover:translate-y-[-3px] hover:shadow-[0_15px_40px_rgba(139,21,56,0.5)] transition-all duration-400"
+        {/* Action Button */}
+        <AnimatedSection delay={0.6} className="text-center mt-20">
+          <Button 
+            asChild 
+            variant="gold" 
+            size="lg" 
+            className="h-16 px-12 text-sm uppercase tracking-widest font-bold shadow-2xl"
           >
-            <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
-            Scarica Menù Completo
-          </a>
+            <a
+              href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4"
+            >
+              <FileText className="w-5 h-5" />
+              Scarica Menù Digitale
+            </a>
+          </Button>
         </AnimatedSection>
       </div>
     </section>
