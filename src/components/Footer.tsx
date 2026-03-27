@@ -9,7 +9,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-noir pt-24 pb-12 relative overflow-hidden">
+    <footer 
+      className="bg-noir pt-24 pb-12 relative overflow-hidden"
+      role="contentinfo"
+      aria-label="Piè di pagina"
+    >
       {/* Decorative gradient divider */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-fire/30 to-transparent" />
       
@@ -23,24 +27,25 @@ const Footer = () => {
               </div>
               <div className="font-display leading-none">
                 <div className="text-2xl lg:text-3xl font-bold text-gold tracking-tight uppercase">Macelleria Braceria</div>
-                <div className="text-[10px] lg:text-xs text-gold-light/40 tracking-[0.4em] uppercase mt-2">Belvedere</div>
+                <div className="text-[10px] lg:text-xs text-gold-light/60 tracking-[0.4em] uppercase mt-2">Belvedere</div>
               </div>
             </div>
             
-            <p className="text-lg lg:text-xl text-gold-light/60 font-accent italic leading-relaxed tracking-wide max-w-md">
+            <p className="text-lg lg:text-xl text-gold-light/70 font-accent italic leading-relaxed tracking-wide max-w-md">
               "Dal 1980, celebriamo l'arte della carne e il calore della brace con passione e maestria. Una storia di famiglia, sapore autentico e qualità superiore."
             </p>
             
             <div className="flex items-center gap-8">
               {[
-                { icon: Instagram, href: "#" },
-                { icon: Facebook, href: "#" },
+                { icon: Instagram, href: "#", label: "Seguici su Instagram" },
+                { icon: Facebook, href: "#", label: "Seguici su Facebook" },
               ].map((social, i) => (
                 <motion.a
                   key={i}
                   href={social.href}
+                  aria-label={social.label}
                   whileHover={{ scale: 1.2, color: "hsl(var(--gold))" }}
-                  className="text-white/20 transition-colors p-2 hover:bg-white/5 rounded-full"
+                  className="text-white/40 transition-colors p-3 hover:bg-white/5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center"
                 >
                   <social.icon className="w-8 h-8" />
                 </motion.a>
@@ -59,7 +64,7 @@ const Footer = () => {
                   <li key={link}>
                     <a
                       href={`#${link.toLowerCase().replace("ù", "u").replace(" ", "")}`}
-                      className="text-gold-light/40 hover:text-gold transition-all duration-300 text-sm lg:text-base font-medium tracking-widest uppercase hover:translate-x-2 inline-block"
+                      className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm lg:text-base font-medium tracking-widest uppercase hover:translate-x-2 inline-block"
                     >
                       {link}
                     </a>
@@ -73,20 +78,20 @@ const Footer = () => {
               <h4 className="text-sm font-bold text-fire uppercase tracking-[0.3em] mb-8">Contatti</h4>
               <ul className="space-y-6">
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-gold/40 mt-1 shrink-0" />
-                  <span className="text-gold-light/40 text-sm lg:text-base tracking-wide leading-relaxed">
+                  <MapPin className="w-4 h-4 text-gold/60 mt-1 shrink-0" />
+                  <span className="text-gold-light/60 text-sm lg:text-base tracking-wide leading-relaxed">
                     Via Belvedere, 12<br />70042 Mola di Bari (BA)
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-gold/40 shrink-0" />
-                  <a href="tel:+393403824158" className="text-gold-light/40 hover:text-gold transition-colors text-sm lg:text-base">
+                  <Phone className="w-4 h-4 text-gold/60 shrink-0" />
+                  <a href="tel:+393403824158" className="text-gold-light/60 hover:text-gold transition-colors text-sm lg:text-base">
                     +39 340 38 24 158
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-gold/40 shrink-0" />
-                  <a href="mailto:info@macelleriabelvedere.it" className="text-gold-light/40 hover:text-gold transition-colors text-sm lg:text-base truncate">
+                  <Mail className="w-4 h-4 text-gold/60 shrink-0" />
+                  <a href="mailto:info@macelleriabelvedere.it" className="text-gold-light/60 hover:text-gold transition-colors text-sm lg:text-base truncate">
                     info@macelleriabelvedere.it
                   </a>
                 </li>
@@ -99,7 +104,7 @@ const Footer = () => {
                 <h4 className="text-sm font-bold text-fire uppercase tracking-[0.3em] mb-6">Social Proof</h4>
                 <div className="p-6 bg-charcoal/30 border border-white/5 rounded-2xl backdrop-blur-md">
                   <Award className="w-10 h-10 text-gold mb-3 mx-auto sm:ml-auto sm:mr-0" />
-                  <div className="text-[10px] font-bold text-gold-light/40 uppercase tracking-widest">
+                  <div className="text-[10px] font-bold text-gold-light/60 uppercase tracking-widest">
                     Puglia Food<br />Excellence 2023
                   </div>
                 </div>
@@ -111,10 +116,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left space-y-2">
-            <p className="text-gold-light/20 text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em]">
+            <p className="text-gold-light/60 text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em]">
               © {currentYear} Macelleria Braceria Belvedere. All Rights Reserved.
             </p>
-            <p className="text-white/5 text-[9px] tracking-widest uppercase">
+            <p className="text-white/20 text-[9px] tracking-widest uppercase">
               Partita IVA: 01234567890 | Credits: Modern Web Studio
             </p>
           </div>
@@ -123,10 +128,11 @@ const Footer = () => {
             whileHover={{ y: -5 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="group flex items-center gap-4 px-8 py-4 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 rounded-full transition-all"
+            className="group flex items-center gap-4 px-8 py-4 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 rounded-full transition-all min-h-[44px]"
+            aria-label="Torna all'inizio della pagina"
           >
-            <span className="text-[10px] font-bold text-gold-light/40 group-hover:text-gold uppercase tracking-[0.3em]">Torna in alto</span>
-            <div className="p-2 bg-fire rounded-full text-white shadow-lg group-hover:shadow-fire/40 transition-shadow">
+            <span className="text-[10px] font-bold text-gold-light/60 group-hover:text-gold uppercase tracking-[0.3em]">Torna in alto</span>
+            <div className="p-2 bg-fire rounded-full text-white shadow-lg group-hover:shadow-fire/40 transition-shadow" aria-hidden="true">
               <ArrowUp className="w-4 h-4" />
             </div>
           </motion.button>

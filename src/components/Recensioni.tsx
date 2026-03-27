@@ -1,6 +1,7 @@
 import { Star, Quote, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeader from "./SectionHeader";
 
 const reviews = [
   {
@@ -25,21 +26,20 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section className="py-24 lg:py-40 bg-noir relative overflow-hidden">
+    <section 
+      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
+      aria-label="Recensioni dei clienti"
+    >
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(139,21,56,0.1)_0%,transparent_50%)] pointer-events-none" />
       
       <div className="container mx-auto px-6">
         {/* Header */}
-        <AnimatedSection className="text-center mb-20 lg:mb-32">
-          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-            Voci d'Eccellenza
-          </span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
-            I Nostri Ospiti
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-fire to-gold mx-auto rounded-full" />
-        </AnimatedSection>
+        <SectionHeader 
+          subtitle="Voci d'Eccellenza"
+          title="I Nostri Ospiti"
+          className="mb-20 lg:mb-32"
+        />
 
         {/* Reviews Horizontal Scroll / Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto items-stretch">
@@ -47,7 +47,7 @@ const Recensioni = () => {
             <AnimatedSection key={i} delay={i * 0.15} className="h-full">
               <motion.div
                 whileHover={{ y: -15 }}
-                className="relative bg-charcoal/40 backdrop-blur-md border border-white/5 p-10 lg:p-12 rounded-3xl h-full flex flex-col hover:border-fire/20 transition-all duration-500 shadow-2xl overflow-hidden group"
+                className="relative bg-charcoal/40 backdrop-blur-md border border-white/5 p-10 lg:p-12 rounded-2xl h-full flex flex-col hover:border-fire/20 transition-all duration-500 shadow-2xl overflow-hidden group"
               >
                 {/* Decorative Quote Icon */}
                 <div className="absolute -top-6 -right-6 p-12 text-fire/5 group-hover:text-fire/10 transition-colors">
@@ -61,11 +61,11 @@ const Recensioni = () => {
                       <Star key={j} className="w-5 h-5 fill-current" />
                     ))}
                   </div>
-                  <Award className="w-6 h-6 text-gold/20" />
+                  <Award className="w-6 h-6 text-gold/30" />
                 </div>
                 
                 {/* Review Text */}
-                <p className="text-lg lg:text-xl text-gold-light/80 font-accent italic leading-relaxed mb-10 tracking-wide flex-1 relative z-10">
+                <p className="text-lg lg:text-xl text-gold-light/90 font-accent italic leading-relaxed mb-10 tracking-wide flex-1 relative z-10">
                   "{review.text}"
                 </p>
                 
@@ -79,9 +79,9 @@ const Recensioni = () => {
                       <div className="text-cream font-display font-bold text-sm lg:text-base tracking-widest uppercase">
                         {review.author}
                       </div>
-                      <div className="flex gap-3 text-[10px] font-bold uppercase tracking-widest text-gold-light/40 group-hover:text-gold-light/60 transition-colors">
+                      <div className="flex gap-3 text-[10px] font-bold uppercase tracking-widest text-gold-light/60 group-hover:text-gold-light/80 transition-colors">
                         <span>{review.role}</span>
-                        <span className="w-1 h-1 bg-white/20 rounded-full my-auto" />
+                        <span className="w-1 h-1 bg-white/20 rounded-full my-auto" aria-hidden="true" />
                         <span>{review.date}</span>
                       </div>
                     </div>
@@ -98,11 +98,11 @@ const Recensioni = () => {
             <div className="flex -space-x-3">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="w-10 h-10 rounded-full border-2 border-noir bg-charcoal overflow-hidden">
-                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 20}`} alt="Reviewer" loading="lazy" />
+                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 20}`} alt="Immagine di profilo ospite" loading="lazy" />
                 </div>
               ))}
             </div>
-            <p className="text-gold-light/60 text-xs lg:text-sm font-bold uppercase tracking-widest">
+            <p className="text-gold-light/70 text-xs lg:text-sm font-bold uppercase tracking-widest">
               Oltre <span className="text-gold">1.000 recensioni certificate</span> su TripAdvisor & Google
             </p>
           </div>
