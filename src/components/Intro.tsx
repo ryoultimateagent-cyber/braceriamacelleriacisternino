@@ -1,87 +1,88 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { ChefHat } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
-import SectionHeader from "./SectionHeader";
+
+const features = [
+  { 
+    icon: <Flame className="w-8 h-8 text-ember" />, 
+    title: "Brace Autentica", 
+    desc: "Cottura lenta su legna selezionata per esaltare ogni sfumatura del gusto." 
+  },
+  { 
+    icon: <ShieldCheck className="w-8 h-8 text-gold" />, 
+    title: "Qualità Certificata", 
+    desc: "Solo tagli prestigiosi provenienti da allevamenti etici e controllati." 
+  },
+  { 
+    icon: <Award className="w-8 h-8 text-gold-light" />, 
+    title: "Eredità Familiare", 
+    desc: "Dal 1980 tramandiamo il segreto della frollatura perfetta." 
+  },
+  { 
+    icon: <ChefHat className="w-8 h-8 text-cream" />, 
+    title: "Maestria al Taglio", 
+    desc: "Ogni pezzo è lavorato a mano con la precisione di un chirurgo." 
+  },
+];
 
 const Intro = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
-  const features = [
-    { icon: "🔥", label: "Brace Autentica", text: "Legna selezionata per un sapore unico" },
-    { icon: "🥩", label: "Carni Selezionate", text: "Solo il meglio dai pascoli pugliesi" },
-    { icon: "👨‍🍳", label: "Tradizione dal 1980", text: "Oltre quarant'anni di maestria familiare" },
-    { icon: "⭐", label: "Qualità Premium", text: "Ogni dettaglio curato con passione" },
-  ];
-
   return (
-    <section 
-      id="intro" 
-      ref={ref} 
-      className="py-24 lg:py-40 bg-charcoal relative overflow-hidden"
-      aria-label="Introduzione alla nostra filosofia"
-    >
-      {/* Decorative Parallax Background Layer */}
-      <motion.div 
-        style={{ y }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.06)_0%,transparent_70%)] pointer-events-none" 
-      />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          {/* Logo with Entrance Animation */}
-          <AnimatedSection className="flex justify-center mb-12 lg:mb-16">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gold/10 blur-xl rounded-full scale-125 transition-transform group-hover:scale-150" />
-              <div className="w-32 h-32 lg:w-48 lg:h-48 bg-noir flex items-center justify-center rounded-2xl shadow-2xl relative z-10 border border-gold/20 group-hover:border-gold/40 transition-colors">
-                <ChefHat className="w-16 h-16 lg:w-24 lg:h-24 text-gold" />
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Heading with Modern Typography */}
-          <SectionHeader 
-            subtitle="Benvenuti nel Nostro Mondo"
-            title="Un'Arte Tramandata con Passione Autentica"
-            className="mb-12"
-          />
-
-          {/* Description with Refined Spacing */}
-          <AnimatedSection delay={0.4} className="text-center max-w-3xl mx-auto">
-            <p className="text-xl lg:text-2xl text-gold-light/90 font-accent italic leading-relaxed mb-16 px-4">
-              "Nel cuore di Mola di Bari, la nostra famiglia porta avanti una tradizione di eccellenza. 
-              Dalla macelleria alla braceria, dalla selezione accurata delle carni alla cottura perfetta 
-              sulla brace viva: ogni dettaglio racconta una storia di sapore e dedizione autentica."
-            </p>
-          </AnimatedSection>
-
-          {/* Feature Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16">
-            {features.map((item, i) => (
-              <AnimatedSection key={i} delay={0.6 + i * 0.1}>
-                <motion.div 
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="bg-noir/30 backdrop-blur-sm border border-white/5 p-8 rounded-2xl text-center group transition-all hover:bg-white/5 hover:border-gold/20 shadow-lg"
-                >
-                  <div className="text-4xl lg:text-5xl mb-6 group-hover:scale-110 transition-transform">
-                    {item.icon}
+    <section id="intro" className="py-32 lg:py-48 bg-[#0A0A0A] relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
+          <div className="lg:w-1/2">
+            <AnimatedSection animation="fade-up">
+              <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">La Nostra Essenza</span>
+              <h2 className="text-4xl md:text-6xl font-display font-black text-cream leading-tight mb-8">
+                IL CULTO DELLA <br /> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">MATERIA PRIMA</span>
+              </h2>
+              <p className="text-gold-light/70 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
+                Non siamo solo una braceria. Siamo i custodi di un'arte antica che celebra il fuoco e la carne. Ogni boccone è un viaggio nella tradizione pugliese, reinterpretata con eleganza contemporanea.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-8">
+                {features.slice(0, 2).map((f, i) => (
+                  <div key={i} className="space-y-4">
+                    <div className="p-3 w-fit bg-white/5 border border-white/10 rounded-xl">{f.icon}</div>
+                    <h4 className="text-gold font-bold uppercase tracking-widest text-sm">{f.title}</h4>
+                    <p className="text-gold-light/50 text-xs leading-relaxed">{f.desc}</p>
                   </div>
-                  <h3 className="text-gold text-sm lg:text-base font-bold uppercase tracking-widest mb-3">
-                    {item.label}
-                  </h3>
-                  <p className="text-gold-light/70 text-xs lg:text-sm tracking-wide leading-relaxed">
-                    {item.text}
-                  </p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
+                ))}
+              </div>
+            </AnimatedSection>
           </div>
+
+          <div className="lg:w-1/2 relative">
+            <AnimatedSection animation="scale-up" delay={0.2}>
+              <div className="relative aspect-[4/5] w-full max-w-md mx-auto group">
+                {/* Decorative Frames */}
+                <div className="absolute -inset-4 border border-gold/20 translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 duration-700" />
+                <div className="absolute inset-0 bg-gold/10 mix-blend-overlay z-10" />
+                <img 
+                  src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" 
+                  alt="Premium Steak" 
+                  className="w-full h-full object-cover shadow-2xl transition-transform duration-1000 group-hover:scale-105"
+                />
+                
+                {/* Stats Badge */}
+                <div className="absolute -bottom-10 -right-10 bg-noir border border-gold/30 p-8 z-20 shadow-fire">
+                  <div className="text-5xl font-display font-black text-gold">44</div>
+                  <div className="text-[10px] uppercase tracking-[0.4em] text-gold-light">Anni di Eccellenza</div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-40">
+           {features.map((f, i) => (
+            <AnimatedSection key={i} delay={0.1 * i} className="group p-8 luxury-card">
+              <div className="mb-6 transition-transform group-hover:scale-110 duration-500">{f.icon}</div>
+              <h3 className="text-cream font-display font-bold text-xl mb-4 group-hover:text-gold transition-colors">{f.title}</h3>
+              <p className="text-gold-light/60 text-sm leading-relaxed">{f.desc}</p>
+            </AnimatedSection>
+           ))}
         </div>
       </div>
     </section>
