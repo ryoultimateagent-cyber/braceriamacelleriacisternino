@@ -18,7 +18,7 @@ const FireBackground = memo(() => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden select-none" aria-hidden="true">
+    <div className="fixed inset-0 pointer-events-none z-[5] overflow-hidden select-none" aria-hidden="true">
       {/* Background Atmosphere - Fire Base Glow */}
       <div className="absolute -bottom-[20%] left-0 right-0 h-[60%] bg-gradient-to-t from-ember-dark/30 via-ember/10 to-transparent blur-[120px] pointer-events-none mix-blend-plus-lighter" />
       

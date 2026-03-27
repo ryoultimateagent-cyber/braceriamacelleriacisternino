@@ -22,8 +22,8 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section id="recensioni" className="py-32 lg:py-48 bg-noir relative overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="recensioni" className="py-32 lg:py-48 bg-transparent relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24 lg:mb-40">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>

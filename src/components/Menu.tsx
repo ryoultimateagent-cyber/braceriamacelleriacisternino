@@ -131,7 +131,7 @@ const Menu = () => {
       className="py-24 lg:py-40 bg-gradient-premium relative overflow-hidden"
       aria-label="Il nostro menù"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <SectionHeader 
           subtitle="Esperienza Gastronomica"
