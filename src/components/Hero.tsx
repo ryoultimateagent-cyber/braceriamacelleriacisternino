@@ -45,7 +45,10 @@ const Hero = () => {
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
       {/* Main Content */}
-      <div className="relative z-20 text-center px-6 w-full max-w-5xl mx-auto">
+      <motion.div 
+        style={{ opacity, y: contentY }}
+        className="relative z-20 text-center px-6 w-full max-w-5xl mx-auto"
+      >
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
