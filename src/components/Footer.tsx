@@ -37,9 +37,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Platform</h4>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Navigazione</h4>
             <ul className="space-y-6">
-              {["Features", "Pricing", "Documentation", "API"].map((link) => (
+              {["Storia", "Brace", "Galleria", "Menù"].map((link) => (
                 <li key={link}>
                   <a href={`#${link.toLowerCase()}`} className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm uppercase tracking-widest font-bold block hover:translate-x-2">
                     {link}
@@ -50,28 +50,33 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Resources</h4>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Contatti</h4>
             <ul className="space-y-6">
-              {["GitHub", "Discord", "Changelog", "Support"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm uppercase tracking-widest font-bold block hover:translate-x-2">
-                    {link}
-                  </a>
-                </li>
-              ))}
+              <li className="flex items-start gap-4 text-gold-light/60 text-sm uppercase tracking-widest font-bold">
+                <MapPin className="w-5 h-5 text-gold flex-shrink-0" />
+                <span>Via Belvedere, 15 <br /> Mola di Bari (BA)</span>
+              </li>
+              <li className="flex items-center gap-4 text-gold-light/60 text-sm uppercase tracking-widest font-bold">
+                <Phone className="w-5 h-5 text-gold flex-shrink-0" />
+                <a href="tel:+393403824158" className="hover:text-gold transition-colors">+39 340 382 4158</a>
+              </li>
+              <li className="flex items-center gap-4 text-gold-light/60 text-sm uppercase tracking-widest font-bold">
+                <Mail className="w-5 h-5 text-gold flex-shrink-0" />
+                <a href="mailto:info@macelleriabelvedere.it" className="hover:text-gold transition-colors lowercase">info@macelleriabelvedere.it</a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Join the Community</h4>
-            <p className="text-gold-light/60 text-sm mb-8 leading-relaxed font-body">Subscribe for the latest updates and feature releases.</p>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Newsletter</h4>
+            <p className="text-gold-light/60 text-sm mb-8 leading-relaxed font-body">Iscriviti per ricevere aggiornamenti sulle nostre specialità e serate a tema.</p>
             <div className="flex flex-col gap-4">
               <input 
                 type="email" 
-                placeholder="Email address" 
+                placeholder="Il tuo indirizzo email" 
                 className="bg-[#111111] border border-gold/10 p-5 rounded-none text-cream focus:border-gold outline-none transition-all placeholder:text-gold-light/20 text-xs tracking-widest" 
               />
-              <button className="h-14 bg-gold hover:bg-gold-satin text-noir font-black uppercase tracking-[0.4em] text-xs transition-all shadow-fire">Subscribe</button>
+              <button className="h-14 bg-gold hover:bg-gold-satin text-noir font-black uppercase tracking-[0.4em] text-xs transition-all shadow-fire">Iscriviti</button>
             </div>
           </div>
         </div>
