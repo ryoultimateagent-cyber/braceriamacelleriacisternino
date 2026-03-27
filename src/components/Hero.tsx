@@ -1,14 +1,47 @@
-import { Phone, ChevronDown, Award } from "lucide-react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { Phone, ChevronDown, Award, Sparkles, Code, Zap } from "lucide-react";
+import { 
+  motion, 
+  useScroll, 
+  useTransform, 
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence
+} from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
+import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const shouldReduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  // Mouse tracking parallax
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
   
   const y = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : 200]);
   const opacity = useTransform(scrollY, [0, 400], [1, shouldReduceMotion ? 1 : 0]);
+  
+  // Mouse move handler per parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+      const x = (e.clientX - left) / width - 0.5;
+      const y = (e.clientY - top) / height - 0.5;
+      mouseX.set(x * 30);
+      mouseY.set(y * 30);
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
 
   return (
     <section 
