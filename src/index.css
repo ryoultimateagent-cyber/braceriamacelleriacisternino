@@ -8,108 +8,96 @@
 
 @layer base {
   :root {
-    /* Core brand colors */
-    --noir: 0 0% 4%;
-    --charcoal: 0 0% 10%;
-    --gold: 43 65% 52%;
-    --gold-light: 39 67% 87%;
-    --red: 355 83% 35%;
-    --red-dark: 345 71% 31%;
-    --copper: 28 52% 46%;
-    --cream: 40 33% 97%;
-    --smoke: 0 0% 18%;
+    /* Core brand colors - Refined HSL */
+    --noir: 0 0% 3%;
+    --charcoal: 0 0% 8%;
+    --gold: 44 65% 52%;
+    --gold-light: 44 40% 88%;
+    --red: 354 84% 36%;
+    --red-dark: 354 75% 28%;
+    --copper: 28 50% 45%;
+    --cream: 36 30% 98%;
+    --smoke: 0 0% 15%;
 
-    /* Semantic tokens mapped to brand */
+    /* Semantic tokens */
     --background: var(--noir);
     --foreground: var(--cream);
-
     --card: var(--charcoal);
     --card-foreground: var(--cream);
-
     --popover: var(--charcoal);
     --popover-foreground: var(--cream);
-
     --primary: var(--red);
     --primary-foreground: var(--cream);
-
     --secondary: var(--gold);
     --secondary-foreground: var(--noir);
-
     --muted: var(--smoke);
     --muted-foreground: var(--gold-light);
-
     --accent: var(--gold);
     --accent-foreground: var(--noir);
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 43 30% 20%;
-    --input: 43 30% 20%;
+    --border: 44 30% 15%;
+    --input: 44 30% 15%;
     --ring: var(--gold);
-
-    --radius: 0rem;
+    --radius: 0.25rem;
 
     /* Gradients */
-    --gradient-fire: linear-gradient(135deg, hsl(var(--red)), hsl(var(--gold)), hsl(var(--copper)));
-    --gradient-dark: linear-gradient(135deg, hsl(var(--noir)), hsl(var(--charcoal)));
-    --gradient-gold: linear-gradient(90deg, transparent, hsl(var(--red)), transparent);
-
+    --gradient-fire: linear-gradient(135deg, hsl(var(--red)), hsl(var(--red-dark)));
+    --gradient-gold: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    
     /* Shadows */
-    --shadow-fire: 0 10px 40px hsla(355, 83%, 35%, 0.3);
-    --shadow-gold: 0 10px 30px hsla(43, 65%, 52%, 0.2);
-    --shadow-elegant: 0 25px 60px hsla(355, 83%, 35%, 0.4);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-fire: 0 10px 40px hsla(354, 84%, 36%, 0.2);
+    --shadow-gold: 0 10px 30px hsla(44, 65%, 52%, 0.15);
   }
 
   .dark {
+    /* For dark mode consistency */
     --background: var(--noir);
     --foreground: var(--cream);
-    --card: var(--charcoal);
-    --card-foreground: var(--cream);
-    --popover: var(--charcoal);
-    --popover-foreground: var(--cream);
-    --primary: var(--red);
-    --primary-foreground: var(--cream);
-    --secondary: var(--gold);
-    --secondary-foreground: var(--noir);
-    --muted: var(--smoke);
-    --muted-foreground: var(--gold-light);
-    --accent: var(--gold);
-    --accent-foreground: var(--noir);
-    --border: 43 30% 20%;
-    --input: 43 30% 20%;
-    --ring: var(--gold);
+    --border: 44 30% 15%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border outline-none;
+  }
+
+  /* Improved focus visibility for accessibility */
+  *:focus-visible {
+    @apply ring-2 ring-gold ring-offset-2 ring-offset-noir outline-none;
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased selection:bg-gold selection:text-noir;
     font-family: 'Montserrat', sans-serif;
-    line-height: 1.7;
+    line-height: 1.6;
     overflow-x: hidden;
   }
 
-  /* Typography */
-  .font-display {
-    font-family: 'Cinzel', serif;
+  /* Modern Responsive Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide font-bold leading-tight;
   }
 
-  .font-elegant {
-    font-family: 'Playfair Display', serif;
-  }
+  h1 { @apply text-4xl md:text-6xl lg:text-7xl xl:text-8xl; }
+  h2 { @apply text-3xl md:text-5xl lg:text-6xl; }
+  h3 { @apply text-2xl md:text-3xl lg:text-4xl; }
+  
+  p { @apply leading-relaxed; }
 
-  .font-accent {
-    font-family: 'Cormorant Garamond', serif;
-  }
+  .font-display { font-family: 'Cinzel', serif; }
+  .font-elegant { font-family: 'Playfair Display', serif; }
+  .font-accent { font-family: 'Cormorant Garamond', serif; }
 }
 
 @layer components {
