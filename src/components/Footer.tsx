@@ -16,15 +16,15 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-4 mb-10">
               <div className="w-14 h-14 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center">
-                <span className="text-gold font-display font-black text-2xl">S</span>
+                <ChefHat className="text-gold w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-black text-gold uppercase leading-none">SENTRUX</h3>
-                <span className="text-[10px] text-gold-light/40 uppercase tracking-[0.4em]">Live Treemap</span>
+                <h3 className="text-2xl font-display font-black text-gold uppercase leading-none">Belvedere</h3>
+                <span className="text-[10px] text-gold-light/40 uppercase tracking-[0.4em]">Macelleria Braceria</span>
               </div>
             </div>
             <p className="text-gold-light/60 text-base leading-relaxed mb-10 font-accent italic">
-              "Visualize your project structure in real-time. Built for clarity, speed, and precision."
+              "La nostra missione è portare in tavola l'eccellenza, rispettando la tradizione e la materia prima."
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold-light hover:bg-gold hover:text-noir transition-all duration-500 shadow-xl group">
