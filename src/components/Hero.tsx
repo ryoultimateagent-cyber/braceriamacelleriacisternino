@@ -148,7 +148,7 @@ const Hero = () => {
           >
             <a href="tel:+393403824158" className="flex items-center gap-3">
               <Phone className="w-4 h-4" />
-              <span>Prenota un tavolo</span>
+              <span>Prenota l'Esperienza</span>
             </a>
           </Button>
           
@@ -158,7 +158,7 @@ const Hero = () => {
             className="h-14 px-10 border-gold/20 hover:border-gold text-gold text-xs uppercase tracking-[0.3em] font-bold rounded-none bg-noir/50 backdrop-blur-md transition-all duration-300 group"
           >
             <a href="#menu" className="flex items-center gap-3">
-              <span>Il nostro menù</span>
+              <span>La nostra Carta</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
