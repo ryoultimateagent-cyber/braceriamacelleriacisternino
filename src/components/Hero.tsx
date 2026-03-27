@@ -72,47 +72,11 @@ const Hero = () => {
         <div className="relative mb-12">
           <motion.h1 
             className="text-cream text-6xl md:text-8xl lg:text-[10rem] font-display font-black leading-[0.8] tracking-tighter uppercase select-none mb-4"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            {"BRACE".split("").map((char, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 50, rotateX: -90 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ delay: 0.3 + i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block"
-              >
-                {char}
-              </motion.span>
-            ))}
-            <motion.span 
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              className="text-gold mx-4"
-            >
-              &
-            </motion.span> 
-            <br />
-            <motion.span 
-              initial={{ opacity: 0, filter: "blur(20px)" }}
-              animate={{ 
-                opacity: 1, 
-                filter: "blur(0px)",
-                textShadow: [
-                  "0 0 20px rgba(212,175,55,0)",
-                  "0 0 30px rgba(212,175,55,0.4)",
-                  "0 0 20px rgba(212,175,55,0.1)"
-                ]
-              }}
-              transition={{ 
-                opacity: { delay: 1.2, duration: 1 },
-                filter: { delay: 1.2, duration: 1.5 },
-                textShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-              }}
-              className="text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold-light to-gold-satin italic"
-            >
-              PASSIONE
-            </motion.span>
+            SENTRUX
           </motion.h1>
           
           <motion.div
@@ -121,19 +85,39 @@ const Hero = () => {
             transition={{ delay: 1.8, duration: 1, type: "spring", stiffness: 50 }}
             className="absolute -top-6 -left-4 md:-left-12 text-gold/30 font-display text-4xl md:text-6xl italic pointer-events-none"
           >
-            Belvedere
+            Terminal
           </motion.div>
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="text-lg md:text-2xl text-cream/80 font-accent italic mb-16 max-w-2xl mx-auto leading-relaxed"
+          className="text-sm md:text-lg text-gold/80 font-mono mb-16 max-w-2xl mx-auto leading-relaxed bg-black/60 p-6 md:p-8 rounded-xl border border-gold/20 text-left shadow-2xl backdrop-blur-sm"
         >
-          L'eccellenza della materia prima incontra l'anima del fuoco. <br className="hidden md:block" /> 
-          Un viaggio sensoriale tra tagli pregiati e tradizioni secolari.
-        </motion.p>
+          <div className="flex flex-col gap-3">
+            <div className="flex gap-2">
+              <span className="text-gold opacity-50">$</span>
+              <span>sentrux <span className="text-gold/50 ml-4"># open the GUI — live treemap of your project</span></span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-gold opacity-50">$</span>
+              <span>sentrux /path/to/project <span className="text-gold/50 ml-4"># open GUI scanning a specific directory</span></span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-gold opacity-50">$</span>
+              <span>sentrux check . <span className="text-gold/50 ml-4"># check rules (CI-friendly, exits 0 or 1)</span></span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-gold opacity-50">$</span>
+              <span>sentrux gate --save . <span className="text-gold/50 ml-4"># save baseline before agent session</span></span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-gold opacity-50">$</span>
+              <span>sentrux gate . <span className="text-gold/50 ml-4"># compare after — catches degradation</span></span>
+            </div>
+          </div>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -146,9 +130,9 @@ const Hero = () => {
             variant="gold" 
             className="h-14 px-10 text-xs uppercase tracking-[0.3em] font-bold rounded-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] group"
           >
-            <a href="tel:+393403824158" className="flex items-center gap-3">
-              <Phone className="w-4 h-4" />
-              <span>Prenota l'Esperienza</span>
+            <a href="#" className="flex items-center gap-3">
+              <ArrowRight className="w-4 h-4" />
+              <span>Installa ora</span>
             </a>
           </Button>
           
@@ -157,9 +141,8 @@ const Hero = () => {
             variant="outline" 
             className="h-14 px-10 border-gold/20 hover:border-gold text-gold text-xs uppercase tracking-[0.3em] font-bold rounded-none bg-noir/50 backdrop-blur-md transition-all duration-300 group"
           >
-            <a href="#menu" className="flex items-center gap-3">
-              <span>La nostra Carta</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <a href="https://github.com" className="flex items-center gap-3">
+              <span>GitHub</span>
             </a>
           </Button>
         </motion.div>
