@@ -24,13 +24,10 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: "#storia", label: "Storia" },
-    { href: "#brace", label: "Brace" },
-    { href: "#galleria", label: "Galleria" },
-    { href: "#menu", label: "Menù" },
-    { href: "#vini", label: "Vini" },
-    { href: "#takeaway", label: "Take-away" },
-    { href: "#prenota", label: "Prenota" },
+    { href: "#features", label: "Features" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#docs", label: "Documentation" },
+    { href: "#github", label: "GitHub" },
   ];
 
   return (
