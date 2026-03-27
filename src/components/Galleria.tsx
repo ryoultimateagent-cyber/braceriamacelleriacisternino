@@ -1,23 +1,15 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
-import SectionHeader from "./SectionHeader";
-
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
 
 const images = [
-  { src: gallery1, title: "Costata alla Brace", desc: "Perfetta marezzatura e cottura impeccabile su brace viva." },
-  { src: gallery2, title: "Fiorentina Premium", desc: "Il taglio più amato dai nostri clienti, frollato con cura." },
-  { src: gallery3, title: "Tartare Signature", desc: "Carne cruda di primissima scelta battuta al coltello." },
-  { src: gallery4, title: "Ribs BBQ Slow Cook", desc: "Cottura lenta per 12 ore e glassa artigianale segreta." },
-  { src: gallery5, title: "Atmosfera Calda", desc: "Un ambiente accogliente nel cuore di Mola di Bari." },
-  { src: gallery6, title: "Bombette Pugliesi", desc: "La tradizione autentica servita fumante al tavolo." },
+  { src: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200", title: "Costata alla Brace", desc: "Perfetta marezzatura e cottura impeccabile su brace viva." },
+  { src: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200", title: "Fiorentina Premium", desc: "Il taglio più amato dai nostri clienti, frollato con cura." },
+  { src: "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200", title: "Tartare Signature", desc: "Carne cruda di primissima scelta battuta al coltello." },
+  { src: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=1200", title: "Ribs BBQ Slow Cook", desc: "Cottura lenta per 12 ore e glassa artigianale segreta." },
+  { src: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?auto=format&fit=crop&q=80&w=1200", title: "Atmosfera Calda", desc: "Un ambiente accogliente nel cuore di Mola di Bari." },
+  { src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=1200", title: "Bombette Pugliesi", desc: "La tradizione autentica servita fumante al tavolo." },
 ];
 
 const Galleria = () => {
@@ -27,185 +19,100 @@ const Galleria = () => {
   const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
   const goNext = useCallback(() => {
-    if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex + 1) % images.length);
-    }
+    if (selectedIndex !== null) setSelectedIndex((selectedIndex + 1) % images.length);
   }, [selectedIndex]);
 
   const goPrev = useCallback(() => {
-    if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
-    }
+    if (selectedIndex !== null) setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
   }, [selectedIndex]);
 
-  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
-      
-      switch (e.key) {
-        case "Escape":
-          closeLightbox();
-          break;
-        case "ArrowRight":
-          goNext();
-          break;
-        case "ArrowLeft":
-          goPrev();
-          break;
-      }
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section 
-      id="galleria" 
-      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
-      aria-label="Galleria immagini"
-    >
+    <section id="galleria" className="py-32 lg:py-48 bg-noir relative overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <SectionHeader 
-          subtitle="Visione del Gusto"
-          title="I Nostri Scatti"
-          className="mb-20 lg:mb-32"
-        />
+        <div className="text-center mb-24 lg:mb-40">
+          <AnimatedSection>
+            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Visioni del Gusto</span>
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase">
+              GALLERIA <br /> <span className="text-ember italic">ESPERIENZIALE</span>
+            </h2>
+          </AnimatedSection>
+        </div>
 
-        {/* Dynamic Masonry-like Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {images.map((img, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="group relative aspect-[4/5] lg:aspect-square overflow-hidden cursor-pointer rounded-2xl shadow-2xl border border-white/5"
+            <AnimatedSection key={i} delay={i * 0.1} className="group cursor-pointer" animation="scale-up">
+              <div 
+                className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-[#111111] border border-gold/10 hover:border-gold/40 transition-all duration-700"
                 onClick={() => openLightbox(i)}
-                role="button"
-                aria-label={`Visualizza ${img.title} a tutto schermo`}
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openLightbox(i);
-                  }
-                }}
               >
-                <img
-                  src={img.src}
-                  alt={img.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                <img 
+                  src={img.src} 
+                  alt={img.title} 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                 />
-                
-                {/* Overlay with Content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 lg:p-12">
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    className="relative z-10"
-                  >
-                    <div className="text-gold mb-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Maximize2 className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-xl lg:text-3xl font-display font-bold text-cream mb-2 uppercase tracking-wide">
-                      {img.title}
-                    </h3>
-                    <p className="text-gold-light/70 text-sm lg:text-base tracking-wide font-accent italic">
-                      {img.desc}
-                    </p>
-                  </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-noir via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 flex flex-col justify-end p-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                  <h3 className="text-xl font-display font-bold text-gold uppercase mb-2">{img.title}</h3>
+                  <p className="text-gold-light/60 text-sm leading-relaxed">{img.desc}</p>
                 </div>
-                
-                {/* Minimalist border accent */}
-                <div className="absolute inset-4 border border-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none scale-110 group-hover:scale-100" />
-              </motion.div>
+                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Maximize2 className="w-6 h-6 text-gold" />
+                </div>
+              </div>
             </AnimatedSection>
           ))}
         </div>
       </div>
 
-      {/* Modern Lightbox */}
       <AnimatePresence>
         {selectedIndex !== null && (
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-noir/98 backdrop-blur-2xl flex items-center justify-center p-6"
-            onClick={closeLightbox}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Galleria immagini a tutto schermo"
+            className="fixed inset-0 z-[100] bg-noir/95 backdrop-blur-2xl flex items-center justify-center p-6 lg:p-12"
           >
-            {/* Control Buttons */}
-            <div className="absolute top-10 right-10 flex gap-6 z-[110]">
-              <button
-                className="text-white/40 hover:text-gold transition-colors p-3 hover:bg-white/5 rounded-full focus-visible:ring-2 focus-visible:ring-gold outline-none"
-                onClick={closeLightbox}
-                aria-label="Chiudi galleria"
-              >
-                <X className="w-10 h-10" />
-              </button>
-            </div>
-
-            <button
-              className="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 text-white/20 hover:text-gold transition-all z-[110] p-4 group focus-visible:ring-2 focus-visible:ring-gold outline-none rounded-full"
-              onClick={(e) => {
-                e.stopPropagation();
-                goPrev();
-              }}
-              aria-label="Immagine precedente"
-            >
-              <ChevronLeft className="w-12 h-12 lg:w-20 lg:h-20 group-hover:scale-110 transition-transform" />
+            <button onClick={closeLightbox} className="absolute top-8 right-8 text-gold-light hover:text-gold transition-colors z-[110]">
+              <X className="w-10 h-10" />
+            </button>
+            <button onClick={goPrev} className="absolute left-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block">
+              <ChevronLeft className="w-12 h-12" />
+            </button>
+            <button onClick={goNext} className="absolute right-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block">
+              <ChevronRight className="w-12 h-12" />
             </button>
 
-            <button
-              className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 text-white/20 hover:text-gold transition-all z-[110] p-4 group focus-visible:ring-2 focus-visible:ring-gold outline-none rounded-full"
-              onClick={(e) => {
-                e.stopPropagation();
-                goNext();
-              }}
-              aria-label="Immagine successiva"
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="relative max-w-6xl w-full h-full flex flex-col lg:flex-row items-center gap-12"
             >
-              <ChevronRight className="w-12 h-12 lg:w-20 lg:h-20 group-hover:scale-110 transition-transform" />
-            </button>
-
-            {/* Main Image View */}
-            <motion.div
-              key={selectedIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="max-w-6xl w-full flex flex-col items-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative group/main">
-                <img
-                  src={images[selectedIndex].src}
-                  alt={images[selectedIndex].title}
-                  className="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-[0_50px_100px_rgba(0,0,0,0.8)] border border-white/5"
+              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-[3rem] border border-gold/20 shadow-fire">
+                <img 
+                  src={images[selectedIndex].src} 
+                  alt={images[selectedIndex].title} 
+                  className="w-full h-full object-cover" 
                 />
-                
-                {/* Counter */}
-                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4">
-                  <div className="h-px w-10 bg-white/20" />
-                  <span className="text-gold text-xs font-bold tracking-[0.4em] uppercase">
-                    {selectedIndex + 1} / {images.length}
-                  </span>
-                  <div className="h-px w-10 bg-white/20" />
-                </div>
               </div>
-              
-              <div className="text-center mt-12 max-w-2xl px-6">
-                <h3 className="text-3xl lg:text-5xl font-display font-bold text-cream mb-4 uppercase tracking-widest leading-none">
-                  {images[selectedIndex].title}
-                </h3>
-                <p className="text-gold-light/70 text-lg lg:text-xl font-accent italic leading-relaxed">
-                  {images[selectedIndex].desc}
-                </p>
+              <div className="w-full lg:w-1/3 text-center lg:text-left">
+                <h3 className="text-4xl lg:text-5xl font-display font-black text-gold uppercase mb-6">{images[selectedIndex].title}</h3>
+                <p className="text-gold-light/70 text-lg lg:text-xl font-accent italic leading-relaxed">{images[selectedIndex].desc}</p>
+                <div className="mt-12 flex items-center justify-center lg:justify-start gap-4">
+                  <span className="text-gold font-black font-display text-xl">{selectedIndex + 1}</span>
+                  <div className="w-12 h-px bg-gold/30" />
+                  <span className="text-gold/40 font-display text-xl">{images.length}</span>
+                </div>
               </div>
             </motion.div>
           </motion.div>
