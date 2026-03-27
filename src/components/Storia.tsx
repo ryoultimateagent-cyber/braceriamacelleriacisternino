@@ -31,7 +31,7 @@ const Storia = () => {
   });
 
   return (
-    <section id="storia" ref={containerRef} className="py-32 lg:py-48 bg-noir relative overflow-hidden">
+    <section id="storia" ref={containerRef} className="py-32 lg:py-48 bg-gradient-ember relative overflow-hidden">
       {/* Cinematic Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none">
         <h2 className="text-[20vw] font-display font-black uppercase whitespace-nowrap">ESTABLISHED 1980</h2>

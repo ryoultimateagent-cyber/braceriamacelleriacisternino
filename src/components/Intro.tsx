@@ -27,7 +27,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="py-32 lg:py-48 bg-[#0A0A0A] relative overflow-hidden">
+    <section id="intro" className="py-32 lg:py-48 bg-gradient-premium relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2">
