@@ -71,23 +71,44 @@ const Hero = () => {
 
         <div className="relative mb-12">
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="text-cream text-6xl md:text-8xl lg:text-[10rem] font-display font-black leading-[0.8] tracking-tighter uppercase select-none mb-4"
           >
-            BRACE <span className="text-gold">&</span> 
+            {"BRACE".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 50, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ delay: 0.3 + i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block"
+              >
+                {char}
+              </motion.span>
+            ))}
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="text-gold mx-4"
+            >
+              &
+            </motion.span> 
             <br />
             <motion.span 
+              initial={{ opacity: 0, filter: "blur(20px)" }}
               animate={{ 
-                opacity: [1, 0.8, 1],
+                opacity: 1, 
+                filter: "blur(0px)",
                 textShadow: [
-                  "0 0 20px rgba(212,175,55,0.2)",
-                  "0 0 40px rgba(212,175,55,0.4)",
-                  "0 0 20px rgba(212,175,55,0.2)"
+                  "0 0 20px rgba(212,175,55,0)",
+                  "0 0 30px rgba(212,175,55,0.4)",
+                  "0 0 20px rgba(212,175,55,0.1)"
                 ]
               }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ 
+                opacity: { delay: 1.2, duration: 1 },
+                filter: { delay: 1.2, duration: 1.5 },
+                textShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }}
               className="text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold-light to-gold-satin italic"
             >
               PASSIONE
@@ -95,9 +116,9 @@ const Hero = () => {
           </motion.h1>
           
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
+            transition={{ delay: 1.8, duration: 1, type: "spring", stiffness: 50 }}
             className="absolute -top-6 -left-4 md:-left-12 text-gold/30 font-display text-4xl md:text-6xl italic pointer-events-none"
           >
             Belvedere
