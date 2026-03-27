@@ -1,122 +1,82 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
-import SectionHeader from "./SectionHeader";
 
 const timelineData = [
   {
     year: "1980",
-    title: "Le Origini",
-    text: "Tutto ebbe inizio a Mola di Bari, in una piccola macelleria di quartiere. L'arte della selezione e della preparazione della carne diventa un pilastro fondamentale della nostra famiglia, tramandato con dedizione assoluta.",
+    title: "L'Inizio di un Sogno",
+    text: "La famiglia Belvedere apre la prima bottega a Mola di Bari. Una missione chiara: portare l'eccellenza della carne sulla tavola di ogni intenditore.",
+    align: "right"
   },
   {
-    year: "1980",
-    title: "L'Evoluzione",
-    text: "La passione per la carne incontra il fuoco. Introduciamo la brace viva come metodo di cottura principe, trasformando la nostra visione e dando vita a un'esperienza gastronomica unica nel suo genere.",
+    year: "2005",
+    title: "L'Arte della Brace",
+    text: "L'evoluzione naturale: la macelleria si fonde con la braceria. Il fuoco diventa il nostro linguaggio, la brace il nostro pennello.",
+    align: "left"
   },
   {
     year: "Oggi",
-    title: "Il Futuro della Tradizione",
-    text: "Oggi, la quarta generazione continua a onorare l'eredità ricevuta. Carne di qualità eccelsa, tagli precisi e il calore della brace: la nostra storia vive in ogni piatto che serviamo.",
+    title: "Eccellenza Senza Tempo",
+    text: "Continuamo a onorare il passato guardando al futuro. Una selezione maniacale dei tagli e un servizio che celebra il rito del convivio.",
+    align: "right"
   },
 ];
 
-const stats = [
-  { number: "40+", label: "Anni di Storia" },
-  { number: "2", label: "Generazioni" },
-  { number: "50k+", label: "Clienti Serviti" },
-  { number: "∞", label: "Passione" },
-];
-
 const Storia = () => {
-  const ref = useRef(null);
+  const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: containerRef,
     offset: ["start end", "end start"]
   });
-  
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section 
-      id="storia" 
-      ref={ref} 
-      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
-      aria-label="La nostra storia"
-    >
-      {/* Dynamic Background Effect */}
-      <motion.div 
-        style={{ y: bgY }}
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,21,56,0.12)_0%,transparent_60%)] pointer-events-none" 
-      />
-      
+    <section id="storia" ref={containerRef} className="py-32 lg:py-48 bg-noir relative overflow-hidden">
+      {/* Cinematic Background Text */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none">
+        <h2 className="text-[20vw] font-display font-black uppercase whitespace-nowrap">ESTABLISHED 1980</h2>
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <SectionHeader 
-          subtitle="La Nostra Eredità"
-          title="Oltre Quarant'anni di Gusto"
-          className="mb-20 lg:mb-32"
-        />
-
-        <AnimatedSection className="text-center -mt-12 mb-20 lg:mb-32">
-          <p className="text-xl text-gold-light/80 font-accent italic max-w-2xl mx-auto">
-            Oltre quarant'anni di dedizione, maestria e passione nell'arte della carne e della brace viva.
-          </p>
-        </AnimatedSection>
-
-        {/* Timeline Visualization */}
-        <div className="max-w-5xl mx-auto relative px-4 lg:px-0">
-          {/* Vertical Progress Line */}
-          <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-fire to-transparent lg:-translate-x-1/2" aria-hidden="true" />
-
-          {timelineData.map((item, i) => (
-            <div 
-              key={i} 
-              className={`flex flex-col lg:flex-row mb-20 lg:mb-32 relative ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-            >
-              {/* Content Card */}
-              <AnimatedSection 
-                delay={i * 0.2}
-                className="lg:w-[45%] z-10"
-              >
-                <motion.div 
-                  whileHover={{ y: -10 }}
-                  className="p-8 lg:p-12 bg-charcoal/40 backdrop-blur-md border border-white/5 hover:border-fire/30 transition-all duration-500 rounded-2xl shadow-xl group ml-10 lg:ml-0"
-                >
-                  <div className="text-5xl lg:text-7xl font-display font-bold text-fire/20 group-hover:text-fire/40 transition-colors mb-6">
-                    {item.year}
-                  </div>
-                  <h3 className="text-2xl lg:text-3xl font-display font-bold text-cream mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-gold-light/70 leading-relaxed text-sm lg:text-lg tracking-wide">
-                    {item.text}
-                  </p>
-                </motion.div>
-              </AnimatedSection>
-
-              {/* Decorative Connector Dot */}
-              <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 top-12 w-3 h-3 bg-fire rounded-full shadow-[0_0_15px_rgba(139,21,56,0.8)] z-20 border-4 border-noir" />
-            </div>
-          ))}
+        <div className="text-center mb-24 lg:mb-40">
+          <AnimatedSection>
+            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Il Nostro Cammino</span>
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase mb-8">
+              UNA STORIA DI <br /> <span className="text-ember italic">FUOCO E PASSIONE</span>
+            </h2>
+          </AnimatedSection>
         </div>
 
-        {/* Dynamic Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 mt-20 lg:mt-32">
-          {stats.map((stat, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="text-center p-8 bg-charcoal/20 border border-white/5 rounded-2xl hover:bg-white/5 transition-all group"
-              >
-                <div className="text-4xl lg:text-6xl font-display font-bold text-gold mb-3 group-hover:text-fire transition-colors">
-                  {stat.number}
-                </div>
-                <div className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em] text-gold-light/60 group-hover:text-gold-light/80 transition-colors">
-                  {stat.label}
-                </div>
-              </motion.div>
-            </AnimatedSection>
+        <div className="relative max-w-6xl mx-auto">
+          {/* Central Line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden lg:block" />
+
+          {timelineData.map((item, i) => (
+            <div key={i} className={`flex flex-col lg:flex-row items-center mb-24 lg:mb-40 ${item.align === "left" ? "lg:flex-row-reverse" : ""}`}>
+              {/* Content */}
+              <div className="w-full lg:w-1/2 px-6 lg:px-20 text-center lg:text-left">
+                <AnimatedSection animation={item.align === "right" ? "fade-up" : "fade-up"}>
+                   <div className={`flex flex-col ${item.align === "left" ? "lg:items-end lg:text-right" : "lg:items-start"}`}>
+                    <span className="text-5xl lg:text-8xl font-display font-black text-white/5 mb-4 block leading-none">{item.year}</span>
+                    <h3 className="text-2xl lg:text-4xl font-display font-bold text-gold mb-6 uppercase">{item.title}</h3>
+                    <p className="text-gold-light/60 text-lg leading-relaxed max-w-md">{item.text}</p>
+                   </div>
+                </AnimatedSection>
+              </div>
+
+              {/* Central Point */}
+              <div className="relative z-10 my-8 lg:my-0">
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  className="w-4 h-4 rounded-full bg-gold shadow-[0_0_20px_rgba(212,175,55,0.8)] border-4 border-noir" 
+                />
+              </div>
+
+              {/* Spacer for opposite side */}
+              <div className="hidden lg:block lg:w-1/2" />
+            </div>
           ))}
         </div>
       </div>
