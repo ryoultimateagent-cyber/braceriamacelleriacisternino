@@ -24,13 +24,10 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: "#storia", label: "Storia" },
-    { href: "#brace", label: "Brace" },
-    { href: "#galleria", label: "Galleria" },
-    { href: "#menu", label: "Menù" },
-    { href: "#vini", label: "Vini" },
-    { href: "#takeaway", label: "Take-away" },
-    { href: "#prenota", label: "Prenota" },
+    { href: "#features", label: "Features" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#docs", label: "Documentation" },
+    { href: "#github", label: "GitHub" },
   ];
 
   return (
@@ -50,17 +47,17 @@ const Header = () => {
         <a 
           href="#" 
           className="group flex items-center gap-4 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
-          aria-label="Home - Macelleria Braceria Belvedere"
+          aria-label="Home - Sentrux"
         >
           <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gold/10 flex items-center justify-center rounded-xl shadow-lg group-hover:scale-105 transition-transform border border-gold/20">
-            <ChefHat className="w-6 h-6 lg:w-7 lg:h-7 text-gold" />
+            <span className="text-gold font-display font-black text-xl lg:text-2xl">S</span>
           </div>
           <div className="hidden sm:block">
             <div className="text-lg lg:text-xl font-display font-bold text-gold tracking-wider uppercase leading-none">
-              Macelleria Braceria
+              SENTRUX
             </div>
             <div className="text-[10px] lg:text-xs font-display font-medium text-gold-light tracking-[0.3em] uppercase opacity-80">
-              Belvedere
+              Live Treemap
             </div>
           </div>
         </a>
