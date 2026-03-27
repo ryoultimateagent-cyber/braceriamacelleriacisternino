@@ -32,13 +32,13 @@ const Intro = () => {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2">
             <AnimatedSection animation="fade-up">
-              <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">PROJECT VISUALIZATION</span>
+              <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">ECCELLENZA PUGLIESE</span>
               <h2 className="text-4xl md:text-6xl font-display font-black text-cream leading-tight mb-8">
-                YOUR CODEBASE <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">AT A GLANCE</span>
+                L'ARTE DELLA <br /> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">BRACE AUTENTICA</span>
               </h2>
               <p className="text-gold-light/70 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-                Sentrux gives you a live treemap of your project, allowing you to visualize structure, dependencies, and hotspots in real-time. Built for developers who need clarity.
+                La Macelleria Braceria Belvedere è un punto di riferimento per gli amanti della carne di qualità. Da oltre 40 anni, selezioniamo i migliori tagli e li prepariamo con la sapienza di chi ama il proprio mestiere.
               </p>
               
               <div className="grid grid-cols-2 gap-8">
