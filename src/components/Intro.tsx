@@ -54,7 +54,7 @@ const Intro = () => {
           {/* Description with Refined Spacing */}
           <AnimatedSection delay={0.4} className="text-center max-w-3xl mx-auto">
             <p className="text-xl lg:text-2xl text-gold-light/90 font-accent italic leading-relaxed mb-16 px-4">
-              "Nel cuore di Mola di Bari, la nostra famiglia porta avanti una tradizione centenaria. 
+              "Nel cuore di Mola di Bari, la nostra famiglia porta avanti una tradizione di eccellenza. 
               Dalla macelleria alla braceria, dalla selezione accurata delle carni alla cottura perfetta 
               sulla brace viva: ogni dettaglio racconta una storia di sapore e dedizione autentica."
             </p>
