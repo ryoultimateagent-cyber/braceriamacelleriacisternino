@@ -50,17 +50,17 @@ const Header = () => {
         <a 
           href="#" 
           className="group flex items-center gap-4 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
-          aria-label="Home - Sentrux"
+          aria-label="Home - Macelleria Braceria Belvedere"
         >
           <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gold/10 flex items-center justify-center rounded-xl shadow-lg group-hover:scale-105 transition-transform border border-gold/20">
-            <span className="text-gold font-display font-black text-xl lg:text-2xl">S</span>
+            <ChefHat className="text-gold w-6 h-6 lg:w-8 lg:h-8" />
           </div>
           <div className="hidden sm:block">
             <div className="text-lg lg:text-xl font-display font-bold text-gold tracking-wider uppercase leading-none">
-              SENTRUX
+              Macelleria Braceria
             </div>
             <div className="text-[10px] lg:text-xs font-display font-medium text-gold-light tracking-[0.3em] uppercase opacity-80">
-              Live Treemap
+              Belvedere
             </div>
           </div>
         </a>
