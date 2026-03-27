@@ -32,13 +32,13 @@ const Intro = () => {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2">
             <AnimatedSection animation="fade-up">
-              <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">La Nostra Essenza</span>
+              <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">PROJECT VISUALIZATION</span>
               <h2 className="text-4xl md:text-6xl font-display font-black text-cream leading-tight mb-8">
-                IL CULTO DELLA <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">MATERIA PRIMA</span>
+                YOUR CODEBASE <br /> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">AT A GLANCE</span>
               </h2>
               <p className="text-gold-light/70 text-lg md:text-xl font-body leading-relaxed mb-10 max-w-xl">
-                Non siamo solo una braceria. Siamo i custodi di un'arte antica che celebra il fuoco e la carne. Ogni boccone è un viaggio nella tradizione pugliese, reinterpretata con eleganza contemporanea.
+                Sentrux gives you a live treemap of your project, allowing you to visualize structure, dependencies, and hotspots in real-time. Built for developers who need clarity.
               </p>
               
               <div className="grid grid-cols-2 gap-8">
