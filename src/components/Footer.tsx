@@ -135,7 +135,7 @@ const Footer = () => {
           </motion.button>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 
