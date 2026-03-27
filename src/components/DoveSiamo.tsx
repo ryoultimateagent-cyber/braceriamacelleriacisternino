@@ -38,7 +38,7 @@ const DoveSiamo = () => {
                 <div>
                   <p className="text-cream font-display font-bold text-sm lg:text-base tracking-widest uppercase mb-2">Indirizzo</p>
                   <p className="text-gold-light/60 text-base lg:text-xl leading-relaxed tracking-wide font-accent italic">
-                    Via Paolo VI, 47/49<br />
+                    Via Belvedere, 12<br />
                     70042 Mola di Bari (BA)<br />
                     Puglia, Italia
                   </p>
@@ -86,7 +86,7 @@ const DoveSiamo = () => {
                 size="lg" 
                 className="h-16 px-12 text-sm uppercase tracking-widest font-bold shadow-2xl w-full sm:w-auto"
               >
-                <a href="https://maps.google.com/?q=Via+Paolo+VI+47+Mola+di+Bari+Italy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
+                <a href="https://maps.google.com/?q=Via+Belvedere+12+Mola+di+Bari+Italy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
                   <Navigation className="w-5 h-5" />
                   Calcola Percorso
                 </a>
@@ -108,7 +108,7 @@ const DoveSiamo = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Braceria Macelleria Cisternino - Posizione Mappa"
+                title="Macelleria Braceria Belvedere - Posizione Mappa"
                 className="absolute inset-0 w-full h-full grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100"
               />
               

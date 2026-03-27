@@ -4,7 +4,7 @@ import AnimatedSection from "./AnimatedSection";
 
 const timelineData = [
   {
-    year: "1920",
+    year: "1980",
     title: "Le Origini",
     text: "Tutto ebbe inizio a Mola di Bari, in una piccola macelleria di quartiere. L'arte della selezione e della preparazione della carne diventa un pilastro fondamentale della nostra famiglia, tramandato con dedizione assoluta.",
   },
@@ -21,8 +21,8 @@ const timelineData = [
 ];
 
 const stats = [
-  { number: "100+", label: "Anni di Storia" },
-  { number: "4", label: "Generazioni" },
+  { number: "40+", label: "Anni di Storia" },
+  { number: "2", label: "Generazioni" },
   { number: "50k+", label: "Clienti Serviti" },
   { number: "∞", label: "Passione" },
 ];
@@ -51,10 +51,10 @@ const Storia = () => {
             La Nostra Eredità
           </span>
           <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
-            Un Secolo di Gusto
+            Oltre Quarant'anni di Gusto
           </h2>
           <p className="text-xl text-gold-light/70 font-accent italic max-w-2xl mx-auto">
-            Oltre cent'anni di dedizione, maestria e passione nell'arte della carne e della brace viva.
+            Oltre quarant'anni di dedizione, maestria e passione nell'arte della carne e della brace viva.
           </p>
         </AnimatedSection>
 
