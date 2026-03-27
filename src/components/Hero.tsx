@@ -69,7 +69,7 @@ const Hero = () => {
             opacity: [0.3, 0.5, 0.3]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-red/20 blur-[150px]"
+          className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-ember/20 blur-[150px]"
         />
         <motion.div 
           animate={{ 
@@ -122,7 +122,7 @@ const Hero = () => {
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
-            className="h-[2px] bg-gradient-to-r from-transparent via-red to-transparent max-w-[400px] mb-4"
+            className="h-[2px] bg-gradient-to-r from-transparent via-ember to-transparent max-w-[400px] mb-4"
           />
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -151,7 +151,7 @@ const Hero = () => {
         >
           <Button 
             asChild 
-            className="group relative h-16 px-12 bg-red hover:bg-red-dark text-cream rounded-full transition-all duration-500 overflow-hidden"
+            className="group relative h-16 px-12 bg-ember hover:bg-ember-dark text-cream rounded-full transition-all duration-500 overflow-hidden"
           >
             <a href="#prenota" className="flex items-center gap-3 relative z-10">
               <span className="text-xs font-bold uppercase tracking-[0.2em]">Prenota un Tavolo</span>
