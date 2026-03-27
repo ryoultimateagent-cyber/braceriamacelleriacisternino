@@ -1,10 +1,9 @@
-import { Phone, ArrowRight, Flame } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { 
   motion, 
   useScroll, 
   useTransform, 
   useReducedMotion,
-  AnimatePresence
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect, useState } from "react";
