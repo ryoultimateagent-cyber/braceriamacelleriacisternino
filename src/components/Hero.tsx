@@ -127,7 +127,7 @@ const Hero = () => {
             </a>
           </Button>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Decorative frame elements */}
       <div className="absolute inset-10 border border-gold/10 pointer-events-none z-10" />
