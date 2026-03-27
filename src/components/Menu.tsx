@@ -128,7 +128,7 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
+      className="py-24 lg:py-40 bg-gradient-premium relative overflow-hidden"
       aria-label="Il nostro menù"
     >
       <div className="container mx-auto px-6">

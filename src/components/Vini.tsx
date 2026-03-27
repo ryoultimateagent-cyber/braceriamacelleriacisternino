@@ -15,7 +15,7 @@ const Vini = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [-10, 10]);
 
   return (
-    <section id="vini" ref={ref} className="py-32 lg:py-48 bg-[#0A0A0A] relative overflow-hidden">
+    <section id="vini" ref={ref} className="py-32 lg:py-48 bg-gradient-wine relative overflow-hidden">
       {/* Background Rings */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] border border-gold/5 rounded-full scale-150 animate-pulse-glow" />
 
