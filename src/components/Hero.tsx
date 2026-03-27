@@ -31,7 +31,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=2000')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1607116176195-240299402c3b?auto=format&fit=crop&q=80&w=2000')`,
             filter: 'brightness(0.3) contrast(1.1)'
           }}
         />
