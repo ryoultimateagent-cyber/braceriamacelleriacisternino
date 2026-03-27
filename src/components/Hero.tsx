@@ -214,7 +214,6 @@ const Hero = () => {
       {/* Subtle Noise Texture Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50" />
     </section>
-    </section>
   );
 };
 
