@@ -1,150 +1,140 @@
-import { Phone, FileText, ShoppingBag, Award } from "lucide-react";
-import { motion } from "framer-motion";
+import { Phone, Zap, ShoppingBag, Flame } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import SectionHeader from "./SectionHeader";
 import { Button } from "@/components/ui/button";
 
 const panini = [
   { 
     name: "Belvedere Classic", 
-    desc: "Carne scelta scottata alla brace, rucola selvatica, scaglie di Grana Padano DOP e pomodoro cuore di bue. Semplicità senza tempo.", 
+    desc: "Carne scelta alla brace, rucola selvatica, scaglie di Grana e pomodoro cuore di bue.", 
     price: "€5",
-    tag: "Il Bestseller"
+    tag: "Il Bestseller",
+    emoji: "🍔"
   },
   { 
     name: "Black Burger", 
-    desc: "Hamburger di scottona premium (200g), bacon affumicato, cheddar fuso, cipolla rossa caramellata e salsa segreta.", 
+    desc: "Hamburger di scottona (200g), bacon affumicato, cheddar fuso e cipolla caramellata.", 
     price: "€7",
-    tag: "Gourmet"
+    tag: "Gourmet",
+    emoji: "🔥"
   },
   { 
     name: "Zampina Fire", 
-    desc: "Zampina molese DOC alla brace, salsa piccante artigianale, misticanza croccante e pomodorini secchi.", 
+    desc: "Zampina molese DOC alla brace, salsa piccante artigianale e misticanza.", 
     price: "€5",
-    tag: "Locale"
-  },
-  { 
-    name: "Smoky Cheddar", 
-    desc: "Manzo affumicato lentamente, doppio cheddar irlandese fuso, cipolla fritta croccante e salsa BBQ homemade.", 
-    price: "€6",
-    tag: "Affumicato"
-  },
-  { 
-    name: "Chicken Grill", 
-    desc: "Petto di pollo ruspante grigliato, maionese al lime, lattuga romana, bacon e avocado fresco.", 
-    price: "€5",
-    tag: "Leggero"
-  },
-  { 
-    name: "The King", 
-    desc: "Tutto quello che desideri: carne, wurstel artigianale, bacon, uovo all'occhio di bue, cheddar e salse miste.", 
-    price: "€8",
-    tag: "Extralarge"
+    tag: "Locale",
+    emoji: "🌭"
   },
 ];
 
+const TakeawayCard = ({ p, i }: { p: typeof panini[0], i: number }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const mouseX = useSpring(x, { stiffness: 100, damping: 30 });
+  const mouseY = useSpring(y, { stiffness: 100, damping: 30 });
+
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseXPos = event.clientX - rect.left;
+    const mouseYPos = event.clientY - rect.top;
+    const xPct = (mouseXPos / width - 0.5) * 20;
+    const yPct = (mouseYPos / height - 0.5) * 20;
+    x.set(xPct);
+    y.set(yPct);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <AnimatedSection delay={i * 0.1}>
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX: useTransform(mouseY, (v) => -v),
+          rotateY: useTransform(mouseX, (v) => v),
+          transformStyle: "preserve-3d",
+        }}
+        className="group relative bg-[#111111] border border-gold/10 p-10 lg:p-12 text-center hover:border-gold/40 transition-all duration-300 rounded-[2rem] h-full flex flex-col shadow-2xl overflow-hidden perspective-1000"
+      >
+        <div 
+          style={{ transform: "translateZ(50px)" }}
+          className="absolute top-6 right-6"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold bg-gold/5 px-3 py-1 rounded-full border border-gold/20">
+            {p.tag}
+          </span>
+        </div>
+
+        <div 
+          style={{ transform: "translateZ(80px)" }}
+          className="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500 filter drop-shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
+        >
+          {p.emoji}
+        </div>
+
+        <h3 
+          style={{ transform: "translateZ(60px)" }}
+          className="text-2xl lg:text-3xl font-display font-black text-cream uppercase mb-4 group-hover:text-gold transition-colors"
+        >
+          {p.name}
+        </h3>
+        
+        <p 
+          style={{ transform: "translateZ(40px)" }}
+          className="text-gold-light/60 text-sm lg:text-base mb-8 leading-relaxed font-body"
+        >
+          {p.desc}
+        </p>
+        
+        <div 
+          style={{ transform: "translateZ(70px)" }}
+          className="mt-auto flex items-center justify-between"
+        >
+          <span className="text-3xl font-display font-black text-gold">{p.price}</span>
+          <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:bg-gold/10 group-hover:border-gold/30 transition-all">
+            <ShoppingBag className="w-5 h-5 text-gold-light" />
+          </div>
+        </div>
+      </motion.div>
+    </AnimatedSection>
+  );
+};
+
 const Takeaway = () => {
   return (
-    <section 
-      id="takeaway" 
-      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
-      aria-label="I nostri panini da asporto"
-    >
-      {/* Decorative background element */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-fire/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
-      
+    <section id="takeaway" className="py-32 lg:py-48 bg-noir relative overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <SectionHeader 
-          subtitle="Qualità Gourmet da Asporto"
-          title="I Nostri Panini"
-          className="mb-20 lg:mb-32"
-        />
+        <div className="text-center mb-24 lg:mb-32">
+          <AnimatedSection>
+            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Street Food Gourmet</span>
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase">
+              I NOSTRI <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">PANINI D'AUTORE</span>
+            </h2>
+          </AnimatedSection>
+        </div>
 
-        {/* Panini Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {panini.map((p, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -15 }}
-                className="group relative bg-charcoal/40 backdrop-blur-md border border-white/5 p-10 lg:p-12 text-center hover:border-fire/20 transition-all duration-500 rounded-2xl h-full flex flex-col shadow-2xl overflow-hidden"
-              >
-                {/* Tag Badge */}
-                <div className="absolute top-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">
-                    {p.tag}
-                  </span>
-                </div>
-
-                <div className="text-5xl lg:text-6xl mb-8 group-hover:scale-110 transition-transform" role="img" aria-label="Emoji hamburger">
-                  🍔
-                </div>
-
-                <h3 className="text-2xl lg:text-3xl font-display font-bold text-cream mb-4 group-hover:text-gold transition-colors">
-                  {p.name}
-                </h3>
-                
-                <p className="text-gold-light/70 leading-relaxed mb-10 text-sm lg:text-lg tracking-wide flex-1 font-accent italic">
-                  "{p.desc}"
-                </p>
-                
-                <div className="pt-8 border-t border-white/5">
-                  <div className="text-3xl lg:text-4xl font-display font-bold text-fire mb-2">
-                    {p.price}
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 group-hover:text-fire/60 transition-colors">
-                    Sapore Unico
-                  </span>
-                </div>
-              </motion.div>
-            </AnimatedSection>
+            <TakeawayCard key={i} p={p} i={i} />
           ))}
         </div>
 
-        {/* Global Action Section */}
-        <AnimatedSection delay={0.6} className="mt-24 lg:mt-32 text-center p-12 lg:p-20 bg-charcoal/20 backdrop-blur-md border border-white/5 rounded-[2.5rem] max-w-5xl mx-auto shadow-2xl relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-r from-fire/5 to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-          
-          <div className="relative z-10">
-            <h3 className="text-3xl lg:text-5xl font-display font-bold text-cream mb-6">
-              Voglia di Brace?
-            </h3>
-            <p className="text-lg lg:text-xl text-gold-light/70 max-w-2xl mx-auto mb-12 italic font-accent">
-              Chiamaci e prenota il tuo ordine. La qualità della nostra braceria direttamente a casa tua.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button 
-                asChild 
-                variant="gold" 
-                size="lg" 
-                className="h-14 px-12 text-sm uppercase tracking-widest font-bold shadow-2xl"
-              >
-                <a href="tel:+393403824158" className="flex items-center gap-4">
-                  <Phone className="w-5 h-5" />
-                  Ordina Ora
-                </a>
-              </Button>
-              
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg" 
-                className="h-14 px-12 text-sm uppercase tracking-widest font-bold border-white/10 hover:border-gold/40"
-              >
-                <a
-                  href="https://drive.google.com/file/d/1eW1XDU5rVSLqf0kG8kNp3VyXA8pZoANN/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4"
-                >
-                  <FileText className="w-5 h-5" />
-                  Consulta Menù Asporto
-                </a>
-              </Button>
-            </div>
-          </div>
+        <AnimatedSection delay={0.4} className="mt-24 text-center">
+          <Button 
+            asChild 
+            className="h-16 px-12 bg-noir border border-gold/30 hover:border-gold text-gold uppercase tracking-[0.3em] font-black rounded-none transition-all duration-500"
+          >
+            <a href="tel:+393403824158" className="flex items-center gap-4">
+              <Phone className="w-5 h-5" />
+              Chiama per l'asporto
+            </a>
+          </Button>
         </AnimatedSection>
       </div>
     </section>
