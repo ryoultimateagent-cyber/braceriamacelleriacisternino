@@ -57,7 +57,7 @@ const Hero = () => {
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-noir"
       aria-label="Introduzione Premium Belvedere"
     >
       {/* Animated Background Layer */}
@@ -69,7 +69,7 @@ const Hero = () => {
             opacity: [0.3, 0.5, 0.3]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-[#780000] blur-[150px]"
+          className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-red/20 blur-[150px]"
         />
         <motion.div 
           animate={{ 
@@ -122,7 +122,7 @@ const Hero = () => {
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
-            className="h-[2px] bg-gradient-to-r from-transparent via-[#E63946] to-transparent max-w-[400px] mb-4"
+            className="h-[2px] bg-gradient-to-r from-transparent via-red to-transparent max-w-[400px] mb-4"
           />
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
