@@ -5,23 +5,23 @@ import AnimatedSection from "./AnimatedSection";
 const features = [
   { 
     icon: <Flame className="w-8 h-8 text-ember" />, 
-    title: "Live Treemap", 
-    desc: "Visualize your project structure in real-time with an interactive treemap." 
+    title: "Brace Autentica", 
+    desc: "Cottura tradizionale su legna selezionata per un sapore inconfondibile." 
   },
   { 
     icon: <ShieldCheck className="w-8 h-8 text-gold" />, 
-    title: "Rule Checking", 
-    desc: "CI-friendly rule checking to maintain project standards and quality." 
+    title: "Qualità Certificata", 
+    desc: "Solo carni di filiera controllata e frollature artigianali." 
   },
   { 
     icon: <Award className="w-8 h-8 text-gold-light" />, 
-    title: "Gate Baseline", 
-    desc: "Save and compare baselines to prevent degradation during development." 
+    title: "Eredità Familiare", 
+    desc: "Passione e segreti del mestiere tramandati dal 1980." 
   },
   { 
     icon: <ChefHat className="w-8 h-8 text-cream" />, 
-    title: "Agent Ready", 
-    desc: "Designed to work seamlessly with AI agents and automated workflows." 
+    title: "Maestria al Taglio", 
+    desc: "Macellai esperti che conoscono ogni segreto della materia prima." 
   },
 ];
 
