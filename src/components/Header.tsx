@@ -49,19 +49,13 @@ const Header = () => {
         {/* Logo */}
         <a 
           href="#" 
-          className="group flex items-center gap-4 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
+          className="group flex items-center gap-6 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
           aria-label="Home - Macelleria Braceria Belvedere"
         >
-          <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gold/10 flex items-center justify-center rounded-xl shadow-lg group-hover:scale-105 transition-transform border border-gold/20">
-            <ChefHat className="text-gold w-6 h-6 lg:w-8 lg:h-8" />
-          </div>
-          <div className="hidden sm:block">
-            <div className="text-lg lg:text-xl font-display font-bold text-gold tracking-wider uppercase leading-none">
-              Macelleria Braceria
-            </div>
-            <div className="text-[10px] lg:text-xs font-display font-medium text-gold-light tracking-[0.3em] uppercase opacity-80">
-              Belvedere
-            </div>
+          <div className="flex flex-col items-center">
+             <span className="text-2xl lg:text-3xl font-display font-black text-gold tracking-tighter leading-none mb-1">BELVEDERE</span>
+             <div className="h-px w-full bg-gold/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+             <span className="text-[10px] font-display font-bold text-gold/60 tracking-[0.5em] uppercase leading-none mt-1">EST. 1980</span>
           </div>
         </a>
 
@@ -83,9 +77,8 @@ const Header = () => {
           
           <Button 
             asChild 
-            variant="gold" 
-            size="lg" 
-            className="h-14 px-8 uppercase tracking-widest text-[10px]"
+            size="lg"
+            className="h-12 px-8 bg-gold hover:bg-gold-dark text-noir rounded-none font-black uppercase tracking-widest text-[10px] transition-all duration-500"
           >
             <a href="tel:+393403824158" className="flex items-center gap-3">
               <Phone className="w-4 h-4" />
