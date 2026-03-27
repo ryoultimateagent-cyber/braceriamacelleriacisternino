@@ -6,24 +6,24 @@ const timelineData = [
   {
     year: "1920",
     title: "Le Origini",
-    text: "Nasce a Mola di Bari la piccola macelleria di famiglia. L'arte della selezione della carne diventa il nostro DNA, tramandato di generazione in generazione con dedizione assoluta.",
+    text: "Tutto ebbe inizio a Mola di Bari, in una piccola macelleria di quartiere. L'arte della selezione e della preparazione della carne diventa un pilastro fondamentale della nostra famiglia, tramandato con dedizione assoluta.",
   },
   {
     year: "1980",
-    title: "La Rivoluzione",
-    text: "Dalla macelleria alla braceria. Il fuoco vivo diventa il nostro maestro, la brace il nostro strumento per creare capolavori di sapore unici e indimenticabili.",
+    title: "L'Evoluzione",
+    text: "La passione per la carne incontra il fuoco. Introduciamo la brace viva come metodo di cottura principe, trasformando la nostra visione e dando vita a un'esperienza gastronomica unica nel suo genere.",
   },
   {
     year: "Oggi",
-    title: "L'Eccellenza Continua",
-    text: "La stessa passione brucia più forte che mai. Carne premium selezionata, taglio perfetto, brace autentica. La tradizione vive nell'innovazione.",
+    title: "Il Futuro della Tradizione",
+    text: "Oggi, la quarta generazione continua a onorare l'eredità ricevuta. Carne di qualità eccelsa, tagli precisi e il calore della brace: la nostra storia vive in ogni piatto che serviamo.",
   },
 ];
 
 const stats = [
   { number: "100+", label: "Anni di Storia" },
   { number: "4", label: "Generazioni" },
-  { number: "10.000+", label: "Clienti Soddisfatti" },
+  { number: "50k+", label: "Clienti Serviti" },
   { number: "∞", label: "Passione" },
 ];
 
@@ -34,74 +34,79 @@ const Storia = () => {
     offset: ["start end", "end start"]
   });
   
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section id="storia" ref={ref} className="py-16 sm:py-24 bg-noir relative overflow-hidden">
+    <section id="storia" ref={ref} className="py-24 lg:py-40 bg-noir relative overflow-hidden">
+      {/* Dynamic Background Effect */}
       <motion.div 
         style={{ y: bgY }}
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,21,56,0.1)_0%,transparent_60%)]" 
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,21,56,0.12)_0%,transparent_60%)] pointer-events-none" 
       />
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Header */}
-        <AnimatedSection className="text-center mb-12 sm:mb-20">
-          <span className="font-accent text-fire italic tracking-[4px] uppercase text-xs sm:text-sm">
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <AnimatedSection className="text-center mb-20 lg:mb-32">
+          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
             La Nostra Eredità
           </span>
-          <h2 className="font-elegant text-3xl sm:text-5xl lg:text-6xl font-bold text-cream mt-4 relative inline-block section-divider">
-            Dal 1920
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
+            Un Secolo di Gusto
           </h2>
-          <p className="font-accent text-base sm:text-lg text-gold-light italic mt-8 sm:mt-10 max-w-2xl mx-auto px-4">
-            Oltre un secolo di dedizione, passione e maestria nella selezione della carne e nell'arte della brace
+          <p className="text-xl text-gold-light/70 font-accent italic max-w-2xl mx-auto">
+            Oltre cent'anni di dedizione, maestria e passione nell'arte della carne e della brace viva.
           </p>
         </AnimatedSection>
 
-        {/* Timeline */}
-        <div className="max-w-4xl mx-auto relative">
-          {/* Line */}
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-fire to-gold hidden sm:block" style={{ transform: "translateX(-50%)" }} />
+        {/* Timeline Visualization */}
+        <div className="max-w-5xl mx-auto relative px-4 lg:px-0">
+          {/* Vertical Progress Line */}
+          <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-fire to-transparent lg:-translate-x-1/2" aria-hidden="true" />
 
           {timelineData.map((item, i) => (
-            <AnimatedSection 
+            <div 
               key={i} 
-              delay={i * 0.2}
-              className={`flex flex-col sm:flex-row mb-12 sm:mb-16 relative ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
+              className={`flex flex-col lg:flex-row mb-20 lg:mb-32 relative ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
             >
-              <motion.div 
-                whileHover={{ y: -5, boxShadow: "0 10px 40px rgba(139,21,56,0.3)" }}
-                className="sm:w-[45%] p-6 sm:p-8 bg-charcoal/50 backdrop-blur-sm border border-gold/20 hover:border-fire transition-all duration-400 ml-8 sm:ml-0"
+              {/* Content Card */}
+              <AnimatedSection 
+                delay={i * 0.2}
+                className="lg:w-[45%] z-10"
               >
-                <div className="font-elegant text-4xl sm:text-5xl font-bold text-fire opacity-60 leading-none mb-4">
-                  {item.year}
-                </div>
-                <h3 className="font-elegant text-xl sm:text-2xl font-semibold text-cream mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-gold-light leading-relaxed text-sm sm:text-base">{item.text}</p>
-              </motion.div>
+                <motion.div 
+                  whileHover={{ y: -10 }}
+                  className="p-8 lg:p-12 bg-charcoal/40 backdrop-blur-md border border-white/5 hover:border-fire/30 transition-all duration-500 rounded-2xl shadow-xl group ml-10 lg:ml-0"
+                >
+                  <div className="text-5xl lg:text-7xl font-display font-bold text-fire/20 group-hover:text-fire/40 transition-colors mb-6">
+                    {item.year}
+                  </div>
+                  <h3 className="text-2xl lg:text-3xl font-display font-bold text-cream mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-gold-light/60 leading-relaxed text-sm lg:text-lg tracking-wide">
+                    {item.text}
+                  </p>
+                </motion.div>
+              </AnimatedSection>
 
-              {/* Dot */}
-              <div className="hidden sm:block absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-fire border-[3px] border-noir shadow-[0_0_0_3px] shadow-fire rounded-full top-8" />
-              
-              {/* Mobile dot */}
-              <div className="sm:hidden absolute left-4 w-3 h-3 bg-fire rounded-full top-8" />
-            </AnimatedSection>
+              {/* Decorative Connector Dot */}
+              <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 top-12 w-3 h-3 bg-fire rounded-full shadow-[0_0_15px_rgba(139,21,56,0.8)] z-20 border-4 border-noir" />
+            </div>
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16 sm:mt-20">
+        {/* Dynamic Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 mt-20 lg:mt-32">
           {stats.map((stat, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <motion.div
-                whileHover={{ y: -10, boxShadow: "0 10px 30px rgba(139,21,56,0.3)" }}
-                className="text-center p-6 sm:p-8 bg-charcoal/30 border border-gold/20 hover:border-fire transition-all duration-400 hover:bg-charcoal/50 group"
+                whileHover={{ y: -10 }}
+                className="text-center p-8 bg-charcoal/20 border border-white/5 rounded-2xl hover:bg-white/5 transition-all group"
               >
-                <div className="font-elegant text-3xl sm:text-5xl font-bold text-gold group-hover:text-fire transition-colors leading-none mb-3 sm:mb-4">
+                <div className="text-4xl lg:text-6xl font-display font-bold text-gold mb-3 group-hover:text-fire transition-colors">
                   {stat.number}
                 </div>
-                <div className="text-xs sm:text-sm uppercase tracking-wider text-gold-light">
+                <div className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em] text-gold-light/40 group-hover:text-gold-light/80 transition-colors">
                   {stat.label}
                 </div>
               </motion.div>
