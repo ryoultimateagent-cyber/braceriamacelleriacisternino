@@ -16,15 +16,15 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-4 mb-10">
               <div className="w-14 h-14 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center">
-                <ChefHat className="text-gold w-8 h-8" />
+                <span className="text-gold font-display font-black text-2xl">S</span>
               </div>
               <div>
-                <h3 className="text-2xl font-display font-black text-gold uppercase leading-none">Belvedere</h3>
-                <span className="text-[10px] text-gold-light/40 uppercase tracking-[0.4em]">Dal 1980</span>
+                <h3 className="text-2xl font-display font-black text-gold uppercase leading-none">SENTRUX</h3>
+                <span className="text-[10px] text-gold-light/40 uppercase tracking-[0.4em]">Live Treemap</span>
               </div>
             </div>
             <p className="text-gold-light/60 text-base leading-relaxed mb-10 font-accent italic">
-              "L'arte della carne e della brace viva nel cuore di Mola di Bari. Una tradizione di famiglia dedicata all'eccellenza e al gusto autentico."
+              "Visualize your project structure in real-time. Built for clarity, speed, and precision."
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold-light hover:bg-gold hover:text-noir transition-all duration-500 shadow-xl group">
@@ -37,11 +37,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Esplora</h4>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Platform</h4>
             <ul className="space-y-6">
-              {["Storia", "Brace", "Menù", "Vini", "Prenota"].map((link) => (
+              {["Features", "Pricing", "Documentation", "API"].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase().replace("ù", "u")}`} className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm uppercase tracking-widest font-bold block hover:translate-x-2">
+                  <a href={`#${link.toLowerCase()}`} className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm uppercase tracking-widest font-bold block hover:translate-x-2">
                     {link}
                   </a>
                 </li>
@@ -50,39 +50,28 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Contatti</h4>
-            <ul className="space-y-8">
-              <li className="flex items-center gap-4 group">
-                <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-gold/30 transition-colors">
-                  <Phone className="w-5 h-5 text-gold/60" />
-                </div>
-                <a href="tel:+393403824158" className="text-gold-light/60 hover:text-gold transition-colors text-sm font-bold tracking-widest">+39 340 382 4158</a>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-gold/30 transition-colors">
-                  <Mail className="w-5 h-5 text-gold/60" />
-                </div>
-                <span className="text-gold-light/60 text-sm font-bold tracking-widest">info@belvederebraceria.it</span>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:border-gold/30 transition-colors">
-                  <MapPin className="w-5 h-5 text-gold/60" />
-                </div>
-                <span className="text-gold-light/60 text-sm font-bold tracking-widest">Via Belvedere 12, Mola</span>
-              </li>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Resources</h4>
+            <ul className="space-y-6">
+              {["GitHub", "Discord", "Changelog", "Support"].map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-gold-light/60 hover:text-gold transition-all duration-300 text-sm uppercase tracking-widest font-bold block hover:translate-x-2">
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Newsletter</h4>
-            <p className="text-gold-light/60 text-sm mb-8 leading-relaxed font-body">Iscriviti per ricevere aggiornamenti sulle nostre selezioni speciali e serate a tema.</p>
+            <h4 className="text-gold font-display font-black text-sm uppercase tracking-[0.4em] mb-10">Join the Community</h4>
+            <p className="text-gold-light/60 text-sm mb-8 leading-relaxed font-body">Subscribe for the latest updates and feature releases.</p>
             <div className="flex flex-col gap-4">
               <input 
                 type="email" 
-                placeholder="Email" 
+                placeholder="Email address" 
                 className="bg-[#111111] border border-gold/10 p-5 rounded-none text-cream focus:border-gold outline-none transition-all placeholder:text-gold-light/20 text-xs tracking-widest" 
               />
-              <button className="h-14 bg-gold hover:bg-gold-satin text-noir font-black uppercase tracking-[0.4em] text-xs transition-all shadow-fire">Iscriviti</button>
+              <button className="h-14 bg-gold hover:bg-gold-satin text-noir font-black uppercase tracking-[0.4em] text-xs transition-all shadow-fire">Subscribe</button>
             </div>
           </div>
         </div>
