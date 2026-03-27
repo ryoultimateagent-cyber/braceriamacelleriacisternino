@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChefHat } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo-cisternino.jpg";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -50,19 +49,17 @@ const Header = () => {
         <a 
           href="#" 
           className="group flex items-center gap-4 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
-          aria-label="Home - Braceria Macelleria Cisternino"
+          aria-label="Home - Macelleria Braceria Belvedere"
         >
-          <img
-            src={logo}
-            alt=""
-            className="w-10 h-10 lg:w-12 lg:h-12 object-contain rounded-md shadow-lg group-hover:scale-105 transition-transform"
-          />
+          <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gold/10 flex items-center justify-center rounded-xl shadow-lg group-hover:scale-105 transition-transform border border-gold/20">
+            <ChefHat className="w-6 h-6 lg:w-7 lg:h-7 text-gold" />
+          </div>
           <div className="hidden sm:block">
             <div className="text-lg lg:text-xl font-display font-bold text-gold tracking-wider uppercase leading-none">
-              Braceria Macelleria
+              Macelleria Braceria
             </div>
             <div className="text-[10px] lg:text-xs font-display font-medium text-gold-light tracking-[0.3em] uppercase opacity-80">
-              Cisternino
+              Belvedere
             </div>
           </div>
         </a>
@@ -154,8 +151,8 @@ const Header = () => {
             </nav>
             
             <div className="mt-auto pt-12 text-center text-white/40 text-sm">
-              <p>© {new Date().getFullYear()} Braceria Macelleria Cisternino</p>
-              <p className="mt-2 uppercase tracking-tighter">Mola di Bari, Italia</p>
+              <p>© {new Date().getFullYear()} Macelleria Braceria Belvedere</p>
+              <p className="mt-2 uppercase tracking-tighter">Eccellenza e Qualità</p>
             </div>
           </motion.div>
         )}
