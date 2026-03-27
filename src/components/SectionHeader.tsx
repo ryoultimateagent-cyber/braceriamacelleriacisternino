@@ -27,7 +27,7 @@ const SectionHeader = ({
       {subtitle && (
         <AnimatedSection 
           animation="fade-up" 
-          className="mb-3 block text-gold-light/80 tracking-[0.2em] text-xs md:text-sm font-medium uppercase"
+          className="mb-4 block text-gold text-[10px] md:text-xs font-black uppercase tracking-[0.6em]"
         >
           {subtitle}
         </AnimatedSection>
@@ -35,12 +35,8 @@ const SectionHeader = ({
       <AnimatedSection 
         animation="fade-up" 
         delay={0.1}
-        className={cn(
-          "relative inline-block",
-          align === "center" && "section-divider"
-        )}
       >
-        <h2 className={cn("font-display mb-0", titleClassName)}>{title}</h2>
+        <h2 className={cn("text-5xl md:text-7xl lg:text-8xl font-display font-black text-cream uppercase leading-[0.9] tracking-tighter", titleClassName)}>{title}</h2>
       </AnimatedSection>
     </div>
   );

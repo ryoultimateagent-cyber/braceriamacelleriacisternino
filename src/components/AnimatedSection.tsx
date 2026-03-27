@@ -5,7 +5,7 @@ interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  animation?: "fade-up" | "fade-in" | "scale-up" | "none";
+  animation?: "fade-up" | "fade-in" | "scale-up" | "fade-right" | "fade-left" | "none";
 }
 
 const AnimatedSection = ({ 
@@ -19,22 +19,24 @@ const AnimatedSection = ({
   const shouldReduceMotion = useReducedMotion();
 
   const getInitial = () => {
-    if (shouldReduceMotion || animation === "none") return { opacity: 1, y: 0, scale: 1 };
+    if (shouldReduceMotion || animation === "none") return { opacity: 1, y: 0, x: 0, scale: 1 };
     
     switch (animation) {
       case "fade-up": return { opacity: 0, y: 60 };
       case "fade-in": return { opacity: 0 };
       case "scale-up": return { opacity: 0, scale: 0.95 };
+      case "fade-right": return { opacity: 0, x: -60 };
+      case "fade-left": return { opacity: 0, x: 60 };
       default: return { opacity: 0, y: 60 };
     }
   };
 
   const getAnimate = () => {
-    if (shouldReduceMotion || animation === "none") return { opacity: 1, y: 0, scale: 1 };
+    if (shouldReduceMotion || animation === "none") return { opacity: 1, y: 0, x: 0, scale: 1 };
     
     if (!isInView) return getInitial();
     
-    return { opacity: 1, y: 0, scale: 1 };
+    return { opacity: 1, y: 0, x: 0, scale: 1 };
   };
 
   return (

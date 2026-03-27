@@ -31,51 +31,46 @@ const Storia = () => {
   });
 
   return (
-    <section id="storia" ref={containerRef} className="py-32 lg:py-48 bg-gradient-ember relative overflow-hidden">
+    <section id="storia" ref={containerRef} className="py-32 lg:py-56 bg-noir relative overflow-hidden">
       {/* Cinematic Background Text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none">
-        <h2 className="text-[20vw] font-display font-black uppercase whitespace-nowrap">ESTABLISHED 1980</h2>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.01] select-none">
+        <h2 className="text-[30vw] font-display font-black uppercase whitespace-nowrap">HISTORY</h2>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-24 lg:mb-40">
+        <div className="max-w-4xl mx-auto text-center mb-40">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Il Nostro Cammino</span>
-            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase mb-8">
-              UNA STORIA DI <br /> <span className="text-ember italic">FUOCO E PASSIONE</span>
+            <h2 className="text-5xl md:text-8xl font-display font-black text-cream uppercase leading-none">
+              UNA STORIA <br /> <span className="text-gold italic font-light">DI FUOCO</span>
             </h2>
           </AnimatedSection>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
-          {/* Central Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden lg:block" />
-
+        <div className="space-y-40">
           {timelineData.map((item, i) => (
-            <div key={i} className={`flex flex-col lg:flex-row items-center mb-24 lg:mb-40 ${item.align === "left" ? "lg:flex-row-reverse" : ""}`}>
-              {/* Content */}
-              <div className="w-full lg:w-1/2 px-6 lg:px-20 text-center lg:text-left">
-                <AnimatedSection animation={item.align === "right" ? "fade-up" : "fade-up"}>
-                   <div className={`flex flex-col ${item.align === "left" ? "lg:items-end lg:text-right" : "lg:items-start"}`}>
-                    <span className="text-5xl lg:text-8xl font-display font-black text-white/5 mb-4 block leading-none">{item.year}</span>
-                    <h3 className="text-2xl lg:text-4xl font-display font-bold text-gold mb-6 uppercase">{item.title}</h3>
-                    <p className="text-gold-light/60 text-lg leading-relaxed max-w-md">{item.text}</p>
-                   </div>
+            <div key={i} className={`flex flex-col lg:flex-row gap-16 items-center ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
+              <div className="lg:w-1/2">
+                <AnimatedSection animation={i % 2 === 0 ? "fade-right" : "fade-left"}>
+                  <div className="relative aspect-video overflow-hidden border border-gold/10 p-2">
+                    <img 
+                      src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+                    />
+                  </div>
                 </AnimatedSection>
               </div>
-
-              {/* Central Point */}
-              <div className="relative z-10 my-8 lg:my-0">
-                <motion.div 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  className="w-4 h-4 rounded-full bg-gold shadow-[0_0_20px_rgba(212,175,55,0.8)] border-4 border-noir" 
-                />
+              
+              <div className={`lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
+                <AnimatedSection animation="fade-up" delay={0.2}>
+                  <span className="text-7xl lg:text-9xl font-display font-black text-gold/10 mb-4 block leading-none">{item.year}</span>
+                  <h3 className="text-3xl lg:text-5xl font-display font-bold text-cream mb-8 uppercase tracking-tighter">{item.title}</h3>
+                  <p className="text-cream/50 text-lg leading-relaxed max-w-xl italic font-accent">
+                    "{item.text}"
+                  </p>
+                </AnimatedSection>
               </div>
-
-              {/* Spacer for opposite side */}
-              <div className="hidden lg:block lg:w-1/2" />
             </div>
           ))}
         </div>

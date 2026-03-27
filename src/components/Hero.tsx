@@ -90,87 +90,114 @@ const Hero = () => {
       </div>
 
       {/* Content Wrapper */}
-      <motion.div 
-        style={{ opacity, y }}
-        className="relative z-10 text-center px-6 w-full max-w-6xl mx-auto"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8"
-        >
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-cream/30" />
-            <span className="text-cream text-[12px] uppercase tracking-[0.6em] font-medium">
-              EST. 1980
-            </span>
-            <div className="h-[1px] w-12 bg-cream/30" />
-          </div>
-        </motion.div>
-
-        <div className="relative mb-12 flex flex-col items-center">
-          <motion.h1 
-            initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="text-cream text-7xl md:text-[10rem] lg:text-[13rem] font-display font-black leading-[0.8] tracking-tighter uppercase mb-2 select-none"
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          {/* Left Side: Text Content */}
+          <motion.div 
+            style={{ opacity, y }}
+            className="text-left"
           >
-            BRACE
-          </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-8"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-gold text-[12px] uppercase tracking-[0.6em] font-medium">
+                  EST. 1980 — MILANO
+                </span>
+                <div className="h-[1px] w-24 bg-gold/30" />
+              </div>
+            </motion.div>
+
+            <div className="relative mb-10">
+              <motion.h1 
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                className="text-cream text-6xl md:text-8xl lg:text-9xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
+              >
+                IL RITO <br /> 
+                <span className="text-gold">DELLA</span> <br /> 
+                BRACE
+              </motion.h1>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, delay: 1.2 }}
+              className="text-cream/80 text-lg md:text-xl font-light max-w-lg leading-relaxed mb-12 tracking-wide font-accent italic"
+            >
+              "Non è solo carne. È un dialogo tra l'uomo e l'elemento primordiale, una danza di calore che trasforma la materia in poesia."
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.5 }}
+              className="flex flex-wrap gap-6"
+            >
+              <Button 
+                asChild 
+                size="lg"
+                className="group relative h-16 px-10 bg-gold hover:bg-gold-dark text-noir rounded-none transition-all duration-500"
+              >
+                <a href="#prenota" className="flex items-center gap-3 relative z-10">
+                  <span className="text-sm font-bold uppercase tracking-[0.2em]">Prenota il Rito</span>
+                  <Phone className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
+                </a>
+              </Button>
+              
+              <Button 
+                asChild 
+                variant="ghost"
+                size="lg"
+                className="group h-16 px-10 text-cream hover:text-gold hover:bg-white/5 rounded-none border border-cream/20 hover:border-gold transition-all duration-500"
+              >
+                <a href="#menu" className="flex items-center gap-3">
+                  <span className="text-sm font-bold uppercase tracking-[0.2em]">Esplora la Carta</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
+
           <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
-            className="h-[2px] bg-gradient-to-r from-transparent via-ember to-transparent max-w-[400px] mb-4"
-          />
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-            className="text-copper text-2xl md:text-5xl font-display uppercase tracking-[0.4em] font-light"
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+            className="relative hidden lg:block"
           >
-            & PASSIONE
-          </motion.h2>
+            <div className="relative aspect-[4/5] w-full max-w-[500px] ml-auto overflow-hidden border border-gold/20 p-4">
+              <div className="absolute inset-0 bg-gold/5 z-0" />
+              <div className="relative h-full w-full overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Premium Steak on Grill" 
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent" />
+                
+                {/* Decorative Frame */}
+                <div className="absolute top-8 left-8 bottom-8 right-8 border border-white/10 pointer-events-none" />
+              </div>
+              
+              {/* Floating Badge */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 bg-gold text-noir p-6 font-display font-bold text-xl flex flex-col items-center leading-none"
+              >
+                <span className="text-sm tracking-widest uppercase mb-1">DRY</span>
+                <span className="text-3xl">45</span>
+                <span className="text-xs uppercase">DAYS</span>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1.2 }}
-          className="text-cream/70 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-16 tracking-wide italic"
-        >
-          L'esperienza sensoriale definitiva del fuoco. Materie prime d'eccellenza, maestria ancestrale, atmosfera senza tempo.
-        </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="flex flex-col sm:flex-row gap-8 justify-center items-center"
-        >
-          <Button 
-            asChild 
-            className="group relative h-16 px-12 bg-ember hover:bg-ember-dark text-cream rounded-full transition-all duration-500 overflow-hidden"
-          >
-            <a href="#prenota" className="flex items-center gap-3 relative z-10">
-              <span className="text-xs font-bold uppercase tracking-[0.2em]">Prenota un Tavolo</span>
-              <Phone className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-            </a>
-          </Button>
-          
-          <Button 
-            asChild 
-            variant="ghost"
-            className="group h-16 px-12 text-cream hover:text-cream hover:bg-white/5 rounded-full border border-cream/20 transition-all duration-500"
-          >
-            <a href="#menu" className="flex items-center gap-3">
-              <span className="text-xs font-bold uppercase tracking-[0.2em]">Esplora il Menù</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </Button>
-        </motion.div>
-      </motion.div>
+      </div>
 
       {/* Decorative side text */}
       <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 -rotate-90">
