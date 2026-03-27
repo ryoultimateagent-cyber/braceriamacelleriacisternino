@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeader from "./SectionHeader";
 
 const timelineData = [
   {
@@ -37,7 +38,12 @@ const Storia = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section id="storia" ref={ref} className="py-24 lg:py-40 bg-noir relative overflow-hidden">
+    <section 
+      id="storia" 
+      ref={ref} 
+      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
+      aria-label="La nostra storia"
+    >
       {/* Dynamic Background Effect */}
       <motion.div 
         style={{ y: bgY }}
@@ -46,14 +52,14 @@ const Storia = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <AnimatedSection className="text-center mb-20 lg:mb-32">
-          <span className="text-fire text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">
-            La Nostra Eredità
-          </span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-cream mb-8 leading-tight">
-            Oltre Quarant'anni di Gusto
-          </h2>
-          <p className="text-xl text-gold-light/70 font-accent italic max-w-2xl mx-auto">
+        <SectionHeader 
+          subtitle="La Nostra Eredità"
+          title="Oltre Quarant'anni di Gusto"
+          className="mb-20 lg:mb-32"
+        />
+
+        <AnimatedSection className="text-center -mt-12 mb-20 lg:mb-32">
+          <p className="text-xl text-gold-light/80 font-accent italic max-w-2xl mx-auto">
             Oltre quarant'anni di dedizione, maestria e passione nell'arte della carne e della brace viva.
           </p>
         </AnimatedSection>
@@ -83,7 +89,7 @@ const Storia = () => {
                   <h3 className="text-2xl lg:text-3xl font-display font-bold text-cream mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-gold-light/60 leading-relaxed text-sm lg:text-lg tracking-wide">
+                  <p className="text-gold-light/70 leading-relaxed text-sm lg:text-lg tracking-wide">
                     {item.text}
                   </p>
                 </motion.div>
@@ -106,7 +112,7 @@ const Storia = () => {
                 <div className="text-4xl lg:text-6xl font-display font-bold text-gold mb-3 group-hover:text-fire transition-colors">
                   {stat.number}
                 </div>
-                <div className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em] text-gold-light/40 group-hover:text-gold-light/80 transition-colors">
+                <div className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em] text-gold-light/60 group-hover:text-gold-light/80 transition-colors">
                   {stat.label}
                 </div>
               </motion.div>
