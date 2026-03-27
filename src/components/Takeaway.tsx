@@ -109,7 +109,7 @@ const TakeawayCard = ({ p, i }: { p: typeof panini[0], i: number }) => {
 const Takeaway = () => {
   return (
     <section id="takeaway" className="py-32 lg:py-48 bg-gradient-ember relative overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24 lg:mb-32">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Street Food Gourmet</span>

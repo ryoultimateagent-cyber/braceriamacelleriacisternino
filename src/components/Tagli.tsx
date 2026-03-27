@@ -25,7 +25,7 @@ const tagli = [
 const Tagli = () => {
   return (
     <section id="brace" className="py-32 lg:py-48 bg-gradient-gold-radial relative overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24 lg:mb-40">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Materia Prima d'Eccellenza</span>
