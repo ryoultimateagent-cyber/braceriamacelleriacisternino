@@ -1,14 +1,12 @@
-import { Phone, ChevronDown, Award, Sparkles, Code, Zap } from "lucide-react";
+import { Phone, Zap, Sparkles } from "lucide-react";
 import { 
   motion, 
   useScroll, 
   useTransform, 
   useReducedMotion,
-  useMotionValue,
   useSpring,
-  AnimatePresence
+  useMotionValue
 } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import { useRef, useState, useEffect } from "react";
 
@@ -16,27 +14,25 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
-  // Mouse tracking parallax
+  // Mouse tracking for interactive parallax
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
   
-  const y = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : 200]);
-  const opacity = useTransform(scrollY, [0, 400], [1, shouldReduceMotion ? 1 : 0]);
-  
-  // Mouse move handler per parallax effect
+  const y = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : 250]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-      const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-      const x = (e.clientX - left) / width - 0.5;
-      const y = (e.clientY - top) / height - 0.5;
-      mouseX.set(x * 30);
-      mouseY.set(y * 30);
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
+      const x = (clientX / innerWidth - 0.5) * 40;
+      const y = (clientY / innerHeight - 0.5) * 40;
+      mouseX.set(x);
+      mouseY.set(y);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -46,173 +42,144 @@ const Hero = () => {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[110vh] flex items-center justify-center overflow-hidden bg-noir"
-      aria-label="Introduzione e Benvenuto"
-      role="region"
+      className="relative h-[110vh] flex items-center justify-center overflow-hidden bg-noir"
+      aria-label="Introduzione Cinematografica"
     >
-      {/* 1. Dynamic Background Parallax Layer */}
+      {/* Cinematic Background Layer */}
       <motion.div
-        style={{ y }}
+        style={{ y, scale }}
         className="absolute inset-0 z-0"
       >
         <div 
           className="absolute inset-0 bg-cover bg-center scale-110"
-          style={{ backgroundImage: `url(${heroBg})` }}
-          aria-hidden="true"
+          style={{ 
+            backgroundImage: `url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=2000')`,
+            filter: 'brightness(0.4) contrast(1.2)'
+          }}
         />
-        
-        {/* Animated Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-noir/80 via-noir/40 to-noir" />
-        
-        {/* Floating Glowing Orbs (Interactive) */}
-        <motion.div 
-          style={{ x: springX, y: springY }}
-          className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-fire/20 rounded-full blur-[150px] opacity-40"
-        />
-        <motion.div 
-          style={{ x: useTransform(springX, (v) => -v * 2), y: useTransform(springY, (v) => -v * 2) }}
-          className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-gold/15 rounded-full blur-[180px] opacity-30"
-        />
-        
-        {/* Matrix-like Grid Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_20%,#000_30%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-noir/80 via-transparent to-noir" />
       </motion.div>
 
-      {/* 2. Floating Animated Elements (Parallax) */}
+      {/* Floating Interactive Particles */}
       <div className="absolute inset-0 pointer-events-none z-10">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
+            style={{
+              x: useTransform(springX, (v) => v * (i % 3 + 1) * 0.2),
+              y: useTransform(springY, (v) => v * (i % 3 + 1) * 0.2),
+            }}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ 
               opacity: [0, 0.4, 0],
               scale: [0.5, 1, 0.5],
-              y: [0, -100, -200],
-              x: Math.random() * 100 - 50
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
             }}
             transition={{
-              duration: 10 + Math.random() * 10,
+              duration: 10 + Math.random() * 20,
               repeat: Infinity,
-              delay: i * 2,
-              ease: "linear"
+              delay: i * 0.5,
             }}
-            style={{
-              left: `${Math.random() * 90 + 5}%`,
-              bottom: "0%",
-            }}
-            className="absolute"
-          >
-            <div className="w-1 h-1 bg-gold rounded-full blur-[1px]" />
-          </motion.div>
+            className="absolute w-1 h-1 bg-gold rounded-full blur-[2px]"
+          />
         ))}
       </div>
 
-      {/* 3. Main Content Container */}
+      {/* Main Content */}
       <motion.div 
         style={{ opacity }}
-        className="relative z-20 text-center px-6 max-w-7xl mx-auto pt-20"
+        className="relative z-20 text-center px-6 max-w-7xl mx-auto"
       >
-        {/* Interactive Badge */}
         <motion.div 
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ scale: 1.05 }}
-          className="inline-flex items-center gap-3 px-6 py-2 border border-gold/30 bg-gold/5 backdrop-blur-md rounded-full mb-10 cursor-default group overflow-hidden relative"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 px-4 py-1 border border-gold/30 bg-gold/5 backdrop-blur-sm rounded-full mb-8"
         >
-          <motion.div 
-            className="absolute inset-0 bg-gold/10 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-          />
-          <Sparkles className="w-4 h-4 text-gold animate-pulse" />
-          <span className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] relative z-10">
-            Eccellenza senza compromessi dal 1980
+          <Sparkles className="w-3 h-3 text-gold" />
+          <span className="text-gold text-[10px] uppercase tracking-[0.4em] font-bold">
+            Tradizione e Passione dal 1980
           </span>
         </motion.div>
 
-        {/* Cinematic Title with Splitting Reveal */}
-        <div className="mb-12 overflow-hidden perspective-1000">
+        <div className="overflow-hidden mb-4">
           <motion.h1 
-            initial={{ opacity: 0, rotateX: -90, y: 50 }}
-            animate={{ opacity: 1, rotateX: 0, y: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-cream text-5xl sm:text-7xl md:text-9xl lg:text-[11rem] font-display font-bold leading-[0.85] tracking-tighter uppercase mb-4"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="text-cream text-6xl md:text-9xl lg:text-[10rem] font-display font-black leading-none tracking-tighter uppercase"
           >
-            Macelleria
+            MACELLERIA
           </motion.h1>
+        </div>
+        
+        <div className="overflow-hidden mb-12">
           <motion.h1 
-            initial={{ opacity: 0, x: -100, skewX: -20 }}
-            animate={{ opacity: 1, x: 0, skewX: 0 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="text-transparent bg-clip-text bg-gradient-to-r from-fire via-gold to-fire bg-[length:200%_auto] animate-gradient-flow text-5xl sm:text-7xl md:text-9xl lg:text-[11rem] font-display font-bold leading-[0.85] tracking-tighter uppercase italic"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-ember via-gold to-ember bg-[length:200%_auto] animate-gradient-flow text-6xl md:text-9xl lg:text-[10rem] font-display font-black leading-none tracking-tighter uppercase italic"
           >
-            Belvedere
+            BELVEDERE
           </motion.h1>
         </div>
 
-        {/* Sophisticated Subtitle */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.8 }}
-          className="relative inline-block"
+          transition={{ duration: 1, delay: 0.8 }}
+          className="text-xl md:text-2xl text-gold-light/80 font-accent italic mb-16 max-w-2xl mx-auto"
         >
-          <p className="text-xl md:text-3xl text-gold-light/90 font-accent italic tracking-widest mb-16 max-w-3xl mx-auto leading-relaxed">
-            Un'eredità di gusto, un santuario della <span className="text-gold border-b border-gold/40">carne d'autore</span>.
-          </p>
-        </motion.div>
+          L'arte della brace, il culto della materia prima.
+        </motion.p>
 
-        {/* Magnetic Buttons (Concept) */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-8 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Button 
             asChild 
-            variant="gold" 
-            size="lg" 
-            className="group h-16 px-12 text-sm md:text-base uppercase tracking-[0.3em] font-bold rounded-none relative overflow-hidden transition-all duration-500 hover:tracking-[0.5em]"
+            variant="default" 
+            className="h-16 px-12 bg-gold hover:bg-gold-satin text-noir uppercase tracking-[0.3em] font-bold rounded-none transition-all duration-500 hover:scale-105"
           >
-            <a href="tel:+393403824158" className="flex items-center gap-4">
-              <Phone className="w-5 h-5 transition-transform group-hover:rotate-12" />
-              <span>Esperienza Esclusiva</span>
+            <a href="tel:+393403824158" className="flex items-center gap-3">
+              <Phone className="w-5 h-5" />
+              <span>Prenota Ora</span>
             </a>
           </Button>
           
           <Button 
             asChild 
             variant="outline" 
-            size="lg" 
-            className="group h-16 px-12 text-sm md:text-base uppercase tracking-[0.3em] font-bold rounded-none border-white/20 hover:border-gold/50 bg-white/5 backdrop-blur-sm transition-all duration-500"
+            className="h-16 px-12 border-gold/30 hover:border-gold text-gold uppercase tracking-[0.3em] font-bold rounded-none bg-transparent transition-all duration-500"
           >
-            <a href="#menu" className="flex items-center gap-4">
-              <Zap className="w-5 h-5 text-gold group-hover:scale-125 transition-transform" />
-              <span>Esplora Menù</span>
+            <a href="#menu" className="flex items-center gap-3">
+              <Zap className="w-5 h-5" />
+              <span>Scopri il Menù</span>
             </a>
           </Button>
         </motion.div>
       </motion.div>
 
-      {/* Modern Scroll Indicator */}
+      {/* Animated Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-4"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-gold/50 to-transparent relative overflow-hidden">
+        <span className="text-gold/40 text-[10px] uppercase tracking-[0.4em] font-bold">Scroll</span>
+        <div className="w-px h-12 bg-gradient-to-b from-gold/50 to-transparent relative overflow-hidden">
           <motion.div 
-            animate={{ y: [0, 64] }}
+            animate={{ y: [0, 48] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             className="absolute top-0 left-0 w-full h-1/2 bg-gold"
           />
         </div>
-        <span className="text-gold/40 text-[8px] uppercase tracking-[0.5em] font-bold rotate-90 translate-y-4">SCROLL</span>
       </motion.div>
-
-      {/* Subtle Noise Texture Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-50" />
     </section>
   );
 };
