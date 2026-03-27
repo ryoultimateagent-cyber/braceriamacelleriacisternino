@@ -24,47 +24,63 @@ const tagli = [
 
 const Tagli = () => {
   return (
-    <section id="brace" className="py-32 lg:py-48 bg-gradient-gold-radial relative overflow-hidden">
+    <section id="brace" className="py-32 lg:py-56 bg-noir relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-24 lg:mb-40">
+        <div className="max-w-4xl mx-auto text-center mb-32 lg:mb-48">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Materia Prima d'Eccellenza</span>
-            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase leading-tight">
-              I NOSTRI <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ember to-gold italic">TAGLI SCELTI</span>
+            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-8 block">Selezione d'Elite</span>
+            <h2 className="text-5xl md:text-8xl font-display font-black text-cream uppercase leading-[0.9]">
+              I NOSTRI <br /> <span className="text-gold italic font-light">TAGLI SCELTI</span>
             </h2>
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
           {tagli.map((taglio, i) => (
-            <AnimatedSection key={i} delay={i * 0.1} className="h-full">
-              <motion.div
-                whileHover={{ y: -15 }}
-                className="group relative bg-[#111111] border border-gold/10 rounded-[2.5rem] overflow-hidden hover:border-gold/40 transition-all duration-700 shadow-2xl h-full flex flex-col"
-              >
-                <div className="h-64 bg-noir flex items-center justify-center text-7xl relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center" />
-                  <span className="relative z-10 filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-700">{taglio.emoji}</span>
-                  <div className="absolute top-6 left-6 z-20">
-                    <span className="bg-noir/80 border border-gold/40 text-gold text-[10px] uppercase font-black tracking-[0.3em] px-4 py-2 rounded-full">
+            <AnimatedSection key={i} delay={i * 0.15} animation="fade-up" className="h-full">
+              <div className="group relative h-[600px] w-full overflow-hidden border border-gold/10">
+                <div className="absolute inset-0 bg-gold/5 z-0" />
+                
+                {/* Image Background */}
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
+                    alt={taglio.name} 
+                    className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/60 to-transparent" />
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
+                  <div className="mb-6 flex items-center gap-4">
+                    <span className="text-gold text-[10px] uppercase font-black tracking-[0.3em] px-4 py-2 border border-gold/30 rounded-full">
                       {taglio.category}
                     </span>
                   </div>
-                </div>
-
-                <div className="p-10 lg:p-12 flex-1 flex flex-col">
-                  <h3 className="text-2xl lg:text-3xl font-display font-black text-cream uppercase mb-4 group-hover:text-gold transition-colors">
+                  
+                  <h3 className="text-3xl lg:text-4xl font-display font-black text-cream uppercase mb-4 leading-none tracking-tighter">
                     {taglio.name}
                   </h3>
-                  <p className="text-gold-light/60 leading-relaxed text-sm lg:text-base mb-8">
-                    {taglio.desc}
-                  </p>
-                  <div className="mt-auto pt-8 border-t border-white/5 flex items-center justify-between">
-                    <span className="text-gold text-[10px] font-black uppercase tracking-[0.4em]">Qualità Premium</span>
-                    <div className="w-10 h-px bg-gold/20" />
+                  
+                  <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-500">
+                    <p className="text-cream/60 leading-relaxed text-sm mb-8 font-accent italic">
+                      {taglio.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-8 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-gold text-[10px] font-black uppercase tracking-[0.4em]">Qualità Superiore</span>
+                    <ArrowRight className="w-5 h-5 text-gold -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500" />
                   </div>
                 </div>
-              </motion.div>
+                
+                {/* Decorative Frame */}
+                <div className="absolute top-6 left-6 right-6 bottom-6 border border-white/5 pointer-events-none group-hover:border-gold/20 transition-colors duration-500" />
+              </div>
             </AnimatedSection>
           ))}
         </div>
