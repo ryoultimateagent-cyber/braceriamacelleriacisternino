@@ -101,11 +101,11 @@ const Hero = () => {
           className="mb-8"
         >
           <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-[#FEFAE0]/30" />
-            <span className="text-[#FEFAE0] text-[12px] uppercase tracking-[0.6em] font-medium">
+            <div className="h-[1px] w-12 bg-cream/30" />
+            <span className="text-cream text-[12px] uppercase tracking-[0.6em] font-medium">
               EST. 1980
             </span>
-            <div className="h-[1px] w-12 bg-[#FEFAE0]/30" />
+            <div className="h-[1px] w-12 bg-cream/30" />
           </div>
         </motion.div>
 
@@ -114,7 +114,7 @@ const Hero = () => {
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="text-[#FEFAE0] text-7xl md:text-[10rem] lg:text-[13rem] font-display font-black leading-[0.8] tracking-tighter uppercase mb-2 select-none"
+            className="text-cream text-7xl md:text-[10rem] lg:text-[13rem] font-display font-black leading-[0.8] tracking-tighter uppercase mb-2 select-none"
           >
             BRACE
           </motion.h1>
@@ -128,7 +128,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-            className="text-[#F3722C] text-2xl md:text-5xl font-display uppercase tracking-[0.4em] font-light"
+            className="text-copper text-2xl md:text-5xl font-display uppercase tracking-[0.4em] font-light"
           >
             & PASSIONE
           </motion.h2>
@@ -138,7 +138,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 1.2 }}
-          className="text-[#FEFAE0]/70 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-16 tracking-wide italic"
+          className="text-cream/70 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-16 tracking-wide italic"
         >
           L'esperienza sensoriale definitiva del fuoco. Materie prime d'eccellenza, maestria ancestrale, atmosfera senza tempo.
         </motion.p>
@@ -151,7 +151,7 @@ const Hero = () => {
         >
           <Button 
             asChild 
-            className="group relative h-16 px-12 bg-[#C1121F] hover:bg-[#E63946] text-[#FEFAE0] rounded-full transition-all duration-500 overflow-hidden"
+            className="group relative h-16 px-12 bg-red hover:bg-red-dark text-cream rounded-full transition-all duration-500 overflow-hidden"
           >
             <a href="#prenota" className="flex items-center gap-3 relative z-10">
               <span className="text-xs font-bold uppercase tracking-[0.2em]">Prenota un Tavolo</span>
@@ -162,7 +162,7 @@ const Hero = () => {
           <Button 
             asChild 
             variant="ghost"
-            className="group h-16 px-12 text-[#FEFAE0] hover:text-[#FEFAE0] hover:bg-white/5 rounded-full border border-[#FEFAE0]/20 transition-all duration-500"
+            className="group h-16 px-12 text-cream hover:text-cream hover:bg-white/5 rounded-full border border-cream/20 transition-all duration-500"
           >
             <a href="#menu" className="flex items-center gap-3">
               <span className="text-xs font-bold uppercase tracking-[0.2em]">Esplora il Menù</span>
