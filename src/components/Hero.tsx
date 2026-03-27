@@ -16,6 +16,7 @@ const Hero = () => {
   const y = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : 200]);
   const contentY = useTransform(scrollY, [0, 500], [0, shouldReduceMotion ? 0 : -50]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const scale = useTransform(scrollY, [0, 500], [1.05, 1.15]);
 
   return (
     <section 
