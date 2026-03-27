@@ -164,7 +164,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side: Visual Element (Redesigned) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -196,7 +195,7 @@ const Hero = () => {
                 <span className="text-xs uppercase">DAYS</span>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
