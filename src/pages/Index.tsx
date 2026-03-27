@@ -32,7 +32,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-noir flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <a 
         href="#main-content" 
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] bg-gold text-noir px-4 py-2 rounded-md font-bold"
