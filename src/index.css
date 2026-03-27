@@ -8,16 +8,19 @@
 
 @layer base {
   :root {
-    /* Core brand colors - Refined HSL */
+    /* Core brand colors - Refined Premium Palette */
     --noir: 0 0% 3%;
     --charcoal: 0 0% 8%;
     --gold: 44 65% 52%;
     --gold-light: 44 40% 88%;
+    --gold-dark: 44 70% 35%;
     --red: 354 84% 36%;
-    --red-dark: 354 75% 28%;
+    --red-dark: 354 75% 24%;
     --copper: 28 50% 45%;
+    --copper-dark: 28 60% 30%;
     --cream: 36 30% 98%;
-    --smoke: 0 0% 15%;
+    --smoke: 0 0% 12%;
+    --wine: 345 60% 20%;
 
     /* Semantic tokens */
     --background: var(--noir);
@@ -36,22 +39,23 @@
     --accent-foreground: var(--noir);
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 44 30% 15%;
-    --input: 44 30% 15%;
+    --border: 44 30% 12%;
+    --input: 44 30% 12%;
     --ring: var(--gold);
     --radius: 0.25rem;
 
-    /* Gradients */
+    /* Advanced Gradients */
     --gradient-fire: linear-gradient(135deg, hsl(var(--red)), hsl(var(--red-dark)));
     --gradient-gold: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    --gradient-premium-dark: radial-gradient(circle at top, hsl(var(--charcoal)), hsl(var(--noir)));
+    --gradient-ember-dark: radial-gradient(circle at center, hsl(var(--red-dark) / 0.15), hsl(var(--noir)));
+    --gradient-gold-radial: radial-gradient(circle at center, hsl(var(--gold-dark) / 0.1), hsl(var(--noir)));
+    --gradient-wine-dark: radial-gradient(circle at bottom, hsl(var(--wine) / 0.2), hsl(var(--noir)));
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --shadow-fire: 0 10px 40px hsla(354, 84%, 36%, 0.2);
-    --shadow-gold: 0 10px 30px hsla(44, 65%, 52%, 0.15);
+    --shadow-elegant: 0 20px 40px -10px rgba(0,0,0,0.8);
+    --shadow-fire: 0 10px 40px hsla(354, 84%, 36%, 0.25);
+    --shadow-gold: 0 10px 30px hsla(44, 65%, 52%, 0.2);
   }
 
   .dark {
