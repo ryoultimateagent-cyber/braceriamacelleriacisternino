@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import logo from "@/assets/logo-cisternino.jpg";
+import { ChefHat } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const Intro = () => {
@@ -15,7 +15,7 @@ const Intro = () => {
   const features = [
     { icon: "🔥", label: "Brace Autentica", text: "Legna selezionata per un sapore unico" },
     { icon: "🥩", label: "Carni Selezionate", text: "Solo il meglio dai pascoli pugliesi" },
-    { icon: "👨‍🍳", label: "Tradizione dal 1920", text: "Un secolo di maestria familiare" },
+    { icon: "👨‍🍳", label: "Tradizione dal 1980", text: "Oltre quarant'anni di maestria familiare" },
     { icon: "⭐", label: "Qualità Premium", text: "Ogni dettaglio curato con passione" },
   ];
 
@@ -33,11 +33,9 @@ const Intro = () => {
           <AnimatedSection className="flex justify-center mb-12 lg:mb-16">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold/10 blur-xl rounded-full scale-125 transition-transform group-hover:scale-150" />
-              <img
-                src={logo}
-                alt="Braceria Macelleria Cisternino Logo"
-                className="w-32 h-32 lg:w-48 lg:h-48 object-contain rounded-2xl shadow-2xl relative z-10 border border-white/5"
-              />
+              <div className="w-32 h-32 lg:w-48 lg:h-48 bg-noir flex items-center justify-center rounded-2xl shadow-2xl relative z-10 border border-gold/20 group-hover:border-gold/40 transition-colors">
+                <ChefHat className="w-16 h-16 lg:w-24 lg:h-24 text-gold" />
+              </div>
             </div>
           </AnimatedSection>
 

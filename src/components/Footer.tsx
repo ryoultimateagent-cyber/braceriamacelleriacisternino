@@ -1,6 +1,5 @@
-import { ArrowUp, Instagram, Facebook, MapPin, Phone, Mail, Award } from "lucide-react";
+import { ArrowUp, Instagram, Facebook, MapPin, Phone, Mail, Award, ChefHat } from "lucide-react";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo-cisternino.jpg";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -19,19 +18,17 @@ const Footer = () => {
           {/* Brand Identity Side */}
           <div className="lg:col-span-5 space-y-10">
             <div className="flex items-center gap-6">
-              <img
-                src={logo}
-                alt="Braceria Macelleria Cisternino"
-                className="w-16 h-16 lg:w-24 lg:h-24 object-contain rounded-2xl shadow-2xl border border-white/5"
-              />
+              <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gold/10 flex items-center justify-center rounded-2xl shadow-2xl border border-gold/20">
+                <ChefHat className="w-10 h-10 lg:w-14 lg:h-14 text-gold" />
+              </div>
               <div className="font-display leading-none">
-                <div className="text-2xl lg:text-3xl font-bold text-gold tracking-tight uppercase">Braceria Macelleria</div>
-                <div className="text-[10px] lg:text-xs text-gold-light/40 tracking-[0.4em] uppercase mt-2">Cisternino</div>
+                <div className="text-2xl lg:text-3xl font-bold text-gold tracking-tight uppercase">Macelleria Braceria</div>
+                <div className="text-[10px] lg:text-xs text-gold-light/40 tracking-[0.4em] uppercase mt-2">Belvedere</div>
               </div>
             </div>
             
             <p className="text-lg lg:text-xl text-gold-light/60 font-accent italic leading-relaxed tracking-wide max-w-md">
-              "Dal 1920, celebriamo l'arte della carne e il calore della brace nel cuore della Puglia. Una storia di famiglia, passione e sapore autentico."
+              "Dal 1980, celebriamo l'arte della carne e il calore della brace con passione e maestria. Una storia di famiglia, sapore autentico e qualità superiore."
             </p>
             
             <div className="flex items-center gap-8">
@@ -78,7 +75,7 @@ const Footer = () => {
                 <li className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-gold/40 mt-1 shrink-0" />
                   <span className="text-gold-light/40 text-sm lg:text-base tracking-wide leading-relaxed">
-                    Via Paolo VI, 47/49<br />70042 Mola di Bari (BA)
+                    Via Belvedere, 12<br />70042 Mola di Bari (BA)
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
@@ -89,8 +86,8 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-gold/40 shrink-0" />
-                  <a href="mailto:info@braceriacisternino.it" className="text-gold-light/40 hover:text-gold transition-colors text-sm lg:text-base truncate">
-                    info@braceriacisternino.it
+                  <a href="mailto:info@macelleriabelvedere.it" className="text-gold-light/40 hover:text-gold transition-colors text-sm lg:text-base truncate">
+                    info@macelleriabelvedere.it
                   </a>
                 </li>
               </ul>
@@ -115,7 +112,7 @@ const Footer = () => {
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left space-y-2">
             <p className="text-gold-light/20 text-[10px] lg:text-xs font-bold uppercase tracking-[0.3em]">
-              © {currentYear} Braceria Macelleria Cisternino. All Rights Reserved.
+              © {currentYear} Macelleria Braceria Belvedere. All Rights Reserved.
             </p>
             <p className="text-white/5 text-[9px] tracking-widest uppercase">
               Partita IVA: 01234567890 | Credits: Modern Web Studio
