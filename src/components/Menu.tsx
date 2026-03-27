@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { FileText, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import AnimatedSection from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
