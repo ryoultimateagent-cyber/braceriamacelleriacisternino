@@ -1,88 +1,71 @@
-import { Star, Quote, Award } from "lucide-react";
+import { Star, Quote, Award, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import SectionHeader from "./SectionHeader";
 
 const reviews = [
   {
-    text: "Carne eccezionale e brace autentica. Un'esperienza che vale davvero la pena. Il personale è cordiale e la qualità dei prodotti è fuori dal comune. Torneremo sicuramente!",
+    text: "Carne eccezionale e brace autentica. Un'esperienza che vale davvero la pena. Il personale è cordiale e la qualità dei prodotti è fuori dal comune.",
     author: "Marco R.",
     role: "Local Guide",
-    date: "Settembre 2023"
   },
   {
-    text: "La migliore fiorentina mai mangiata! Cottura perfetta, ambiente accogliente e personale gentilissimo. Una vera scoperta nel panorama gastronomico pugliese. Consigliatissimo!",
+    text: "La migliore fiorentina mai mangiata! Cottura perfetta, ambiente accogliente e personale gentilissimo. Una vera scoperta nel panorama pugliese.",
     author: "Giulia M.",
     role: "Food Blogger",
-    date: "Agosto 2023"
   },
   {
-    text: "Tradizione e qualità. Ogni volta è un piacere tornare. I panini take-away sono fenomenali, rapporto qualità prezzo imbattibile. Un punto di riferimento assoluto.",
+    text: "Tradizione e qualità. Ogni volta è un piacere tornare. I panini take-away sono fenomenali, rapporto qualità prezzo imbattibile. Un punto di riferimento.",
     author: "Antonio D.",
     role: "Cliente Storico",
-    date: "Giugno 2023"
   },
 ];
 
 const Recensioni = () => {
   return (
-    <section 
-      className="py-24 lg:py-40 bg-noir relative overflow-hidden"
-      aria-label="Recensioni dei clienti"
-    >
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(139,21,56,0.1)_0%,transparent_50%)] pointer-events-none" />
-      
+    <section id="recensioni" className="py-32 lg:py-48 bg-noir relative overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <SectionHeader 
-          subtitle="Voci d'Eccellenza"
-          title="I Nostri Ospiti"
-          className="mb-20 lg:mb-32"
-        />
+        <div className="text-center mb-24 lg:mb-40">
+          <AnimatedSection>
+            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase leading-tight">
+              I NOSTRI <br /> <span className="text-ember italic">OSPITI DICONO</span>
+            </h2>
+          </AnimatedSection>
+        </div>
 
-        {/* Reviews Horizontal Scroll / Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {reviews.map((review, i) => (
-            <AnimatedSection key={i} delay={i * 0.15} className="h-full">
+            <AnimatedSection key={i} delay={i * 0.1} className="h-full">
               <motion.div
                 whileHover={{ y: -15 }}
-                className="relative bg-charcoal/40 backdrop-blur-md border border-white/5 p-10 lg:p-12 rounded-2xl h-full flex flex-col hover:border-fire/20 transition-all duration-500 shadow-2xl overflow-hidden group"
+                className="relative bg-[#111111] border border-gold/10 p-12 rounded-[2.5rem] h-full flex flex-col hover:border-gold/30 transition-all duration-500 shadow-2xl overflow-hidden group"
               >
-                {/* Decorative Quote Icon */}
-                <div className="absolute -top-6 -right-6 p-12 text-fire/5 group-hover:text-fire/10 transition-colors">
-                  <Quote className="w-32 h-32 rotate-12" />
-                </div>
+                <Quote className="absolute -top-6 -right-6 w-32 h-32 text-gold/5 rotate-12 group-hover:text-gold/10 transition-colors" />
                 
-                {/* Stars and Badge */}
                 <div className="flex items-center justify-between mb-8 relative z-10">
-                  <div className="flex gap-1.5 text-gold">
+                  <div className="flex gap-1 text-gold">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-5 h-5 fill-current" />
+                      <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <Award className="w-6 h-6 text-gold/30" />
+                  <Award className="w-6 h-6 text-gold/20" />
                 </div>
                 
-                {/* Review Text */}
-                <p className="text-lg lg:text-xl text-gold-light/90 font-accent italic leading-relaxed mb-10 tracking-wide flex-1 relative z-10">
+                <p className="text-gold-light/80 text-lg font-accent italic leading-relaxed mb-10 flex-1 relative z-10">
                   "{review.text}"
                 </p>
                 
-                {/* Reviewer Meta */}
                 <div className="pt-8 border-t border-white/5 relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-fire to-gold flex items-center justify-center text-white font-bold shadow-lg">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-gold font-black">
                       {review.author.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-cream font-display font-bold text-sm lg:text-base tracking-widest uppercase">
+                      <div className="text-cream font-display font-bold text-sm tracking-widest uppercase">
                         {review.author}
                       </div>
-                      <div className="flex gap-3 text-[10px] font-bold uppercase tracking-widest text-gold-light/60 group-hover:text-gold-light/80 transition-colors">
-                        <span>{review.role}</span>
-                        <span className="w-1 h-1 bg-white/20 rounded-full my-auto" aria-hidden="true" />
-                        <span>{review.date}</span>
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-gold-light/40">
+                        {review.role}
                       </div>
                     </div>
                   </div>
@@ -91,19 +74,12 @@ const Recensioni = () => {
             </AnimatedSection>
           ))}
         </div>
-        
-        {/* Global social proof badge */}
-        <AnimatedSection delay={0.6} className="mt-20 lg:mt-32 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-6 px-10 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-full">
-            <div className="flex -space-x-3">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-noir bg-charcoal overflow-hidden">
-                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 20}`} alt="Immagine di profilo ospite" loading="lazy" />
-                </div>
-              ))}
-            </div>
-            <p className="text-gold-light/70 text-xs lg:text-sm font-bold uppercase tracking-widest">
-              Oltre <span className="text-gold">1.000 recensioni certificate</span> su TripAdvisor & Google
+
+        <AnimatedSection delay={0.4} className="mt-24 text-center">
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full">
+            <Sparkles className="w-4 h-4 text-gold" />
+            <p className="text-gold-light/60 text-xs uppercase tracking-[0.3em] font-bold">
+              Oltre <span className="text-gold">1.000 recensioni</span> a 5 stelle
             </p>
           </div>
         </AnimatedSection>
