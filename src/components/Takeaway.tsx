@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const panini = [
   { 
-    name: "Cisternino Classic", 
+    name: "Belvedere Classic", 
     desc: "Carne scelta scottata alla brace, rucola selvatica, scaglie di Grana Padano DOP e pomodoro cuore di bue. Semplicità senza tempo.", 
     price: "€5",
     tag: "Il Bestseller"

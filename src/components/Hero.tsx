@@ -39,7 +39,7 @@ const Hero = () => {
         >
           <Award className="w-4 h-4 text-gold" />
           <span className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-[0.4em]">
-            Tradizione Pugliese dal 1920
+            Qualità e Tradizione dal 1980
           </span>
         </motion.div>
 
@@ -51,7 +51,7 @@ const Hero = () => {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="text-cream text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase mb-2"
           >
-            Il Tempio
+            Macelleria
           </motion.h1>
           <motion.h1 
             initial={{ opacity: 0, y: 100 }}
@@ -59,7 +59,7 @@ const Hero = () => {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="text-transparent bg-clip-text bg-gradient-to-r from-red to-gold text-5xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.8] tracking-tight uppercase italic"
           >
-            Della Brace
+            Belvedere
           </motion.h1>
         </div>
 
