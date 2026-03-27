@@ -14,8 +14,8 @@
     --gold: 44 65% 52%;
     --gold-light: 44 40% 88%;
     --gold-dark: 44 70% 35%;
-    --red: 354 84% 36%;
-    --red-dark: 354 75% 24%;
+    --ember: 354 84% 36%;
+    --ember-dark: 354 75% 24%;
     --copper: 28 50% 45%;
     --copper-dark: 28 60% 30%;
     --cream: 36 30% 98%;
@@ -29,7 +29,7 @@
     --card-foreground: var(--cream);
     --popover: var(--charcoal);
     --popover-foreground: var(--cream);
-    --primary: var(--red);
+    --primary: var(--ember);
     --primary-foreground: var(--cream);
     --secondary: var(--gold);
     --secondary-foreground: var(--noir);
@@ -45,10 +45,10 @@
     --radius: 0.25rem;
 
     /* Advanced Gradients */
-    --gradient-fire: linear-gradient(135deg, hsl(var(--red)), hsl(var(--red-dark)));
+    --gradient-fire: linear-gradient(135deg, hsl(var(--ember)), hsl(var(--ember-dark)));
     --gradient-gold: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
     --gradient-premium-dark: radial-gradient(circle at top, hsl(var(--charcoal)), hsl(var(--noir)));
-    --gradient-ember-dark: radial-gradient(circle at center, hsl(var(--red-dark) / 0.15), hsl(var(--noir)));
+    --gradient-ember-dark: radial-gradient(circle at center, hsl(var(--ember-dark) / 0.15), hsl(var(--noir)));
     --gradient-gold-radial: radial-gradient(circle at center, hsl(var(--gold-dark) / 0.1), hsl(var(--noir)));
     --gradient-wine-dark: radial-gradient(circle at bottom, hsl(var(--wine) / 0.2), hsl(var(--noir)));
     
@@ -156,7 +156,7 @@
 
   /* Gradient text effect */
   .text-gradient-fire {
-    background: linear-gradient(135deg, hsl(var(--red)), hsl(var(--gold)), hsl(var(--copper)));
+    background: linear-gradient(135deg, hsl(var(--ember)), hsl(var(--gold)), hsl(var(--copper)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -169,7 +169,7 @@
   }
   
   .card-hover:hover {
-    border-color: hsl(var(--red));
+    border-color: hsl(var(--ember));
     transform: translateY(-10px);
     box-shadow: var(--shadow-elegant);
   }
@@ -188,7 +188,7 @@
 
   /* Timeline line */
   .timeline-line {
-    background: linear-gradient(180deg, transparent, hsl(var(--red)), hsl(var(--gold)), transparent);
+    background: linear-gradient(180deg, transparent, hsl(var(--ember)), hsl(var(--gold)), transparent);
   }
 
   /* Scroll indicator */

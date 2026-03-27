@@ -26,9 +26,9 @@ export default {
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
         },
-        red: {
-          DEFAULT: "hsl(var(--red))",
-          dark: "hsl(var(--red-dark))",
+        ember: {
+          DEFAULT: "hsl(var(--ember))",
+          dark: "hsl(var(--ember-dark))",
         },
         copper: {
           DEFAULT: "hsl(var(--copper))",
