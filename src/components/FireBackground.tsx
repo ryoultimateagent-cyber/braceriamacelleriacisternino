@@ -18,13 +18,13 @@ const FireBackground = memo(() => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[0] overflow-hidden select-none" aria-hidden="true">
+    <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden select-none" aria-hidden="true">
       {/* Background Atmosphere - Fire Base Glow */}
-      <div className="absolute -bottom-[10%] left-0 right-0 h-[40%] bg-gradient-to-t from-ember-dark/20 via-ember/5 to-transparent blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-[20%] left-0 right-0 h-[60%] bg-gradient-to-t from-ember-dark/30 via-ember/10 to-transparent blur-[120px] pointer-events-none mix-blend-plus-lighter" />
       
       {/* Moving Warm Spotlights */}
-      <div className="absolute -bottom-20 left-1/4 w-[500px] aspect-square bg-gradient-to-t from-ember/15 to-transparent blur-[100px] rounded-full animate-fire-glow opacity-40 mix-blend-screen" />
-      <div className="absolute -bottom-20 right-1/4 w-[500px] aspect-square bg-gradient-to-t from-gold-dark/10 to-transparent blur-[100px] rounded-full animate-fire-glow opacity-30 delay-2000 mix-blend-screen" />
+      <div className="absolute -bottom-20 left-1/4 w-[600px] aspect-square bg-gradient-to-t from-ember/20 to-transparent blur-[120px] rounded-full animate-fire-glow opacity-50 mix-blend-plus-lighter" />
+      <div className="absolute -bottom-20 right-1/4 w-[600px] aspect-square bg-gradient-to-t from-gold-dark/15 to-transparent blur-[120px] rounded-full animate-fire-glow opacity-40 delay-2000 mix-blend-plus-lighter" />
 
       {/* Embers / Ash */}
       {embers.map((ember) => (
