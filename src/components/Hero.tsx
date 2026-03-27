@@ -65,38 +65,74 @@ const Hero = () => {
             <div className="h-[1px] w-8 bg-gold/50" />
           </div>
           <span className="text-gold text-[11px] uppercase tracking-[0.5em] font-display font-bold">
-            Eccellenza nella Brace dal 1980
+            Dal 1980 • L'Arte della Brace
           </span>
         </motion.div>
 
         <div className="relative mb-12">
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-cream text-7xl md:text-9xl lg:text-[11rem] font-display font-black leading-[0.85] tracking-tighter uppercase select-none"
+            className="text-cream text-6xl md:text-8xl lg:text-[10rem] font-display font-black leading-[0.8] tracking-tighter uppercase select-none mb-4"
           >
-            MACELLERIA
+            {"BRACE".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 50, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ delay: 0.3 + i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block"
+              >
+                {char}
+              </motion.span>
+            ))}
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="text-gold mx-4"
+            >
+              &
+            </motion.span> 
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold-light to-gold-satin italic">BELVEDERE</span>
+            <motion.span 
+              initial={{ opacity: 0, filter: "blur(20px)" }}
+              animate={{ 
+                opacity: 1, 
+                filter: "blur(0px)",
+                textShadow: [
+                  "0 0 20px rgba(212,175,55,0)",
+                  "0 0 30px rgba(212,175,55,0.4)",
+                  "0 0 20px rgba(212,175,55,0.1)"
+                ]
+              }}
+              transition={{ 
+                opacity: { delay: 1.2, duration: 1 },
+                filter: { delay: 1.2, duration: 1.5 },
+                textShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold-light to-gold-satin italic"
+            >
+              PASSIONE
+            </motion.span>
           </motion.h1>
           
-          {/* Subtle reflection effect */}
-          <div className="absolute top-full left-0 w-full opacity-10 blur-xl pointer-events-none">
-             <h1 className="text-gold text-7xl md:text-9xl lg:text-[11rem] font-display font-black leading-[0.85] tracking-tighter uppercase scale-y-[-0.3]">
-              BELVEDERE
-             </h1>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.8, duration: 1, type: "spring", stiffness: 50 }}
+            className="absolute -top-6 -left-4 md:-left-12 text-gold/30 font-display text-4xl md:text-6xl italic pointer-events-none"
+          >
+            Belvedere
+          </motion.div>
         </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="text-lg md:text-xl text-cream/70 font-accent italic mb-16 max-w-xl mx-auto leading-relaxed"
+          transition={{ duration: 1, delay: 1.5 }}
+          className="text-lg md:text-2xl text-cream/80 font-accent italic mb-16 max-w-2xl mx-auto leading-relaxed"
         >
-          Dove la selezione della materia prima incontra <br className="hidden md:block" /> 
-          il fuoco della tradizione secolare.
+          L'eccellenza della materia prima incontra l'anima del fuoco. <br className="hidden md:block" /> 
+          Un viaggio sensoriale tra tagli pregiati e tradizioni secolari.
         </motion.p>
 
         <motion.div 
@@ -112,7 +148,7 @@ const Hero = () => {
           >
             <a href="tel:+393403824158" className="flex items-center gap-3">
               <Phone className="w-4 h-4" />
-              <span>Prenota un tavolo</span>
+              <span>Prenota l'Esperienza</span>
             </a>
           </Button>
           
@@ -122,7 +158,7 @@ const Hero = () => {
             className="h-14 px-10 border-gold/20 hover:border-gold text-gold text-xs uppercase tracking-[0.3em] font-bold rounded-none bg-noir/50 backdrop-blur-md transition-all duration-300 group"
           >
             <a href="#menu" className="flex items-center gap-3">
-              <span>Il nostro menù</span>
+              <span>La nostra Carta</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
