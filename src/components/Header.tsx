@@ -42,20 +42,20 @@ const Header = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-noir/90 backdrop-blur-xl border-b border-white/5 py-2"
-          : "bg-transparent py-4 lg:py-6"
+          : "bg-transparent py-3 md:py-4 lg:py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <a 
           href="#" 
-          className="group flex items-center gap-6 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
+          className="group flex items-center gap-4 md:gap-6 focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1 transition-all"
           aria-label="Home - Macelleria Braceria Belvedere"
         >
           <div className="flex flex-col items-center">
-             <span className="text-xl lg:text-2xl font-display font-black text-gold tracking-tighter leading-none mb-1">BELVEDERE</span>
+             <span className="text-lg md:text-xl lg:text-2xl font-display font-black text-gold tracking-tighter leading-none mb-1">BELVEDERE</span>
              <div className="h-px w-full bg-gold/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-             <span className="text-[10px] font-display font-bold text-gold/60 tracking-[0.5em] uppercase leading-none mt-1">EST. 1980</span>
+             <span className="text-[9px] md:text-[10px] font-display font-bold text-gold/60 tracking-[0.5em] uppercase leading-none mt-1">EST. 1980</span>
           </div>
         </a>
 
@@ -66,7 +66,7 @@ const Header = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-xs font-semibold text-cream/70 uppercase tracking-widest relative py-2 hover:text-gold transition-colors duration-300 focus-visible:text-gold group"
+                  className="text-xs font-semibold text-cream/80 uppercase tracking-widest relative py-2 hover:text-gold transition-colors duration-300 focus-visible:text-gold group"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
@@ -78,7 +78,7 @@ const Header = () => {
           <Button 
             asChild 
             size="lg"
-            className="h-12 px-8 bg-gold hover:bg-gold-dark text-noir rounded-none font-black uppercase tracking-widest text-[10px] transition-all duration-500"
+            className="h-12 px-8 bg-gold hover:bg-gold-dark text-noir rounded-lg font-black uppercase tracking-widest text-[10px] transition-all duration-300"
           >
             <a href="tel:+393403824158" className="flex items-center gap-3">
               <Phone className="w-4 h-4" />
@@ -89,13 +89,13 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="xl:hidden p-3 text-gold z-50 relative hover:bg-white/5 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-gold"
+          className="xl:hidden p-2 md:p-3 text-gold z-50 relative hover:bg-white/5 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-gold"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
           aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
         >
-          {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          {isMobileMenuOpen ? <X className="w-6 h-6 md:w-7 md:h-7" /> : <Menu className="w-6 h-6 md:w-7 md:h-7" />}
         </button>
       </div>
 
@@ -108,7 +108,7 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="xl:hidden fixed inset-0 bg-noir z-40 flex flex-col p-8 pt-24"
+            className="xl:hidden fixed inset-0 bg-noir z-40 flex flex-col p-8 pt-24 pb-[env(safe-area-inset-bottom,2rem)]"
           >
             <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
               {navLinks.map((link, index) => (
@@ -134,7 +134,7 @@ const Header = () => {
                   asChild 
                   variant="gold" 
                   size="lg" 
-                  className="w-full h-14 text-lg uppercase tracking-widest"
+                  className="w-full h-14 text-lg uppercase tracking-widest rounded-lg"
                 >
                   <a href="tel:+393403824158" onClick={() => setIsMobileMenuOpen(false)}>
                     <Phone className="w-5 h-5 mr-3" />

@@ -38,16 +38,16 @@ const Galleria = () => {
   }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section id="galleria" className="py-32 lg:py-56 bg-noir relative overflow-hidden">
+    <section id="galleria" className="section-spacing bg-noir relative overflow-hidden">
       {/* Background Cinematic Lighting */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-32 lg:mb-48">
+        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-8 block">Visioni del Gusto</span>
-            <h2 className="text-5xl md:text-8xl font-display font-black text-cream uppercase leading-none tracking-tighter">
+            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Visioni del Gusto</span>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream uppercase leading-none tracking-tighter">
               GALLERIA <br /> <span className="text-gold italic font-light">VISIVA</span>
             </h2>
           </AnimatedSection>
@@ -57,22 +57,23 @@ const Galleria = () => {
           {images.map((img, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="group cursor-pointer" animation="scale-up">
               <div 
-                className="relative aspect-[4/5] overflow-hidden border border-gold/10 group-hover:border-gold/40 transition-all duration-700"
+                className="relative aspect-[4/5] overflow-hidden border border-gold/10 group-hover:border-gold/40 transition-all duration-300 rounded-xl"
                 onClick={() => openLightbox(i)}
               >
                 <img 
                   src={img.src} 
                   alt={img.title} 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-noir via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Visual Label */}
-                <div className="absolute bottom-0 left-0 w-full p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-noir/80 backdrop-blur-md">
+                <div className="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-noir/80 backdrop-blur-md">
                    <h3 className="text-lg font-display font-bold text-gold uppercase tracking-widest">{img.title}</h3>
                 </div>
                 
-                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity delay-300">
+                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity delay-200">
                   <Maximize2 className="w-5 h-5 text-gold" />
                 </div>
                 
@@ -88,18 +89,33 @@ const Galleria = () => {
       <AnimatePresence>
         {selectedIndex !== null && (
           <motion.div 
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Galleria immagine: ${images[selectedIndex].title}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-noir/95 backdrop-blur-2xl flex items-center justify-center p-6 lg:p-12"
           >
-            <button onClick={closeLightbox} className="absolute top-8 right-8 text-gold-light hover:text-gold transition-colors z-[110]">
-              <X className="w-10 h-10" />
+            <button 
+              onClick={closeLightbox} 
+              className="absolute top-8 right-8 text-gold-light hover:text-gold transition-colors z-[110]"
+              aria-label="Chiudi galleria"
+            >
+              <X className="w-8 h-8 md:w-10 md:h-10" />
             </button>
-            <button onClick={goPrev} className="absolute left-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block">
+            <button 
+              onClick={goPrev} 
+              className="absolute left-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block"
+              aria-label="Immagine precedente"
+            >
               <ChevronLeft className="w-12 h-12" />
             </button>
-            <button onClick={goNext} className="absolute right-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block">
+            <button 
+              onClick={goNext} 
+              className="absolute right-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block"
+              aria-label="Immagine successiva"
+            >
               <ChevronRight className="w-12 h-12" />
             </button>
 
@@ -108,7 +124,7 @@ const Galleria = () => {
               animate={{ scale: 1, y: 0 }}
               className="relative max-w-6xl w-full h-full flex flex-col lg:flex-row items-center gap-12"
             >
-              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-[3rem] border border-gold/20 shadow-fire">
+              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-2xl border border-gold/20 shadow-fire">
                 <img 
                   src={images[selectedIndex].src} 
                   alt={images[selectedIndex].title} 
@@ -116,12 +132,12 @@ const Galleria = () => {
                 />
               </div>
               <div className="w-full lg:w-1/3 text-center lg:text-left">
-                <h3 className="text-4xl lg:text-5xl font-display font-black text-gold uppercase mb-6">{images[selectedIndex].title}</h3>
-                <p className="text-gold-light/70 text-lg lg:text-xl font-accent italic leading-relaxed">{images[selectedIndex].desc}</p>
-                <div className="mt-12 flex items-center justify-center lg:justify-start gap-4">
+                <h3 className="text-3xl lg:text-5xl font-display font-black text-gold uppercase mb-6">{images[selectedIndex].title}</h3>
+                <p className="text-gold-light/80 text-lg lg:text-xl font-accent italic leading-relaxed">{images[selectedIndex].desc}</p>
+                <div className="mt-8 md:mt-12 flex items-center justify-center lg:justify-start gap-4">
                   <span className="text-gold font-black font-display text-xl">{selectedIndex + 1}</span>
                   <div className="w-12 h-px bg-gold/30" />
-                  <span className="text-gold/40 font-display text-xl">{images.length}</span>
+                  <span className="text-gold/60 font-display text-xl">{images.length}</span>
                 </div>
               </div>
             </motion.div>

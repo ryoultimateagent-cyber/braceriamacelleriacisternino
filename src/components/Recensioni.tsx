@@ -22,9 +22,9 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section id="recensioni" className="py-16 lg:py-24 bg-transparent relative overflow-hidden">
+    <section id="recensioni" className="section-spacing bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-24 lg:mb-40">
+        <div className="text-center mb-16 md:mb-32">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>
             <h2 className="text-3xl md:text-5xl font-display font-black text-cream uppercase leading-tight">
@@ -33,12 +33,12 @@ const Recensioni = () => {
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
           {reviews.map((review, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="h-full">
               <motion.div
-                whileHover={{ y: -15 }}
-                className="relative bg-[#111111] border border-gold/10 p-8 lg:p-10 rounded-[2.5rem] h-full flex flex-col hover:border-gold/30 transition-all duration-500 shadow-2xl overflow-hidden group"
+                whileHover={{ y: -4 }}
+                className="relative bg-[#111111] border border-gold/10 p-8 md:p-10 rounded-xl h-full flex flex-col hover:border-gold/30 transition-all duration-300 shadow-2xl overflow-hidden group"
               >
                 <Quote className="absolute -top-6 -right-6 w-32 h-32 text-gold/5 rotate-12 group-hover:text-gold/10 transition-colors" />
                 
@@ -48,10 +48,10 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <Award className="w-6 h-6 text-gold/20" />
+                  <Award className="w-6 h-6 text-gold/50" />
                 </div>
                 
-                <p className="text-gold-light/80 text-lg font-accent italic leading-relaxed mb-10 flex-1 relative z-10">
+                <p className="text-gold-light/80 text-lg font-accent italic leading-relaxed mb-8 md:mb-10 flex-1 relative z-10">
                   "{review.text}"
                 </p>
                 
@@ -64,7 +64,7 @@ const Recensioni = () => {
                       <div className="text-cream font-display font-bold text-sm tracking-widest uppercase">
                         {review.author}
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-gold-light/40">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-gold-light/60">
                         {review.role}
                       </div>
                     </div>
@@ -75,10 +75,10 @@ const Recensioni = () => {
           ))}
         </div>
 
-        <AnimatedSection delay={0.4} className="mt-24 text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full">
+        <AnimatedSection delay={0.4} className="mt-16 md:mt-24 text-center">
+          <div className="inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full">
             <Sparkles className="w-4 h-4 text-gold" />
-            <p className="text-gold-light/60 text-xs uppercase tracking-[0.3em] font-bold">
+            <p className="text-gold-light/60 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold">
               Oltre <span className="text-gold">1.000 recensioni</span> a 5 stelle
             </p>
           </div>

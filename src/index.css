@@ -77,7 +77,7 @@
   }
 
   html {
-    font-size: 90%;
+    font-size: 100%;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
@@ -126,12 +126,16 @@
 }
 
 @layer components {
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
   .glass {
     @apply bg-black/40 backdrop-blur-xl border border-white/10;
   }
   
   .luxury-card {
-    @apply bg-[#111111] border border-gold/20 hover:border-gold/50 transition-all duration-700;
+    @apply bg-[#111111] border border-gold/20 hover:border-gold/50 transition-all duration-300;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   }
 
