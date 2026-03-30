@@ -25,7 +25,7 @@ const tagli = [
 
 const Tagli = () => {
   return (
-    <section id="brace" className="py-32 lg:py-56 bg-noir relative overflow-hidden">
+    <section id="brace" className="py-20 lg:py-32 bg-noir relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -33,7 +33,7 @@ const Tagli = () => {
         <div className="max-w-4xl mx-auto text-center mb-32 lg:mb-48">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-8 block">Selezione d'Elite</span>
-            <h2 className="text-5xl md:text-8xl font-display font-black text-cream uppercase leading-[0.9]">
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase leading-[0.9]">
               I NOSTRI <br /> <span className="text-gold italic font-light">TAGLI SCELTI</span>
             </h2>
           </AnimatedSection>
@@ -42,7 +42,7 @@ const Tagli = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
           {tagli.map((taglio, i) => (
             <AnimatedSection key={i} delay={i * 0.15} animation="fade-up" className="h-full">
-              <div className="group relative h-[600px] w-full overflow-hidden border border-gold/10">
+              <div className="group relative h-[500px] w-full overflow-hidden border border-gold/10">
                 <div className="absolute inset-0 bg-gold/5 z-0" />
                 
                 {/* Image Background */}
