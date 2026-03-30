@@ -22,12 +22,12 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section id="recensioni" className="py-32 lg:py-48 bg-transparent relative overflow-hidden">
+    <section id="recensioni" className="py-16 lg:py-24 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24 lg:mb-40">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>
-            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase leading-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-black text-cream uppercase leading-tight">
               I NOSTRI <br /> <span className="text-ember italic">OSPITI DICONO</span>
             </h2>
           </AnimatedSection>
@@ -38,7 +38,7 @@ const Recensioni = () => {
             <AnimatedSection key={i} delay={i * 0.1} className="h-full">
               <motion.div
                 whileHover={{ y: -15 }}
-                className="relative bg-[#111111] border border-gold/10 p-12 rounded-[2.5rem] h-full flex flex-col hover:border-gold/30 transition-all duration-500 shadow-2xl overflow-hidden group"
+                className="relative bg-[#111111] border border-gold/10 p-8 lg:p-10 rounded-[2.5rem] h-full flex flex-col hover:border-gold/30 transition-all duration-500 shadow-2xl overflow-hidden group"
               >
                 <Quote className="absolute -top-6 -right-6 w-32 h-32 text-gold/5 rotate-12 group-hover:text-gold/10 transition-colors" />
                 
