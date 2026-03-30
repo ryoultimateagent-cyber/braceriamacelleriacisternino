@@ -128,7 +128,7 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="py-16 lg:py-24 bg-gradient-premium relative overflow-hidden"
+      className="section-spacing bg-gradient-premium relative overflow-hidden"
       aria-label="Il nostro menù"
     >
       <div className="container mx-auto px-6 relative z-10">
@@ -136,13 +136,13 @@ const Menu = () => {
         <SectionHeader 
           subtitle="Esperienza Gastronomica"
           title="Il Nostre Menù"
-          className="mb-20"
+          className="mb-16 md:mb-20"
         />
 
         {/* Interactive Menu Container */}
         <div 
           ref={containerRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-7xl mx-auto items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 max-w-7xl mx-auto items-center"
         >
           {/* Menu List */}
           <AnimatedSection delay={0.2} className="order-2 lg:order-1">
@@ -154,39 +154,39 @@ const Menu = () => {
                   className="group"
                 >
                   <div className={cn(
-                    "flex items-start gap-6 p-6 lg:p-8 transition-all duration-500 rounded-2xl border",
+                    "flex items-start gap-4 md:gap-6 p-4 md:p-6 lg:p-8 transition-all duration-300 rounded-xl border",
                     activeIndex === index 
-                      ? "bg-charcoal/40 border-gold/20 shadow-xl" 
+                      ? "bg-charcoal/60 border-gold/20 shadow-xl" 
                       : "bg-transparent border-transparent hover:bg-white/5"
                   )}>
                     {/* Number */}
                     <span className={cn(
-                      "text-2xl lg:text-3xl font-display font-bold transition-colors duration-300",
-                      activeIndex === index ? "text-fire" : "text-white/40 group-hover:text-gold/40"
+                      "text-xl lg:text-3xl font-display font-bold transition-colors duration-300",
+                      activeIndex === index ? "text-fire" : "text-white/60 group-hover:text-gold/60"
                     )}>
                       {item.num}
                     </span>
                     
                     {/* Content */}
                     <div className="flex-1">
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center justify-between mb-2 md:mb-3">
                         <h3 className={cn(
-                          "text-lg lg:text-2xl font-display font-bold transition-colors duration-300",
+                          "text-base lg:text-2xl font-display font-bold transition-colors duration-300",
                           activeIndex === index ? "text-cream" : "text-gold-light/60 group-hover:text-cream"
                         )}>
                           {item.name}
                         </h3>
                         {activeIndex === index && (
                           <div aria-hidden="true">
-                            <ArrowRight className="text-fire w-6 h-6" />
+                            <ArrowRight className="text-fire w-5 h-5 md:w-6 md:h-6" />
                           </div>
                         )}
                       </div>
                       <p className={cn(
-                        "text-sm lg:text-lg leading-relaxed transition-all duration-500 tracking-wide font-accent italic",
+                        "text-xs md:text-sm lg:text-lg leading-relaxed transition-all duration-300 tracking-wide font-accent italic",
                         activeIndex === index 
                           ? "text-gold-light opacity-90" 
-                          : "text-white/40 opacity-0 lg:opacity-30 max-h-0 lg:max-h-20 overflow-hidden"
+                          : "text-white/60 opacity-0 lg:opacity-30 max-h-0 lg:max-h-20 overflow-hidden"
                       )}>
                         {item.desc}
                       </p>
@@ -197,26 +197,24 @@ const Menu = () => {
             </div>
           </AnimatedSection>
 
-          {/* Animated Visual - Hidden on small mobile in favor of static representation if requested, 
-              but the plan says "show a static image fallback instead". 
-              Actually, the SVG animation is heavy, so let's use a simpler version or hidden on mobile. */}
+          {/* Animated Visual */}
           <AnimatedSection delay={0.4} className="order-1 lg:order-2 flex justify-center sticky top-32 h-fit">
             <div className="relative w-full max-w-lg aspect-square">
-              {/* Mobile Fallback: Static image from activeIndex */}
-              <div className="lg:hidden absolute inset-0 z-20 rounded-2xl overflow-hidden border border-gold/20 shadow-2xl">
+              {/* Mobile Fallback */}
+              <div className="lg:hidden absolute inset-0 z-20 rounded-xl overflow-hidden border border-gold/20 shadow-2xl">
                 <img 
                   src={menuItems[activeIndex].image} 
                   alt={menuItems[activeIndex].name}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-noir/80 to-transparent flex items-end p-6">
-                  <h4 className="text-xl font-display font-bold text-gold uppercase">{menuItems[activeIndex].name}</h4>
+                  <h4 className="text-lg md:text-xl font-display font-bold text-gold uppercase">{menuItems[activeIndex].name}</h4>
                 </div>
               </div>
 
               {/* Desktop Animated SVG */}
               <div className="hidden lg:block">
-                {/* Decorative Geometric Shapes */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 border border-gold/10 rounded-full animate-pulse-glow" />
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 border border-fire/10 rounded-full animate-pulse-glow" />
                 
@@ -279,12 +277,10 @@ const Menu = () => {
                       height="400"
                       preserveAspectRatio="xMidYMid slice"
                     />
-                    {/* Overlay for better integration */}
                     <rect width="400" height="400" fill="url(#menu-gradient)" opacity="0.15" />
                   </g>
                 </svg>
 
-                {/* Minimal Corners */}
                 <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/30" />
                 <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/30" />
               </div>
@@ -293,20 +289,20 @@ const Menu = () => {
         </div>
 
         {/* Action Button */}
-        <AnimatedSection delay={0.6} className="text-center mt-20">
+        <AnimatedSection delay={0.6} className="text-center mt-12 md:mt-20">
           <Button 
             asChild 
             variant="gold" 
             size="lg" 
-            className="h-14 px-12 text-sm uppercase tracking-widest font-bold shadow-2xl"
+            className="h-12 md:h-14 px-8 md:px-12 text-xs md:text-sm uppercase tracking-widest font-bold shadow-2xl rounded-lg"
           >
             <a
               href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4"
+              className="flex items-center gap-3 md:gap-4"
             >
-              <FileText className="w-5 h-5" />
+              <FileText className="w-4 h-4 md:w-5 md:h-5" />
               Scarica Menù Digitale
             </a>
           </Button>
