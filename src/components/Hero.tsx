@@ -90,8 +90,8 @@ const Hero = () => {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
           {/* Left Side: Text Content */}
           <motion.div 
             style={{ opacity, y }}
@@ -101,22 +101,22 @@ const Hero = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8"
+              className="mb-6 md:mb-8"
             >
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-gold text-[12px] uppercase tracking-[0.6em] font-medium">
+                <span className="text-gold text-[10px] md:text-[12px] uppercase tracking-[0.6em] font-medium">
                   EST. 1980 — MILANO
                 </span>
-                <div className="h-[1px] w-24 bg-gold/30" />
+                <div className="h-[1px] w-16 md:w-24 bg-gold/30" />
               </div>
             </motion.div>
 
-            <div className="relative mb-10">
+            <div className="relative mb-8 md:mb-10">
               <motion.h1 
                 initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                className="text-cream text-5xl md:text-7xl lg:text-8xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
+                className="text-cream text-4xl md:text-6xl lg:text-8xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
               >
                 IL RITO <br /> 
                 <span className="text-gold">DELLA</span> <br /> 
@@ -128,7 +128,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 1.2 }}
-              className="text-cream/80 text-lg md:text-xl font-light max-w-lg leading-relaxed mb-12 tracking-wide font-accent italic"
+              className="text-cream/80 text-base md:text-xl font-light max-w-lg leading-relaxed mb-10 md:mb-12 tracking-wide font-accent italic"
             >
               "Non è solo carne. È un dialogo tra l'uomo e l'elemento primordiale, una danza di calore che trasforma la materia in poesia."
             </motion.p>
@@ -137,15 +137,15 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.5 }}
-              className="flex flex-wrap gap-6"
+              className="flex flex-wrap gap-4 md:gap-6"
             >
               <Button 
                 asChild 
                 size="lg"
-                className="group relative h-16 px-10 bg-gold hover:bg-gold-dark text-noir rounded-none transition-all duration-500"
+                className="group relative h-12 md:h-16 px-6 md:px-10 bg-gold hover:bg-gold-dark text-noir rounded-lg transition-all duration-300"
               >
                 <a href="#prenota" className="flex items-center gap-3 relative z-10">
-                  <span className="text-sm font-bold uppercase tracking-[0.2em]">Prenota il Rito</span>
+                  <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Prenota il Rito</span>
                   <Phone className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
                 </a>
               </Button>
@@ -154,10 +154,10 @@ const Hero = () => {
                 asChild 
                 variant="ghost"
                 size="lg"
-                className="group h-16 px-10 text-cream hover:text-gold hover:bg-white/5 rounded-none border border-cream/20 hover:border-gold transition-all duration-500"
+                className="group h-12 md:h-16 px-6 md:px-10 text-cream hover:text-gold hover:bg-white/5 rounded-lg border border-cream/20 hover:border-gold transition-all duration-300"
               >
                 <a href="#menu" className="flex items-center gap-3">
-                  <span className="text-sm font-bold uppercase tracking-[0.2em]">Esplora la Carta</span>
+                  <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Esplora la Carta</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Button>
@@ -168,11 +168,11 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
-            className="relative hidden lg:block"
+            className="relative hidden md:block"
           >
-            <div className="relative aspect-[4/5] w-full max-w-[500px] ml-auto overflow-hidden border border-gold/20 p-4">
+            <div className="relative aspect-[4/5] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-gold/20 p-4 rounded-xl">
               <div className="absolute inset-0 bg-gold/5 z-0" />
-              <div className="relative h-full w-full overflow-hidden">
+              <div className="relative h-full w-full overflow-hidden rounded-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                   alt="Premium Steak on Grill" 
@@ -188,11 +188,11 @@ const Hero = () => {
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 bg-gold text-noir p-6 font-display font-bold text-xl flex flex-col items-center leading-none"
+                className="absolute -bottom-6 -left-6 bg-gold text-noir p-4 md:p-6 font-display font-bold text-xl flex flex-col items-center leading-none rounded-lg"
               >
-                <span className="text-sm tracking-widest uppercase mb-1">DRY</span>
-                <span className="text-3xl">45</span>
-                <span className="text-xs uppercase">DAYS</span>
+                <span className="text-[10px] md:text-sm tracking-widest uppercase mb-1">DRY</span>
+                <span className="text-2xl md:text-3xl">45</span>
+                <span className="text-[8px] md:text-xs uppercase">DAYS</span>
               </motion.div>
             </div>
           </motion.div>
