@@ -31,7 +31,7 @@ const Storia = () => {
   });
 
   return (
-    <section id="storia" ref={containerRef} className="py-32 lg:py-56 bg-noir relative overflow-hidden">
+    <section id="storia" ref={containerRef} className="py-20 lg:py-32 bg-noir relative overflow-hidden">
       {/* Cinematic Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.01] select-none">
         <h2 className="text-[30vw] font-display font-black uppercase whitespace-nowrap">HISTORY</h2>
@@ -41,7 +41,7 @@ const Storia = () => {
         <div className="max-w-4xl mx-auto text-center mb-40">
           <AnimatedSection>
             <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Il Nostro Cammino</span>
-            <h2 className="text-5xl md:text-8xl font-display font-black text-cream uppercase leading-none">
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream uppercase leading-none">
               UNA STORIA <br /> <span className="text-gold italic font-light">DI FUOCO</span>
             </h2>
           </AnimatedSection>
@@ -64,7 +64,7 @@ const Storia = () => {
               
               <div className={`lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
                 <AnimatedSection animation="fade-up" delay={0.2}>
-                  <span className="text-7xl lg:text-9xl font-display font-black text-gold/10 mb-4 block leading-none">{item.year}</span>
+                  <span className="text-5xl lg:text-7xl font-display font-black text-gold/10 mb-4 block leading-none">{item.year}</span>
                   <h3 className="text-3xl lg:text-5xl font-display font-bold text-cream mb-8 uppercase tracking-tighter">{item.title}</h3>
                   <p className="text-cream/50 text-lg leading-relaxed max-w-xl italic font-accent">
                     "{item.text}"

@@ -27,7 +27,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="py-32 lg:py-56 bg-noir relative overflow-hidden">
+    <section id="intro" className="py-20 lg:py-32 bg-noir relative overflow-hidden">
       {/* Background Decorative Text */}
       <div className="absolute -top-20 -left-20 text-cream/[0.02] text-[25vw] font-display font-black pointer-events-none select-none uppercase leading-none">
         Elite
@@ -37,7 +37,7 @@ const Intro = () => {
         <div className="max-w-4xl mx-auto text-center mb-32">
           <AnimatedSection animation="fade-up">
             <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-8 block">Eccellenza Pugliese dal 1980</span>
-            <h2 className="text-5xl md:text-8xl font-display font-black text-cream leading-[0.9] mb-10 uppercase">
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream leading-[0.9] mb-10 uppercase">
               LA FILOSOFIA <br /> 
               <span className="text-gold italic font-light">DEL GUSTO</span>
             </h2>
