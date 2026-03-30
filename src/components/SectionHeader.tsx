@@ -27,7 +27,7 @@ const SectionHeader = ({
       {subtitle && (
         <AnimatedSection 
           animation="fade-up" 
-          className="mb-4 block text-gold text-[10px] md:text-xs font-black uppercase tracking-[0.6em]"
+          className="mb-4 block text-gold text-xs font-black uppercase tracking-[0.6em]"
         >
           {subtitle}
         </AnimatedSection>
