@@ -31,6 +31,7 @@ const Header = () => {
     { href: "#vini", label: "Vini" },
     { href: "#takeaway", label: "Take-away" },
     { href: "#prenota", label: "Prenota" },
+    { href: "#dovesiamo", label: "Dove Siamo" },
   ];
 
   return (

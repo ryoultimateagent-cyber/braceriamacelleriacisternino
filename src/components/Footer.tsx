@@ -1,5 +1,6 @@
 import { ChefHat, Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -20,10 +21,10 @@ const Footer = () => {
               "La nostra missione è onorare il fuoco, rispettando la tradizione e portando in tavola solo l'eccellenza della materia prima."
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Facebook">
+              <a href="https://facebook.com/macelleriabraceriabelvedere" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Instagram">
+              <a href="https://instagram.com/macelleriabraceriabelvedere" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -32,9 +33,9 @@ const Footer = () => {
           <div>
             <h4 className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Esplora</h4>
             <ul className="space-y-4 md:space-y-6">
-              {["Storia", "Brace", "Galleria", "Menù"].map((link) => (
+              {["Storia", "Brace", "Galleria", "Menù", "Dove Siamo"].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-cream/60 hover:text-gold transition-all duration-300 text-xs uppercase tracking-widest font-bold block">
+                  <a href={`#${link.toLowerCase().replace(" ", "")}`} className="text-cream/60 hover:text-gold transition-all duration-300 text-xs uppercase tracking-widest font-bold block">
                     {link}
                   </a>
                 </li>
@@ -47,7 +48,7 @@ const Footer = () => {
             <ul className="space-y-6 md:space-y-8">
               <li className="flex flex-col gap-2">
                 <span className="text-gold/50 text-[10px] uppercase tracking-widest font-black">Indirizzo</span>
-                <span className="text-cream/60 text-xs font-bold uppercase tracking-widest">Via Belvedere, 15 <br /> Mola di Bari (BA)</span>
+                <span className="text-cream/60 text-xs font-bold uppercase tracking-widest">Via Belvedere, 12 <br /> Mola di Bari (BA)</span>
               </li>
               <li className="flex flex-col gap-2">
                 <span className="text-gold/50 text-[10px] uppercase tracking-widest font-black">Telefono</span>
@@ -69,15 +70,34 @@ const Footer = () => {
                   className="w-full bg-transparent border-b border-gold/20 py-4 text-gold focus:border-gold outline-none transition-all placeholder:text-gold/20 text-[10px] tracking-[0.4em] font-black" 
                 />
               </div>
-              <button className="h-14 bg-gold hover:bg-gold-dark text-noir font-black uppercase tracking-[0.4em] text-[10px] transition-all rounded-lg">Sottoscrivi</button>
+              <button 
+                onClick={() => {
+                  const email = (document.getElementById("newsletter-email") as HTMLInputElement).value;
+                  if (email) {
+                    toast.success("Iscrizione avvenuta con successo!");
+                    (document.getElementById("newsletter-email") as HTMLInputElement).value = "";
+                  } else {
+                    toast.error("Inserisci un'email valida.");
+                  }
+                }}
+                className="h-14 bg-gold hover:bg-gold-dark text-noir font-black uppercase tracking-[0.4em] text-[10px] transition-all rounded-lg"
+              >
+                Sottoscrivi
+              </button>
             </div>
           </div>
         </div>
 
         <div className="pt-12 md:pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
-          <p className="text-gold/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
-            © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <p className="text-gold/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
+              © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="text-[9px] text-gold/30 hover:text-gold/50 uppercase tracking-widest transition-colors">Privacy Policy</a>
+              <a href="#" className="text-[9px] text-gold/30 hover:text-gold/50 uppercase tracking-widest transition-colors">Cookie Policy</a>
+            </div>
+          </div>
           
           <motion.button
             whileHover={{ y: -5 }}

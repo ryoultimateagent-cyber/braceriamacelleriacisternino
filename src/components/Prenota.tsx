@@ -28,7 +28,7 @@ const Prenota = () => {
                   </div>
                   <div>
                     <h4 className="text-gold font-bold uppercase tracking-widest text-[10px] md:text-xs">Posizione</h4>
-                    <p className="text-cream text-base md:text-lg">Via Belvedere 1, Mola di Bari</p>
+                    <p className="text-cream text-base md:text-lg">Via Belvedere 12, Mola di Bari</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 md:gap-6">
