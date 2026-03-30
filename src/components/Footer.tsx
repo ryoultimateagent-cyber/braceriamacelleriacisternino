@@ -75,14 +75,14 @@ const Footer = () => {
         </div>
 
         <div className="pt-12 md:pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
-          <p className="text-gold/30 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
+          <p className="text-gold/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
             © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
           </p>
           
           <motion.button
             whileHover={{ y: -5 }}
             onClick={scrollToTop}
-            className="group flex items-center gap-4 text-gold/40 hover:text-gold transition-colors"
+            className="group flex items-center gap-4 text-gold/60 hover:text-gold transition-colors"
             aria-label="Torna all'inizio della pagina"
           >
             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Inizio Pagina</span>

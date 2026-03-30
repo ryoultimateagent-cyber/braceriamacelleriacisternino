@@ -201,12 +201,12 @@ const Hero = () => {
 
       {/* Decorative side text */}
       <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 -rotate-90">
-        <span className="text-cream/20 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
+        <span className="text-cream/60 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
           AUTHENTIC ITALIAN STEAKHOUSE
         </span>
       </div>
       <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 rotate-90">
-        <span className="text-cream/20 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
+        <span className="text-cream/60 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
           BELVEDERE • ART OF FIRE
         </span>
       </div>

@@ -137,7 +137,7 @@ const Galleria = () => {
                 <div className="mt-8 md:mt-12 flex items-center justify-center lg:justify-start gap-4">
                   <span className="text-gold font-black font-display text-xl">{selectedIndex + 1}</span>
                   <div className="w-12 h-px bg-gold/30" />
-                  <span className="text-gold/40 font-display text-xl">{images.length}</span>
+                  <span className="text-gold/60 font-display text-xl">{images.length}</span>
                 </div>
               </div>
             </motion.div>

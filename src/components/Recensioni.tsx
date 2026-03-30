@@ -48,7 +48,7 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <Award className="w-6 h-6 text-gold/20" />
+                  <Award className="w-6 h-6 text-gold/50" />
                 </div>
                 
                 <p className="text-gold-light/80 text-lg font-accent italic leading-relaxed mb-8 md:mb-10 flex-1 relative z-10">
@@ -64,7 +64,7 @@ const Recensioni = () => {
                       <div className="text-cream font-display font-bold text-sm tracking-widest uppercase">
                         {review.author}
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-gold-light/40">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-gold-light/60">
                         {review.role}
                       </div>
                     </div>
