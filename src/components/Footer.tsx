@@ -33,9 +33,9 @@ const Footer = () => {
           <div>
             <h4 className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Esplora</h4>
             <ul className="space-y-4 md:space-y-6">
-              {["Storia", "Brace", "Galleria", "Menù"].map((link) => (
+              {["Storia", "Brace", "Galleria", "Menù", "Dove Siamo"].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-cream/60 hover:text-gold transition-all duration-300 text-xs uppercase tracking-widest font-bold block">
+                  <a href={`#${link.toLowerCase().replace(" ", "")}`} className="text-cream/60 hover:text-gold transition-all duration-300 text-xs uppercase tracking-widest font-bold block">
                     {link}
                   </a>
                 </li>
@@ -89,9 +89,15 @@ const Footer = () => {
         </div>
 
         <div className="pt-12 md:pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
-          <p className="text-gold/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
-            © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <p className="text-gold/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
+              © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="text-[9px] text-gold/30 hover:text-gold/50 uppercase tracking-widest transition-colors">Privacy Policy</a>
+              <a href="#" className="text-[9px] text-gold/30 hover:text-gold/50 uppercase tracking-widest transition-colors">Cookie Policy</a>
+            </div>
+          </div>
           
           <motion.button
             whileHover={{ y: -5 }}
