@@ -7,7 +7,7 @@ import Tagli from "@/components/Tagli";
 import Galleria from "@/components/Galleria";
 import Menu from "@/components/Menu";
 import Vini from "@/components/Vini";
-import Takeaway from "@/components/Takeaway";
+
 import Prenota from "@/components/Prenota";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
@@ -50,7 +50,7 @@ const Index = () => {
         <Galleria />
         <Menu />
         <Vini />
-        <Takeaway />
+        
         <Recensioni />
         <Prenota />
         <DoveSiamo />
