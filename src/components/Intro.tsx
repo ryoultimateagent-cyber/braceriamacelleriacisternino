@@ -27,7 +27,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="py-32 lg:py-56 bg-noir relative overflow-hidden">
+    <section id="intro" className="py-20 lg:py-32 bg-noir relative overflow-hidden">
       {/* Background Decorative Text */}
       <div className="absolute -top-20 -left-20 text-cream/[0.02] text-[25vw] font-display font-black pointer-events-none select-none uppercase leading-none">
         Elite

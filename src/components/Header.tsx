@@ -53,7 +53,7 @@ const Header = () => {
           aria-label="Home - Macelleria Braceria Belvedere"
         >
           <div className="flex flex-col items-center">
-             <span className="text-2xl lg:text-3xl font-display font-black text-gold tracking-tighter leading-none mb-1">BELVEDERE</span>
+             <span className="text-xl lg:text-2xl font-display font-black text-gold tracking-tighter leading-none mb-1">BELVEDERE</span>
              <div className="h-px w-full bg-gold/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
              <span className="text-[10px] font-display font-bold text-gold/60 tracking-[0.5em] uppercase leading-none mt-1">EST. 1980</span>
           </div>
@@ -118,7 +118,7 @@ const Header = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-3xl font-display font-bold text-cream hover:text-gold transition-colors py-2 border-b border-white/5"
+                  className="text-2xl font-display font-bold text-cream hover:text-gold transition-colors py-2 border-b border-white/5"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
