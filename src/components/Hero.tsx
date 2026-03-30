@@ -116,7 +116,7 @@ const Hero = () => {
                 initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                className="text-cream text-6xl md:text-8xl lg:text-9xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
+                className="text-cream text-5xl md:text-7xl lg:text-8xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
               >
                 IL RITO <br /> 
                 <span className="text-gold">DELLA</span> <br /> 

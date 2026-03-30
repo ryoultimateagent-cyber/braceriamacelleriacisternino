@@ -37,7 +37,7 @@ const Intro = () => {
         <div className="max-w-4xl mx-auto text-center mb-32">
           <AnimatedSection animation="fade-up">
             <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-8 block">Eccellenza Pugliese dal 1980</span>
-            <h2 className="text-5xl md:text-8xl font-display font-black text-cream leading-[0.9] mb-10 uppercase">
+            <h2 className="text-4xl md:text-7xl font-display font-black text-cream leading-[0.9] mb-10 uppercase">
               LA FILOSOFIA <br /> 
               <span className="text-gold italic font-light">DEL GUSTO</span>
             </h2>
