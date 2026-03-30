@@ -21,10 +21,10 @@ const Footer = () => {
               "La nostra missione è onorare il fuoco, rispettando la tradizione e portando in tavola solo l'eccellenza della materia prima."
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Facebook">
+              <a href="https://facebook.com/macelleriabraceriabelvedere" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Instagram">
+              <a href="https://instagram.com/macelleriabraceriabelvedere" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>

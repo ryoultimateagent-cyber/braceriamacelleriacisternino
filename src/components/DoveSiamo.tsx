@@ -51,7 +51,7 @@ const DoveSiamo = () => {
                   <div>
                     <h4 className="text-gold font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Contatti</h4>
                     <a href="tel:+393403824158" className="text-gold-light/80 hover:text-gold transition-colors text-lg md:text-xl lg:text-2xl font-accent italic">
-                      +39 340 38 24 158
+                      +39 340 382 4158
                     </a>
                   </div>
                 </div>
