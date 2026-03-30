@@ -1,5 +1,6 @@
 import { ChefHat, Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -47,7 +48,7 @@ const Footer = () => {
             <ul className="space-y-6 md:space-y-8">
               <li className="flex flex-col gap-2">
                 <span className="text-gold/50 text-[10px] uppercase tracking-widest font-black">Indirizzo</span>
-                <span className="text-cream/60 text-xs font-bold uppercase tracking-widest">Via Belvedere, 15 <br /> Mola di Bari (BA)</span>
+                <span className="text-cream/60 text-xs font-bold uppercase tracking-widest">Via Belvedere, 12 <br /> Mola di Bari (BA)</span>
               </li>
               <li className="flex flex-col gap-2">
                 <span className="text-gold/50 text-[10px] uppercase tracking-widest font-black">Telefono</span>
@@ -69,7 +70,20 @@ const Footer = () => {
                   className="w-full bg-transparent border-b border-gold/20 py-4 text-gold focus:border-gold outline-none transition-all placeholder:text-gold/20 text-[10px] tracking-[0.4em] font-black" 
                 />
               </div>
-              <button className="h-14 bg-gold hover:bg-gold-dark text-noir font-black uppercase tracking-[0.4em] text-[10px] transition-all rounded-lg">Sottoscrivi</button>
+              <button 
+                onClick={() => {
+                  const email = (document.getElementById("newsletter-email") as HTMLInputElement).value;
+                  if (email) {
+                    toast.success("Iscrizione avvenuta con successo!");
+                    (document.getElementById("newsletter-email") as HTMLInputElement).value = "";
+                  } else {
+                    toast.error("Inserisci un'email valida.");
+                  }
+                }}
+                className="h-14 bg-gold hover:bg-gold-dark text-noir font-black uppercase tracking-[0.4em] text-[10px] transition-all rounded-lg"
+              >
+                Sottoscrivi
+              </button>
             </div>
           </div>
         </div>

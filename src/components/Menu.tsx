@@ -135,7 +135,7 @@ const Menu = () => {
         {/* Header */}
         <SectionHeader 
           subtitle="Esperienza Gastronomica"
-          title="Il Nostre Menù"
+          title="Il Nostro Menù"
           className="mb-16 md:mb-20"
         />
 
