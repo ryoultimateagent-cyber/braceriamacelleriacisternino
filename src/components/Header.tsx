@@ -29,7 +29,7 @@ const Header = () => {
     { href: "#galleria", label: "Galleria" },
     { href: "#menu", label: "Menù" },
     { href: "#vini", label: "Vini" },
-    { href: "#takeaway", label: "Take-away" },
+    
     { href: "#prenota", label: "Prenota" },
     { href: "#dovesiamo", label: "Dove Siamo" },
   ];
