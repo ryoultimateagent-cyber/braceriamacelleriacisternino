@@ -45,7 +45,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05, border: "2px solid rgba(255,255,255,0.8)" }}
             whileTap={{ scale: 0.95 }}
             href="#menu" 
-            className="inline-block border-2 border-white/30 text-white hover:bg-white/10 px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 focus-visible:ring-4 focus-visible:ring-white/20 outline-none font-dm-sans"
+            className="inline-block border-2 border-white/30 text-white hover:bg-white/10 px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 focus-visible:ring-4 focus-visible:ring-white/20 outline-none font-display"
             aria-label="Sfoglia il nostro menù"
           >
             Scopri il Menù
