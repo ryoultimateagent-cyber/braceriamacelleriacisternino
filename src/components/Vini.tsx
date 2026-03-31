@@ -41,9 +41,9 @@ const Vini = () => {
                 { label: "NERO DI TROIA", note: "Orgoglio della Daunia" },
                 { label: "BOLLICINE", note: "Metodo Classico" }
               ].map((item, i) => (
-                <div key={i} className="group border-l border-gold/30 pl-6 py-2 hover:border-gold transition-colors duration-300">
-                  <h4 className="text-cream font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2 group-hover:text-gold transition-colors">{item.label}</h4>
-                  <p className="text-cream/60 text-[9px] md:text-[10px] uppercase tracking-widest">{item.note}</p>
+                <div key={i} className="group border-l border-ember/30 pl-6 py-2 hover:border-ember transition-colors duration-300">
+                  <h4 className="text-foreground font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2 group-hover:text-ember transition-colors">{item.label}</h4>
+                  <p className="text-foreground/60 text-[9px] md:text-[10px] uppercase tracking-widest">{item.note}</p>
                 </div>
               ))}
             </div>
@@ -51,9 +51,9 @@ const Vini = () => {
             <Button 
               asChild 
               size="lg"
-              className="h-12 md:h-16 px-8 md:px-12 bg-gold hover:bg-gold-dark text-noir uppercase tracking-[0.3em] font-black text-xs md:text-sm rounded-lg transition-all duration-300"
+              className="h-12 md:h-16 px-8 md:px-12 bg-ember hover:bg-ember-dark text-white uppercase tracking-[0.3em] font-black text-xs md:text-sm rounded-lg transition-all duration-300"
             >
-              <a href="https://drive.google.com/file/d/1CYEh6u9jwJT04kDssM7RbBK_p04M-QZj/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-4">
+              <a href="#" className="flex items-center gap-3 md:gap-4">
                 <Wine className="w-4 h-4 md:w-5 md:h-5" />
                 Sfoglia la Carta
               </a>
