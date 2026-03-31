@@ -24,13 +24,13 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: "#storia", label: "Storia" },
-    { href: "#brace", label: "Brace" },
-    { href: "#galleria", label: "Galleria" },
-    { href: "#menu", label: "Menù" },
+    { href: "#storia", label: "La Nostra Storia" },
+    { href: "#menu", label: "Il Menù" },
+    { href: "#brace", label: "La Brace" },
     { href: "#vini", label: "Vini" },
-    { href: "#prenota", label: "Prenota" },
-    { href: "#dovesiamo", label: "Dove Siamo" },
+    { href: "#galleria", label: "Galleria" },
+    { href: "#recensioni", label: "Dicono di Noi" },
+    { href: "#dovesiamo", label: "Contatti" },
   ];
 
   return (
