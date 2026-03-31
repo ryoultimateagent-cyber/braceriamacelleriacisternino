@@ -57,7 +57,7 @@ const EmberDivider = () => {
               width: spark.size,
               height: spark.size,
               backgroundColor: spark.color,
-              opacity: 0.6,
+              opacity: 0.85,
               boxShadow: `0 0 4px ${spark.color}`,
               animationName: "rise",
               animationDuration: spark.duration,
