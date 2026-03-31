@@ -3,13 +3,15 @@ import { motion } from 'framer-motion';
 
 const EmberDivider = () => {
   const dividerSparks = useMemo(() => {
-    return Array.from({ length: 6 }).map((_, i) => ({
+    const colors = ["#FF6B00", "#FFD700", "#FF4500"];
+    return Array.from({ length: 80 }).map((_, i) => ({
       id: i,
-      left: `${10 + Math.random() * 80}%`,
+      left: `${15 + Math.random() * 70}%`,
       size: `${Math.random() * 2 + 1}px`,
-      delay: `${Math.random() * 5}s`,
-      duration: `${Math.random() * 3 + 4}s`,
-      drift: `${(Math.random() - 0.5) * 50}px`,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      delay: `${Math.random() * 10}s`,
+      duration: `${Math.random() * 4 + 4}s`,
+      drift: `${(Math.random() - 0.5) * 100}px`,
     }));
   }, []);
 
@@ -54,10 +56,13 @@ const EmberDivider = () => {
               bottom: "0",
               width: spark.size,
               height: spark.size,
-              backgroundColor: "#FF6B00",
-              opacity: 0.6,
-              boxShadow: "0 0 6px #FF6B00",
-              animation: `rise ${spark.duration} linear infinite`,
+              backgroundColor: spark.color,
+              opacity: 0.8,
+              boxShadow: `0 0 6px ${spark.color}`,
+              animationName: "rise",
+              animationDuration: spark.duration,
+              animationIterationCount: "infinite",
+              animationTimingFunction: "ease-out",
               animationDelay: spark.delay,
               // @ts-ignore
               "--drift": spark.drift,

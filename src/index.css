@@ -147,13 +147,17 @@
 
   @keyframes rise {
     0% {
-      transform: translateY(0) translateX(0);
+      transform: translateY(0) translateX(0) scale(1.2);
       opacity: 0;
     }
-    10% { opacity: 1; }
-    90% { opacity: 0.8; }
+    5% { opacity: 0.8; }
+    40% { opacity: 0.4; }
+    70% { 
+      opacity: 0;
+      transform: translateY(-70vh) translateX(var(--drift)) scale(0.5);
+    }
     100% {
-      transform: translateY(-100vh) translateX(var(--drift));
+      transform: translateY(-100vh) translateX(var(--drift)) scale(0);
       opacity: 0;
     }
   }
