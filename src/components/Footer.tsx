@@ -9,22 +9,22 @@ const Footer = () => {
   };
 
   return (
-    <footer role="contentinfo" className="py-16 md:py-24 bg-noir border-t border-white/5 relative overflow-hidden">
+    <footer role="contentinfo" className="py-16 md:py-24 bg-accent border-t border-white/5 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
             <div className="mb-8 md:mb-12">
-              <h3 className="text-2xl md:text-3xl font-display font-black text-gold uppercase tracking-tighter leading-none mb-1">BELVEDERE</h3>
-              <span className="text-[10px] text-gold/50 uppercase tracking-[0.5em] font-bold">EST. 1980</span>
+              <h3 className="text-2xl md:text-3xl font-display font-black text-[#FAF7F0] uppercase tracking-tighter leading-none mb-1">BELVEDERE</h3>
+              <span className="text-[10px] text-[#FAF7F0]/50 uppercase tracking-[0.5em] font-bold">EST. 1986</span>
             </div>
-            <p className="text-cream/60 text-sm leading-relaxed mb-8 md:mb-12 font-accent italic">
-              "La nostra missione è onorare il fuoco, rispettando la tradizione e portando in tavola solo l'eccellenza della materia prima."
+            <p className="text-[#FAF7F0]/60 text-sm leading-relaxed mb-8 md:mb-12 font-accent italic">
+              "La Macelleria Belvedere è una realtà a conduzione familiare nel cuore di Putignano. Qualità, tradizione e passione in ogni taglio."
             </p>
             <div className="flex gap-6">
-              <a href="https://facebook.com/macelleriabraceriabelvedere" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Facebook">
+              <a href="https://www.facebook.com/macelleriabelvedere" target="_blank" rel="noopener noreferrer" className="text-[#FAF7F0]/60 hover:text-white transition-colors" aria-label="Seguici su Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com/macelleriabraceriabelvedere" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors" aria-label="Seguici su Instagram">
+              <a href="https://www.instagram.com/macelleriabelvedere" target="_blank" rel="noopener noreferrer" className="text-[#FAF7F0]/60 hover:text-white transition-colors" aria-label="Seguici su Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
