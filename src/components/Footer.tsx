@@ -6,8 +6,26 @@ import { useState } from "react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setStatus("loading");
+    // Simulo invio API
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setStatus("success");
+    toast.success("Iscrizione avvenuta con successo!");
+    setEmail("");
+    
+    setTimeout(() => setStatus("idle"), 3000);
   };
 
   return (
