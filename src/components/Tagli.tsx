@@ -37,25 +37,25 @@ const tagli = [
 
 const Tagli = () => {
   return (
-    <section id="brace" className="section-spacing bg-noir relative overflow-hidden">
+    <section id="brace" className="section-spacing bg-white relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-ember/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Selezione d'Elite</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream uppercase leading-[0.9]">
-              I NOSTRI <br /> <span className="text-gold italic font-light">TAGLI SCELTI</span>
+            <span className="text-ember text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Selezione di Qualità</span>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-[0.9]">
+              LE NOSTRE <br /> <span className="text-ember italic font-light">SPECIALITÀ</span>
             </h2>
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
           {tagli.map((taglio, i) => (
-            <AnimatedSection key={i} delay={i * 0.15} animation="fade-up" className="h-full">
-              <div className="group relative h-[380px] md:h-[450px] w-full overflow-hidden border border-gold/10 rounded-xl">
-                <div className="absolute inset-0 bg-gold/5 z-0" />
+            <AnimatedSection key={i} delay={i * 0.1} animation="fade-up" className="h-full">
+              <div className="group relative h-[380px] md:h-[450px] w-full overflow-hidden border border-ember/10 rounded-xl shadow-md">
+                <div className="absolute inset-0 bg-ember/5 z-0" />
                 
                 {/* Image Background */}
                 <div className="absolute inset-0 z-0">
