@@ -128,7 +128,7 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="section-container py-24 md:py-32 bg-white relative overflow-hidden"
+      className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden"
       aria-label="I nostri servizi"
     >
       {/* Hidden SVG for Clip Paths */}
@@ -148,11 +148,15 @@ const Menu = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <SectionHeader 
-          subtitle="QUALITÀ E ACCOGLIENZA"
-          title="I Nostri Servizi"
-          className="mb-16 md:mb-24"
-        />
+        <div className="text-center mb-16 md:mb-24">
+          <AnimatedSection>
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">QUALITÀ E ACCOGLIENZA</span>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-none uppercase">
+              I NOSTRI <br /> <span className="text-primary italic">SERVIZI</span>
+            </h2>
+            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full shadow-[0_0_15px_rgba(255,61,0,0.5)]" />
+          </AnimatedSection>
+        </div>
 
         {/* Interactive Menu Container */}
         <div 
@@ -181,13 +185,13 @@ const Menu = () => {
                   <div className={cn(
                     "flex items-start gap-6 p-8 transition-all duration-500 rounded-3xl border-2",
                     activeIndex === index 
-                      ? "bg-primary/5 border-primary shadow-2xl scale-[1.02]" 
-                      : "bg-transparent border-transparent hover:bg-secondary/50"
+                      ? "bg-white/5 border-primary/50 shadow-2xl scale-[1.02]" 
+                      : "bg-transparent border-transparent hover:bg-white/5"
                   )}>
                     {/* Number */}
                     <span className={cn(
                       "text-2xl lg:text-4xl font-black transition-colors duration-300",
-                      activeIndex === index ? "text-primary" : "text-foreground/10 group-hover:text-primary/30"
+                      activeIndex === index ? "text-primary" : "text-white/10 group-hover:text-primary/30"
                     )}>
                       {item.num}
                     </span>
@@ -197,7 +201,7 @@ const Menu = () => {
                       <div className="flex items-center justify-between mb-3">
                         <h3 className={cn(
                           "text-xl lg:text-2xl font-black transition-colors duration-300 uppercase tracking-tight",
-                          activeIndex === index ? "text-foreground" : "text-foreground/40 group-hover:text-foreground"
+                          activeIndex === index ? "text-white" : "text-white/40 group-hover:text-white"
                         )}>
                           {item.name}
                         </h3>
@@ -213,8 +217,8 @@ const Menu = () => {
                       <p className={cn(
                         "text-base lg:text-lg leading-relaxed transition-all duration-500 font-medium",
                         activeIndex === index 
-                          ? "text-muted-foreground opacity-100" 
-                          : "text-muted-foreground/30 opacity-0 max-h-0 overflow-hidden"
+                          ? "text-white/60 opacity-100" 
+                          : "text-white/20 opacity-0 max-h-0 overflow-hidden"
                       )}>
                         {item.desc}
                       </p>
@@ -229,7 +233,7 @@ const Menu = () => {
           <AnimatedSection delay={0.4} className="order-1 lg:order-2 flex justify-center lg:sticky lg:top-40 h-fit">
             <div className="relative w-full max-w-lg aspect-square">
               {/* Image Container */}
-              <div className="absolute inset-0 z-20 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
+              <div className="absolute inset-0 z-20 rounded-[3rem] overflow-hidden border-4 border-white/10 shadow-2xl">
                 <AnimatePresence mode="wait">
                   <motion.img 
                     key={activeIndex}
@@ -242,7 +246,7 @@ const Menu = () => {
                     loading="lazy"
                     width="512"
                     height="512"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
@@ -261,7 +265,7 @@ const Menu = () => {
           <Button 
             asChild 
             size="lg" 
-            className="h-16 px-12 bg-foreground text-background hover:bg-foreground/90 font-black uppercase tracking-widest text-sm shadow-2xl rounded-2xl active:scale-95 transition-all"
+            className="h-16 px-12 bg-white text-black hover:bg-white/90 font-black uppercase tracking-widest text-sm shadow-2xl rounded-2xl active:scale-95 transition-all"
           >
             <a
               href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing"

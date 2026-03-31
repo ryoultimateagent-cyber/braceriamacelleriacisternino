@@ -15,22 +15,22 @@ const Vini = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   return (
-    <section id="vini" ref={ref} className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="vini" ref={ref} className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden">
       <div className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-[1400px] mx-auto">
           {/* Left Side: Text Content */}
           <AnimatedSection delay={0.2} className="relative z-10 space-y-10">
             <div className="space-y-6">
               <span className="text-primary text-xs font-bold uppercase tracking-[0.4em]">L'INCONTRO PERFETTO</span>
-              <h2 className="text-4xl md:text-5xl lg:text-8xl font-black text-foreground tracking-tight leading-[0.9] uppercase">
+              <h2 className="text-4xl md:text-5xl lg:text-8xl font-black text-white tracking-tight leading-[0.9] uppercase">
                 LA NOSTRA <br /> <span className="text-primary italic">CANTINA</span>
               </h2>
-              <p className="text-muted-foreground text-lg md:text-xl font-medium leading-relaxed max-w-xl italic">
-                "Il vino è il compagno della buona carne. Abbiamo curato una selezione che celebra il territorio, dai rossi profondi ai bianchi minerali."
+              <p className="text-white/60 text-lg md:text-xl font-medium leading-relaxed max-w-xl italic">
+                "Il vino è il compagno della buona carne. Abbiamo curato una selection che celebra il territorio, dai rossi profondi ai bianchi minerali."
               </p>
             </div>
             
-            <div className="h-1.5 w-24 bg-primary rounded-full" />
+            <div className="h-1.5 w-24 bg-primary rounded-full shadow-[0_0_15px_rgba(255,61,0,0.5)]" />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               {[
@@ -39,9 +39,9 @@ const Vini = () => {
                 { label: "NERO DI TROIA", note: "Orgoglio della Daunia" },
                 { label: "BOLLICINE", note: "Metodo Classico" }
               ].map((item, i) => (
-                <div key={i} className="group border-l-4 border-primary/10 pl-6 py-2 hover:border-primary transition-colors duration-300">
-                  <h4 className="text-foreground font-black uppercase tracking-widest text-xs mb-1 group-hover:text-primary transition-colors">{item.label}</h4>
-                  <p className="text-muted-foreground text-[10px] uppercase tracking-widest font-bold">{item.note}</p>
+                <div key={i} className="group border-l-4 border-white/10 pl-6 py-2 hover:border-primary transition-colors duration-300">
+                  <h4 className="text-white/60 font-black uppercase tracking-widest text-xs mb-1 group-hover:text-primary transition-colors">{item.label}</h4>
+                  <p className="text-white/20 text-[10px] uppercase tracking-widest font-bold">{item.note}</p>
                 </div>
               ))}
             </div>
@@ -62,7 +62,7 @@ const Vini = () => {
           <AnimatedSection className="relative mt-12 lg:mt-0">
             <motion.div 
               style={{ y: imageY, rotate }}
-              className="relative aspect-[3/4] w-full max-w-[400px] lg:max-w-[500px] ml-auto rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl group"
+              className="relative aspect-[3/4] w-full max-w-[400px] lg:max-w-[500px] ml-auto rounded-[3rem] overflow-hidden border-4 border-white/10 shadow-2xl group"
             >
               <img 
                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" 
