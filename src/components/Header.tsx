@@ -68,7 +68,7 @@ const Header = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-all duration-300 relative group"
+                  className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-all duration-300 relative group focus-visible:text-primary outline-none"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
