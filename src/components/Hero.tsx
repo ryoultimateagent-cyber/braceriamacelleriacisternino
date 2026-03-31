@@ -1,4 +1,5 @@
 import React, { useMemo, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const sparkCount = 45; // Fixed count, will hide some on mobile via CSS
