@@ -68,7 +68,7 @@ const Hero = () => {
       </div>
 
       {/* Contenuto Testuale Centrato */}
-      <div className="relative z-10 text-center px-6 max-w-5xl flex flex-col items-center">
+      <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
         <h1 
           className="text-[#FFFFFF] font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-dm-sans uppercase italic"
         >
