@@ -26,45 +26,45 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     num: "01",
-    name: "Antipasti Artigianali",
-    desc: "Salumi selezionati, formaggi DOP pugliesi, bruschette croccanti e il miglior capocollo di Martina Franca.",
+    name: "Braceria Serale",
+    desc: "Su ordinazione, serviamo i migliori tagli cotti sulla nostra brace viva.",
     clipId: "clip-original",
-    image: menuAntipasti
-  },
-  {
-    num: "02",
-    name: "Primi Fatti in Casa",
-    desc: "Orecchiette tirate a mano ogni giorno, ragù di carne cotto lentamente, risotti cremosi stagionali.",
-    clipId: "clip-hexagons",
-    image: menuPrimi
-  },
-  {
-    num: "03",
-    name: "Carni alla Brace",
-    desc: "Fiorentina, costata, tagliata, tartare, costine BBQ. Ogni taglio è una promessa di qualità assoluta.",
-    clipId: "clip-pixels",
     image: menuCarni
   },
   {
-    num: "04",
-    name: "Specialità Pugliesi",
-    desc: "Bombette tradizionali, salsiccia artigianale, spiedini misti cotti sulla brace viva.",
-    clipId: "clip-original",
+    num: "02",
+    name: "Asporto Disponibile",
+    desc: "Porta la nostra qualità a casa tua con il servizio d'asporto rapido.",
+    clipId: "clip-hexagons",
     image: menuSpecialita
   },
   {
-    num: "05",
-    name: "Contorni Premium",
-    desc: "Verdure grigliate, patate croccanti al forno, insalate fresche di stagione, cicorie e fave.",
-    clipId: "clip-hexagons",
+    num: "03",
+    name: "Prenotazioni",
+    desc: "Accettiamo prenotazioni per garantirti il miglior tavolo e servizio.",
+    clipId: "clip-pixels",
+    image: menuAntipasti
+  },
+  {
+    num: "04",
+    name: "Comfort & Accesso",
+    desc: "Parcheggio in zona, tavoli all'esterno e seggioloni per bambini.",
+    clipId: "clip-original",
     image: menuContorni
   },
   {
-    num: "06",
-    name: "Dolci della Casa",
-    desc: "Dolci tipici pugliesi fatti in casa, tiramisù cremoso artigianale, sorbetti al limone.",
-    clipId: "clip-pixels",
+    num: "05",
+    name: "Pagamenti & Pet",
+    desc: "Accettiamo Visa/Mastercard/AmEx. Siamo orgogliosamente Pet Friendly.",
+    clipId: "clip-hexagons",
     image: menuDolci
+  },
+  {
+    num: "06",
+    name: "Passione Putignanese",
+    desc: "Dal 1986, l'arte della carne nel cuore di Putignano.",
+    clipId: "clip-pixels",
+    image: menuPrimi
   }
 ];
 
