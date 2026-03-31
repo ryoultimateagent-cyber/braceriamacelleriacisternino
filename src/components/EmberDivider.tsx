@@ -6,7 +6,7 @@ const EmberDivider = () => {
     const colors = ["#FF6B00", "#FFD700", "#FF4500"];
     return Array.from({ length: 80 }).map((_, i) => ({
       id: i,
-      left: `${5 + Math.random() * 90}%`,
+      left: `${15 + Math.random() * 70}%`,
       size: `${Math.random() * 2 + 1}px`,
       color: colors[Math.floor(Math.random() * colors.length)],
       delay: `${Math.random() * 10}s`,
