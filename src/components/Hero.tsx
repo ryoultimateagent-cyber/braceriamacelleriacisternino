@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
-  const sparkCount = 45; // Fixed count, will hide some on mobile via CSS
+  const sparkCount = 100; // Increased count for more density
   
   const sparks = useMemo(() => {
     const colors = ["#FF6B00", "#CC0000", "#F5C400"];
