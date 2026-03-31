@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const EmberDivider = () => {
   const dividerSparks = useMemo(() => {
     const colors = ["#FF6B00", "#FFD700", "#FF4500"];
-    return Array.from({ length: 30 }).map((_, i) => ({
+    return Array.from({ length: 50 }).map((_, i) => ({
       id: i,
       left: `${5 + Math.random() * 90}%`,
       size: `${Math.random() * 2 + 1}px`,
