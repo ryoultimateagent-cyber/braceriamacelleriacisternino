@@ -50,7 +50,7 @@ const Galleria = () => {
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
           {images.map((img, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="group cursor-pointer" animation="scale-up">
               <div 

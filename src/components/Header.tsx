@@ -120,7 +120,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="xl:hidden absolute top-full left-0 right-0 mt-4 bg-white/95 backdrop-blur-2xl rounded-3xl border border-black/5 shadow-2xl p-8 flex flex-col gap-6"
+            className="lg:hidden absolute top-full left-0 right-0 mt-4 bg-white/95 backdrop-blur-2xl rounded-3xl border border-black/5 shadow-2xl p-8 flex flex-col gap-6"
           >
             <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
               {navLinks.map((link, index) => (
