@@ -31,50 +31,45 @@ const Storia = () => {
   });
 
   return (
-    <section id="storia" ref={containerRef} className="section-spacing bg-white relative overflow-hidden">
-      {/* Background Text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] select-none">
-        <h2 className="text-[30vw] font-display font-black uppercase whitespace-nowrap text-ember">BELVEDERE</h2>
+    <section id="storia" ref={containerRef} className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-4xl mx-auto text-center mb-24">
+        <AnimatedSection>
+          <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">CHI SIAMO</span>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-none uppercase">
+            TRADIZIONE <br /> <span className="text-primary italic">E QUALITÀ</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full" />
+        </AnimatedSection>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-40">
-          <AnimatedSection>
-            <span className="text-ember text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Chi Siamo</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-none">
-              TRADIZIONE <br /> <span className="text-ember italic font-light">E QUALITÀ</span>
-            </h2>
-          </AnimatedSection>
-        </div>
-
-        <div className="space-y-24 md:space-y-40">
-          {timelineData.map((item, i) => (
-            <div key={i} className={`flex flex-col lg:flex-row gap-10 md:gap-16 items-center ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
-              <div className="w-full lg:w-1/2">
-                <AnimatedSection animation={i % 2 === 0 ? "fade-right" : "fade-left"}>
-                  <div className="relative aspect-video overflow-hidden border border-ember/10 p-2 rounded-xl">
-                    <img 
-                      src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
-                      alt={item.title} 
-                      loading="lazy"
-                      className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 rounded-lg"
-                    />
-                  </div>
-                </AnimatedSection>
-              </div>
-              
-              <div className={`w-full lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
-                <AnimatedSection animation="fade-up" delay={0.2}>
-                  <span className="text-4xl md:text-5xl lg:text-7xl font-display font-black text-ember/10 mb-4 block leading-none">{item.year}</span>
-                  <h3 className="text-2xl md:text-3xl lg:text-5xl font-display font-bold text-foreground mb-6 md:mb-8 uppercase tracking-tighter">{item.title}</h3>
-                  <p className="text-foreground/70 text-base md:text-lg leading-relaxed max-w-xl italic font-accent">
-                    "{item.text}"
-                  </p>
-                </AnimatedSection>
-              </div>
+      <div className="space-y-32 md:space-y-48">
+        {timelineData.map((item, i) => (
+          <div key={i} className={`flex flex-col lg:flex-row gap-16 md:gap-24 items-center ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
+            <div className="w-full lg:w-1/2 group">
+              <AnimatedSection animation={i % 2 === 0 ? "fade-right" : "fade-left"}>
+                <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white group-hover:scale-[1.02] transition-transform duration-500">
+                  <img 
+                    src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
+                    alt={item.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                </div>
+              </AnimatedSection>
             </div>
-          ))}
-        </div>
+            
+            <div className={`w-full lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
+              <AnimatedSection animation="fade-up" delay={0.2}>
+                <span className="text-5xl md:text-7xl lg:text-9xl font-black text-primary/5 mb-6 block leading-none">{item.year}</span>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 uppercase tracking-tight">{item.title}</h3>
+                <p className="text-muted-foreground text-lg md:text-xl font-medium leading-relaxed max-w-xl">
+                  {item.text}
+                </p>
+              </AnimatedSection>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
