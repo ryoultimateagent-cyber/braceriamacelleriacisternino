@@ -131,6 +131,21 @@ const Menu = () => {
       className="section-container py-24 md:py-32 bg-white relative overflow-hidden"
       aria-label="I nostri servizi"
     >
+      {/* Hidden SVG for Clip Paths */}
+      <svg className="absolute w-0 h-0 invisible pointer-events-none" aria-hidden="true">
+        <defs>
+          <clipPath id="clip-original">
+            <rect className="path" x="0" y="0" width="512" height="512" rx="40" />
+          </clipPath>
+          <clipPath id="clip-hexagons">
+            <path className="path" d="M256,0 L477.7,128 L477.7,384 L256,512 L34.3,384 L34.3,128 Z" />
+          </clipPath>
+          <clipPath id="clip-pixels">
+             <rect className="path" x="50" y="50" width="412" height="412" rx="100" />
+          </clipPath>
+        </defs>
+      </svg>
+
       <div className="relative z-10">
         {/* Header */}
         <SectionHeader 
