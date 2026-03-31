@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer role="contentinfo" className="py-24 bg-[#0A0A0A] text-white relative overflow-hidden">
+    <footer role="contentinfo" className="py-24 bg-transparent text-white relative overflow-hidden">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           
