@@ -47,24 +47,28 @@ const Index = () => {
       
       <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden">
         <Hero />
-        <EmberDivider />
-        <Intro />
-        <EmberDivider />
-        <Storia />
-        <EmberDivider />
-        <Tagli />
-        <EmberDivider />
-        <Galleria />
-        <EmberDivider />
-        <Menu />
-        <EmberDivider />
-        <Vini />
-        <EmberDivider />
-        <Recensioni />
-        <EmberDivider />
-        <Prenota />
-        <EmberDivider />
-        <DoveSiamo />
+        
+        <div className="relative">
+          <GlobalSparkles />
+          <EmberDivider />
+          <Intro />
+          <EmberDivider />
+          <Storia />
+          <EmberDivider />
+          <Tagli />
+          <EmberDivider />
+          <Galleria />
+          <EmberDivider />
+          <Menu />
+          <EmberDivider />
+          <Vini />
+          <EmberDivider />
+          <Recensioni />
+          <EmberDivider />
+          <Prenota />
+          <EmberDivider />
+          <DoveSiamo />
+        </div>
       </main>
       
       <Footer />
