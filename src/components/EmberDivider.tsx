@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 const EmberDivider = () => {
   const dividerSparks = useMemo(() => {
     const colors = ["#FF6B00", "#FFD700", "#FF4500"];
-    return Array.from({ length: 20 }).map((_, i) => ({ // Reduced from 80 for performance
+    return Array.from({ length: 60 }).map((_, i) => ({ 
       id: i,
-      left: `${15 + Math.random() * 70}%`,
-      size: `${Math.random() * 1.5 + 1}px`,
+      left: `${5 + Math.random() * 90}%`,
+      size: `${Math.random() * 2.5 + 1}px`,
       color: colors[Math.floor(Math.random() * colors.length)],
       delay: `${Math.random() * 10}s`,
-      duration: `${Math.random() * 4 + 4}s`,
-      drift: `${(Math.random() - 0.5) * 60}px`,
+      duration: `${Math.random() * 5 + 3}s`,
+      drift: `${(Math.random() - 0.5) * 120}px`,
     }));
   }, []);
 
@@ -26,11 +26,11 @@ const EmberDivider = () => {
         whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="relative w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
+        className="relative w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent"
       >
         {/* Glow effects */}
-        <div className="absolute inset-0 bg-primary blur-[4px] opacity-60" />
-        <div className="absolute inset-0 bg-accent blur-[8px] opacity-30" />
+        <div className="absolute inset-0 bg-primary blur-[6px] opacity-75" />
+        <div className="absolute inset-0 bg-accent blur-[12px] opacity-45" />
         
         {/* Pulse center */}
         <motion.div 
@@ -57,7 +57,7 @@ const EmberDivider = () => {
               width: spark.size,
               height: spark.size,
               backgroundColor: spark.color,
-              opacity: 0.6,
+              opacity: 0.85,
               boxShadow: `0 0 4px ${spark.color}`,
               animationName: "rise",
               animationDuration: spark.duration,

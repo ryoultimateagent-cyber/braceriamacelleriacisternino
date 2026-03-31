@@ -3,14 +3,14 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const FireBackground = memo(() => {
   const sparks = useMemo(() => {
-    return Array.from({ length: 40 }).map((_, i) => ({
+    return Array.from({ length: 100 }).map((_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
-      delay: `${Math.random() * 8}s`,
-      duration: `${6 + Math.random() * 10}s`,
-      size: `${1 + Math.random() * 3}px`,
-      sway: `${(Math.random() - 0.5) * 100}px`,
-      opacity: 0.3 + Math.random() * 0.5,
+      delay: `${Math.random() * 10}s`,
+      duration: `${5 + Math.random() * 8}s`,
+      size: `${1.5 + Math.random() * 3.5}px`,
+      sway: `${(Math.random() - 0.5) * 150}px`,
+      opacity: 0.4 + Math.random() * 0.5,
     }));
   }, []);
 

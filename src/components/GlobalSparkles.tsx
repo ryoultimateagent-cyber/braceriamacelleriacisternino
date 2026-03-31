@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 const GlobalSparkles = () => {
-  const sparkCount = 60; // Reduced from 100 for better performance
+  const sparkCount = 120; // Increased to enhance the effect
   const sparks = useMemo(() => {
     const colors = ["#FF6B00", "#CC0000", "#F5C400"];
     return Array.from({ length: sparkCount }).map((_, i) => ({
@@ -13,12 +13,12 @@ const GlobalSparkles = () => {
       duration: `${Math.random() * 8 + 12}s`,
       delay: `${Math.random() * 15}s`,
       drift: `${(Math.random() - 0.5) * 150}px`,
-      opacity: Math.random() * 0.3 + 0.1, // Lower opacity
+      opacity: Math.random() * 0.5 + 0.2, // Increased visibility
     }));
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none select-none z-0 overflow-hidden opacity-30">
+    <div className="fixed inset-0 pointer-events-none select-none z-0 overflow-hidden opacity-50">
       {sparks.map((spark) => (
         <div
           key={spark.id}
