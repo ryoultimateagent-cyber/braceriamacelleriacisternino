@@ -60,12 +60,7 @@ const Hero = () => {
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-10 text-center px-6 max-w-5xl flex flex-col items-center">
         <h1 
-          className="text-[#FFFFFF] font-bold tracking-tight mb-4 leading-tight"
-          style={{
-            fontSize: "clamp(2.5rem, 10vw, 5rem)",
-            fontFamily: "'DM Sans', sans-serif",
-            textShadow: "0 0 30px rgba(255, 107, 0, 0.6)",
-          }}
+          className="text-[#FFFFFF] font-bold tracking-tight mb-4 leading-tight text-[clamp(2.5rem,10vw,5rem)] font-dm-sans hero-text-shadow"
         >
           Macelleria Belvedere
         </h1>
