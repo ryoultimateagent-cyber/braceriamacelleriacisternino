@@ -37,67 +37,59 @@ const tagli = [
 
 const Tagli = () => {
   return (
-    <section id="brace" className="section-spacing bg-white relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-ember/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="brace" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+      {/* Background Subtle Gradient */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
-          <AnimatedSection>
-            <span className="text-ember text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Selezione di Qualità</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-[0.9]">
-              LE NOSTRE <br /> <span className="text-ember italic font-light">SPECIALITÀ</span>
-            </h2>
-          </AnimatedSection>
-        </div>
+      <div className="max-w-4xl mx-auto text-center mb-24">
+        <AnimatedSection>
+          <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">SELEZIONE DI QUALITÀ</span>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-none uppercase">
+            LE NOSTRE <br /> <span className="text-primary italic">SPECIALITÀ</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full" />
+        </AnimatedSection>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
-          {tagli.map((taglio, i) => (
-            <AnimatedSection key={i} delay={i * 0.1} animation="fade-up" className="h-full">
-              <div className="group relative h-[380px] md:h-[450px] w-full overflow-hidden border border-ember/10 rounded-xl shadow-md">
-                <div className="absolute inset-0 bg-ember/5 z-0" />
-                
-                {/* Image Background */}
-                <div className="absolute inset-0 z-0">
-                  <img 
-                    src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
-                    alt={taglio.name} 
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-                </div>
-
-                {/* Content Overlay */}
-                <div className="absolute inset-0 z-10 p-6 md:p-10 lg:p-12 flex flex-col justify-end">
-                  <div className="mb-4 md:mb-6 flex items-center gap-4">
-                    <span className="text-gold text-[9px] md:text-[10px] uppercase font-black tracking-[0.3em] px-3 md:px-4 py-1.5 md:py-2 border border-gold/30 rounded-full">
-                      {taglio.category}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-[#FAF7F0] uppercase mb-4 leading-none tracking-tighter">
-                    {taglio.name}
-                  </h3>
-                  
-                  <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-                    <p className="text-[#FAF7F0]/80 leading-relaxed text-sm mb-6 md:mb-8 font-accent italic">
-                      {taglio.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 md:pt-8 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-gold text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">Qualità Superiore</span>
-                    <ArrowRight className="w-5 h-5 text-gold -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
-                  </div>
-                </div>
-                
-                {/* Decorative Frame */}
-                <div className="absolute top-4 left-4 right-4 bottom-4 md:top-6 md:left-6 md:right-6 md:bottom-6 border border-white/10 pointer-events-none group-hover:border-gold/20 transition-colors duration-300 rounded-lg" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1400px] mx-auto">
+        {tagli.map((taglio, i) => (
+          <AnimatedSection key={i} delay={i * 0.1} animation="fade-up" className="h-full">
+            <div className="group relative h-[450px] w-full overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+              {/* Image Background */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <img 
+                  src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
+                  alt={taglio.name} 
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80" />
               </div>
-            </AnimatedSection>
-          ))}
-        </div>
+
+              {/* Content Overlay */}
+              <div className="absolute inset-0 z-10 p-10 flex flex-col justify-end">
+                <div className="mb-6">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[10px] font-black tracking-widest uppercase">
+                    {taglio.category}
+                  </span>
+                </div>
+                
+                <h3 className="text-3xl font-black text-white uppercase mb-4 leading-tight tracking-tight">
+                  {taglio.name}
+                </h3>
+                
+                <p className="text-white/70 leading-relaxed text-base mb-8 max-h-0 group-hover:max-h-32 overflow-hidden transition-all duration-500 ease-in-out">
+                  {taglio.desc}
+                </p>
+
+                <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-white/50 text-[10px] font-bold uppercase tracking-[0.3em]">QUALITÀ SUPERIORE</span>
+                  <ArrowRight className="w-6 h-6 text-primary -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        ))}
       </div>
     </section>
   );

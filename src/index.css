@@ -4,124 +4,124 @@
 
 /* Font imports moved to index.html for better performance */
 
-/* Macelleria Braceria Belvedere - Premium Design System */
+/* Design System - Modern AI-Inspired (Draftly Style) */
 
 @layer base {
   :root {
-    /* Core brand colors - Refined Premium Palette */
-    --noir: 104 42% 15%;
-    --charcoal: 104 42% 10%;
-    --gold: 48 100% 48%;
-    --gold-light: 48 42% 96%;
-    --gold-dark: 48 100% 35%;
-    --ember: 0 100% 40%;
-    --ember-dark: 0 100% 30%;
-    --copper: 104 42% 21%;
-    --copper-dark: 104 42% 15%;
-    --cream: 48 42% 96%;
-    --smoke: 0 0% 98%;
-    --wine: 0 100% 20%;
-
-    /* Semantic tokens */
+    /* Color Palette - Neutrals */
     --background: 0 0% 100%;
-    --foreground: 104 42% 15%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 104 42% 15%;
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 104 42% 15%;
-    --primary: 0 100% 40%;
-    --primary-foreground: 48 42% 96%;
-    --secondary: 48 100% 48%;
-    --secondary-foreground: 104 42% 15%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 104 42% 40%;
-    --accent: 104 42% 21%;
-    --accent-foreground: 48 42% 96%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 104 42% 85%;
-    --input: 104 42% 85%;
-    --ring: 0 100% 40%;
-    --radius: 0.5rem;
+    --popover-foreground: 240 10% 3.9%;
 
-    /* Advanced Gradients */
-    --gradient-fire: linear-gradient(135deg, hsl(var(--ember)), hsl(var(--ember-dark)));
-    --gradient-gold: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
-    --gradient-premium-dark: radial-gradient(circle at top, hsl(var(--charcoal)), hsl(var(--noir)));
-    --gradient-ember-dark: radial-gradient(circle at center, hsl(var(--ember-dark) / 0.15), hsl(var(--noir)));
-    --gradient-gold-radial: radial-gradient(circle at center, hsl(var(--gold-dark) / 0.1), hsl(var(--noir)));
-    --gradient-wine-dark: radial-gradient(circle at bottom, hsl(var(--wine) / 0.2), hsl(var(--noir)));
+    /* Brand Colors - Sophisticated Red & Gold */
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    
+    --accent: 43 96% 58%;
+    --accent-foreground: 240 5.9% 10%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 0 72% 51%;
+    --radius: 0.75rem;
+
+    /* Spacing & Grid (8pt) */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
     
     /* Shadows */
-    --shadow-elegant: 0 20px 40px -10px rgba(0,0,0,0.8);
-    --shadow-fire: 0 10px 40px hsla(354, 84%, 36%, 0.25);
-    --shadow-gold: 0 10px 30px hsla(44, 65%, 52%, 0.2);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   }
 
   .dark {
-    /* For dark mode consistency */
-    --background: var(--noir);
-    --foreground: var(--cream);
-    --border: 44 30% 15%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 43 96% 58%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 0 72% 51%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border outline-none;
-  }
-
-  /* Improved focus visibility for accessibility */
-  *:focus-visible {
-    @apply ring-2 ring-gold ring-offset-2 ring-offset-noir outline-none;
-  }
-
-  html {
-    font-size: 100%;
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    
-    *, ::before, ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+    @apply border-border outline-none transition-colors duration-200;
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-gold selection:text-noir overflow-x-hidden;
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  /* Grain/Noise Overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.03;
-    z-index: 9999;
-    pointer-events: none;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    filter: contrast(120%) brightness(120%);
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden font-sans;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-widest uppercase;
+    @apply font-bold tracking-tight text-balance;
   }
+
+  h1 { @apply text-4xl md:text-6xl lg:text-7xl; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl md:text-3xl; }
   
-  .font-accent {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
+  /* Modern Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/30 transition-colors;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-8;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .btn-hover-effect {
+    @apply relative overflow-hidden transition-all duration-300 hover:shadow-lg active:scale-95;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-accent;
   }
 }
 

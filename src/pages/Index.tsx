@@ -35,14 +35,14 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <a 
         href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] bg-gold text-noir px-4 py-2 rounded-md font-bold"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-8 focus:left-8 focus:z-[60] bg-primary text-white px-6 py-3 rounded-2xl font-bold shadow-2xl"
       >
         Salta al contenuto principale
       </a>
       
       <Header />
       
-      <main id="main-content" role="main" className="flex-grow">
+      <main id="main-content" role="main" className="flex-grow space-y-0">
         <Hero />
         <Intro />
         <Storia />
@@ -50,7 +50,6 @@ const Index = () => {
         <Galleria />
         <Menu />
         <Vini />
-        
         <Recensioni />
         <Prenota />
         <DoveSiamo />
@@ -64,13 +63,12 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="fixed bottom-8 right-8 z-50"
+            className="fixed bottom-10 right-10 z-50"
           >
             <Button
               onClick={scrollToTop}
-              variant="gold"
               size="icon"
-              className="rounded-full w-12 h-12 shadow-fire hover:scale-110 transition-transform"
+              className="rounded-full w-14 h-14 bg-primary text-white shadow-xl shadow-primary/20 hover:scale-110 active:scale-95 transition-all"
               aria-label="Torna su"
             >
               <ChevronUp className="w-6 h-6" />

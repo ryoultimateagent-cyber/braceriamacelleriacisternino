@@ -38,48 +38,43 @@ const Galleria = () => {
   }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section id="galleria" className="section-spacing bg-white relative overflow-hidden">
-      {/* Background Decorative Lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ember/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ember/20 to-transparent" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
+    <section id="galleria" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+      <div className="relative z-10">
+        <div className="text-center mb-16 md:mb-24">
           <AnimatedSection>
-            <span className="text-ember text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Visioni del Gusto</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-none tracking-tighter">
-              GALLERIA <br /> <span className="text-ember italic font-light">VISIVA</span>
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">VISIONI DEL GUSTO</span>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-none uppercase">
+              GALLERIA <br /> <span className="text-primary italic">VISIVA</span>
             </h2>
+            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full" />
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {images.map((img, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="group cursor-pointer" animation="scale-up">
               <div 
-                className="relative aspect-[4/5] overflow-hidden border border-ember/10 group-hover:border-ember/40 transition-all duration-300 rounded-xl shadow-md"
+                className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white"
                 onClick={() => openLightbox(i)}
               >
                 <img 
                   src={img.src} 
                   alt={img.title} 
                   loading="lazy"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Visual Label */}
-                <div className="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-black/80 backdrop-blur-md">
-                   <h3 className="text-lg font-display font-bold text-white uppercase tracking-widest">{img.title}</h3>
+                <div className="absolute bottom-0 left-0 w-full p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-black/40 backdrop-blur-xl border-t border-white/10">
+                   <h3 className="text-xl font-black text-white uppercase tracking-tight">{img.title}</h3>
                 </div>
                 
-                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity delay-200">
-                  <Maximize2 className="w-5 h-5 text-white" />
+                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                  <div className="bg-white/20 backdrop-blur-md p-3 rounded-2xl border border-white/30">
+                    <Maximize2 className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                
-                {/* Decorative corners */}
-                <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/20" />
-                <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/20" />
               </div>
             </AnimatedSection>
           ))}
@@ -95,49 +90,54 @@ const Galleria = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 lg:p-12"
+            className="fixed inset-0 z-[100] bg-black/98 backdrop-blur-3xl flex items-center justify-center p-6 lg:p-24"
           >
             <button 
               onClick={closeLightbox} 
-              className="absolute top-8 right-8 text-white/80 hover:text-white transition-colors z-[110]"
+              className="absolute top-12 right-12 text-white/50 hover:text-white transition-colors z-[110]"
               aria-label="Chiudi galleria"
             >
-              <X className="w-8 h-8 md:w-10 md:h-10" />
+              <X className="w-10 h-10" />
             </button>
             <button 
               onClick={goPrev} 
-              className="absolute left-8 text-white/80 hover:text-white transition-colors z-[110] hidden lg:block"
+              className="absolute left-12 text-white/30 hover:text-white transition-colors z-[110] hidden lg:block"
               aria-label="Immagine precedente"
             >
-              <ChevronLeft className="w-12 h-12" />
+              <ChevronLeft className="w-16 h-16" />
             </button>
             <button 
               onClick={goNext} 
-              className="absolute right-8 text-white/80 hover:text-white transition-colors z-[110] hidden lg:block"
+              className="absolute right-12 text-white/30 hover:text-white transition-colors z-[110] hidden lg:block"
               aria-label="Immagine successiva"
             >
-              <ChevronRight className="w-12 h-12" />
+              <ChevronRight className="w-16 h-16" />
             </button>
 
             <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              className="relative max-w-6xl w-full h-full flex flex-col lg:flex-row items-center gap-12"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="relative max-w-7xl w-full h-full flex flex-col lg:flex-row items-center gap-16"
             >
-              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-2xl border border-white/20 shadow-2xl">
+              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
                 <img 
                   src={images[selectedIndex].src} 
                   alt={images[selectedIndex].title} 
                   className="w-full h-full object-cover" 
                 />
               </div>
-              <div className="w-full lg:w-1/3 text-center lg:text-left">
-                <h3 className="text-3xl lg:text-5xl font-display font-black text-white uppercase mb-6">{images[selectedIndex].title}</h3>
-                <p className="text-white/80 text-lg lg:text-xl font-accent italic leading-relaxed">{images[selectedIndex].desc}</p>
-                <div className="mt-8 md:mt-12 flex items-center justify-center lg:justify-start gap-4">
-                  <span className="text-white font-black font-display text-xl">{selectedIndex + 1}</span>
-                  <div className="w-12 h-px bg-white/30" />
-                  <span className="text-white/60 font-display text-xl">{images.length}</span>
+              <div className="w-full lg:w-1/3 text-center lg:text-left space-y-8">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[10px] font-black tracking-widest uppercase">
+                  IMMINE {selectedIndex + 1} DI {images.length}
+                </span>
+                <h3 className="text-4xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none">{images[selectedIndex].title}</h3>
+                <p className="text-white/60 text-lg lg:text-2xl font-medium leading-relaxed italic">"{images[selectedIndex].desc}"</p>
+                <div className="flex items-center justify-center lg:justify-start gap-6 pt-8 border-t border-white/10">
+                   <div className="flex gap-2">
+                     {images.map((_, i) => (
+                       <div key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === selectedIndex ? "w-8 bg-primary" : "w-1.5 bg-white/20"}`} />
+                     ))}
+                   </div>
                 </div>
               </div>
             </motion.div>
