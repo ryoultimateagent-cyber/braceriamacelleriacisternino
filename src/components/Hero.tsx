@@ -71,7 +71,7 @@ const Hero = () => {
         {sparks.map((spark) => (
           <div
             key={spark.id}
-            className="absolute rounded-full"
+            className={`absolute rounded-full ${spark.mobileHidden ? "hidden md:block" : "block"}`}
             style={{
               left: spark.left,
               bottom: "-20px",
