@@ -33,7 +33,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      <FireBackground />
+      
       
       <a 
         href="#main-content" 
