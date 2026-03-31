@@ -45,7 +45,7 @@ const Header = () => {
           : "bg-[#050505]/60 backdrop-blur-md border border-white/5 py-4"
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <a 
           href="#" 
@@ -53,10 +53,10 @@ const Header = () => {
           aria-label="Home - Macelleria Belvedere"
         >
           <div className="flex flex-col items-start italic">
-             <span className="text-xl md:text-2xl font-black text-white tracking-tighter leading-none">
+             <span className="text-lg md:text-2xl font-black text-white tracking-tighter leading-none">
               BELVEDERE<span className="text-primary">.</span>
              </span>
-             <span className="text-[10px] font-bold text-white/60 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
+             <span className="text-[9px] md:text-[10px] font-bold text-white/60 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
           </div>
         </a>
 
