@@ -29,6 +29,7 @@ const Header = () => {
     { href: "#brace", label: "La Brace" },
     { href: "#vini", label: "Vini" },
     { href: "#galleria", label: "Galleria" },
+    { href: "#recensioni", label: "Dicono di Noi" },
     { href: "#dovesiamo", label: "Contatti" },
   ];
 
