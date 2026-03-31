@@ -145,6 +145,28 @@
     }
   }
 
+  @keyframes rise {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 0.8; }
+    100% {
+      transform: translateY(-100vh) translateX(var(--drift));
+      opacity: 0;
+    }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  .hero-glow-bottom {
+    background: radial-gradient(ellipse at bottom, rgba(204, 0, 0, 0.4) 0%, rgba(204, 0, 0, 0.1) 40%, transparent 70%);
+  }
+
   .bg-noise {
     background-image: url("https://grainy-gradients.vercel.app/noise.svg");
     opacity: 0.05;
