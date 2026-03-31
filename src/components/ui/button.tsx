@@ -5,17 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-95",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md transition-all active:scale-95 focus-visible:ring-primary",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg hover:shadow-primary/20 focus-visible:ring-primary",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive",
-        outline: "border border-gold/40 bg-transparent text-gold hover:bg-gold hover:text-noir transition-all focus-visible:ring-gold",
+        outline: "border border-gold/40 bg-transparent text-gold hover:bg-gold hover:text-noir focus-visible:ring-gold",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-sm focus-visible:ring-secondary",
-        ghost: "hover:bg-gold/10 hover:text-gold transition-colors focus-visible:ring-gold/30",
+        ghost: "hover:bg-gold/10 hover:text-gold focus-visible:ring-gold/30",
         link: "text-primary underline-offset-4 hover:underline focus-visible:ring-primary/30",
-        gold: "bg-gold text-noir font-bold hover:bg-gold/90 shadow-[0_4px_20px_rgba(212,175,55,0.2)] active:scale-95 focus-visible:ring-gold",
+        gold: "bg-gold text-noir font-bold hover:bg-gold/90 shadow-[0_4px_20px_rgba(212,175,55,0.2)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.4)] focus-visible:ring-gold",
       },
       size: {
         default: "h-10 px-4 py-2",

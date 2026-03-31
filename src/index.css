@@ -78,8 +78,12 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
-    @apply border-border outline-none transition-colors duration-200;
+    @apply border-border outline-none transition-all duration-300 ease-in-out;
   }
 
   body {

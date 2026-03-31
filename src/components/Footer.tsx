@@ -1,12 +1,31 @@
-import { Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
-import { motion } from "framer-motion";
+import { Facebook, Instagram, Phone, MapPin, Mail, ArrowUp, Loader2, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setStatus("loading");
+    // Simulo invio API
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setStatus("success");
+    toast.success("Iscrizione avvenuta con successo!");
+    setEmail("");
+    
+    setTimeout(() => setStatus("idle"), 3000);
   };
 
   return (
@@ -83,23 +102,63 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="space-y-8">
             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">NEWSLETTER</h3>
-            <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="relative">
                 <label htmlFor="newsletter-email" className="sr-only">Iscriviti alla nostra newsletter</label>
                 <input 
                   id="newsletter-email"
                   type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="LA TUA EMAIL" 
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold placeholder:text-white/40 focus:border-primary outline-none transition-all focus:ring-1 focus:ring-primary" 
+                  disabled={status !== "idle"}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold placeholder:text-white/40 focus:border-primary outline-none transition-all focus:ring-1 focus:ring-primary disabled:opacity-50" 
+                  required
                 />
               </div>
               <Button 
-                onClick={() => toast.success("Iscrizione avvenuta con successo!")}
-                className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-white"
+                type="submit"
+                disabled={status !== "idle"}
+                className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-white overflow-hidden"
               >
-                SOTTOSCRIVI
+                <AnimatePresence mode="wait">
+                  {status === "idle" && (
+                    <motion.span
+                      key="idle"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                    >
+                      SOTTOSCRIVI
+                    </motion.span>
+                  )}
+                  {status === "loading" && (
+                    <motion.div
+                      key="loading"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      className="flex items-center gap-2"
+                    >
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>INVIO...</span>
+                    </motion.div>
+                  )}
+                  {status === "success" && (
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      className="flex items-center gap-2 text-white"
+                    >
+                      <CheckCircle2 className="w-4 h-4" />
+                      <span>GRAZIE!</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </Button>
-            </div>
+            </form>
           </div>
         </div>
 
