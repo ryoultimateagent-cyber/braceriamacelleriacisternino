@@ -57,12 +57,12 @@ const DoveSiamo = () => {
                 </div>
              </div>
 
-             <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-white/5">
+             <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-black/5">
                 <Button 
                   asChild 
-                  className="h-14 md:h-16 px-8 md:px-12 bg-gold hover:bg-gold-dark text-noir uppercase tracking-[0.3em] font-black rounded-lg shadow-fire transition-all duration-300"
+                  className="h-14 md:h-16 px-8 md:px-12 bg-ember hover:bg-ember-dark text-white uppercase tracking-[0.3em] font-black rounded-lg shadow-lg transition-all duration-300"
                 >
-                  <a href="https://maps.google.com/?q=Via+Belvedere+12+Mola+di+Bari+Italy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-4">
+                  <a href="https://maps.google.com/?q=Via+Giuseppe+Verdi+5C+Putignano+Italy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-4">
                     <Navigation className="w-4 h-4 md:w-5 md:h-5" />
                     Calcola Percorso
                   </a>
@@ -71,20 +71,20 @@ const DoveSiamo = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2} className="lg:col-span-7 relative order-1 lg:order-2">
-            <div className="h-full min-h-[300px] md:min-h-[400px] lg:min-h-[500px] rounded-xl overflow-hidden border border-gold/10 shadow-2xl relative group">
+            <div className="h-full min-h-[300px] md:min-h-[400px] lg:min-h-[500px] rounded-xl overflow-hidden border border-ember/10 shadow-xl relative group">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.8742!2d17.0855!3d41.0564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347e8d9f7c3c3c3%3A0x1234567890abcdef!2sVia%20Paolo%20VI%2C%2047%2C%2070042%20Mola%20di%20Bari%20BA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.0!2d17.1234!3d40.8491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347d9c0e2a3c3c3%3A0x1234567890abcdef!2sVia%20Giuseppe%20Verdi%205C%2C%2070017%20Putignano%20BA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: "grayscale(100%) invert(90%) contrast(1.2) brightness(0.9)" }}
+                style={{ border: 0, filter: "contrast(1.2) brightness(0.9)" }}
                 allowFullScreen
                 loading="lazy"
                 title="Mappa Belvedere"
                 className="absolute inset-0 w-full h-full grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100"
               />
               <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
-                <div className="bg-noir/80 backdrop-blur-md p-4 md:p-6 rounded-xl border border-gold/20 shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300">
-                  <ExternalLink className="text-gold w-6 h-6 md:w-8 md:h-8" />
+                <div className="bg-white/80 backdrop-blur-md p-4 md:p-6 rounded-xl border border-ember/20 shadow-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-300">
+                  <ExternalLink className="text-ember w-6 h-6 md:w-8 md:h-8" />
                 </div>
               </div>
             </div>
