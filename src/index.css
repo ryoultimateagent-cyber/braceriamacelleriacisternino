@@ -65,12 +65,15 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden font-sans;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight text-balance;
+    font-family: 'Cinzel', serif;
   }
 
   h1 { @apply text-4xl md:text-6xl lg:text-7xl; }

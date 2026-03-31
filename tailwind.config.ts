@@ -68,7 +68,7 @@ export default {
       fontFamily: {
         display: ["Cinzel", "serif"],
         accent: ["Playfair Display", "serif"],
-        body: ["Montserrat", "sans-serif"],
+        body: ["Cormorant Garamond", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
