@@ -40,37 +40,38 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-xl border-b border-black/5 py-2 shadow-sm"
-          : "bg-transparent py-3 md:py-4 lg:py-6"
+          ? "bg-white/70 backdrop-blur-xl border border-white/20 shadow-lg py-3"
+          : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+      <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <a 
           href="#" 
-          className="group flex items-center gap-4 md:gap-6 focus-visible:ring-2 focus-visible:ring-ember rounded-lg p-1 transition-all"
+          className="group flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1 transition-all"
           aria-label="Home - Macelleria Belvedere"
         >
-          <div className="flex flex-col items-center">
-             <span className="text-lg md:text-xl lg:text-2xl font-display font-black text-ember tracking-tighter leading-none mb-1">MACELLERIA BELVEDERE</span>
-             <div className="h-px w-full bg-ember/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-             <span className="text-[9px] md:text-[10px] font-display font-bold text-ember/60 tracking-[0.5em] uppercase leading-none mt-1">EST. 1986</span>
+          <div className="flex flex-col items-start">
+             <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight leading-none">
+              BELVEDERE<span className="text-primary">.</span>
+             </span>
+             <span className="text-[10px] font-medium text-muted-foreground tracking-[0.3em] uppercase leading-none mt-1">EST. 1986</span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden xl:flex items-center gap-8" aria-label="Main Navigation">
+        <nav className="hidden xl:flex items-center gap-10" aria-label="Main Navigation">
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-xs font-semibold text-foreground/80 uppercase tracking-widest relative py-2 hover:text-ember transition-colors duration-300 focus-visible:text-ember group"
+                  className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-all duration-300 relative group"
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-ember transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
               </li>
             ))}
@@ -78,25 +79,24 @@ const Header = () => {
           
           <Button 
             asChild 
-            size="lg"
-            className="h-12 px-8 bg-ember hover:bg-ember-dark text-white rounded-lg font-black uppercase tracking-widest text-[10px] transition-all duration-300"
+            className="rounded-xl px-6 bg-primary hover:bg-primary/90 text-white font-bold transition-all shadow-md hover:shadow-primary/20"
           >
-            <a href="tel:+390804058608" className="flex items-center gap-3">
+            <a href="tel:+390804058608" className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              Chiama
+              <span>PRENOTA</span>
             </a>
           </Button>
         </nav>
 
         {/* Mobile Toggle */}
         <button
-          className="xl:hidden p-2 md:p-3 text-gold z-50 relative hover:bg-white/5 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-gold"
+          className="xl:hidden p-2 text-foreground z-50 relative hover:bg-black/5 rounded-xl transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
           aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6 md:w-7 md:h-7" /> : <Menu className="w-6 h-6 md:w-7 md:h-7" />}
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -105,48 +105,43 @@ const Header = () => {
         {isMobileMenuOpen && (
           <motion.div
             id="mobile-menu"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="xl:hidden fixed inset-0 bg-white z-40 flex flex-col p-8 pt-24 pb-[env(safe-area-inset-bottom,2rem)]"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="xl:hidden absolute top-full left-0 right-0 mt-4 bg-white/95 backdrop-blur-2xl rounded-3xl border border-black/5 shadow-2xl p-8 flex flex-col gap-6"
           >
             <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-2xl font-display font-bold text-foreground hover:text-ember transition-colors py-2 border-b border-black/5"
+                  transition={{ delay: index * 0.05 }}
+                  className="text-2xl font-bold text-foreground hover:text-primary transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </motion.a>
               ))}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navLinks.length * 0.1 }}
-                className="mt-8"
+                transition={{ delay: 0.3 }}
+                className="mt-4 pt-4 border-t border-black/5"
               >
                 <Button 
                   asChild 
-                  className="w-full h-14 bg-ember hover:bg-ember-dark text-white text-lg uppercase tracking-widest rounded-lg"
+                  className="w-full h-14 bg-primary hover:bg-primary/90 text-white text-lg font-bold rounded-2xl"
                 >
                   <a href="tel:+390804058608" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Phone className="w-5 h-5 mr-3" />
-                    Prenota Ora
+                    <Phone className="w-5 h-5 mr-2" />
+                    PRENOTA ORA
                   </a>
                 </Button>
               </motion.div>
             </nav>
-            
-            <div className="mt-auto pt-12 text-center text-foreground/60 text-sm">
-              <p>© {new Date().getFullYear()} Macelleria Belvedere</p>
-              <p className="mt-2 uppercase tracking-tighter">Eccellenza e Qualità</p>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
