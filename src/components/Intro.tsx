@@ -42,45 +42,45 @@ const Intro = () => {
               <span className="text-ember italic font-light">DEL GUSTO</span>
             </h2>
             <div className="h-1 w-24 bg-ember mx-auto mb-10 md:mb-12" />
-            <p className="text-cream/70 text-lg md:text-2xl font-light leading-relaxed font-accent italic">
-              "Selezioniamo solo l'eccellenza. Per noi, la carne non è un prodotto, è una vocazione che onoriamo ogni giorno davanti alla brace viva."
+            <p className="text-foreground/70 text-lg md:text-2xl font-light leading-relaxed font-accent italic">
+              "Selezioniamo solo l'eccellenza. Per noi, la carne non è un prodotto, è una vocazione che onoriamo ogni giorno."
             </p>
           </AnimatedSection>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-24 md:mb-40">
           <AnimatedSection animation="fade-right" className="relative group">
-            <div className="relative aspect-square overflow-hidden border border-gold/10 p-4 rounded-xl">
-              <div className="absolute inset-0 bg-gold/5 z-0" />
+            <div className="relative aspect-square overflow-hidden border border-ember/10 p-4 rounded-xl shadow-lg">
+              <div className="absolute inset-0 bg-ember/5 z-0" />
               <img 
                 src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" 
-                alt="Premium Steak Selection" 
+                alt="Selezione Carni Premium" 
                 loading="lazy"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 group-hover:scale-105 rounded-lg"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-noir/60 to-transparent rounded-lg" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-lg" />
             </div>
             {/* Floating Info */}
-            <div className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-6 lg:-right-12 bg-gold text-noir p-6 md:p-10 shadow-2xl rounded-xl">
-              <span className="block text-3xl md:text-4xl font-display font-black leading-none mb-1">40+</span>
+            <div className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-6 lg:-right-12 bg-ember text-white p-6 md:p-10 shadow-2xl rounded-xl">
+              <span className="block text-3xl md:text-4xl font-display font-black leading-none mb-1">35+</span>
               <span className="block text-[9px] md:text-[10px] uppercase tracking-widest font-bold">Anni di Storia</span>
             </div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-left" className="space-y-8 md:space-y-12 mt-12 md:mt-0">
             <div className="space-y-4 md:space-y-6">
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-cream uppercase tracking-tighter">L'ARTE DELLA SELEZIONE</h3>
-              <p className="text-cream/80 text-base md:text-lg leading-relaxed">
-                Ogni taglio che entra nella nostra braceria è frutto di una ricerca maniacale. Dalle colline pugliesi ai pascoli più rinomati d'Europa, portiamo in tavola solo il meglio della produzione mondiale.
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground uppercase tracking-tighter">L'ARTE DELLA SELEZIONE</h3>
+              <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
+                Ogni taglio che entra nella nostra macelleria è frutto di una ricerca attenta. Dalle masserie locali ai pascoli più rinomati, portiamo in tavola solo il meglio.
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
               {features.slice(0, 4).map((f, i) => (
                 <div key={i} className="group">
-                  <div className="mb-4 text-gold group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
-                  <h4 className="text-cream font-bold uppercase tracking-widest text-xs mb-3 group-hover:text-gold transition-colors">{f.title}</h4>
-                  <p className="text-cream/60 text-xs leading-relaxed">{f.desc}</p>
+                  <div className="mb-4 text-ember group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
+                  <h4 className="text-foreground font-bold uppercase tracking-widest text-xs mb-3 group-hover:text-ember transition-colors">{f.title}</h4>
+                  <p className="text-foreground/60 text-xs leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>
