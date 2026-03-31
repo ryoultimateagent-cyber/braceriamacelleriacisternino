@@ -76,8 +76,6 @@ const Galleria = () => {
               >
                 <img 
                   src={img.src} 
-                  srcSet={`${img.src.replace('w=1200', 'w=600')} 600w, ${img.src} 1200w`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   alt={img.title} 
                   loading="lazy"
                   width="400"
