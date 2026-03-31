@@ -22,12 +22,12 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section id="recensioni" className="section-spacing bg-transparent relative overflow-hidden">
+    <section id="recensioni" className="section-spacing bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 md:mb-32">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>
-            <h2 className="text-3xl md:text-5xl font-display font-black text-cream uppercase leading-tight">
+            <span className="text-ember text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>
+            <h2 className="text-3xl md:text-5xl font-display font-black text-foreground uppercase leading-tight">
               I NOSTRI <br /> <span className="text-ember italic">OSPITI DICONO</span>
             </h2>
           </AnimatedSection>
@@ -38,9 +38,9 @@ const Recensioni = () => {
             <AnimatedSection key={i} delay={i * 0.1} className="h-full">
               <motion.div
                 whileHover={{ y: -4 }}
-                className="relative bg-[#111111] border border-gold/10 p-8 md:p-10 rounded-xl h-full flex flex-col hover:border-gold/30 transition-all duration-300 shadow-2xl overflow-hidden group"
+                className="relative bg-white border border-ember/10 p-8 md:p-10 rounded-xl h-full flex flex-col hover:border-ember/30 transition-all duration-300 shadow-xl overflow-hidden group"
               >
-                <Quote className="absolute -top-6 -right-6 w-32 h-32 text-gold/5 rotate-12 group-hover:text-gold/10 transition-colors" />
+                <Quote className="absolute -top-6 -right-6 w-32 h-32 text-ember/5 rotate-12 group-hover:text-ember/10 transition-colors" />
                 
                 <div className="flex items-center justify-between mb-8 relative z-10">
                   <div className="flex gap-1 text-gold">
@@ -48,23 +48,23 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <Award className="w-6 h-6 text-gold/50" />
+                  <Award className="w-6 h-6 text-ember/50" />
                 </div>
                 
-                <p className="text-gold-light/80 text-lg font-accent italic leading-relaxed mb-8 md:mb-10 flex-1 relative z-10">
+                <p className="text-foreground/80 text-lg font-accent italic leading-relaxed mb-8 md:mb-10 flex-1 relative z-10">
                   "{review.text}"
                 </p>
                 
-                <div className="pt-8 border-t border-white/5 relative z-10">
+                <div className="pt-8 border-t border-black/5 relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-gold font-black">
+                    <div className="w-12 h-12 rounded-full bg-ember/10 border border-ember/20 flex items-center justify-center text-ember font-black">
                       {review.author.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-cream font-display font-bold text-sm tracking-widest uppercase">
+                      <div className="text-foreground font-display font-bold text-sm tracking-widest uppercase">
                         {review.author}
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-gold-light/60">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-foreground/60">
                         {review.role}
                       </div>
                     </div>
@@ -76,10 +76,10 @@ const Recensioni = () => {
         </div>
 
         <AnimatedSection delay={0.4} className="mt-16 md:mt-24 text-center">
-          <div className="inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full">
+          <div className="inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 bg-ember/5 backdrop-blur-md border border-ember/10 rounded-full">
             <Sparkles className="w-4 h-4 text-gold" />
-            <p className="text-gold-light/60 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold">
-              Oltre <span className="text-gold">1.000 recensioni</span> a 5 stelle
+            <p className="text-foreground/60 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold">
+              Oltre <span className="text-ember">1.000 recensioni</span> a 5 stelle
             </p>
           </div>
         </AnimatedSection>

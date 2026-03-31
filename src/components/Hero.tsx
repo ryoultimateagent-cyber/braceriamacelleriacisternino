@@ -57,36 +57,36 @@ const Hero = () => {
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-noir"
-      aria-label="Introduzione Premium Belvedere"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-white"
+      aria-label="Introduzione Macelleria Belvedere"
     >
-      {/* Animated Background Layer */}
+      {/* Background Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Deep Red Glow */}
+        {/* Subtle Green/Red Glows */}
         <motion.div 
           animate={{ 
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
+            opacity: [0.1, 0.2, 0.1]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-ember/20 blur-[150px]"
+          className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-ember/10 blur-[150px]"
         />
         <motion.div 
           animate={{ 
             scale: [1, 1.1, 1],
-            opacity: [0.2, 0.4, 0.2]
+            opacity: [0.1, 0.15, 0.1]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -top-[10%] -right-[5%] w-[50%] h-[50%] rounded-full bg-[#E63946]/20 blur-[120px]"
+          className="absolute -top-[10%] -right-[5%] w-[50%] h-[50%] rounded-full bg-accent/10 blur-[120px]"
         />
         
-        {/* Floating Embers */}
+        {/* Floating Embers (Subtle on light background) */}
         {!shouldReduceMotion && embers.map((delay, i) => (
           <Ember key={i} delay={delay} />
         ))}
 
         {/* Dynamic Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/50 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white" />
       </div>
 
       {/* Content Wrapper */}
@@ -104,10 +104,10 @@ const Hero = () => {
               className="mb-6 md:mb-8"
             >
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-gold text-[10px] md:text-[12px] uppercase tracking-[0.6em] font-medium">
-                  EST. 1980 — MILANO
+                <span className="text-ember text-[10px] md:text-[12px] uppercase tracking-[0.6em] font-bold">
+                  EST. 1986 — PUTIGNANO
                 </span>
-                <div className="h-[1px] w-16 md:w-24 bg-gold/30" />
+                <div className="h-[1px] w-16 md:w-24 bg-ember/30" />
               </div>
             </motion.div>
 
@@ -116,11 +116,11 @@ const Hero = () => {
                 initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                className="text-cream text-4xl md:text-6xl lg:text-8xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
+                className="text-foreground text-4xl md:text-6xl lg:text-8xl font-display font-black leading-tight tracking-tighter uppercase mb-4"
               >
-                IL RITO <br /> 
-                <span className="text-gold">DELLA</span> <br /> 
-                BRACE
+                MACELLERIA <br /> 
+                <span className="text-ember">&</span> <br /> 
+                BRACERIA
               </motion.h1>
             </div>
 
@@ -128,9 +128,9 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 1.2 }}
-              className="text-cream/80 text-base md:text-xl font-light max-w-lg leading-relaxed mb-10 md:mb-12 tracking-wide font-accent italic"
+              className="text-foreground/70 text-base md:text-xl font-light max-w-lg leading-relaxed mb-10 md:mb-12 tracking-wide font-accent italic"
             >
-              "Non è solo carne. È un dialogo tra l'uomo e l'elemento primordiale, una danza di calore che trasforma la materia in poesia."
+              "Tradizione, qualità e brace — dal 1986 a Putignano"
             </motion.p>
 
             <motion.div 
@@ -142,22 +142,22 @@ const Hero = () => {
               <Button 
                 asChild 
                 size="lg"
-                className="group relative h-12 md:h-16 px-6 md:px-10 bg-gold hover:bg-gold-dark text-noir rounded-lg transition-all duration-300"
+                className="group relative h-12 md:h-16 px-6 md:px-10 bg-ember hover:bg-ember-dark text-white rounded-lg transition-all duration-300"
               >
-                <a href="#prenota" className="flex items-center gap-3 relative z-10">
-                  <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Prenota il Rito</span>
+                <a href="tel:+390804058608" className="flex items-center gap-3 relative z-10">
+                  <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Prenota un tavolo</span>
                   <Phone className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
                 </a>
               </Button>
               
               <Button 
                 asChild 
-                variant="ghost"
+                variant="outline"
                 size="lg"
-                className="group h-12 md:h-16 px-6 md:px-10 text-cream hover:text-gold hover:bg-white/5 rounded-lg border border-cream/20 hover:border-gold transition-all duration-300"
+                className="group h-12 md:h-16 px-6 md:px-10 text-foreground hover:text-ember hover:bg-ember/5 rounded-lg border-foreground/20 hover:border-ember transition-all duration-300"
               >
-                <a href="#menu" className="flex items-center gap-3">
-                  <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Esplora la Carta</span>
+                <a href="https://www.instagram.com/macelleriabelvedere" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                  <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Seguici su Instagram</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Button>
@@ -170,29 +170,29 @@ const Hero = () => {
             transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
             className="relative hidden md:block"
           >
-            <div className="relative aspect-[4/5] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-gold/20 p-4 rounded-xl">
-              <div className="absolute inset-0 bg-gold/5 z-0" />
+            <div className="relative aspect-[4/5] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-ember/20 p-4 rounded-xl shadow-lg">
+              <div className="absolute inset-0 bg-ember/5 z-0" />
               <div className="relative h-full w-full overflow-hidden rounded-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Premium Steak on Grill" 
+                  alt="Carne di qualità" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
                 
                 {/* Decorative Frame */}
-                <div className="absolute top-8 left-8 bottom-8 right-8 border border-white/10 pointer-events-none" />
+                <div className="absolute top-8 left-8 bottom-8 right-8 border border-black/5 pointer-events-none" />
               </div>
               
               {/* Floating Badge */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 bg-gold text-noir p-4 md:p-6 font-display font-bold text-xl flex flex-col items-center leading-none rounded-lg"
+                className="absolute -bottom-6 -left-6 bg-ember text-white p-4 md:p-6 font-display font-bold text-xl flex flex-col items-center leading-none rounded-lg shadow-xl"
               >
-                <span className="text-[10px] md:text-sm tracking-widest uppercase mb-1">DRY</span>
-                <span className="text-2xl md:text-3xl">45</span>
-                <span className="text-[8px] md:text-xs uppercase">DAYS</span>
+                <span className="text-[10px] md:text-sm tracking-widest uppercase mb-1">QUALITÀ</span>
+                <span className="text-2xl md:text-3xl">TOP</span>
+                <span className="text-[8px] md:text-xs uppercase">PUTIGNANO</span>
               </motion.div>
             </div>
           </motion.div>
@@ -201,18 +201,18 @@ const Hero = () => {
 
       {/* Decorative side text */}
       <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 -rotate-90">
-        <span className="text-cream/60 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
-          AUTHENTIC ITALIAN STEAKHOUSE
+        <span className="text-foreground/40 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
+          MACELLERIA TRADIZIONALE ITALIANA
         </span>
       </div>
       <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 rotate-90">
-        <span className="text-cream/60 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
-          BELVEDERE • ART OF FIRE
+        <span className="text-foreground/40 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
+          BELVEDERE • DAL 1986
         </span>
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
     </section>
   );
 };
