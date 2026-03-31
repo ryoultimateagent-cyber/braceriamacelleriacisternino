@@ -148,7 +148,7 @@ const Menu = () => {
           <AnimatedSection delay={0.2} className="order-2 lg:order-1">
             <div className="space-y-4">
               {menuItems.map((item, index) => (
-                <div
+                <article
                   key={index}
                   onMouseEnter={() => handleItemHover(index)}
                   onClick={() => handleItemHover(index)}
@@ -205,7 +205,7 @@ const Menu = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </AnimatedSection>
@@ -225,6 +225,8 @@ const Menu = () => {
                     src={menuItems[activeIndex].image} 
                     alt={menuItems[activeIndex].name}
                     loading="lazy"
+                    width="512"
+                    height="512"
                     className="w-full h-full object-cover"
                   />
                 </AnimatePresence>

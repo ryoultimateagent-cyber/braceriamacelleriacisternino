@@ -24,48 +24,12 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#0D0D0D]"
     >
-      <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap');
-        
-        @keyframes rise {
-          0% {
-            transform: translateY(0) translateX(0) scale(1);
-            opacity: 0;
-          }
-          15% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(-120vh) translateX(var(--drift)) scale(0);
-            opacity: 0;
-          }
-        }
-
-        @keyframes flicker {
-          0%, 100% { opacity: 0.25; filter: blur(80px); }
-          50% { opacity: 0.45; filter: blur(90px); }
-        }
-
-        /* Fix Header colors over the dark hero without editing Header.tsx */
-        header:not(.bg-white\/70) .text-foreground,
-        header:not(.bg-white\/70) .text-muted-foreground,
-        header:not(.bg-white\/70) span,
-        header:not(.bg-white\/70) a {
-          color: rgba(255, 255, 255, 0.9) !important;
-        }
-        header:not(.bg-white\/70) {
-          border-color: rgba(255, 255, 255, 0.1) !important;
-        }
-      `}} />
 
       {/* Sfondo animato - Braci e Scintille */}
       <div className="absolute inset-0 pointer-events-none select-none">
         {/* Glow arancione in basso */}
         <div 
-          className="absolute bottom-[-10vh] left-0 right-0 h-[60vh] animate-[flicker_3s_infinite_ease-in-out]"
-          style={{
-            background: "linear-gradient(to top, #FF6B00 0%, #CC0000 30%, transparent 100%)",
-          }}
+          className="absolute bottom-[-10vh] left-0 right-0 h-[60vh] animate-[flicker_3s_infinite_ease-in-out] hero-glow-bottom"
         />
         
         {/* Particelle (Scintille) */}
@@ -96,23 +60,13 @@ const Hero = () => {
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-10 text-center px-6 max-w-5xl flex flex-col items-center">
         <h1 
-          className="text-[#FFFFFF] font-bold tracking-tight mb-4 leading-tight"
-          style={{
-            fontSize: "clamp(2.5rem, 10vw, 5rem)",
-            fontFamily: "'DM Sans', sans-serif",
-            textShadow: "0 0 30px rgba(255, 107, 0, 0.6)",
-          }}
+          className="text-[#FFFFFF] font-bold tracking-tight mb-4 leading-tight text-[clamp(2.5rem,10vw,5rem)] font-dm-sans hero-text-shadow"
         >
           Macelleria Belvedere
         </h1>
         
         <p 
-          className="text-[#FFFFFF] opacity-[0.85] font-light mb-12 max-w-2xl"
-          style={{
-            fontSize: "clamp(1rem, 3vw, 1.5rem)",
-            fontFamily: "'DM Sans', sans-serif",
-            lineHeight: "1.5",
-          }}
+          className="text-[#FFFFFF] opacity-[0.85] font-light mb-12 max-w-2xl text-[clamp(1rem,3vw,1.5rem)] font-dm-sans leading-[1.5]"
         >
           Tradizione, qualità e brace — dal 1986 a Putignano
         </p>
@@ -122,8 +76,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 15px 40px -10px rgba(204,0,0,0.6)" }}
             whileTap={{ scale: 0.95 }}
             href="#prenota" 
-            className="inline-block bg-[#CC0000] hover:bg-[#B30000] text-[#FFFFFF] px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(204,0,0,0.5)] focus-visible:ring-4 focus-visible:ring-[#CC0000]/50 outline-none"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="inline-block bg-[#CC0000] hover:bg-[#B30000] text-[#FFFFFF] px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(204,0,0,0.5)] focus-visible:ring-4 focus-visible:ring-[#CC0000]/50 outline-none font-dm-sans"
             aria-label="Prenota un tavolo ora"
           >
             Prenota un tavolo
@@ -133,8 +86,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05, border: "2px solid rgba(255,255,255,0.8)" }}
             whileTap={{ scale: 0.95 }}
             href="#menu" 
-            className="inline-block border-2 border-white/30 text-[#FFFFFF] hover:bg-white/10 px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 focus-visible:ring-4 focus-visible:ring-white/20 outline-none"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            className="inline-block border-2 border-white/30 text-[#FFFFFF] hover:bg-white/10 px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 focus-visible:ring-4 focus-visible:ring-white/20 outline-none font-dm-sans"
             aria-label="Sfoglia il nostro menù"
           >
             Scopri il Menù

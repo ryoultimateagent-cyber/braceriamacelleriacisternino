@@ -45,17 +45,17 @@ const Intro = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-foreground/5">
             {features.map((f, i) => (
-              <div key={i} className="group p-6 rounded-2xl bg-secondary/50 border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-xl transition-all duration-300">
+              <article key={i} className="group p-6 rounded-2xl bg-secondary/50 border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-xl transition-all duration-300">
                 <div className="mb-4 p-3 inline-block rounded-xl bg-white shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
                   {f.icon}
                 </div>
-                <h4 className="text-foreground font-bold uppercase tracking-wider text-sm mb-2">
+                <h3 className="text-foreground font-bold uppercase tracking-wider text-sm mb-2">
                   {f.title}
-                </h4>
+                </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {f.desc}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </AnimatedSection>
@@ -65,8 +65,12 @@ const Intro = () => {
           <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
             <img 
               src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" 
+              srcSet="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600 600w, https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200 1200w"
+              sizes="(max-width: 1024px) 100vw, 600px"
               alt="Selezione Carni Premium" 
               loading="lazy"
+              width="600"
+              height="750"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />

@@ -68,8 +68,12 @@ const Galleria = () => {
               >
                 <img 
                   src={img.src} 
+                  srcSet={`${img.src.replace('w=1200', 'w=600')} 600w, ${img.src} 1200w`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   alt={img.title} 
                   loading="lazy"
+                  width="400"
+                  height="500"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -131,7 +135,12 @@ const Galleria = () => {
               <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
                 <img 
                   src={images[selectedIndex].src} 
+                  srcSet={`${images[selectedIndex].src.replace('w=1200', 'w=600')} 600w, ${images[selectedIndex].src} 1200w`}
+                  sizes="(max-width: 1024px) 100vw, 800px"
                   alt={images[selectedIndex].title} 
+                  loading="lazy"
+                  width="800"
+                  height="1000"
                   className="w-full h-full object-cover" 
                 />
               </div>
