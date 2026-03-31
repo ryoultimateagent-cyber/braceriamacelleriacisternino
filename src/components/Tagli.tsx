@@ -86,9 +86,11 @@ const Tagli = () => {
                   {taglio.desc}
                 </p>
 
-                <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-white/50 text-[10px] font-bold uppercase tracking-[0.3em]">QUALITÀ SUPERIORE</span>
-                  <ArrowRight className="w-6 h-6 text-primary -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
+                <div className="pt-6 border-t border-white/20 flex items-center justify-between">
+                  <span className="text-white/70 text-[10px] font-black uppercase tracking-[0.4em]">QUALITÀ SUPERIORE</span>
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-primary/40">
+                    <ArrowRight className="w-5 h-5 text-white" />
+                  </div>
                 </div>
               </div>
             </div>
