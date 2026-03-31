@@ -31,11 +31,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Esplora</h4>
+            <h4 className="text-[#FAF7F0] text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Esplora</h4>
             <ul className="space-y-4 md:space-y-6">
-              {["Storia", "Brace", "Galleria", "Menù", "Dove Siamo"].map((link) => (
+              {["Storia", "Brace", "Galleria", "Dove Siamo"].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(" ", "")}`} className="text-cream/60 hover:text-gold transition-all duration-300 text-xs uppercase tracking-widest font-bold block">
+                  <a href={`#${link.toLowerCase().replace(" ", "")}`} className="text-[#FAF7F0]/60 hover:text-white transition-all duration-300 text-xs uppercase tracking-widest font-bold block">
                     {link}
                   </a>
                 </li>
@@ -44,22 +44,22 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Contatti</h4>
+            <h4 className="text-[#FAF7F0] text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Contatti</h4>
             <ul className="space-y-6 md:space-y-8">
               <li className="flex flex-col gap-2">
-                <span className="text-gold/50 text-[10px] uppercase tracking-widest font-black">Indirizzo</span>
-                <span className="text-cream/60 text-xs font-bold uppercase tracking-widest">Via Belvedere, 12 <br /> Mola di Bari (BA)</span>
+                <span className="text-[#FAF7F0]/50 text-[10px] uppercase tracking-widest font-black">Indirizzo</span>
+                <span className="text-[#FAF7F0]/60 text-xs font-bold uppercase tracking-widest">Via Giuseppe Verdi 5C <br /> Putignano (BA)</span>
               </li>
               <li className="flex flex-col gap-2">
-                <span className="text-gold/50 text-[10px] uppercase tracking-widest font-black">Telefono</span>
-                <a href="tel:+393403824158" className="text-cream/60 hover:text-gold transition-colors text-xs font-bold uppercase tracking-widest">+39 340 382 4158</a>
+                <span className="text-[#FAF7F0]/50 text-[10px] uppercase tracking-widest font-black">Telefono</span>
+                <a href="tel:+390804058608" className="text-[#FAF7F0]/60 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">+39 080 405 8608</a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-gold text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Newsletter</h4>
-            <p className="text-cream/60 text-xs mb-8 leading-relaxed italic font-accent">Iscriviti per ricevere aggiornamenti sulle nostre selezioni limitate.</p>
+            <h4 className="text-[#FAF7F0] text-[10px] font-black uppercase tracking-[0.5em] mb-8 md:mb-12">Newsletter</h4>
+            <p className="text-[#FAF7F0]/60 text-xs mb-8 leading-relaxed italic font-accent">Iscriviti per ricevere aggiornamenti sulle nostre specialità.</p>
             <div className="flex flex-col gap-4">
               <div className="relative">
                 <input 
@@ -67,7 +67,7 @@ const Footer = () => {
                   type="email" 
                   placeholder="EMAIL" 
                   aria-label="Iscriviti alla newsletter con la tua email"
-                  className="w-full bg-transparent border-b border-gold/20 py-4 text-gold focus:border-gold outline-none transition-all placeholder:text-gold/20 text-[10px] tracking-[0.4em] font-black" 
+                  className="w-full bg-transparent border-b border-white/20 py-4 text-[#FAF7F0] focus:border-white outline-none transition-all placeholder:text-[#FAF7F0]/20 text-[10px] tracking-[0.4em] font-black" 
                 />
               </div>
               <button 
@@ -80,7 +80,7 @@ const Footer = () => {
                     toast.error("Inserisci un'email valida.");
                   }
                 }}
-                className="h-14 bg-gold hover:bg-gold-dark text-noir font-black uppercase tracking-[0.4em] text-[10px] transition-all rounded-lg"
+                className="h-14 bg-ember hover:bg-ember-dark text-white font-black uppercase tracking-[0.4em] text-[10px] transition-all rounded-lg"
               >
                 Sottoscrivi
               </button>
@@ -90,19 +90,15 @@ const Footer = () => {
 
         <div className="pt-12 md:pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <p className="text-gold/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
+            <p className="text-[#FAF7F0]/50 text-[10px] uppercase tracking-[0.3em] font-black text-center md:text-left">
               © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="text-[9px] text-gold/30 hover:text-gold/50 uppercase tracking-widest transition-colors">Privacy Policy</a>
-              <a href="#" className="text-[9px] text-gold/30 hover:text-gold/50 uppercase tracking-widest transition-colors">Cookie Policy</a>
-            </div>
           </div>
           
           <motion.button
             whileHover={{ y: -5 }}
             onClick={scrollToTop}
-            className="group flex items-center gap-4 text-gold/60 hover:text-gold transition-colors"
+            className="group flex items-center gap-4 text-[#FAF7F0]/60 hover:text-white transition-colors"
             aria-label="Torna all'inizio della pagina"
           >
             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Inizio Pagina</span>
