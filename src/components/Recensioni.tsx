@@ -22,49 +22,49 @@ const reviews = [
 
 const Recensioni = () => {
   return (
-    <section id="recensioni" className="section-spacing bg-white relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 md:mb-32">
+    <section id="recensioni" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+      <div className="relative z-10">
+        <div className="text-center mb-16 md:mb-24">
           <AnimatedSection>
-            <span className="text-ember text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Voci d'Eccellenza</span>
-            <h2 className="text-3xl md:text-5xl font-display font-black text-foreground uppercase leading-tight">
-              I NOSTRI <br /> <span className="text-ember italic">OSPITI DICONO</span>
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">VOCI D'ECCELLENZA</span>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-none uppercase">
+              I NOSTRI <br /> <span className="text-primary italic">OSPITI DICONO</span>
             </h2>
+            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full" />
           </AnimatedSection>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {reviews.map((review, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="h-full">
               <motion.div
-                whileHover={{ y: -4 }}
-                className="relative bg-white border border-ember/10 p-8 md:p-10 rounded-xl h-full flex flex-col hover:border-ember/30 transition-all duration-300 shadow-xl overflow-hidden group"
+                whileHover={{ y: -8 }}
+                className="relative bg-secondary/50 p-10 rounded-[2.5rem] h-full flex flex-col border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
               >
-                <Quote className="absolute -top-6 -right-6 w-32 h-32 text-ember/5 rotate-12 group-hover:text-ember/10 transition-colors" />
+                <Quote className="absolute -top-4 -right-4 w-24 h-24 text-primary/5 rotate-12 group-hover:text-primary/10 transition-colors duration-500" />
                 
-                <div className="flex items-center justify-between mb-8 relative z-10">
-                  <div className="flex gap-1 text-gold">
+                <div className="flex items-center justify-between mb-10 relative z-10">
+                  <div className="flex gap-1.5 text-accent">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-current" />
+                      <Star key={j} className="w-5 h-5 fill-current" />
                     ))}
                   </div>
-                  <Award className="w-6 h-6 text-ember/50" />
                 </div>
                 
-                <p className="text-foreground/80 text-lg font-accent italic leading-relaxed mb-8 md:mb-10 flex-1 relative z-10">
+                <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-10 flex-1 relative z-10 italic">
                   "{review.text}"
                 </p>
                 
-                <div className="pt-8 border-t border-black/5 relative z-10">
+                <div className="pt-8 border-t border-foreground/5 relative z-10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-ember/10 border border-ember/20 flex items-center justify-center text-ember font-black">
+                    <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary font-black text-xl">
                       {review.author.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-foreground font-display font-bold text-sm tracking-widest uppercase">
+                      <div className="text-foreground font-black text-sm tracking-tight uppercase">
                         {review.author}
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-foreground/60">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                         {review.role}
                       </div>
                     </div>
@@ -76,10 +76,10 @@ const Recensioni = () => {
         </div>
 
         <AnimatedSection delay={0.4} className="mt-16 md:mt-24 text-center">
-          <div className="inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 bg-ember/5 backdrop-blur-md border border-ember/10 rounded-full">
-            <Sparkles className="w-4 h-4 text-gold" />
-            <p className="text-foreground/60 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold">
-              Oltre <span className="text-ember">1.000 recensioni</span> a 5 stelle
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white shadow-xl shadow-black/5 rounded-full border border-foreground/5">
+            <Sparkles className="w-5 h-5 text-accent" />
+            <p className="text-muted-foreground text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
+              OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
             </p>
           </div>
         </AnimatedSection>
