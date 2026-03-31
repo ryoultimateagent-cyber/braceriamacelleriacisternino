@@ -57,7 +57,7 @@ const Galleria = () => {
           {images.map((img, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="group cursor-pointer" animation="scale-up">
               <div 
-                className="relative aspect-[4/5] overflow-hidden border border-gold/10 group-hover:border-gold/40 transition-all duration-300 rounded-xl"
+                className="relative aspect-[4/5] overflow-hidden border border-ember/10 group-hover:border-ember/40 transition-all duration-300 rounded-xl shadow-md"
                 onClick={() => openLightbox(i)}
               >
                 <img 
@@ -66,20 +66,20 @@ const Galleria = () => {
                   loading="lazy"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Visual Label */}
-                <div className="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-noir/80 backdrop-blur-md">
-                   <h3 className="text-lg font-display font-bold text-gold uppercase tracking-widest">{img.title}</h3>
+                <div className="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-black/80 backdrop-blur-md">
+                   <h3 className="text-lg font-display font-bold text-white uppercase tracking-widest">{img.title}</h3>
                 </div>
                 
                 <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity delay-200">
-                  <Maximize2 className="w-5 h-5 text-gold" />
+                  <Maximize2 className="w-5 h-5 text-white" />
                 </div>
                 
                 {/* Decorative corners */}
-                <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-gold/20" />
-                <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-gold/20" />
+                <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/20" />
+                <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/20" />
               </div>
             </AnimatedSection>
           ))}
