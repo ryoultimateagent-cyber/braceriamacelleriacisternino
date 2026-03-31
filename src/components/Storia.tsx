@@ -52,12 +52,12 @@ const Storia = () => {
             <div key={i} className={`flex flex-col lg:flex-row gap-10 md:gap-16 items-center ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
               <div className="w-full lg:w-1/2">
                 <AnimatedSection animation={i % 2 === 0 ? "fade-right" : "fade-left"}>
-                  <div className="relative aspect-video overflow-hidden border border-gold/10 p-2 rounded-xl">
+                  <div className="relative aspect-video overflow-hidden border border-ember/10 p-2 rounded-xl">
                     <img 
                       src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
                       alt={item.title} 
                       loading="lazy"
-                      className="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 rounded-lg"
+                      className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 rounded-lg"
                     />
                   </div>
                 </AnimatedSection>
@@ -65,9 +65,9 @@ const Storia = () => {
               
               <div className={`w-full lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
                 <AnimatedSection animation="fade-up" delay={0.2}>
-                  <span className="text-4xl md:text-5xl lg:text-7xl font-display font-black text-gold/10 mb-4 block leading-none">{item.year}</span>
-                  <h3 className="text-2xl md:text-3xl lg:text-5xl font-display font-bold text-cream mb-6 md:mb-8 uppercase tracking-tighter">{item.title}</h3>
-                  <p className="text-cream/60 text-base md:text-lg leading-relaxed max-w-xl italic font-accent">
+                  <span className="text-4xl md:text-5xl lg:text-7xl font-display font-black text-ember/10 mb-4 block leading-none">{item.year}</span>
+                  <h3 className="text-2xl md:text-3xl lg:text-5xl font-display font-bold text-foreground mb-6 md:mb-8 uppercase tracking-tighter">{item.title}</h3>
+                  <p className="text-foreground/70 text-base md:text-lg leading-relaxed max-w-xl italic font-accent">
                     "{item.text}"
                   </p>
                 </AnimatedSection>
