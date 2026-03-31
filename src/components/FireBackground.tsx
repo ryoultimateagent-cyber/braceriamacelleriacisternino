@@ -23,16 +23,18 @@ const FireBackground = memo(() => {
           alt="" 
           className="w-full h-full object-cover grayscale opacity-20 scale-110"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/70" />
       </div>
 
-      {/* Background Gradients */}
-      <div className="absolute top-[20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[150px] rounded-full animate-pulse" />
-      <div className="absolute bottom-[10%] right-[-5%] w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full animate-pulse delay-700" />
-      <div className="absolute top-[40%] right-[10%] w-[40%] h-[40%] bg-red-900/10 blur-[130px] rounded-full animate-pulse delay-1000" />
+      {/* Background Gradients Layer */}
+      <div className="absolute inset-0 z-10">
+        <div className="absolute top-[20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full animate-pulse delay-700" />
+        <div className="absolute top-[40%] right-[10%] w-[40%] h-[40%] bg-red-900/10 blur-[130px] rounded-full animate-pulse delay-1000" />
+      </div>
       
-      {/* Animated Sparks */}
-      <div className="absolute inset-0">
+      {/* Animated Sparks Layer */}
+      <div className="absolute inset-0 z-20">
         {sparks.map((spark) => (
           <div
             key={spark.id}
@@ -51,9 +53,9 @@ const FireBackground = memo(() => {
         ))}
       </div>
 
-      {/* Grain/Noise Overlay */}
+      {/* Grain/Noise Overlay Layer */}
       <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-30" 
         style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} 
       />
     </div>
