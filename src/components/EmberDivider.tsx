@@ -57,13 +57,14 @@ const EmberDivider = () => {
               width: spark.size,
               height: spark.size,
               backgroundColor: spark.color,
-              opacity: 0.8,
-              boxShadow: `0 0 6px ${spark.color}`,
+              opacity: 0.6,
+              boxShadow: `0 0 4px ${spark.color}`,
               animationName: "rise",
               animationDuration: spark.duration,
               animationIterationCount: "infinite",
               animationTimingFunction: "ease-out",
               animationDelay: spark.delay,
+              willChange: "transform, opacity",
               // @ts-ignore
               "--drift": spark.drift,
             }}
