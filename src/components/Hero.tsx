@@ -66,12 +66,7 @@ const Hero = () => {
         </h1>
         
         <p 
-          className="text-[#FFFFFF] opacity-[0.85] font-light mb-12 max-w-2xl"
-          style={{
-            fontSize: "clamp(1rem, 3vw, 1.5rem)",
-            fontFamily: "'DM Sans', sans-serif",
-            lineHeight: "1.5",
-          }}
+          className="text-[#FFFFFF] opacity-[0.85] font-light mb-12 max-w-2xl text-[clamp(1rem,3vw,1.5rem)] font-dm-sans leading-[1.5]"
         >
           Tradizione, qualità e brace — dal 1986 a Putignano
         </p>
