@@ -11,7 +11,6 @@ import Prenota from "@/components/Prenota";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Footer from "@/components/Footer";
-import FireBackground from "@/components/FireBackground";
 import EmberDivider from "@/components/EmberDivider";
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
