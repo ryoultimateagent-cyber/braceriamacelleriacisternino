@@ -29,10 +29,7 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none select-none">
         {/* Glow arancione in basso */}
         <div 
-          className="absolute bottom-[-10vh] left-0 right-0 h-[60vh] animate-[flicker_3s_infinite_ease-in-out]"
-          style={{
-            background: "linear-gradient(to top, #FF6B00 0%, #CC0000 30%, transparent 100%)",
-          }}
+          className="absolute bottom-[-10vh] left-0 right-0 h-[60vh] animate-[flicker_3s_infinite_ease-in-out] hero-glow-bottom"
         />
         
         {/* Particelle (Scintille) */}
