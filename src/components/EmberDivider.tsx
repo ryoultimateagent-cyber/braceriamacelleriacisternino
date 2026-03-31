@@ -43,6 +43,27 @@ const EmberDivider = () => {
           }}
           className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/50 to-transparent" 
         />
+        
+        {/* Sparks emitted from the LED line */}
+        {dividerSparks.map((spark) => (
+          <div
+            key={spark.id}
+            className="absolute rounded-full"
+            style={{
+              left: spark.left,
+              bottom: "0",
+              width: spark.size,
+              height: spark.size,
+              backgroundColor: "#FF6B00",
+              opacity: 0.6,
+              boxShadow: "0 0 6px #FF6B00",
+              animation: `rise ${spark.duration} linear infinite`,
+              animationDelay: spark.delay,
+              // @ts-ignore
+              "--drift": spark.drift,
+            }}
+          />
+        ))}
       </motion.div>
     </div>
   );
