@@ -27,7 +27,7 @@ const SectionHeader = ({
       {subtitle && (
         <AnimatedSection 
           animation="fade-up" 
-          className="mb-4 block text-gold text-xs font-black uppercase tracking-[0.6em]"
+          className="mb-4 block text-ember text-xs font-black uppercase tracking-[0.6em]"
         >
           {subtitle}
         </AnimatedSection>
@@ -36,7 +36,7 @@ const SectionHeader = ({
         animation="fade-up" 
         delay={0.1}
       >
-        <h2 className={cn("text-4xl md:text-5xl lg:text-6xl font-display font-black text-cream uppercase leading-[0.9] tracking-tighter", titleClassName)}>{title}</h2>
+        <h2 className={cn("text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground uppercase leading-[0.9] tracking-tighter", titleClassName)}>{title}</h2>
       </AnimatedSection>
     </div>
   );
