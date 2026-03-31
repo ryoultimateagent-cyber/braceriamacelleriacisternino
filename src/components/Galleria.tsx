@@ -141,8 +141,6 @@ const Galleria = () => {
               <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
                 <img 
                   src={images[selectedIndex].src} 
-                  srcSet={`${images[selectedIndex].src.replace('w=1200', 'w=600')} 600w, ${images[selectedIndex].src} 1200w`}
-                  sizes="(max-width: 1024px) 100vw, 800px"
                   alt={images[selectedIndex].title} 
                   loading="lazy"
                   width="800"
