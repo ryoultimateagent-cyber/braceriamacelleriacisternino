@@ -109,7 +109,7 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="xl:hidden fixed inset-0 bg-noir z-40 flex flex-col p-8 pt-24 pb-[env(safe-area-inset-bottom,2rem)]"
+            className="xl:hidden fixed inset-0 bg-white z-40 flex flex-col p-8 pt-24 pb-[env(safe-area-inset-bottom,2rem)]"
           >
             <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
               {navLinks.map((link, index) => (
@@ -119,7 +119,7 @@ const Header = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-2xl font-display font-bold text-cream hover:text-gold transition-colors py-2 border-b border-white/5"
+                  className="text-2xl font-display font-bold text-foreground hover:text-ember transition-colors py-2 border-b border-black/5"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -133,11 +133,9 @@ const Header = () => {
               >
                 <Button 
                   asChild 
-                  variant="gold" 
-                  size="lg" 
-                  className="w-full h-14 text-lg uppercase tracking-widest rounded-lg"
+                  className="w-full h-14 bg-ember hover:bg-ember-dark text-white text-lg uppercase tracking-widest rounded-lg"
                 >
-                  <a href="tel:+393403824158" onClick={() => setIsMobileMenuOpen(false)}>
+                  <a href="tel:+390804058608" onClick={() => setIsMobileMenuOpen(false)}>
                     <Phone className="w-5 h-5 mr-3" />
                     Prenota Ora
                   </a>
@@ -145,8 +143,8 @@ const Header = () => {
               </motion.div>
             </nav>
             
-            <div className="mt-auto pt-12 text-center text-white/60 text-sm">
-              <p>© {new Date().getFullYear()} Macelleria Braceria Belvedere</p>
+            <div className="mt-auto pt-12 text-center text-foreground/60 text-sm">
+              <p>© {new Date().getFullYear()} Macelleria Belvedere</p>
               <p className="mt-2 uppercase tracking-tighter">Eccellenza e Qualità</p>
             </div>
           </motion.div>
