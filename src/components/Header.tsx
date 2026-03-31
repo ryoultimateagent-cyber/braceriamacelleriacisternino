@@ -39,7 +39,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl ${
+      className={`fixed top-4 left-4 md:left-1/2 md:-translate-x-1/2 w-[calc(100%-2rem)] md:w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl ${
         isScrolled
           ? "bg-[#050505]/95 backdrop-blur-xl border border-white/10 shadow-2xl py-3"
           : "bg-[#050505]/60 backdrop-blur-md border border-white/5 py-4"
