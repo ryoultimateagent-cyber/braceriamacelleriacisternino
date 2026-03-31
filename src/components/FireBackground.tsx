@@ -1,4 +1,5 @@
 import React, { memo, useMemo } from 'react';
+import heroBg from "@/assets/hero-bg.jpg";
 
 const FireBackground = memo(() => {
   const sparks = useMemo(() => {
