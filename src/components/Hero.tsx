@@ -117,14 +117,16 @@ const Hero = () => {
           Tradizione, qualità e brace — dal 1986 a Putignano
         </p>
 
-        <a 
+        <motion.a 
+          whileHover={{ scale: 1.05, boxShadow: "0 15px 40px -10px rgba(204,0,0,0.6)" }}
+          whileTap={{ scale: 0.95 }}
           href="#prenota" 
-          className="inline-block bg-[#CC0000] hover:bg-[#B30000] text-[#FFFFFF] px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_30px_-10px_rgba(204,0,0,0.5)] focus-visible:ring-4 focus-visible:ring-[#CC0000]/50 outline-none"
+          className="inline-block bg-[#CC0000] hover:bg-[#B30000] text-[#FFFFFF] px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(204,0,0,0.5)] focus-visible:ring-4 focus-visible:ring-[#CC0000]/50 outline-none"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
           aria-label="Prenota un tavolo ora"
         >
           Prenota un tavolo
-        </a>
+        </motion.a>
       </div>
     </section>
   );
