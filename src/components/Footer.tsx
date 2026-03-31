@@ -1,6 +1,7 @@
-import { ChefHat, Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const year = new Date().getFullYear();
