@@ -62,7 +62,7 @@ const Header = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden xl:flex items-center gap-10" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-10" aria-label="Main Navigation">
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -90,13 +90,24 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="xl:hidden p-2 text-foreground z-50 relative hover:bg-black/5 rounded-xl transition-colors"
+          className="lg:hidden p-2 text-foreground z-50 relative hover:bg-black/5 rounded-xl transition-colors w-10 h-10 flex flex-col items-center justify-center gap-1.5"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
           aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <motion.span
+            animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+            className="w-6 h-0.5 bg-current block rounded-full"
+          />
+          <motion.span
+            animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+            className="w-6 h-0.5 bg-current block rounded-full"
+          />
+          <motion.span
+            animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+            className="w-6 h-0.5 bg-current block rounded-full"
+          />
         </button>
       </div>
 
