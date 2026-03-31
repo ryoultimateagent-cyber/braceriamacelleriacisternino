@@ -18,7 +18,7 @@ const GlobalSparkles = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden opacity-40">
+    <div className="fixed inset-0 pointer-events-none select-none z-0 overflow-hidden opacity-30">
       {sparks.map((spark) => (
         <div
           key={spark.id}
