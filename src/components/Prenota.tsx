@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
 
+const Prenota = () => {
+  return (
     <section id="prenota" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
