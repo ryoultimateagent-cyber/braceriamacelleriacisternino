@@ -128,14 +128,14 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="section-spacing bg-gradient-premium relative overflow-hidden"
-      aria-label="Il nostro menù"
+      className="section-spacing bg-white relative overflow-hidden"
+      aria-label="I nostri servizi"
     >
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <SectionHeader 
-          subtitle="Esperienza Gastronomica"
-          title="Il Nostro Menù"
+          subtitle="Qualità e Accoglienza"
+          title="I Nostri Servizi"
           className="mb-16 md:mb-20"
         />
 
