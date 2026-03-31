@@ -208,8 +208,8 @@ const Menu = () => {
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/80 to-transparent flex items-end p-6">
-                  <h4 className="text-lg md:text-xl font-display font-bold text-gold uppercase">{menuItems[activeIndex].name}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent flex items-end p-6">
+                  <h4 className="text-lg md:text-xl font-display font-bold text-ember uppercase">{menuItems[activeIndex].name}</h4>
                 </div>
               </div>
 
