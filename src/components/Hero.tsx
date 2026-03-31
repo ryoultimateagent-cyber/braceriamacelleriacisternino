@@ -24,39 +24,6 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#0D0D0D]"
     >
-      <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap');
-        
-        @keyframes rise {
-          0% {
-            transform: translateY(0) translateX(0) scale(1);
-            opacity: 0;
-          }
-          15% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(-120vh) translateX(var(--drift)) scale(0);
-            opacity: 0;
-          }
-        }
-
-        @keyframes flicker {
-          0%, 100% { opacity: 0.25; filter: blur(80px); }
-          50% { opacity: 0.45; filter: blur(90px); }
-        }
-
-        /* Fix Header colors over the dark hero without editing Header.tsx */
-        header:not(.bg-white\/70) .text-foreground,
-        header:not(.bg-white\/70) .text-muted-foreground,
-        header:not(.bg-white\/70) span,
-        header:not(.bg-white\/70) a {
-          color: rgba(255, 255, 255, 0.9) !important;
-        }
-        header:not(.bg-white\/70) {
-          border-color: rgba(255, 255, 255, 0.1) !important;
-        }
-      `}} />
 
       {/* Sfondo animato - Braci e Scintille */}
       <div className="absolute inset-0 pointer-events-none select-none">
