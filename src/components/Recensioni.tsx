@@ -1,6 +1,8 @@
 import { Star, Quote, Award, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import AnimatedSection from "./AnimatedSection";
+import { Skeleton } from "./ui/skeleton";
 
 const reviews = [
   {
