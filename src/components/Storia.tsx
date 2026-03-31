@@ -4,21 +4,21 @@ import AnimatedSection from "./AnimatedSection";
 
 const timelineData = [
   {
-    year: "1980",
-    title: "L'Inizio di un Sogno",
-    text: "La famiglia Belvedere apre la prima bottega a Mola di Bari. Una missione chiara: portare l'eccellenza della carne sulla tavola di ogni intenditore.",
+    year: "1986",
+    title: "Le Radici",
+    text: "La Macelleria Belvedere nasce nel cuore di Putignano. Una passione di famiglia dedicata alla selezione delle migliori carni.",
     align: "right"
   },
   {
-    year: "2005",
-    title: "L'Arte della Brace",
-    text: "L'evoluzione naturale: la macelleria si fonde con la braceria. Il fuoco diventa il nostro linguaggio, la brace il nostro pennello.",
+    year: "Tradizione",
+    title: "Qualità e Passione",
+    text: "Offriamo una ricca selezione di carni fresche durante il giorno e un servizio braceria serale per gustare le nostre specialità cotte alla brace.",
     align: "left"
   },
   {
     year: "Oggi",
-    title: "Eccellenza Senza Tempo",
-    text: "Continuamo a onorare il passato guardando al futuro. Una selezione maniacale dei tagli e un servizio che celebra il rito del convivio.",
+    title: "Macelleria & Braceria",
+    text: "Qualità, tradizione e passione in ogni taglio. Continuiamo a servire la nostra comunità con la stessa dedizione di trent'anni fa.",
     align: "right"
   },
 ];
