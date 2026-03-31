@@ -19,39 +19,39 @@ const DoveSiamo = () => {
           <AnimatedSection className="lg:col-span-5 relative order-2 lg:order-1">
              <div className="space-y-8 md:space-y-12">
                 <div className="flex items-start gap-6 md:gap-8 group">
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold/10 group-hover:border-gold/30 transition-all duration-300">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-ember/5 border border-ember/10 flex items-center justify-center text-ember group-hover:bg-ember/10 group-hover:border-ember/30 transition-all duration-300">
                     <MapPin className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
                   <div>
-                    <h4 className="text-gold font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Indirizzo</h4>
-                    <p className="text-gold-light/80 text-lg md:text-xl lg:text-2xl font-accent italic leading-relaxed">
-                      Via Belvedere, 12<br />
-                      70042 Mola di Bari (BA)
+                    <h4 className="text-ember font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Indirizzo</h4>
+                    <p className="text-foreground/80 text-lg md:text-xl lg:text-2xl font-accent italic leading-relaxed">
+                      Via Giuseppe Verdi 5C<br />
+                      70017 Putignano (BA)
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-6 md:gap-8 group">
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold/10 group-hover:border-gold/30 transition-all duration-300">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-ember/5 border border-ember/10 flex items-center justify-center text-ember group-hover:bg-ember/10 group-hover:border-ember/30 transition-all duration-300">
                     <Clock className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
                   <div>
-                    <h4 className="text-gold font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Orari</h4>
-                    <div className="text-gold-light/80 text-lg md:text-xl lg:text-2xl font-accent italic leading-relaxed">
-                      Mar - Dom: 19:30 - 00:00<br />
-                      <span className="text-ember font-bold">Lunedì: Chiuso</span>
+                    <h4 className="text-ember font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Orari</h4>
+                    <div className="text-foreground/80 text-lg md:text-xl lg:text-2xl font-accent italic leading-relaxed">
+                      Lun - Sab: 08:00–13:00 | 17:00–00:00<br />
+                      <span className="text-ember font-bold">Mar e Dom: CHIUSO</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-6 md:gap-8 group">
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold/10 group-hover:border-gold/30 transition-all duration-300">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-ember/5 border border-ember/10 flex items-center justify-center text-ember group-hover:bg-ember/10 group-hover:border-ember/30 transition-all duration-300">
                     <Phone className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
                   <div>
-                    <h4 className="text-gold font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Contatti</h4>
-                    <a href="tel:+393403824158" className="text-gold-light/80 hover:text-gold transition-colors text-lg md:text-xl lg:text-2xl font-accent italic">
-                      +39 340 382 4158
+                    <h4 className="text-ember font-display font-black text-[10px] md:text-sm uppercase tracking-widest mb-1 md:mb-2">Contatti</h4>
+                    <a href="tel:+390804058608" className="text-foreground/80 hover:text-ember transition-colors text-lg md:text-xl lg:text-2xl font-accent italic">
+                      +39 080 405 8608
                     </a>
                   </div>
                 </div>
