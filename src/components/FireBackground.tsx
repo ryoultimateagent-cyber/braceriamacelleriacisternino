@@ -47,7 +47,8 @@ const FireBackground = memo(() => {
               '--delay': spark.delay,
               '--duration': spark.duration,
               '--sway': spark.sway,
-              boxShadow: `0 0 10px 2px rgba(255, 61, 0, 0.8)`,
+              boxShadow: `0 0 10px 1px rgba(255, 61, 0, 0.6)`,
+              willChange: "transform, opacity",
             } as any}
           />
         ))}
