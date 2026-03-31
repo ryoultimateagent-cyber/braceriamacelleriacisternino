@@ -66,8 +66,12 @@ const Vini = () => {
             >
               <img 
                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" 
+                srcSet="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop 1200w"
+                sizes="(max-width: 1024px) 100vw, 500px"
                 alt="Vini d'Eccellenza" 
                 loading="lazy"
+                width="500"
+                height="667"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
