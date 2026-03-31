@@ -42,7 +42,7 @@ const Prenota = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2} className="relative group">
-            <div className="relative bg-[#0D0D0D] p-12 md:p-16 lg:p-20 rounded-[3rem] border border-white/5 shadow-2xl text-center overflow-hidden">
+            <div className="relative bg-white/5 backdrop-blur-md p-12 md:p-16 lg:p-20 rounded-[3rem] border border-white/10 shadow-2xl text-center overflow-hidden">
               <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
                 <Flame className="w-48 h-48 text-primary" />
               </div>

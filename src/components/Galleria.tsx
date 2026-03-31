@@ -3,13 +3,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
+// Import local gallery images
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
+
 const images = [
-  { src: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200", title: "Costata alla Brace", desc: "Perfetta marezzatura e cottura impeccabile su brace viva." },
-  { src: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200", title: "Fiorentina Premium", desc: "Il taglio più amato dai nostri clienti, frollato con cura." },
-  { src: "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200", title: "Tartare Signature", desc: "Carne cruda di primissima scelta battuta al coltello." },
-  { src: "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=1200", title: "Ribs BBQ Slow Cook", desc: "Cottura lenta per 12 ore e glassa artigianale segreta." },
-  { src: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?auto=format&fit=crop&q=80&w=1200", title: "Atmosfera Calda", desc: "Un ambiente accogliente nel cuore di Putignano." },
-  { src: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=1200", title: "Bombette Pugliesi", desc: "La tradizione autentica servita fumante al tavolo." },
+  { src: gallery1, title: "Costata alla Brace", desc: "Perfetta marezzatura e cottura impeccabile su brace viva." },
+  { src: gallery2, title: "Fiorentina Premium", desc: "Il taglio più amato dai nostri clienti, frollato con cura." },
+  { src: gallery3, title: "Tartare Signature", desc: "Carne cruda di primissima scelta battuta al coltello." },
+  { src: gallery4, title: "Ribs BBQ Slow Cook", desc: "Cottura lenta per 12 ore e glassa artigianale segreta." },
+  { src: gallery5, title: "Atmosfera Calda", desc: "Un ambiente accogliente nel cuore di Putignano." },
+  { src: gallery6, title: "Bombette Pugliesi", desc: "La tradizione autentica servita fumante al tavolo." },
 ];
 
 const Galleria = () => {
@@ -68,8 +76,6 @@ const Galleria = () => {
               >
                 <img 
                   src={img.src} 
-                  srcSet={`${img.src.replace('w=1200', 'w=600')} 600w, ${img.src} 1200w`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   alt={img.title} 
                   loading="lazy"
                   width="400"
@@ -135,8 +141,6 @@ const Galleria = () => {
               <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
                 <img 
                   src={images[selectedIndex].src} 
-                  srcSet={`${images[selectedIndex].src.replace('w=1200', 'w=600')} 600w, ${images[selectedIndex].src} 1200w`}
-                  sizes="(max-width: 1024px) 100vw, 800px"
                   alt={images[selectedIndex].title} 
                   loading="lazy"
                   width="800"

@@ -1,5 +1,6 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const sparkCount = 45; // Fixed count, will hide some on mobile via CSS
@@ -24,9 +25,18 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
     >
+      {/* Background Image Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <img 
+          src={heroBg} 
+          alt="Macelleria Belvedere Background" 
+          className="w-full h-full object-cover grayscale opacity-40 scale-110"
+        />
+      </div>
 
       {/* Sfondo animato - Braci e Scintille */}
-      <div className="absolute inset-0 pointer-events-none select-none">
+      <div className="absolute inset-0 pointer-events-none select-none z-20">
         {/* Glow arancione in basso */}
         <div 
           className="absolute bottom-[-10vh] left-0 right-0 h-[60vh] animate-[flicker_3s_infinite_ease-in-out] hero-glow-bottom"
@@ -58,7 +68,7 @@ const Hero = () => {
       </div>
 
       {/* Contenuto Testuale Centrato */}
-      <div className="relative z-10 text-center px-6 max-w-5xl flex flex-col items-center">
+      <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
         <h1 
           className="text-[#FFFFFF] font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-dm-sans uppercase italic"
         >
