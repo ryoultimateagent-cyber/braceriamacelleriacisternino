@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 const EmberDivider = () => {
   const dividerSparks = useMemo(() => {
     const colors = ["#FF6B00", "#FFD700", "#FF4500"];
-    return Array.from({ length: 80 }).map((_, i) => ({
+    return Array.from({ length: 20 }).map((_, i) => ({ // Reduced from 80 for performance
       id: i,
       left: `${15 + Math.random() * 70}%`,
-      size: `${Math.random() * 2 + 1}px`,
+      size: `${Math.random() * 1.5 + 1}px`,
       color: colors[Math.floor(Math.random() * colors.length)],
       delay: `${Math.random() * 10}s`,
       duration: `${Math.random() * 4 + 4}s`,
-      drift: `${(Math.random() - 0.5) * 100}px`,
+      drift: `${(Math.random() - 0.5) * 60}px`,
     }));
   }, []);
 
