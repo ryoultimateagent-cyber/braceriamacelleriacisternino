@@ -30,7 +30,7 @@ const DoveSiamo = () => {
                       70017 Putignano (BA)
                     </p>
                   </div>
-                </div>
+                </article>
 
                 <div className="flex items-start gap-8 group">
                   <div className="w-16 h-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
