@@ -148,7 +148,7 @@ const Menu = () => {
           <AnimatedSection delay={0.2} className="order-2 lg:order-1">
             <div className="space-y-4">
               {menuItems.map((item, index) => (
-                <div
+                <article
                   key={index}
                   onMouseEnter={() => handleItemHover(index)}
                   onClick={() => handleItemHover(index)}

@@ -67,7 +67,7 @@ const Recensioni = () => {
           ) : (
             reviews.map((review, i) => (
               <AnimatedSection key={i} delay={i * 0.1} className="h-full">
-                <motion.div
+                <motion.article
                   whileHover={{ y: -8 }}
                   className="relative bg-secondary/50 p-10 rounded-[2.5rem] h-full flex flex-col border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
                 >
