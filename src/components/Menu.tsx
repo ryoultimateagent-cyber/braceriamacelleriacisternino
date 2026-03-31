@@ -152,7 +152,16 @@ const Menu = () => {
                   key={index}
                   onMouseEnter={() => handleItemHover(index)}
                   onClick={() => handleItemHover(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleItemHover(index);
+                    }
+                  }}
                   className="group"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Scopri di più su: ${item.name}`}
                 >
                   <div className={cn(
                     "flex items-start gap-6 p-8 transition-all duration-500 rounded-3xl border-2",

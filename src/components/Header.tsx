@@ -68,7 +68,7 @@ const Header = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-all duration-300 relative group"
+                  className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-all duration-300 relative group focus-visible:text-primary outline-none"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -90,7 +90,7 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2 text-foreground z-50 relative hover:bg-black/5 rounded-xl transition-colors w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+          className="lg:hidden p-2 text-foreground z-50 relative hover:bg-black/5 rounded-xl transition-colors w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-primary outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"

@@ -51,7 +51,7 @@ const Vini = () => {
               size="lg"
               className="h-16 px-10 bg-primary hover:bg-primary/90 text-white font-black rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 group"
             >
-              <a href="#" className="flex items-center gap-4">
+              <a href="#prenota" className="flex items-center gap-4 focus-visible:underline outline-none" aria-label="Sfoglia la carta dei vini">
                 <Wine className="w-5 h-5 transition-transform group-hover:rotate-12" />
                 <span>SFOGLIA LA CARTA</span>
               </a>

@@ -54,8 +54,17 @@ const Galleria = () => {
           {images.map((img, i) => (
             <AnimatedSection key={i} delay={i * 0.1} className="group cursor-pointer" animation="scale-up">
               <div 
-                className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white"
+                role="button"
+                tabIndex={0}
+                aria-label={`Visualizza immagine: ${img.title}`}
+                className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white focus-visible:ring-4 focus-visible:ring-primary outline-none"
                 onClick={() => openLightbox(i)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(i);
+                  }
+                }}
               >
                 <img 
                   src={img.src} 

@@ -56,7 +56,8 @@ const Prenota = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 href="tel:+390804058608"
-                className="block text-4xl md:text-5xl lg:text-6xl font-black text-primary mb-12 tracking-tighter"
+                className="block text-4xl md:text-5xl lg:text-6xl font-black text-primary mb-12 tracking-tighter focus-visible:underline outline-none"
+                aria-label="Chiama per prenotare un tavolo: 080 405 8608"
               >
                 080 405 8608
               </motion.a>

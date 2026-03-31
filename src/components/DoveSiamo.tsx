@@ -52,7 +52,7 @@ const DoveSiamo = () => {
                   </div>
                   <div>
                     <h4 className="text-primary font-bold text-xs uppercase tracking-widest mb-2">CONTATTI</h4>
-                    <a href="tel:+390804058608" className="text-foreground hover:text-primary transition-colors text-xl md:text-2xl font-bold tracking-tight">
+                    <a href="tel:+390804058608" className="text-foreground hover:text-primary transition-colors text-xl md:text-2xl font-bold tracking-tight focus-visible:underline outline-none" aria-label="Chiama al numero +39 080 405 8608">
                       +39 080 405 8608
                     </a>
                   </div>
