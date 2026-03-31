@@ -4,23 +4,35 @@ import AnimatedSection from "./AnimatedSection";
 
 const tagli = [
   {
-    name: "Fiorentina Premium",
-    category: "Cottura alla Brace",
-    desc: "T-Bone selezionata (~1kg), frollata minimun 30 giorni. La massima espressione della carne bovina.",
+    name: "Fiorentina alla brace",
+    category: "Specialità",
+    desc: "Taglio di carne bovina pregiata, cotta sulla brace per esaltarne il sapore autentico.",
     emoji: "🥩"
   },
   {
-    name: "Costata di Scottona",
-    category: "Selezione Puglia",
-    desc: "400/500g di pura eccellenza locale. Marezzatura perfetta che garantisce tenerezza.",
+    name: "Spiedini artigianali",
+    category: "Fatti a mano",
+    desc: "Creati quotidianamente con selezioni di carni miste e aromi della nostra terra.",
     emoji: "🔥"
   },
   {
-    name: "Tartare Signature",
-    category: "Specialità Cruda",
-    desc: "Punta d'anca battuta al coltello al momento. Condita con olio EVO pugliese e sale di Maldon.",
-    emoji: "🔪"
+    name: "Polpette fatte in casa",
+    category: "Tradizione",
+    desc: "La ricetta di famiglia, preparata con carni scelte e ingredienti freschi.",
+    emoji: "👵"
   },
+  {
+    name: "Salsicce artigianali",
+    category: "Produzione propria",
+    desc: "Insaccate da noi con ricetta tradizionale, ideali per la brace o la padella.",
+    emoji: "🌭"
+  },
+  {
+    name: "Hamburger su misura",
+    category: "Personalizzati",
+    desc: "Il tuo hamburger ideale, creato al momento con i tagli che preferisci.",
+    emoji: "🍔"
+  }
 ];
 
 const Tagli = () => {
