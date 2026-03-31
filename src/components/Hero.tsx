@@ -60,15 +60,15 @@ const Hero = () => {
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-10 text-center px-6 max-w-5xl flex flex-col items-center">
         <h1 
-          className="text-[#FFFFFF] font-bold tracking-tight mb-4 leading-tight text-[clamp(2.5rem,10vw,5rem)] font-dm-sans hero-text-shadow"
+          className="text-[#FFFFFF] font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-dm-sans uppercase italic"
         >
-          Macelleria Belvedere
+          BELVEDERE<span className="text-[#CC0000]">.</span>
         </h1>
         
         <p 
-          className="text-[#FFFFFF] opacity-[0.85] font-light mb-12 max-w-2xl text-[clamp(1rem,3vw,1.5rem)] font-dm-sans leading-[1.5]"
+          className="text-[#FFFFFF] opacity-[0.9] font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-dm-sans leading-[1.2] uppercase tracking-[0.3em]"
         >
-          Tradizione, qualità e brace — dal 1986 a Putignano
+          DAL 1986 A PUTIGNANO — TRADIZIONE, QUALITÀ E BRACE
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
