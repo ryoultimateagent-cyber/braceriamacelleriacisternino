@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 
 const DoveSiamo = () => {
   return (
-    <section id="dovesiamo" className="section-spacing bg-transparent relative overflow-hidden">
+    <section id="dovesiamo" className="section-spacing bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 md:mb-24 lg:mb-32">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Posizione Privilegiata</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream uppercase leading-tight">
-              DOVE <br /> <span className="text-ember italic">TROVARCI</span>
+            <span className="text-ember text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Vieni a Trovarci</span>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-tight">
+              DOVE <br /> <span className="text-ember italic">SIAMO</span>
             </h2>
           </AnimatedSection>
         </div>
