@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const EmberDivider = () => {
+  const dividerSparks = useMemo(() => {
+    return Array.from({ length: 6 }).map((_, i) => ({
+      id: i,
+      left: `${10 + Math.random() * 80}%`,
+      size: `${Math.random() * 2 + 1}px`,
+      delay: `${Math.random() * 5}s`,
+      duration: `${Math.random() * 3 + 4}s`,
+      drift: `${(Math.random() - 0.5) * 50}px`,
+    }));
+  }, []);
+
   return (
     <div className="relative w-full h-px overflow-visible flex items-center justify-center py-4">
       {/* Main black background line for depth */}
@@ -13,7 +24,7 @@ const EmberDivider = () => {
         whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="relative w-full max-w-5xl h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
+        className="relative w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
       >
         {/* Glow effects */}
         <div className="absolute inset-0 bg-primary blur-[4px] opacity-60" />
@@ -32,6 +43,27 @@ const EmberDivider = () => {
           }}
           className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/50 to-transparent" 
         />
+        
+        {/* Sparks emitted from the LED line */}
+        {dividerSparks.map((spark) => (
+          <div
+            key={spark.id}
+            className="absolute rounded-full"
+            style={{
+              left: spark.left,
+              bottom: "0",
+              width: spark.size,
+              height: spark.size,
+              backgroundColor: "#FF6B00",
+              opacity: 0.6,
+              boxShadow: "0 0 6px #FF6B00",
+              animation: `rise ${spark.duration} linear infinite`,
+              animationDelay: spark.delay,
+              // @ts-ignore
+              "--drift": spark.drift,
+            }}
+          />
+        ))}
       </motion.div>
     </div>
   );
