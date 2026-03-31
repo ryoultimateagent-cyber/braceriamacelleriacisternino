@@ -5,39 +5,39 @@ import { Button } from "@/components/ui/button";
 
 const Prenota = () => {
   return (
-    <section id="prenota" className="section-spacing bg-noir relative overflow-hidden">
+    <section id="prenota" className="section-spacing bg-white relative overflow-hidden">
       {/* Decorative Overlays */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(204,0,0,0.05)_0%,transparent_70%)] pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <AnimatedSection>
-              <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Assicura il Tuo Posto</span>
-              <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream uppercase leading-tight mb-8 md:mb-10">
-                L'ESPERIENZA <br /> <span className="text-ember italic">BELVEDERE</span>
+              <span className="text-ember text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Assicura il Tuo Posto</span>
+              <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-tight mb-8 md:mb-10">
+                IL GUSTO DELLA <br /> <span className="text-ember italic">TRADIZIONE</span>
               </h2>
-              <p className="text-gold-light/80 text-lg md:text-xl font-accent italic leading-relaxed mb-10 md:mb-12">
-                Nel cuore di Mola di Bari, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1980.
+              <p className="text-foreground/70 text-lg md:text-xl font-accent italic leading-relaxed mb-10 md:mb-12">
+                Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
               </p>
               
               <div className="space-y-6 md:space-y-8">
                 <div className="flex items-center gap-4 md:gap-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="text-gold w-5 h-5 md:w-6 md:h-6" />
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-ember/5 border border-ember/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="text-ember w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h4 className="text-gold font-bold uppercase tracking-widest text-[10px] md:text-xs">Posizione</h4>
-                    <p className="text-cream text-base md:text-lg">Via Belvedere 12, Mola di Bari</p>
+                    <h4 className="text-ember font-bold uppercase tracking-widest text-[10px] md:text-xs">Posizione</h4>
+                    <p className="text-foreground text-base md:text-lg">Via Giuseppe Verdi 5C, Putignano (BA)</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 md:gap-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center">
-                    <Clock className="text-gold w-5 h-5 md:w-6 md:h-6" />
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-ember/5 border border-ember/10 rounded-xl flex items-center justify-center">
+                    <Clock className="text-ember w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <h4 className="text-gold font-bold uppercase tracking-widest text-[10px] md:text-xs">Orari</h4>
-                    <p className="text-cream text-base md:text-lg">Mar - Dom: 19:30 - 00:00</p>
+                    <h4 className="text-ember font-bold uppercase tracking-widest text-[10px] md:text-xs">Orari</h4>
+                    <p className="text-foreground text-base md:text-lg">Lun - Sab: 08:00–13:00 | 17:00–00:00</p>
                   </div>
                 </div>
               </div>
