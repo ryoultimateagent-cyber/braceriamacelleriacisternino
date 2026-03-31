@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 const EmberDivider = () => {
   const dividerSparks = useMemo(() => {
     const colors = ["#FF6B00", "#FFD700", "#FF4500"];
-    return Array.from({ length: 80 }).map((_, i) => ({
+    return Array.from({ length: 20 }).map((_, i) => ({ // Reduced from 80 for performance
       id: i,
       left: `${15 + Math.random() * 70}%`,
-      size: `${Math.random() * 2 + 1}px`,
+      size: `${Math.random() * 1.5 + 1}px`,
       color: colors[Math.floor(Math.random() * colors.length)],
       delay: `${Math.random() * 10}s`,
       duration: `${Math.random() * 4 + 4}s`,
-      drift: `${(Math.random() - 0.5) * 100}px`,
+      drift: `${(Math.random() - 0.5) * 60}px`,
     }));
   }, []);
 
@@ -57,13 +57,14 @@ const EmberDivider = () => {
               width: spark.size,
               height: spark.size,
               backgroundColor: spark.color,
-              opacity: 0.8,
-              boxShadow: `0 0 6px ${spark.color}`,
+              opacity: 0.6,
+              boxShadow: `0 0 4px ${spark.color}`,
               animationName: "rise",
               animationDuration: spark.duration,
               animationIterationCount: "infinite",
               animationTimingFunction: "ease-out",
               animationDelay: spark.delay,
+              willChange: "transform, opacity",
               // @ts-ignore
               "--drift": spark.drift,
             }}
