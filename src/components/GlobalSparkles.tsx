@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 const GlobalSparkles = () => {
-  const sparkCount = 60; // Reduced from 100 for better performance
+  const sparkCount = 120; // Increased to enhance the effect
   const sparks = useMemo(() => {
     const colors = ["#FF6B00", "#CC0000", "#F5C400"];
     return Array.from({ length: sparkCount }).map((_, i) => ({
