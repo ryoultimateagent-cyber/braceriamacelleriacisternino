@@ -53,11 +53,11 @@ const Header = () => {
           className="group flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1 transition-all"
           aria-label="Home - Macelleria Belvedere"
         >
-          <div className="flex flex-col items-start">
-             <span className="text-xl md:text-2xl font-bold text-foreground tracking-tight leading-none">
+          <div className="flex flex-col items-start italic">
+             <span className="text-xl md:text-2xl font-black text-foreground tracking-tighter leading-none">
               BELVEDERE<span className="text-primary">.</span>
              </span>
-             <span className="text-[10px] font-medium text-muted-foreground tracking-[0.3em] uppercase leading-none mt-1">EST. 1986</span>
+             <span className="text-[10px] font-bold text-muted-foreground tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
           </div>
         </a>
 
