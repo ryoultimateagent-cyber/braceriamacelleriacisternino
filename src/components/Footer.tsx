@@ -1,7 +1,8 @@
-import { Facebook, Instagram, Phone, MapPin, Mail, ArrowUp } from "lucide-react";
-import { motion } from "framer-motion";
+import { Facebook, Instagram, Phone, MapPin, Mail, ArrowUp, Loader2, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
