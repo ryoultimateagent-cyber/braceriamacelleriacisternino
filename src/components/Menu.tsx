@@ -151,6 +151,7 @@ const Menu = () => {
                 <div
                   key={index}
                   onMouseEnter={() => handleItemHover(index)}
+                  onClick={() => handleItemHover(index)}
                   className="group"
                 >
                   <div className={cn(
