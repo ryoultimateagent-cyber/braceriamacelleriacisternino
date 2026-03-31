@@ -205,7 +205,7 @@ const Menu = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </AnimatedSection>

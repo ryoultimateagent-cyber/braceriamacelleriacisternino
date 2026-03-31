@@ -100,7 +100,7 @@ const Recensioni = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </motion.article>
               </AnimatedSection>
             ))
           )}

@@ -56,7 +56,7 @@ const DoveSiamo = () => {
                       +39 080 405 8608
                     </a>
                   </div>
-                </div>
+                </article>
              </div>
 
              <div className="mt-16 pt-12 border-t border-foreground/5">
