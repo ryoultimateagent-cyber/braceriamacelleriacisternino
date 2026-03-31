@@ -15,23 +15,23 @@ const Vini = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   return (
-    <section id="vini" ref={ref} className="section-spacing bg-noir relative overflow-hidden">
+    <section id="vini" ref={ref} className="section-spacing bg-white relative overflow-hidden">
       {/* Background Decorative Rings */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] border border-gold/5 rounded-full scale-150 animate-pulse-glow pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] border border-ember/5 rounded-full scale-150 animate-pulse-glow pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-[1400px] mx-auto">
           {/* Left Side: Text Content */}
           <AnimatedSection delay={0.2} className="relative z-10">
-            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-6 md:mb-8 block">L'Incontro Perfetto</span>
-            <h2 className="text-3xl md:text-6xl lg:text-8xl font-display font-black text-cream uppercase leading-[0.9] mb-8 md:mb-12">
-              LA NOSTRA <br /> <span className="text-gold italic font-light">CANTINA</span>
+            <span className="text-ember text-xs uppercase tracking-[0.6em] font-bold mb-6 md:mb-8 block">L'Incontro Perfetto</span>
+            <h2 className="text-3xl md:text-6xl lg:text-8xl font-display font-black text-foreground uppercase leading-[0.9] mb-8 md:mb-12">
+              LA NOSTRA <br /> <span className="text-ember italic font-light">CANTINA</span>
             </h2>
             
-            <div className="h-1 w-24 bg-gold mb-10 md:mb-12" />
+            <div className="h-1 w-24 bg-ember mb-10 md:mb-12" />
             
-            <p className="text-cream/70 text-lg md:text-xl font-accent italic leading-relaxed mb-10 md:mb-16 max-w-xl">
-              "Il vino è il compagno silenzioso della brace. Abbiamo curato una selection che celebra il territorio pugliese, dai rossi profondi ai bianchi minerali delle nostre coste."
+            <p className="text-foreground/70 text-lg md:text-xl font-accent italic leading-relaxed mb-10 md:mb-16 max-w-xl">
+              "Il vino è il compagno della buona carne. Abbiamo curato una selezione che celebra il territorio, dai rossi profondi ai bianchi minerali."
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-16">
