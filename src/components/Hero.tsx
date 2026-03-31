@@ -1,5 +1,6 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const sparkCount = 45; // Fixed count, will hide some on mobile via CSS
