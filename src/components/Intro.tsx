@@ -65,7 +65,7 @@ const Intro = () => {
           <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
             <img 
               src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" 
-              srcset="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600 600w, https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200 1200w"
+              srcSet="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600 600w, https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200 1200w"
               sizes="(max-width: 1024px) 100vw, 600px"
               alt="Selezione Carni Premium" 
               loading="lazy"
