@@ -65,7 +65,7 @@ const Tagli = () => {
                     loading="lazy"
                     className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 </div>
 
                 {/* Content Overlay */}
@@ -76,12 +76,12 @@ const Tagli = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-cream uppercase mb-4 leading-none tracking-tighter">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-[#FAF7F0] uppercase mb-4 leading-none tracking-tighter">
                     {taglio.name}
                   </h3>
                   
                   <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-                    <p className="text-cream/70 leading-relaxed text-sm mb-6 md:mb-8 font-accent italic">
+                    <p className="text-[#FAF7F0]/80 leading-relaxed text-sm mb-6 md:mb-8 font-accent italic">
                       {taglio.desc}
                     </p>
                   </div>
@@ -93,7 +93,7 @@ const Tagli = () => {
                 </div>
                 
                 {/* Decorative Frame */}
-                <div className="absolute top-4 left-4 right-4 bottom-4 md:top-6 md:left-6 md:right-6 md:bottom-6 border border-white/5 pointer-events-none group-hover:border-gold/20 transition-colors duration-300 rounded-lg" />
+                <div className="absolute top-4 left-4 right-4 bottom-4 md:top-6 md:left-6 md:right-6 md:bottom-6 border border-white/10 pointer-events-none group-hover:border-gold/20 transition-colors duration-300 rounded-lg" />
               </div>
             </AnimatedSection>
           ))}
