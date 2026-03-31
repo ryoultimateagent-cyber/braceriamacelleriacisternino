@@ -27,21 +27,21 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="section-spacing bg-noir relative overflow-hidden">
+    <section id="intro" className="section-spacing bg-white relative overflow-hidden">
       {/* Background Decorative Text */}
-      <div className="absolute -top-20 -left-20 text-cream/[0.02] text-[25vw] font-display font-black pointer-events-none select-none uppercase leading-none">
-        Elite
+      <div className="absolute -top-20 -left-20 text-ember/[0.03] text-[25vw] font-display font-black pointer-events-none select-none uppercase leading-none">
+        Belvedere
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
           <AnimatedSection animation="fade-up">
-            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-6 md:mb-8 block">Eccellenza Pugliese dal 1980</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream leading-[0.9] mb-8 md:mb-10 uppercase">
+            <span className="text-ember text-xs uppercase tracking-[0.6em] font-bold mb-6 md:mb-8 block">Eccellenza Putignanese dal 1986</span>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground leading-[0.9] mb-8 md:mb-10 uppercase">
               LA FILOSOFIA <br /> 
-              <span className="text-gold italic font-light">DEL GUSTO</span>
+              <span className="text-ember italic font-light">DEL GUSTO</span>
             </h2>
-            <div className="h-1 w-24 bg-gold mx-auto mb-10 md:mb-12" />
+            <div className="h-1 w-24 bg-ember mx-auto mb-10 md:mb-12" />
             <p className="text-cream/70 text-lg md:text-2xl font-light leading-relaxed font-accent italic">
               "Selezioniamo solo l'eccellenza. Per noi, la carne non è un prodotto, è una vocazione che onoriamo ogni giorno davanti alla brace viva."
             </p>
