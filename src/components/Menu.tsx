@@ -225,6 +225,8 @@ const Menu = () => {
                     src={menuItems[activeIndex].image} 
                     alt={menuItems[activeIndex].name}
                     loading="lazy"
+                    width="512"
+                    height="512"
                     className="w-full h-full object-cover"
                   />
                 </AnimatePresence>
