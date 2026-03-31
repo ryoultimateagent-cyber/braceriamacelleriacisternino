@@ -64,27 +64,27 @@ const Vini = () => {
           <AnimatedSection className="relative mt-12 lg:mt-0">
             <motion.div 
               style={{ y: imageY, rotate }}
-              className="relative aspect-[3/4] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-gold/10 p-4 rounded-xl"
+              className="relative aspect-[3/4] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-ember/10 p-4 rounded-xl shadow-lg"
             >
-              <div className="absolute inset-0 bg-gold/5 z-0" />
+              <div className="absolute inset-0 bg-ember/5 z-0" />
               <div className="relative h-full w-full overflow-hidden rounded-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" 
-                  alt="Fine Wine Collection" 
+                  alt="Vini d'Eccellenza" 
                   loading="lazy"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 hover:scale-110" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
                 
                 {/* Floating Info Badge */}
-                <div className="absolute -bottom-6 -left-6 bg-gold text-noir p-6 md:p-8 shadow-2xl rounded-xl">
+                <div className="absolute -bottom-6 -left-6 bg-ember text-white p-6 md:p-8 shadow-2xl rounded-xl">
                    <Star className="w-6 h-6 md:w-8 md:h-8 mb-2" />
                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest">Cru Selection</span>
                 </div>
               </div>
               
               {/* Decorative Frame */}
-              <div className="absolute top-8 left-8 bottom-8 right-8 border border-white/10 pointer-events-none" />
+              <div className="absolute top-8 left-8 bottom-8 right-8 border border-black/5 pointer-events-none" />
             </motion.div>
           </AnimatedSection>
         </div>
