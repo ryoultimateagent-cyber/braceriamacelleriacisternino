@@ -51,10 +51,10 @@ const Tagli = () => {
         </AnimatedSection>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-[1400px] mx-auto">
         {tagli.map((taglio, i) => (
           <AnimatedSection key={i} delay={i * 0.1} animation="fade-up" className="h-full">
-            <div className="group relative h-[450px] w-full overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+            <div className="group relative aspect-[4/5] md:h-[450px] w-full overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
               {/* Image Background */}
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <img 

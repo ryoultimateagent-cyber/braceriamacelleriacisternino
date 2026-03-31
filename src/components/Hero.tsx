@@ -1,18 +1,7 @@
 import React, { useMemo, useEffect, useState } from "react";
 
 const Hero = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const sparkCount = isMobile ? 25 : 55;
+  const sparkCount = 45; // Fixed count, will hide some on mobile via CSS
   
   const sparks = useMemo(() => {
     const colors = ["#FF6B00", "#CC0000", "#F5C400"];
@@ -25,8 +14,9 @@ const Hero = () => {
       delay: `${Math.random() * 8}s`,
       drift: `${(Math.random() - 0.5) * 200}px`,
       opacity: Math.random() * 0.4 + 0.6,
+      mobileHidden: i > 20, // Only show first 20 on mobile
     }));
-  }, [sparkCount]);
+  }, []);
 
   return (
     <section 
@@ -81,7 +71,7 @@ const Hero = () => {
         {sparks.map((spark) => (
           <div
             key={spark.id}
-            className="absolute rounded-full"
+            className={`absolute rounded-full ${spark.mobileHidden ? "hidden md:block" : "block"}`}
             style={{
               left: spark.left,
               bottom: "-20px",
