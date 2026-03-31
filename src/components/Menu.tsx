@@ -156,13 +156,13 @@ const Menu = () => {
                   <div className={cn(
                     "flex items-start gap-4 md:gap-6 p-4 md:p-6 lg:p-8 transition-all duration-300 rounded-xl border",
                     activeIndex === index 
-                      ? "bg-charcoal/60 border-gold/20 shadow-xl" 
-                      : "bg-transparent border-transparent hover:bg-white/5"
+                      ? "bg-ember/5 border-ember/20 shadow-lg" 
+                      : "bg-transparent border-transparent hover:bg-ember/5"
                   )}>
                     {/* Number */}
                     <span className={cn(
                       "text-xl lg:text-3xl font-display font-bold transition-colors duration-300",
-                      activeIndex === index ? "text-fire" : "text-white/60 group-hover:text-gold/60"
+                      activeIndex === index ? "text-ember" : "text-foreground/40 group-hover:text-ember/60"
                     )}>
                       {item.num}
                     </span>
@@ -172,21 +172,21 @@ const Menu = () => {
                       <div className="flex items-center justify-between mb-2 md:mb-3">
                         <h3 className={cn(
                           "text-base lg:text-2xl font-display font-bold transition-colors duration-300",
-                          activeIndex === index ? "text-cream" : "text-gold-light/60 group-hover:text-cream"
+                          activeIndex === index ? "text-foreground" : "text-foreground/60 group-hover:text-foreground"
                         )}>
                           {item.name}
                         </h3>
                         {activeIndex === index && (
                           <div aria-hidden="true">
-                            <ArrowRight className="text-fire w-5 h-5 md:w-6 md:h-6" />
+                            <ArrowRight className="text-ember w-5 h-5 md:w-6 md:h-6" />
                           </div>
                         )}
                       </div>
                       <p className={cn(
                         "text-xs md:text-sm lg:text-lg leading-relaxed transition-all duration-300 tracking-wide font-accent italic",
                         activeIndex === index 
-                          ? "text-gold-light opacity-90" 
-                          : "text-white/60 opacity-0 lg:opacity-30 max-h-0 lg:max-h-20 overflow-hidden"
+                          ? "text-foreground/70 opacity-90" 
+                          : "text-foreground/30 opacity-0 lg:opacity-30 max-h-0 lg:max-h-20 overflow-hidden"
                       )}>
                         {item.desc}
                       </p>
