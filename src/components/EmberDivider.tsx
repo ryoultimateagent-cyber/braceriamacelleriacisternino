@@ -26,11 +26,11 @@ const EmberDivider = () => {
         whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="relative w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
+        className="relative w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent"
       >
         {/* Glow effects */}
-        <div className="absolute inset-0 bg-primary blur-[4px] opacity-60" />
-        <div className="absolute inset-0 bg-accent blur-[8px] opacity-30" />
+        <div className="absolute inset-0 bg-primary blur-[6px] opacity-75" />
+        <div className="absolute inset-0 bg-accent blur-[12px] opacity-45" />
         
         {/* Pulse center */}
         <motion.div 
