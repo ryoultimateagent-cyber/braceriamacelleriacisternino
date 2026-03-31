@@ -45,29 +45,29 @@ const Prenota = () => {
 
             <AnimatedSection delay={0.2} className="relative mt-12 lg:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-r from-ember/30 to-gold/30 blur-3xl opacity-30 animate-pulse-glow" />
-              <div className="relative glass p-8 md:p-12 lg:p-16 rounded-xl border border-gold/20 shadow-fire text-center">
-                <div className="w-20 h-20 md:w-24 md:h-24 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center mx-auto mb-8 md:mb-10">
-                  <Phone className="text-gold w-8 h-8 md:w-10 md:h-10 animate-pulse" />
+              <div className="relative bg-white p-8 md:p-12 lg:p-16 rounded-xl border border-ember/20 shadow-xl text-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-ember/10 border border-ember/30 rounded-full flex items-center justify-center mx-auto mb-8 md:mb-10">
+                  <Phone className="text-ember w-8 h-8 md:w-10 md:h-10 animate-pulse" />
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-cream uppercase mb-6 md:mb-8">Prenota il Tuo Tavolo</h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-foreground uppercase mb-6 md:mb-8">Prenota un Tavolo</h3>
                 
                 <motion.a
                   whileHover={{ scale: 1.05 }}
-                  href="tel:+393403824158"
-                  className="block text-3xl md:text-5xl lg:text-6xl font-display font-black text-gold mb-10 md:mb-12 tracking-tighter"
+                  href="tel:+390804058608"
+                  className="block text-3xl md:text-5xl lg:text-6xl font-display font-black text-ember mb-10 md:mb-12 tracking-tighter"
                 >
-                  340 382 4158
+                  080 405 8608
                 </motion.a>
                 
-                <div className="pt-8 md:pt-10 border-t border-white/5 flex justify-center gap-8 md:gap-12">
+                <div className="pt-8 md:pt-10 border-t border-black/5 flex justify-center gap-8 md:gap-12">
                   <div className="text-center">
                     <Sparkles className="w-5 h-5 text-gold mx-auto mb-2" />
-                    <span className="text-[10px] uppercase tracking-widest text-gold-light/60">Servizio Premium</span>
+                    <span className="text-[10px] uppercase tracking-widest text-foreground/60">Servizio Premium</span>
                   </div>
                   <div className="text-center">
                     <Flame className="w-5 h-5 text-ember mx-auto mb-2" />
-                    <span className="text-[10px] uppercase tracking-widest text-gold-light/60">Brace Viva</span>
+                    <span className="text-[10px] uppercase tracking-widest text-foreground/60">Brace Viva</span>
                   </div>
                 </div>
               </div>
