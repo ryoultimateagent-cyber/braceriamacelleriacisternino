@@ -12,6 +12,7 @@ import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Footer from "@/components/Footer";
 import EmberDivider from "@/components/EmberDivider";
+import GlobalSparkles from "@/components/GlobalSparkles";
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
