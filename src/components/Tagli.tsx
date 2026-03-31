@@ -61,13 +61,11 @@ const Tagli = () => {
               {/* Image Background */}
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <img 
-                   src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
-                   srcSet={`${i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=600"} 600w, ${i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 1200w`}
-                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
-                  alt={taglio.name} 
-                  loading="lazy"
-                  width="450"
-                  height="562"
+                   src={i === 0 ? gallery1 : i === 1 ? gallery2 : gallery3} 
+                   alt={taglio.name} 
+                   loading="lazy"
+                   width="450"
+                   height="562"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80" />
