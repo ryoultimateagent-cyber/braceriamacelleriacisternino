@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
             <div className="mb-8 md:mb-12">
-              <h3 className="text-2xl md:text-3xl font-display font-black text-[#FAF7F0] uppercase tracking-tighter leading-none mb-1">BELVEDERE</h3>
+              <h3 className="text-2xl md:text-3xl font-display font-black text-[#FAF7F0] uppercase tracking-tighter leading-none mb-1">MACELLERIA BELVEDERE</h3>
               <span className="text-[10px] text-[#FAF7F0]/50 uppercase tracking-[0.5em] font-bold">EST. 1986</span>
             </div>
             <p className="text-[#FAF7F0]/60 text-sm leading-relaxed mb-8 md:mb-12 font-accent italic">
