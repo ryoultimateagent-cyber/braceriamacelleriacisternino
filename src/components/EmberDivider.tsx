@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const EmberDivider = () => {
+  const dividerSparks = useMemo(() => {
+    return Array.from({ length: 6 }).map((_, i) => ({
+      id: i,
+      left: `${10 + Math.random() * 80}%`,
+      size: `${Math.random() * 2 + 1}px`,
+      delay: `${Math.random() * 5}s`,
+      duration: `${Math.random() * 3 + 4}s`,
+      drift: `${(Math.random() - 0.5) * 50}px`,
+    }));
+  }, []);
+
   return (
     <div className="relative w-full h-px overflow-visible flex items-center justify-center py-4">
       {/* Main black background line for depth */}
