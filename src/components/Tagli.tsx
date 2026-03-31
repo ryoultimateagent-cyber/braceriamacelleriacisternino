@@ -37,30 +37,30 @@ const tagli = [
 
 const Tagli = () => {
   return (
-    <section id="brace" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="brace" className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden">
       {/* Background Subtle Gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center mb-24">
         <AnimatedSection>
           <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">SELEZIONE DI QUALITÀ</span>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-none uppercase">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-none uppercase">
             LE NOSTRE <br /> <span className="text-primary italic">SPECIALITÀ</span>
           </h2>
-          <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full" />
+          <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full shadow-[0_0_15px_rgba(255,61,0,0.5)]" />
         </AnimatedSection>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-[1400px] mx-auto">
         {tagli.map((taglio, i) => (
           <AnimatedSection key={i} delay={i * 0.1} animation="fade-up" className="h-full">
-            <div className="group relative aspect-[4/5] md:h-[450px] w-full overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+            <div className="group relative aspect-[4/5] md:h-[450px] w-full overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white/5 border border-white/10">
               {/* Image Background */}
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <img 
-                  src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
-                  srcSet={`${i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=600"} 600w, ${i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 1200w`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
+                   src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
+                   srcSet={`${i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=600"} 600w, ${i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 1200w`}
+                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
                   alt={taglio.name} 
                   loading="lazy"
                   width="450"
@@ -87,7 +87,7 @@ const Tagli = () => {
                 </p>
 
                 <div className="pt-6 border-t border-white/20 flex items-center justify-between">
-                  <span className="text-white/70 text-[10px] font-black uppercase tracking-[0.4em]">QUALITÀ SUPERIORE</span>
+                  <span className="text-white/40 text-[10px] font-black uppercase tracking-[0.4em]">QUALITÀ SUPERIORE</span>
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-primary/40">
                     <ArrowRight className="w-5 h-5 text-white" />
                   </div>

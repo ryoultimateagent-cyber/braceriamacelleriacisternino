@@ -4,22 +4,22 @@ import AnimatedSection from "./AnimatedSection";
 
 const features = [
   { 
-    icon: <Flame className="w-8 h-8 text-ember" />, 
+    icon: <Flame className="w-8 h-8" />, 
     title: "Brace Autentica", 
     desc: "Cottura tradizionale su legna selezionata per un sapore inconfondibile." 
   },
   { 
-    icon: <ShieldCheck className="w-8 h-8 text-gold" />, 
+    icon: <ShieldCheck className="w-8 h-8" />, 
     title: "Qualità Certificata", 
     desc: "Solo carni di filiera controllata e frollature artigianali." 
   },
   { 
-    icon: <Award className="w-8 h-8 text-gold-light" />, 
+    icon: <Award className="w-8 h-8" />, 
     title: "Eredità Familiare", 
     desc: "Passione e segreti del mestiere tramandati dal 1980." 
   },
   { 
-    icon: <ChefHat className="w-8 h-8 text-cream" />, 
+    icon: <ChefHat className="w-8 h-8" />, 
     title: "Maestria al Taglio", 
     desc: "Macellai esperti che conoscono ogni segreto della materia prima." 
   },
@@ -27,32 +27,32 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="intro" className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
         
         {/* Left: Content */}
         <AnimatedSection animation="fade-right" className="space-y-10">
           <div className="space-y-6">
             <span className="text-primary text-xs font-bold uppercase tracking-[0.4em]">ECCELLENZA DAL 1986</span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]">
               LA FILOSOFIA <br /> 
               <span className="text-primary italic">DEL GUSTO</span>
             </h2>
-            <p className="text-muted-foreground text-lg md:text-xl font-medium leading-relaxed max-w-xl">
+            <p className="text-white/60 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
               Selezioniamo solo l'eccellenza. Per noi, la carne non è un semplice prodotto, è una vocazione che onoriamo ogni giorno con passione e dedizione.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-foreground/5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-white/10">
             {features.map((f, i) => (
-              <article key={i} className="group p-6 rounded-2xl bg-secondary/50 border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-xl transition-all duration-300">
-                <div className="mb-4 p-3 inline-block rounded-xl bg-white shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
+              <article key={i} className="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-300">
+                <div className="mb-4 p-3 inline-block rounded-xl bg-white/5 text-primary group-hover:scale-110 transition-transform duration-300">
                   {f.icon}
                 </div>
-                <h3 className="text-foreground font-bold uppercase tracking-wider text-sm mb-2">
+                <h3 className="text-white font-bold uppercase tracking-wider text-sm mb-2">
                   {f.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-white/40 text-sm leading-relaxed">
                   {f.desc}
                 </p>
               </article>
@@ -62,7 +62,7 @@ const Intro = () => {
 
         {/* Right: Interactive Image */}
         <AnimatedSection animation="fade-left" className="relative group">
-          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white/10">
             <img 
               src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" 
               srcSet="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600 600w, https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200 1200w"
@@ -71,9 +71,9 @@ const Intro = () => {
               loading="lazy"
               width="600"
               height="750"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
             
             {/* Floating Info Badge */}
             <div className="absolute -bottom-6 -right-6 bg-primary text-white p-8 rounded-[2rem] shadow-2xl flex flex-col items-center">
