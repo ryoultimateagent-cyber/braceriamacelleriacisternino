@@ -95,25 +95,25 @@ const Galleria = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-noir/95 backdrop-blur-2xl flex items-center justify-center p-6 lg:p-12"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-6 lg:p-12"
           >
             <button 
               onClick={closeLightbox} 
-              className="absolute top-8 right-8 text-gold-light hover:text-gold transition-colors z-[110]"
+              className="absolute top-8 right-8 text-white/80 hover:text-white transition-colors z-[110]"
               aria-label="Chiudi galleria"
             >
               <X className="w-8 h-8 md:w-10 md:h-10" />
             </button>
             <button 
               onClick={goPrev} 
-              className="absolute left-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block"
+              className="absolute left-8 text-white/80 hover:text-white transition-colors z-[110] hidden lg:block"
               aria-label="Immagine precedente"
             >
               <ChevronLeft className="w-12 h-12" />
             </button>
             <button 
               onClick={goNext} 
-              className="absolute right-8 text-gold-light hover:text-gold transition-colors z-[110] hidden lg:block"
+              className="absolute right-8 text-white/80 hover:text-white transition-colors z-[110] hidden lg:block"
               aria-label="Immagine successiva"
             >
               <ChevronRight className="w-12 h-12" />
@@ -124,7 +124,7 @@ const Galleria = () => {
               animate={{ scale: 1, y: 0 }}
               className="relative max-w-6xl w-full h-full flex flex-col lg:flex-row items-center gap-12"
             >
-              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-2xl border border-gold/20 shadow-fire">
+              <div className="w-full lg:w-2/3 h-full overflow-hidden rounded-2xl border border-white/20 shadow-2xl">
                 <img 
                   src={images[selectedIndex].src} 
                   alt={images[selectedIndex].title} 
@@ -132,12 +132,12 @@ const Galleria = () => {
                 />
               </div>
               <div className="w-full lg:w-1/3 text-center lg:text-left">
-                <h3 className="text-3xl lg:text-5xl font-display font-black text-gold uppercase mb-6">{images[selectedIndex].title}</h3>
-                <p className="text-gold-light/80 text-lg lg:text-xl font-accent italic leading-relaxed">{images[selectedIndex].desc}</p>
+                <h3 className="text-3xl lg:text-5xl font-display font-black text-white uppercase mb-6">{images[selectedIndex].title}</h3>
+                <p className="text-white/80 text-lg lg:text-xl font-accent italic leading-relaxed">{images[selectedIndex].desc}</p>
                 <div className="mt-8 md:mt-12 flex items-center justify-center lg:justify-start gap-4">
-                  <span className="text-gold font-black font-display text-xl">{selectedIndex + 1}</span>
-                  <div className="w-12 h-px bg-gold/30" />
-                  <span className="text-gold/60 font-display text-xl">{images.length}</span>
+                  <span className="text-white font-black font-display text-xl">{selectedIndex + 1}</span>
+                  <div className="w-12 h-px bg-white/30" />
+                  <span className="text-white/60 font-display text-xl">{images.length}</span>
                 </div>
               </div>
             </motion.div>
