@@ -13,12 +13,12 @@ const GlobalSparkles = () => {
       duration: `${Math.random() * 8 + 12}s`,
       delay: `${Math.random() * 15}s`,
       drift: `${(Math.random() - 0.5) * 150}px`,
-      opacity: Math.random() * 0.3 + 0.1, // Lower opacity
+      opacity: Math.random() * 0.5 + 0.2, // Increased visibility
     }));
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none select-none z-0 overflow-hidden opacity-30">
+    <div className="fixed inset-0 pointer-events-none select-none z-0 overflow-hidden opacity-50">
       {sparks.map((spark) => (
         <div
           key={spark.id}
