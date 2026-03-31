@@ -46,12 +46,16 @@ const Recensioni = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {loading ? (
             [...Array(3)].map((_, i) => (
-              <div key={i} className="p-10 rounded-[2.5rem] bg-secondary/50 h-[350px] space-y-4">
-                <Skeleton className="h-8 w-32" />
+              <div key={i} className="p-10 rounded-[2.5rem] bg-secondary/50 h-[400px] space-y-4">
+                <div className="flex gap-1.5 mb-10">
+                  {[...Array(5)].map((_, j) => (
+                    <Skeleton key={j} className="w-5 h-5 rounded-full" />
+                  ))}
+                </div>
                 <Skeleton className="h-4 w-full" />
                 <Skeleton className="h-4 w-full" />
                 <Skeleton className="h-4 w-3/4" />
-                <div className="pt-8 mt-12 border-t border-foreground/5 flex gap-4">
+                <div className="pt-8 mt-12 border-t border-foreground/5 flex items-center gap-4">
                   <Skeleton className="h-14 w-14 rounded-2xl" />
                   <div className="space-y-2">
                     <Skeleton className="h-4 w-24" />
@@ -63,34 +67,43 @@ const Recensioni = () => {
           ) : (
             reviews.map((review, i) => (
               <AnimatedSection key={i} delay={i * 0.1} className="h-full">
-...
-            ))
-          )}
-        </div>
-                </div>
-                
-                <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-10 flex-1 relative z-10 italic">
-                  "{review.text}"
-                </p>
-                
-                <div className="pt-8 border-t border-foreground/5 relative z-10">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary font-black text-xl">
-                      {review.author.charAt(0)}
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  className="relative bg-secondary/50 p-10 rounded-[2.5rem] h-full flex flex-col border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-2xl transition-all duration-500 group"
+                >
+                  <Quote className="absolute -top-4 -right-4 w-24 h-24 text-primary/5 rotate-12 group-hover:text-primary/10 transition-colors duration-500" />
+                  
+                  <div className="flex items-center justify-between mb-10 relative z-10">
+                    <div className="flex gap-1.5 text-accent">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="w-5 h-5 fill-current" />
+                      ))}
                     </div>
-                    <div>
-                      <div className="text-foreground font-black text-sm tracking-tight uppercase">
-                        {review.author}
+                  </div>
+                  
+                  <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-10 flex-1 relative z-10 italic">
+                    "{review.text}"
+                  </p>
+                  
+                  <div className="pt-8 border-t border-foreground/5 relative z-10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary font-black text-xl">
+                        {review.author.charAt(0)}
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                        {review.role}
+                      <div>
+                        <div className="text-foreground font-black text-sm tracking-tight uppercase">
+                          {review.author}
+                        </div>
+                        <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                          {review.role}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            </AnimatedSection>
-          ))}
+                </motion.div>
+              </AnimatedSection>
+            ))
+          )}
         </div>
 
         <AnimatedSection delay={0.4} className="mt-16 md:mt-24 text-center">
