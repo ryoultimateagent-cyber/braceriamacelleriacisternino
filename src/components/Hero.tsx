@@ -170,29 +170,29 @@ const Hero = () => {
             transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
             className="relative hidden md:block"
           >
-            <div className="relative aspect-[4/5] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-gold/20 p-4 rounded-xl">
-              <div className="absolute inset-0 bg-gold/5 z-0" />
+            <div className="relative aspect-[4/5] w-full max-w-[400px] lg:max-w-[500px] ml-auto overflow-hidden border border-ember/20 p-4 rounded-xl shadow-lg">
+              <div className="absolute inset-0 bg-ember/5 z-0" />
               <div className="relative h-full w-full overflow-hidden rounded-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Premium Steak on Grill" 
+                  alt="Carne di qualità" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
                 
                 {/* Decorative Frame */}
-                <div className="absolute top-8 left-8 bottom-8 right-8 border border-white/10 pointer-events-none" />
+                <div className="absolute top-8 left-8 bottom-8 right-8 border border-black/5 pointer-events-none" />
               </div>
               
               {/* Floating Badge */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 bg-gold text-noir p-4 md:p-6 font-display font-bold text-xl flex flex-col items-center leading-none rounded-lg"
+                className="absolute -bottom-6 -left-6 bg-ember text-white p-4 md:p-6 font-display font-bold text-xl flex flex-col items-center leading-none rounded-lg shadow-xl"
               >
-                <span className="text-[10px] md:text-sm tracking-widest uppercase mb-1">DRY</span>
-                <span className="text-2xl md:text-3xl">45</span>
-                <span className="text-[8px] md:text-xs uppercase">DAYS</span>
+                <span className="text-[10px] md:text-sm tracking-widest uppercase mb-1">QUALITÀ</span>
+                <span className="text-2xl md:text-3xl">TOP</span>
+                <span className="text-[8px] md:text-xs uppercase">PUTIGNANO</span>
               </motion.div>
             </div>
           </motion.div>
@@ -201,18 +201,18 @@ const Hero = () => {
 
       {/* Decorative side text */}
       <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 -rotate-90">
-        <span className="text-cream/60 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
-          AUTHENTIC ITALIAN STEAKHOUSE
+        <span className="text-foreground/40 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
+          MACELLERIA TRADIZIONALE ITALIANA
         </span>
       </div>
       <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 rotate-90">
-        <span className="text-cream/60 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
-          BELVEDERE • ART OF FIRE
+        <span className="text-foreground/40 text-[10px] uppercase tracking-[1em] whitespace-nowrap">
+          BELVEDERE • DAL 1986
         </span>
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
     </section>
   );
 };
