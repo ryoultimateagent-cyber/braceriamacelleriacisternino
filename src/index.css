@@ -96,7 +96,7 @@
   }
 
   body {
-    @apply bg-[#0A0A0A] text-[#F8F8F8] antialiased selection:bg-gold selection:text-noir overflow-x-hidden;
+    @apply bg-background text-foreground antialiased selection:bg-gold selection:text-noir overflow-x-hidden;
     font-family: 'Montserrat', sans-serif;
   }
 
