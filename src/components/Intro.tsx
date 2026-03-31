@@ -45,17 +45,17 @@ const Intro = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-foreground/5">
             {features.map((f, i) => (
-              <div key={i} className="group p-6 rounded-2xl bg-secondary/50 border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-xl transition-all duration-300">
+              <article key={i} className="group p-6 rounded-2xl bg-secondary/50 border border-transparent hover:border-primary/10 hover:bg-white hover:shadow-xl transition-all duration-300">
                 <div className="mb-4 p-3 inline-block rounded-xl bg-white shadow-sm text-primary group-hover:scale-110 transition-transform duration-300">
                   {f.icon}
                 </div>
-                <h4 className="text-foreground font-bold uppercase tracking-wider text-sm mb-2">
+                <h3 className="text-foreground font-bold uppercase tracking-wider text-sm mb-2">
                   {f.title}
-                </h4>
+                </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {f.desc}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </AnimatedSection>
