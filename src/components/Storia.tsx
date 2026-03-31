@@ -31,18 +31,18 @@ const Storia = () => {
   });
 
   return (
-    <section id="storia" ref={containerRef} className="section-spacing bg-noir relative overflow-hidden">
-      {/* Cinematic Background Text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.01] select-none">
-        <h2 className="text-[30vw] font-display font-black uppercase whitespace-nowrap">HISTORY</h2>
+    <section id="storia" ref={containerRef} className="section-spacing bg-white relative overflow-hidden">
+      {/* Background Text */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] select-none">
+        <h2 className="text-[30vw] font-display font-black uppercase whitespace-nowrap text-ember">BELVEDERE</h2>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-20 md:mb-40">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Il Nostro Cammino</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream uppercase leading-none">
-              UNA STORIA <br /> <span className="text-gold italic font-light">DI FUOCO</span>
+            <span className="text-ember text-xs uppercase tracking-[0.5em] font-bold mb-6 block">Chi Siamo</span>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-none">
+              TRADIZIONE <br /> <span className="text-ember italic font-light">E QUALITÀ</span>
             </h2>
           </AnimatedSection>
         </div>
