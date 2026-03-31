@@ -38,17 +38,17 @@ const Galleria = () => {
   }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section id="galleria" className="section-spacing bg-noir relative overflow-hidden">
-      {/* Background Cinematic Lighting */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+    <section id="galleria" className="section-spacing bg-white relative overflow-hidden">
+      {/* Background Decorative Lines */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ember/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ember/20 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
           <AnimatedSection>
-            <span className="text-gold text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Visioni del Gusto</span>
-            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-cream uppercase leading-none tracking-tighter">
-              GALLERIA <br /> <span className="text-gold italic font-light">VISIVA</span>
+            <span className="text-ember text-xs uppercase tracking-[0.6em] font-bold mb-6 block">Visioni del Gusto</span>
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-display font-black text-foreground uppercase leading-none tracking-tighter">
+              GALLERIA <br /> <span className="text-ember italic font-light">VISIVA</span>
             </h2>
           </AnimatedSection>
         </div>
