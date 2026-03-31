@@ -358,6 +358,18 @@
     border-color: rgba(255, 255, 255, 0.1) !important;
   }
 
+  .hero-glow-bottom {
+    background: linear-gradient(to top, #FF6B00 0%, #CC0000 30%, transparent 100%);
+  }
+
+  .hero-text-shadow {
+    text-shadow: 0 0 30px rgba(255, 107, 0, 0.6);
+  }
+
+  .font-dm-sans {
+    font-family: 'DM Sans', sans-serif;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-ember,
     .animate-fire-glow,
