@@ -29,7 +29,6 @@ const Header = () => {
     { href: "#galleria", label: "Galleria" },
     { href: "#menu", label: "Menù" },
     { href: "#vini", label: "Vini" },
-    
     { href: "#prenota", label: "Prenota" },
     { href: "#dovesiamo", label: "Dove Siamo" },
   ];
@@ -40,10 +39,10 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl hero-header-override ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl ${
         isScrolled
-          ? "bg-white/70 backdrop-blur-xl border border-white/20 shadow-lg py-3"
-          : "bg-transparent py-5"
+          ? "bg-[#050505]/95 backdrop-blur-xl border border-white/10 shadow-2xl py-3"
+          : "bg-[#050505]/60 backdrop-blur-md border border-white/5 py-4"
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -54,10 +53,10 @@ const Header = () => {
           aria-label="Home - Macelleria Belvedere"
         >
           <div className="flex flex-col items-start italic">
-             <span className="text-xl md:text-2xl font-black text-foreground tracking-tighter leading-none">
+             <span className="text-xl md:text-2xl font-black text-white tracking-tighter leading-none">
               BELVEDERE<span className="text-primary">.</span>
              </span>
-             <span className="text-[10px] font-bold text-muted-foreground tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
+             <span className="text-[10px] font-bold text-white/60 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
           </div>
         </a>
 
@@ -68,7 +67,7 @@ const Header = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-all duration-300 relative group focus-visible:text-primary outline-none"
+                  className="text-sm font-semibold text-white/70 hover:text-white transition-all duration-300 relative group focus-visible:text-primary outline-none"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -90,7 +89,7 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2 text-foreground z-50 relative hover:bg-black/5 rounded-xl transition-colors w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-primary outline-none"
+          className="lg:hidden p-2 text-white z-50 relative hover:bg-white/5 rounded-xl transition-colors w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus-visible:ring-2 focus-visible:ring-primary outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
@@ -120,7 +119,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="lg:hidden absolute top-full left-0 right-0 mt-4 bg-white/95 backdrop-blur-2xl rounded-3xl border border-black/5 shadow-2xl p-8 flex flex-col gap-6"
+            className="lg:hidden absolute top-full left-0 right-0 mt-4 bg-[#050505]/95 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl p-8 flex flex-col gap-6"
           >
             <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
               {navLinks.map((link, index) => (
@@ -130,7 +129,7 @@ const Header = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="text-2xl font-bold text-foreground hover:text-primary transition-colors py-2"
+                  className="text-2xl font-bold text-white hover:text-primary transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -140,7 +139,7 @@ const Header = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-4 pt-4 border-t border-black/5"
+                className="mt-4 pt-4 border-t border-white/5"
               >
                 <Button 
                   asChild 

@@ -7,11 +7,12 @@ import Tagli from "@/components/Tagli";
 import Galleria from "@/components/Galleria";
 import Menu from "@/components/Menu";
 import Vini from "@/components/Vini";
-
 import Prenota from "@/components/Prenota";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Footer from "@/components/Footer";
+import FireBackground from "@/components/FireBackground";
+import EmberDivider from "@/components/EmberDivider";
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
@@ -32,7 +33,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <FireBackground />
+      
       <a 
         href="#main-content" 
         className="sr-only focus:not-sr-only focus:absolute focus:top-8 focus:left-8 focus:z-[60] bg-primary text-white px-6 py-3 rounded-2xl font-bold shadow-2xl"
@@ -42,16 +45,25 @@ const Index = () => {
       
       <Header />
       
-      <main id="main-content" role="main" className="flex-grow space-y-0">
+      <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden">
         <Hero />
+        <EmberDivider />
         <Intro />
+        <EmberDivider />
         <Storia />
+        <EmberDivider />
         <Tagli />
+        <EmberDivider />
         <Galleria />
+        <EmberDivider />
         <Menu />
+        <EmberDivider />
         <Vini />
+        <EmberDivider />
         <Recensioni />
+        <EmberDivider />
         <Prenota />
+        <EmberDivider />
         <DoveSiamo />
       </main>
       

@@ -22,7 +22,7 @@ const Hero = () => {
   return (
     <section 
       id="hero"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#0D0D0D]"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
     >
 
       {/* Sfondo animato - Braci e Scintille */}

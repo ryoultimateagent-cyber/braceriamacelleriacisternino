@@ -38,15 +38,15 @@ const Galleria = () => {
   }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section id="galleria" className="section-container py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="galleria" className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden">
       <div className="relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <AnimatedSection>
             <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">VISIONI DEL GUSTO</span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-none uppercase">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-none uppercase">
               GALLERIA <br /> <span className="text-primary italic">VISIVA</span>
             </h2>
-            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full" />
+            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full shadow-[0_0_15px_rgba(255,61,0,0.5)]" />
           </AnimatedSection>
         </div>
 
@@ -57,7 +57,7 @@ const Galleria = () => {
                 role="button"
                 tabIndex={0}
                 aria-label={`Visualizza immagine: ${img.title}`}
-                className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white focus-visible:ring-4 focus-visible:ring-primary outline-none"
+                className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white/5 border border-white/10 focus-visible:ring-4 focus-visible:ring-primary outline-none"
                 onClick={() => openLightbox(i)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -84,7 +84,7 @@ const Galleria = () => {
                 </div>
                 
                 <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                  <div className="bg-white/20 backdrop-blur-md p-3 rounded-2xl border border-white/30">
+                  <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/20">
                     <Maximize2 className="w-6 h-6 text-white" />
                   </div>
                 </div>
@@ -146,7 +146,7 @@ const Galleria = () => {
               </div>
               <div className="w-full lg:w-1/3 text-center lg:text-left space-y-8">
                 <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-[10px] font-black tracking-widest uppercase">
-                  IMMINE {selectedIndex + 1} DI {images.length}
+                  IMMAGINE {selectedIndex + 1} DI {images.length}
                 </span>
                 <h3 className="text-4xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none">{images[selectedIndex].title}</h3>
                 <p className="text-white/60 text-lg lg:text-2xl font-medium leading-relaxed italic">"{images[selectedIndex].desc}"</p>
