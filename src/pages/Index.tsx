@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
+const Hero = () => <div>Hero Placeholder</div>;
 import Intro from "@/components/Intro";
 import Storia from "@/components/Storia";
 import Tagli from "@/components/Tagli";
@@ -11,7 +12,8 @@ import Prenota from "@/components/Prenota";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Footer from "@/components/Footer";
-import FloatingShapes from "@/components/FloatingShapes";
+// import FloatingShapes from "@/components/FloatingShapes";
+const FloatingShapes = () => null;
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
@@ -39,7 +41,7 @@ const Index = () => {
         <Hero />
         
         <div className="relative">
-          <FloatingShapes />
+          {/* <FloatingShapes /> */}
           <Intro />
           <Storia />
           <Tagli />
