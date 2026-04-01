@@ -31,9 +31,9 @@ const Hero = () => {
           BELVEDERE<span className="text-primary">.</span>
         </motion.h1>
         
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+        <p 
+          className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
+        >
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
         >
