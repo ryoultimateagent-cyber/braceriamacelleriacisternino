@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { MeshPhysicalMaterial, Float } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 function BrandMesh() {
@@ -17,7 +17,7 @@ function BrandMesh() {
     <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[2, 4]} />
-        <MeshPhysicalMaterial
+        <meshPhysicalMaterial
           color="#CC0000"
           roughness={0.15}
           metalness={0.8}
