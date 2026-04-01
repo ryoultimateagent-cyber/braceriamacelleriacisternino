@@ -2,26 +2,33 @@ import React from "react";
 import { motion } from "framer-motion";
 import HeroCanvas3D from "./HeroCanvas3D";
 import ErrorBoundary from "./ErrorBoundary";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
     <section 
       id="hero"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
+      {/* Background Image Layer */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 grayscale mix-blend-overlay"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+
       {/* 3D Canvas Background */}
       <ErrorBoundary fallback={null}>
         <HeroCanvas3D />
       </ErrorBoundary>
 
       {/* Conic Gradient Base Layer */}
-      <div className="absolute inset-0 conic-gradient-bg opacity-40" />
+      <div className="absolute inset-0 conic-gradient-bg opacity-30" />
 
       {/* Noise Overlay */}
       <div className="hero-noise" />
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
 
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
