@@ -39,7 +39,7 @@ const Index = () => {
         <Hero />
         
         <div className="relative">
-          <FloatingShapes />
+          {/* <FloatingShapes /> */}
           <Intro />
           <Storia />
           <Tagli />
