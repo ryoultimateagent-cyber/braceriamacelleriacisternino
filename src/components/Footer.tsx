@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Phone, MapPin, Mail, ArrowUp, Loader2, CheckCircle2 } from "lucide-react";
+import { Phone, MapPin, Mail, ArrowUp, Loader2, CheckCircle2, Globe, Share2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -34,7 +34,7 @@ const Footer = () => {
           
           <div className="lg:col-span-1 space-y-10">
             <div className="space-y-4">
-              <h2 className="text-3xl font-black italic tracking-tighter leading-none uppercase">
+              <h2 className="text-3xl font-black italic tracking-tighter leading-none uppercase text-reveal">
                 BELVEDERE<span className="text-primary">.</span>
               </h2>
               <p className="text-[10px] text-white/40 uppercase tracking-[0.5em] font-black italic">DAL 1986 — PUTIGNANO</p>
@@ -43,7 +43,7 @@ const Footer = () => {
               Una tradizione di famiglia dedicata alla selezione delle migliori carni e alla brace autentica nel cuore della Puglia.
             </p>
             <div className="flex gap-6">
-              {[Facebook, Instagram].map((Icon, i) => (
+              {[Share2, Globe].map((Icon, i) => (
                 <a 
                   key={i}
                   href="#" 
