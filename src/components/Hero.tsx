@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section 
       id="hero"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
     >
       {/* 3D Canvas Background */}
       <ErrorBoundary fallback={null}>
@@ -15,13 +15,13 @@ const Hero = () => {
       </ErrorBoundary>
 
       {/* Conic Gradient Base Layer */}
-      <div className="absolute inset-0 z-[-1] conic-gradient-bg opacity-40" />
+      <div className="absolute inset-0 conic-gradient-bg opacity-40" />
 
       {/* Noise Overlay */}
       <div className="hero-noise" />
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-transparent to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black" />
 
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
