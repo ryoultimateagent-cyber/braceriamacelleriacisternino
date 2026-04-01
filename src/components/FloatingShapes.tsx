@@ -32,7 +32,11 @@ function Shape({ position, color, args }: { position: [number, number, number], 
 const FloatingShapes = () => {
   return (
     <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-      <Canvas camera={{ position: [0, 0, 5] }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5] }}
+        gl={{ alpha: true }}
+        onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
+      >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} color="#CC0000" />
         <Shape position={[-4, 2, -5]} color="#CC0000" args={[1, 0.02, 16, 100]} />
