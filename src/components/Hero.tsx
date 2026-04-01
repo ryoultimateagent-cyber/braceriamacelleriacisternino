@@ -9,7 +9,6 @@ const Hero = () => {
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
       {/* 3D Canvas Background */}
-      {/* 3D Canvas Background disabled temporarily to fix black screen */}
       <HeroCanvas3D />
 
       {/* Conic Gradient Base Layer */}
