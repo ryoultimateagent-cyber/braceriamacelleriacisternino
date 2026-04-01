@@ -102,13 +102,11 @@ const HeroCanvas3D = () => {
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none">
-      {isVisible && (
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <ambientLight intensity={0.5} />
-          <ParticleSystem />
-          <BackgroundGeometries />
-        </Canvas>
-      )}
+      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <ambientLight intensity={0.5} />
+        <ParticleSystem />
+        <BackgroundGeometries />
+      </Canvas>
     </div>
   );
 };
