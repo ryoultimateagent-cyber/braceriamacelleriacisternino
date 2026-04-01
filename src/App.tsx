@@ -16,15 +16,15 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {/* <LoadingScreen /> */}
-      {/* <CustomCursor /> */}
+      <LoadingScreen />
+      <CustomCursor />
       <BrowserRouter>
-        {/* <SmoothScroll> */}
+        <SmoothScroll>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        {/* </SmoothScroll> */}
+        </SmoothScroll>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
