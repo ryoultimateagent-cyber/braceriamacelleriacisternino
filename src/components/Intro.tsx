@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
-import BrandObject3D from "./BrandObject3D";
-import ErrorBoundary from "./ErrorBoundary";
+// ... keep existing imports
+
 
 const features = [
   { 

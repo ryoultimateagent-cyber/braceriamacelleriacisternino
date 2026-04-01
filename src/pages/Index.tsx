@@ -9,8 +9,8 @@ import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Prenota from "@/components/Prenota";
 import Footer from "@/components/Footer";
-import FloatingShapes from "@/components/FloatingShapes";
-import ErrorBoundary from "@/components/ErrorBoundary";
+// ... keep existing imports
+
 
 const Index = () => {
   return (

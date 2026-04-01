@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroCanvas3D from "./HeroCanvas3D";
-import ErrorBoundary from "./ErrorBoundary";
+// ... keep existing imports
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
