@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Footer from "@/components/Footer";
 import FloatingShapes from "@/components/FloatingShapes";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Index = () => {
   return (
