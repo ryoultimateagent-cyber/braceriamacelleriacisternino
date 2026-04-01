@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroCanvas3D from "./HeroCanvas3D";
 
 const Hero = () => {
   return (
@@ -8,7 +7,7 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* 3D Canvas disabled due to rendering error */}
+      {/* 3D Canvas Background disabled temporarily */}
       {/* <HeroCanvas3D /> */}
 
       {/* Conic Gradient Base Layer */}
@@ -23,9 +22,6 @@ const Hero = () => {
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
         <h1 
-          className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic opacity-100"
-        >
-          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic"
         >
           BELVEDERE<span className="text-primary">.</span>
@@ -34,38 +30,26 @@ const Hero = () => {
         <p 
           className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
         >
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
-        >
           DAL 1986 A PUTIGNANO — TRADIZIONE, QUALITÀ E BRACE
         </p>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 mt-4"
-        >
-          <motion.a 
-            whileHover={{ scale: 1.05, boxShadow: "0 15px 40px -10px rgba(204,0,0,0.6)" }}
-            whileTap={{ scale: 0.95 }}
+        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+          <a 
             href="#prenota" 
             className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(204,0,0,0.5)] focus-visible:ring-4 focus-visible:ring-primary/50 outline-none font-display"
             aria-label="Prenota un tavolo ora"
           >
             Prenota un tavolo
-          </motion.a>
+          </a>
           
-          <motion.a 
-            whileHover={{ scale: 1.05, border: "2px solid rgba(255,255,255,0.8)" }}
-            whileTap={{ scale: 0.95 }}
+          <a 
             href="#menu" 
             className="inline-block border-2 border-white/30 text-white hover:bg-white/10 px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 focus-visible:ring-4 focus-visible:ring-white/20 outline-none font-display"
             aria-label="Sfoglia il nostro menù"
           >
             Scopri il Menù
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
       </div>
     </section>
   );
