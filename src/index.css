@@ -34,7 +34,7 @@
   }
 
   body {
-    background-color: #000000;
+    background-color: #ffffff;
     color: #ffffff;
     @apply antialiased selection:bg-primary selection:text-white overflow-x-hidden;
     font-family: 'Satoshi', sans-serif;
