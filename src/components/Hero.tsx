@@ -15,10 +15,8 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      {/* 3D Canvas Background */}
-      <ErrorBoundary fallback={null}>
-        <HeroCanvas3D />
-      </ErrorBoundary>
+// ... keep existing code
+
 
       {/* Conic Gradient Base Layer */}
       <div className="absolute inset-0 conic-gradient-bg opacity-30" />

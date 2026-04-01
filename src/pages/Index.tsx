@@ -18,9 +18,8 @@ const Index = () => {
       <Header />
       
       <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden relative">
-        <ErrorBoundary fallback={null}>
-          <FloatingShapes />
-        </ErrorBoundary>
+// ... keep existing code
+
         
         <Hero />
         

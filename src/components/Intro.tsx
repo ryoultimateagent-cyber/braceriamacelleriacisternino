@@ -68,12 +68,18 @@ const Intro = () => {
           </div>
         </div>
 
-        {/* Right: Interactive 3D Object */}
+        {/* Right: Decorative Image or Badge */}
         <div className="relative group flex justify-center items-center">
-        <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
-             <ErrorBoundary fallback={<div className="w-full h-full bg-white/5 rounded-full flex items-center justify-center border border-white/10 italic text-white/20">3D Preview</div>}>
-               <BrandObject3D />
-             </ErrorBoundary>
+          <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
+            {/* Elegant Placeholder for 3D Content */}
+            <div className="w-full h-full bg-white/5 rounded-full flex items-center justify-center border border-white/10 shadow-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <img 
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                alt="Grill Specialty" 
+                className="w-[85%] h-[85%] object-cover rounded-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
              
              {/* Floating Info Badge */}
              <motion.div 
@@ -81,9 +87,9 @@ const Intro = () => {
                whileInView={{ scale: 1, rotate: 0 }}
                viewport={{ once: true }}
                transition={{ type: "spring", damping: 15 }}
-               className="absolute -bottom-10 -right-4 bg-primary text-white p-10 rounded-full shadow-[0_20px_60px_-10px_rgba(204,0,0,0.6)] flex flex-col items-center justify-center border-4 border-black"
+               className="absolute -bottom-6 -right-4 bg-primary text-white p-8 md:p-10 rounded-full shadow-[0_20px_60px_-10px_rgba(204,0,0,0.6)] flex flex-col items-center justify-center border-4 border-black z-10"
              >
-               <span className="text-5xl font-black italic leading-none mb-1">35+</span>
+               <span className="text-4xl md:text-5xl font-black italic leading-none mb-1">35+</span>
                <span className="text-[10px] uppercase tracking-[0.3em] font-black italic">ANNI DI ARTE</span>
              </motion.div>
           </div>
