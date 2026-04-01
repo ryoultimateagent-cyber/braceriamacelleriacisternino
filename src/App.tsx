@@ -17,7 +17,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       {/* <LoadingScreen /> */}
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <BrowserRouter>
         <SmoothScroll>
           <Routes>
