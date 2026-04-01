@@ -18,7 +18,6 @@ const Footer = () => {
     if (!email) return;
     
     setStatus("loading");
-    // Simulo invio API
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     setStatus("success");
@@ -29,48 +28,41 @@ const Footer = () => {
   };
 
   return (
-    <footer role="contentinfo" className="py-24 bg-transparent text-white relative overflow-hidden">
+    <footer role="contentinfo" className="py-24 bg-black text-white relative overflow-hidden border-t border-white/5">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           
-          {/* Brand Info */}
-          <div className="lg:col-span-1 space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-black tracking-tight leading-none uppercase">
+          <div className="lg:col-span-1 space-y-10">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-black italic tracking-tighter leading-none uppercase">
                 BELVEDERE<span className="text-primary">.</span>
               </h2>
-              <p className="text-[10px] text-white/60 uppercase tracking-[0.4em] font-bold">DAL 1986 — PUTIGNANO</p>
+              <p className="text-[10px] text-white/40 uppercase tracking-[0.5em] font-black italic">DAL 1986 — PUTIGNANO</p>
             </div>
-            <p className="text-white/70 text-base leading-relaxed font-medium">
+            <p className="text-white/60 text-lg font-medium leading-relaxed italic">
               Una tradizione di famiglia dedicata alla selezione delle migliori carni e alla brace autentica nel cuore della Puglia.
             </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://facebook.com" 
-                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary outline-none"
-                aria-label="Seguici su Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary outline-none"
-                aria-label="Seguici su Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
+            <div className="flex gap-6">
+              {[Facebook, Instagram].map((Icon, i) => (
+                <a 
+                  key={i}
+                  href="#" 
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-500 shadow-xl"
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links */}
-          <div className="space-y-8">
-            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">ESPLORA</h3>
-            <ul className="space-y-4">
+          <div className="space-y-10">
+            <h3 className="text-xs font-black uppercase tracking-[0.4em] text-primary italic">ESPLORA</h3>
+            <ul className="space-y-6">
               {["Storia", "Brace", "Galleria", "Menù", "Vini"].map((link) => (
                 <li key={link}>
                   <a 
                     href={`#${link.toLowerCase()}`} 
-                    className="text-white/60 hover:text-white transition-colors font-bold uppercase tracking-widest text-xs block focus-visible:text-primary outline-none"
+                    className="text-white/40 hover:text-white transition-all duration-300 font-black uppercase tracking-widest text-xs block italic hover:translate-x-2"
                   >
                     {link}
                   </a>
@@ -79,103 +71,60 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="space-y-8">
-            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">CONTATTI</h3>
-            <div className="space-y-6">
-              <div className="space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-widest text-white/50">INDIRIZZO</p>
-                <p className="text-white font-bold text-sm uppercase tracking-wider">Via G. Verdi 5C, Putignano</p>
+          <div className="space-y-10">
+            <h3 className="text-xs font-black uppercase tracking-[0.4em] text-primary italic">CONTATTI</h3>
+            <div className="space-y-8">
+              <div className="space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-widest text-white/30 italic">INDIRIZZO</p>
+                <p className="text-white font-black text-lg uppercase tracking-tighter italic">Via G. Verdi 5C, Putignano</p>
               </div>
-              <div className="space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-widest text-white/50">TELEFONO</p>
+              <div className="space-y-2">
+                <p className="text-[10px] font-black uppercase tracking-widest text-white/30 italic">TELEFONO</p>
                 <a 
                   href="tel:+390804058608" 
-                  className="text-white hover:text-primary transition-colors font-bold text-sm focus-visible:underline outline-none"
+                  className="text-white hover:text-primary transition-colors font-black text-2xl tracking-tighter italic"
                 >
-                  +39 080 405 8608
+                  080 405 8608
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="space-y-8">
-            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary">NEWSLETTER</h3>
+          <div className="space-y-10">
+            <h3 className="text-xs font-black uppercase tracking-[0.4em] text-primary italic">NEWSLETTER</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="relative">
-                <label htmlFor="newsletter-email" className="sr-only">Iscriviti alla nostra newsletter</label>
                 <input 
-                  id="newsletter-email"
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="LA TUA EMAIL" 
-                  disabled={status !== "idle"}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold placeholder:text-white/40 focus:border-primary outline-none transition-all focus:ring-1 focus:ring-primary disabled:opacity-50" 
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-sm font-black italic placeholder:text-white/20 focus:border-primary outline-none transition-all focus:ring-1 focus:ring-primary" 
                   required
                 />
               </div>
               <Button 
                 type="submit"
-                disabled={status !== "idle"}
-                className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest text-xs rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-white overflow-hidden"
+                className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-black italic uppercase tracking-widest text-xs rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95"
               >
-                <AnimatePresence mode="wait">
-                  {status === "idle" && (
-                    <motion.span
-                      key="idle"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      SOTTOSCRIVI
-                    </motion.span>
-                  )}
-                  {status === "loading" && (
-                    <motion.div
-                      key="loading"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      className="flex items-center gap-2"
-                    >
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>INVIO...</span>
-                    </motion.div>
-                  )}
-                  {status === "success" && (
-                    <motion.div
-                      key="success"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      className="flex items-center gap-2 text-white"
-                    >
-                      <CheckCircle2 className="w-4 h-4" />
-                      <span>GRAZIE!</span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                SOTTOSCRIVI
               </Button>
             </form>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 text-center md:text-left">
+          <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/20 text-center md:text-left italic">
             © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
           </p>
           
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors focus-visible:text-primary outline-none"
-            aria-label="Torna all'inizio della pagina"
+            className="group flex items-center gap-4 text-white/20 hover:text-white transition-all duration-500"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.4em]">TORNA SU</span>
-            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all duration-300 group-focus-visible:ring-2 group-focus-visible:ring-primary">
-              <ArrowUp className="w-4 h-4" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] italic">TORNA SU</span>
+            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all duration-500">
+              <ArrowUp className="w-5 h-5" />
             </div>
           </button>
         </div>
