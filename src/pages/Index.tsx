@@ -7,7 +7,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col relative bg-black">
+    <div className="min-h-screen flex flex-col relative">
       <Header />
       
       <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden relative">
