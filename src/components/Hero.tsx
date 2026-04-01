@@ -9,6 +9,8 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
+      <Steak3D />
+      
       {/* Background Image Layer */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center opacity-30 grayscale mix-blend-overlay"
