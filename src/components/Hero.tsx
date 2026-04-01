@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-// ... keep existing imports
+import Steak3D from "./Steak3D";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
