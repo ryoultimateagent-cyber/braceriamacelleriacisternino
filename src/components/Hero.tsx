@@ -8,7 +8,8 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-blue-500"
     >
-      <div className="absolute inset-0 bg-red-500 z-0">3D Placeholder</div>
+      {/* 3D Canvas disabled due to rendering error */}
+      {/* <HeroCanvas3D /> */}
 
       {/* Conic Gradient Base Layer */}
       <div className="absolute inset-0 z-[-1] conic-gradient-bg opacity-40" />
