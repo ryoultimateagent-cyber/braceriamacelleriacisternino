@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-// import Hero from "@/components/Hero";
-const Hero = () => <div>Hero Placeholder</div>;
+import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Storia from "@/components/Storia";
 import Tagli from "@/components/Tagli";
