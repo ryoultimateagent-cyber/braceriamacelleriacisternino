@@ -22,7 +22,7 @@ function Shape({ position, color, speed, distort }: { position: [number, number,
 
 const FloatingShapes = () => {
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none opacity-20 overflow-hidden">
+    <div className="absolute inset-0 z-0 pointer-events-none opacity-40 overflow-hidden">
       <ErrorBoundary fallback={null}>
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <ambientLight intensity={0.5} />

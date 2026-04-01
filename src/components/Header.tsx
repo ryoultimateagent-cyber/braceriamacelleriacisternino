@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logoImg from "@/assets/logo-cisternino.jpg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,13 +45,22 @@ const Header = () => {
           {/* Logo */}
           <a 
             href="#" 
-            className="group flex flex-col items-start transition-transform duration-300 hover:scale-105"
+            className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >
-            <span className="text-2xl md:text-3xl font-black text-white tracking-tighter leading-none font-display uppercase italic group-hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.5)]">
-              BELVEDERE<span className="text-primary">.</span>
-            </span>
-            <span className="text-[10px] font-bold text-white/50 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
+            <div className="relative h-12 md:h-16 aspect-square rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors shadow-[0_0_20px_rgba(204,0,0,0.2)]">
+              <img 
+                src={logoImg} 
+                alt="Logo Macelleria Belvedere" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
+                BELVEDERE<span className="text-primary">.</span>
+              </span>
+              <span className="text-[9px] font-bold text-white/50 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -112,8 +122,13 @@ const Header = () => {
             className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-2xl flex flex-col p-10 lg:hidden"
           >
             <div className="flex justify-between items-center mb-16">
+             <div className="flex items-center gap-3">
+               <div className="h-10 w-10 rounded-full overflow-hidden border border-primary/30">
+                 <img src={logoImg} alt="" className="w-full h-full object-cover" />
+               </div>
                <span className="text-3xl font-black italic">BELVEDERE<span className="text-primary">.</span></span>
-               <button onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase opacity-50">Chiudi</button>
+             </div>
+             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase opacity-50">Chiudi</button>
             </div>
             
             <nav className="flex flex-col gap-6">

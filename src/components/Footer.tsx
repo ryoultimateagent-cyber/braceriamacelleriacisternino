@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import logoImg from "@/assets/logo-cisternino.jpg";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -33,11 +34,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           
           <div className="lg:col-span-1 space-y-10">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-black italic tracking-tighter leading-none uppercase text-reveal">
-                BELVEDERE<span className="text-primary">.</span>
-              </h2>
-              <p className="text-[10px] text-white/40 uppercase tracking-[0.5em] font-black italic">DAL 1986 — PUTIGNANO</p>
+            <div className="space-y-6">
+              <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-primary/20 shadow-[0_0_30px_rgba(204,0,0,0.3)]">
+                <img src={logoImg} alt="Logo Belvedere" className="w-full h-full object-cover" />
+              </div>
+              <div className="space-y-2">
+                <h2 className="text-3xl font-black italic tracking-tighter leading-none uppercase">
+                  BELVEDERE<span className="text-primary">.</span>
+                </h2>
+                <p className="text-[10px] text-white/40 uppercase tracking-[0.5em] font-black italic">DAL 1986 — PUTIGNANO</p>
+              </div>
             </div>
             <p className="text-white/60 text-lg font-medium leading-relaxed italic">
               Una tradizione di famiglia dedicata alla selezione delle migliori carni e alla brace autentica nel cuore della Puglia.
