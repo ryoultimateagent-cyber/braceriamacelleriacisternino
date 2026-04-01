@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import FireCanvas from "./FireCanvas";
+import HeroCanvas3D from "./HeroCanvas3D";
 
 const Hero = () => {
   return (
@@ -8,29 +8,44 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Canvas Fire Background */}
-      <div className="absolute inset-0 z-0">
-        <FireCanvas />
-      </div>
+      {/* 3D Canvas Background */}
+      <HeroCanvas3D />
+
+      {/* Conic Gradient Base Layer */}
+      <div className="absolute inset-0 z-[-1] conic-gradient-bg opacity-40" />
+
+      {/* Noise Overlay */}
+      <div className="hero-noise" />
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-10 bg-black/30" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-transparent to-black" />
 
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
-        <h1 
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic"
         >
           BELVEDERE<span className="text-primary">.</span>
-        </h1>
+        </motion.h1>
         
-        <p 
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
         >
           DAL 1986 A PUTIGNANO — TRADIZIONE, QUALITÀ E BRACE
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-4 mt-4"
+        >
           <motion.a 
             whileHover={{ scale: 1.05, boxShadow: "0 15px 40px -10px rgba(204,0,0,0.6)" }}
             whileTap={{ scale: 0.95 }}
@@ -50,7 +65,7 @@ const Hero = () => {
           >
             Scopri il Menù
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
