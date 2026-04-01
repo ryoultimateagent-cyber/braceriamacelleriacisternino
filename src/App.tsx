@@ -19,7 +19,7 @@ const App = () => (
       {/* <LoadingScreen /> */}
       {/* <CustomCursor /> */}
       <BrowserRouter>
-        <SmoothScroll>
+        {/* <SmoothScroll> */}
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
