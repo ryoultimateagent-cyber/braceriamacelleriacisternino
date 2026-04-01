@@ -24,7 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </SmoothScroll>
+        {/* </SmoothScroll> */}
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
