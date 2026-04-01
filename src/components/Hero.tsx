@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-// ... keep existing imports
+import Steak3D from "./Steak3D";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -9,14 +9,13 @@ const Hero = () => {
       id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
+      <Steak3D />
+      
       {/* Background Image Layer */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center opacity-30 grayscale mix-blend-overlay"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-
-// ... keep existing code
-
 
       {/* Conic Gradient Base Layer */}
       <div className="absolute inset-0 conic-gradient-bg opacity-30" />
@@ -29,19 +28,30 @@ const Hero = () => {
 
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
-        <h1 
+        <motion.h1 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
           className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic"
         >
           BELVEDERE<span className="text-primary">.</span>
-        </h1>
+        </motion.h1>
         
-        <p 
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
           className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
         >
           DAL 1986 A PUTIGNANO — TRADIZIONE, QUALITÀ E BRACE
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
+          className="flex flex-col sm:flex-row gap-4 mt-4"
+        >
           <a 
             href="#prenota" 
             className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 text-lg font-bold rounded-full transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(204,0,0,0.5)] focus-visible:ring-4 focus-visible:ring-primary/50 outline-none font-display"
@@ -57,7 +67,7 @@ const Hero = () => {
           >
             Scopri il Menù
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
