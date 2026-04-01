@@ -22,9 +22,9 @@ const Hero = () => {
 
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+        <h1 
+          className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic opacity-100"
+        >
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic"
         >
