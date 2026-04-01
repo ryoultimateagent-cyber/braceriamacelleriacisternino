@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import HeroCanvas3D from "./HeroCanvas3D";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Hero = () => {
   return (
