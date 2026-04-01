@@ -6,6 +6,10 @@ const LoadingScreen = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3500); // Failsafe: Hide loading after 3.5s no matter what
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -16,7 +20,11 @@ const LoadingScreen = () => {
         return prev + 1;
       });
     }, 15);
-    return () => clearInterval(interval);
+    
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
