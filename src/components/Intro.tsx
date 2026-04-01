@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
+import BrandObject3D from "./BrandObject3D";
 
 const features = [
   { 
@@ -27,64 +27,68 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+    <section id="storia" className="section-container section-spacing bg-transparent relative overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 md:gap-24 items-center">
         
         {/* Left: Content */}
-        <AnimatedSection animation="fade-right" className="space-y-10">
+        <div className="space-y-12">
           <div className="space-y-6">
-            <span className="text-primary text-xs font-bold uppercase tracking-[0.4em]">ECCELLENZA DAL 1986</span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]">
+            <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block text-reveal">ECCELLENZA DAL 1986</span>
+            <h2 className="text-5xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] text-reveal uppercase italic">
               LA FILOSOFIA <br /> 
-              <span className="text-primary italic">DEL GUSTO</span>
+              <span className="text-primary">DEL GUSTO</span>
             </h2>
-            <p className="text-white/60 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
+            <p className="text-white/60 text-xl font-medium leading-relaxed max-w-2xl text-reveal" style={{ animationDelay: '0.2s' }}>
               Selezioniamo solo l'eccellenza. Per noi, la carne non è un semplice prodotto, è una vocazione che onoriamo ogni giorno con passione e dedizione.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-12 border-t border-white/10">
             {features.map((f, i) => (
-              <article key={i} className="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-300">
-                <div className="mb-4 p-3 inline-block rounded-xl bg-white/5 text-primary group-hover:scale-110 transition-transform duration-300">
+              <motion.article 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * i }}
+                viewport={{ once: true }}
+                className="group p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-500"
+              >
+                <div className="mb-6 p-4 inline-block rounded-2xl bg-white/5 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl">
                   {f.icon}
                 </div>
-                <h3 className="text-white font-bold uppercase tracking-wider text-sm mb-2">
+                <h3 className="text-white font-black uppercase tracking-tight text-lg mb-2 italic">
                   {f.title}
                 </h3>
-                <p className="text-white/40 text-sm leading-relaxed">
+                <p className="text-white/40 text-sm leading-relaxed font-medium">
                   {f.desc}
                 </p>
-              </article>
+              </motion.article>
             ))}
           </div>
-        </AnimatedSection>
+        </div>
 
-        {/* Right: Interactive Image */}
-        <AnimatedSection animation="fade-left" className="relative group">
-          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white/10">
-            <img 
-              src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" 
-              srcSet="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600 600w, https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200 1200w"
-              sizes="(max-width: 1024px) 100vw, 600px"
-              alt="Selezione Carni Premium" 
-              loading="lazy"
-              width="600"
-              height="750"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-            
-            {/* Floating Info Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-primary text-white p-8 rounded-[2rem] shadow-2xl flex flex-col items-center">
-              <span className="text-4xl font-black leading-none mb-1">35+</span>
-              <span className="text-[10px] uppercase tracking-widest font-bold">ANNI DI STORIA</span>
-            </div>
+        {/* Right: Interactive 3D Object */}
+        <div className="relative group flex justify-center items-center">
+          <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
+             <BrandObject3D />
+             
+             {/* Floating Info Badge */}
+             <motion.div 
+               initial={{ scale: 0, rotate: -15 }}
+               whileInView={{ scale: 1, rotate: 0 }}
+               viewport={{ once: true }}
+               transition={{ type: "spring", damping: 15 }}
+               className="absolute -bottom-10 -right-4 bg-primary text-white p-10 rounded-full shadow-[0_20px_60px_-10px_rgba(204,0,0,0.6)] flex flex-col items-center justify-center border-4 border-black"
+             >
+               <span className="text-5xl font-black italic leading-none mb-1">35+</span>
+               <span className="text-[10px] uppercase tracking-[0.3em] font-black italic">ANNI DI ARTE</span>
+             </motion.div>
           </div>
           
-          {/* Decorative Rings */}
-          <div className="absolute -z-10 -top-12 -left-12 w-48 h-48 border-[20px] border-primary/5 rounded-full" />
-        </AnimatedSection>
+          {/* Decorative Circles */}
+          <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full animate-pulse" />
+          <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border border-white/5 rounded-full opacity-50" />
+        </div>
 
       </div>
     </section>
