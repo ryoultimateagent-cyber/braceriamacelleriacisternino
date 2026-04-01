@@ -44,22 +44,16 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
       transition={{ duration: 0.6 }}
       className={`group relative h-full w-full overflow-hidden rounded-[3rem] bg-black border border-white/10 transition-all duration-300 ${item.large ? 'col-span-1 lg:col-span-2 lg:row-span-2' : ''}`}
     >
-      <div 
-        style={{ transform: "translateZ(75px)" }}
-        className="absolute inset-0 z-0 overflow-hidden"
-      >
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
            src={item.image} 
            alt={item.name} 
-           className="h-full w-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-1000"
+           className="h-full w-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </div>
 
-      <div 
-        style={{ transform: "translateZ(100px)" }}
-        className="absolute inset-0 z-10 flex flex-col justify-end p-8 lg:p-12"
-      >
+      <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 lg:p-12">
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary border border-primary/30">
           {item.category}
         </span>

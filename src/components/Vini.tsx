@@ -56,7 +56,7 @@ const Vini = () => {
 
           <div className="relative mt-12 lg:mt-0">
             <motion.div 
-              style={{ y: imageY, rotate }}
+              style={{ y: imageY }}
               className="relative aspect-[3/4] w-full max-w-xl ml-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group"
             >
               <img 
