@@ -38,7 +38,7 @@ const Hero = () => {
           className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
         >
           DAL 1986 A PUTIGNANO — TRADIZIONE, QUALITÀ E BRACE
-        </motion.p>
+        </p>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
