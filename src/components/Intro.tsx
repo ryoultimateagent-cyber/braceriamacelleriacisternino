@@ -69,11 +69,8 @@ const Intro = () => {
 
         {/* Right: Interactive 3D Object */}
         <div className="relative group flex justify-center items-center">
-          <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
-             {/* <BrandObject3D /> */}
-             <div className="w-full h-full bg-primary/10 rounded-full flex items-center justify-center">
-               <span className="text-primary font-black italic">BELVEDERE</span>
-             </div>
+        <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
+             <BrandObject3D />
              
              {/* Floating Info Badge */}
              <motion.div 
