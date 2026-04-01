@@ -11,8 +11,7 @@ import Prenota from "@/components/Prenota";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Footer from "@/components/Footer";
-import EmberDivider from "@/components/EmberDivider";
-import GlobalSparkles from "@/components/GlobalSparkles";
+import FloatingShapes from "@/components/FloatingShapes";
 import { ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
@@ -33,40 +32,22 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative">
-      
-      
-      <a 
-        href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-8 focus:left-8 focus:z-[60] bg-primary text-white px-6 py-3 rounded-2xl font-bold shadow-2xl"
-      >
-        Salta al contenuto principale
-      </a>
-      
+    <div className="min-h-screen flex flex-col relative bg-black">
       <Header />
       
-      <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden">
+      <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden relative">
         <Hero />
         
         <div className="relative">
-          <GlobalSparkles />
-          <EmberDivider />
+          <FloatingShapes />
           <Intro />
-          <EmberDivider />
           <Storia />
-          <EmberDivider />
           <Tagli />
-          <EmberDivider />
           <Galleria />
-          <EmberDivider />
           <Menu />
-          <EmberDivider />
           <Vini />
-          <EmberDivider />
           <Recensioni />
-          <EmberDivider />
           <Prenota />
-          <EmberDivider />
           <DoveSiamo />
         </div>
       </main>
@@ -79,13 +60,12 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="fixed bottom-10 right-10 z-50"
+            className="fixed bottom-10 right-10 z-[100]"
           >
             <Button
               onClick={scrollToTop}
               size="icon"
-              className="rounded-full w-14 h-14 bg-primary text-white shadow-xl shadow-primary/20 hover:scale-110 active:scale-95 transition-all"
-              aria-label="Torna su"
+              className="rounded-full w-14 h-14 bg-primary text-white shadow-xl shadow-primary/40 hover:scale-110 active:scale-95 transition-all"
             >
               <ChevronUp className="w-6 h-6" />
             </Button>
