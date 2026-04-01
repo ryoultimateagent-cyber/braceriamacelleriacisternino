@@ -53,12 +53,12 @@ const Recensioni = () => {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.8, x: isLeft ? -300 : isRight ? 300 : 0, rotateY: isLeft ? 25 : isRight ? -25 : 0 }}
+                  initial={{ opacity: 0, scale: 0.8, x: isLeft ? -100 : isRight ? 100 : 0, rotateY: isLeft ? 15 : isRight ? -15 : 0 }}
                   animate={{ 
-                    opacity: isCenter ? 1 : 0.4, 
-                    scale: isCenter ? 1 : 0.88, 
-                    x: isLeft ? -400 : isRight ? 400 : 0,
-                    rotateY: isLeft ? 25 : isRight ? -25 : 0,
+                    opacity: isCenter ? 1 : 0.3, 
+                    scale: isCenter ? 1 : 0.85, 
+                    x: isLeft ? (window.innerWidth < 1024 ? "-85%" : "-110%") : isRight ? (window.innerWidth < 1024 ? "85%" : "110%") : 0,
+                    rotateY: isLeft ? 15 : isRight ? -15 : 0,
                     z: isCenter ? 0 : -100
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
