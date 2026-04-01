@@ -36,15 +36,49 @@ const tagli = [
 ];
 
 const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <motion.div
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className={`group relative h-full w-full overflow-hidden rounded-[3rem] bg-black border border-white/10 transition-all duration-300 ${item.large ? 'col-span-1 lg:col-span-2 lg:row-span-2' : ''}`}
     >
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div 
+        style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}
+        className="absolute inset-0 z-0 overflow-hidden"
+      >
         <img 
            src={item.image} 
            alt={item.name} 
@@ -53,7 +87,10 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </div>
 
-      <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 lg:p-12">
+      <div 
+        style={{ transform: "translateZ(100px)" }}
+        className="absolute inset-0 z-10 flex flex-col justify-end p-8 lg:p-12"
+      >
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary border border-primary/30">
           {item.category}
         </span>
