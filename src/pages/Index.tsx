@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Footer from "@/components/Footer";
+import FloatingShapes from "@/components/FloatingShapes";
 
 const Index = () => {
   return (
