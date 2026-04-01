@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section 
       id="hero"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-blue-500"
     >
       {/* 3D Canvas Background */}
       <HeroCanvas3D />
