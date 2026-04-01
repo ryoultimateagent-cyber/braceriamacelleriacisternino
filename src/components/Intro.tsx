@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
 import BrandObject3D from "./BrandObject3D";
+import ErrorBoundary from "./ErrorBoundary";
 
 const features = [
   { 
@@ -70,7 +71,9 @@ const Intro = () => {
         {/* Right: Interactive 3D Object */}
         <div className="relative group flex justify-center items-center">
         <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
-             <BrandObject3D />
+             <ErrorBoundary fallback={<div className="w-full h-full bg-white/5 rounded-full flex items-center justify-center border border-white/10 italic text-white/20">3D Preview</div>}>
+               <BrandObject3D />
+             </ErrorBoundary>
              
              {/* Floating Info Badge */}
              <motion.div 

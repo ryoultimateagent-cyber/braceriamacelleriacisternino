@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import HeroCanvas3D from "./HeroCanvas3D";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Hero = () => {
   return (
@@ -9,7 +10,9 @@ const Hero = () => {
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
       {/* 3D Canvas Background */}
-      <HeroCanvas3D />
+      <ErrorBoundary fallback={null}>
+        <HeroCanvas3D />
+      </ErrorBoundary>
 
       {/* Conic Gradient Base Layer */}
       <div className="absolute inset-0 z-[-1] conic-gradient-bg opacity-40" />
