@@ -32,7 +32,11 @@ function BrandMesh() {
 const BrandObject3D = () => {
   return (
     <div className="w-full h-[400px] md:h-[600px] pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        gl={{ alpha: true }}
+        onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
+      >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={2} color="#FF6B00" />
         <pointLight position={[-10, -10, -10]} intensity={1} color="#CC0000" />
