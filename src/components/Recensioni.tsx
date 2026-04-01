@@ -1,8 +1,6 @@
-import { Star, Quote, Award, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { Star, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import AnimatedSection from "./AnimatedSection";
-import { Skeleton } from "./ui/skeleton";
 
 const reviews = [
   {
@@ -23,97 +21,87 @@ const reviews = [
 ];
 
 const Recensioni = () => {
-  const [loading, setLoading] = useState(true);
+  const [index, setIndex] = useState(1);
+
+  const next = () => setIndex((prev) => (prev + 1) % reviews.length);
+  const prev = () => setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <section id="recensioni" className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden">
-      <div className="relative z-10">
-        <div className="text-center mb-16 md:mb-24">
-          <AnimatedSection>
-            <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">VOCI D'ECCELLENZA</span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-none uppercase">
-              I NOSTRI <br /> <span className="text-primary italic">OSPITI DICONO</span>
-            </h2>
-            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full shadow-[0_0_15px_rgba(255,61,0,0.5)]" />
-          </AnimatedSection>
-        </div>
+    <section id="recensioni" className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden">
+      <div className="section-container mb-24 text-center">
+        <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic mb-4">VOCI D'ECCELLENZA</span>
+        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+          I NOSTRI <br /> <span className="text-primary">OSPITI</span>
+        </h2>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {loading ? (
-            [...Array(3)].map((_, i) => (
-              <div key={i} className="p-10 rounded-[2.5rem] bg-white/5 h-[400px] space-y-4 border border-white/5">
-                <div className="flex gap-1.5 mb-10">
-                  {[...Array(5)].map((_, j) => (
-                    <Skeleton key={j} className="w-5 h-5 rounded-full bg-white/10" />
-                  ))}
-                </div>
-                <Skeleton className="h-4 w-full bg-white/10" />
-                <Skeleton className="h-4 w-full bg-white/10" />
-                <Skeleton className="h-4 w-3/4 bg-white/10" />
-                <div className="pt-8 mt-12 border-t border-white/10 flex items-center gap-4">
-                  <Skeleton className="h-14 w-14 rounded-2xl bg-white/10" />
-                  <div className="space-y-2">
-                    <Skeleton className="h-4 w-24 bg-white/10" />
-                    <Skeleton className="h-3 w-16 bg-white/10" />
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            reviews.map((review, i) => (
-              <AnimatedSection key={i} delay={i * 0.1} className="h-full">
-                <motion.article
-                  whileHover={{ y: -8 }}
-                  className="relative bg-white/5 p-10 rounded-[2.5rem] h-full flex flex-col border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-500 group"
+      <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-7xl px-8 flex items-center justify-center">
+          <AnimatePresence mode="popLayout">
+            {reviews.map((review, i) => {
+              const isCenter = i === index;
+              const isLeft = i === (index - 1 + reviews.length) % reviews.length;
+              const isRight = i === (index + 1) % reviews.length;
+
+              if (!isCenter && !isLeft && !isRight) return null;
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8, x: isLeft ? -300 : isRight ? 300 : 0, rotateY: isLeft ? 25 : isRight ? -25 : 0 }}
+                  animate={{ 
+                    opacity: isCenter ? 1 : 0.4, 
+                    scale: isCenter ? 1 : 0.88, 
+                    x: isLeft ? -400 : isRight ? 400 : 0,
+                    rotateY: isLeft ? 25 : isRight ? -25 : 0,
+                    z: isCenter ? 0 : -100
+                  }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-12 lg:p-16 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  onClick={() => !isCenter && setIndex(i)}
                 >
-                  <Quote className="absolute -top-4 -right-4 w-24 h-24 text-primary/5 rotate-12 group-hover:text-primary/10 transition-colors duration-500" />
-                  
-                  <div className="flex items-center justify-between mb-10 relative z-10">
-                    <div className="flex gap-1.5 text-accent">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} className="w-5 h-5 fill-current" />
-                      ))}
-                    </div>
+                  <Quote className="w-20 h-20 text-primary/10 mb-8" />
+                  <div className="flex gap-1.5 text-accent mb-10">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="w-6 h-6 fill-current" />
+                    ))}
                   </div>
-                  
-                  <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-10 flex-1 relative z-10 italic">
+                  <p className="text-2xl lg:text-3xl font-black italic text-white leading-tight mb-12">
                     "{review.text}"
                   </p>
-                  
-                  <div className="pt-8 border-t border-white/10 relative z-10">
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary font-black text-xl border border-white/10">
-                        {review.author.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="text-white font-black text-sm tracking-tight uppercase">
-                          {review.author}
-                        </div>
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-white/40">
-                          {review.role}
-                        </div>
-                      </div>
-                    </div>
+                  <div className="pt-10 border-t border-white/10 w-full">
+                    <h4 className="text-xl font-black italic uppercase text-white">{review.author}</h4>
+                    <span className="text-[10px] font-black tracking-widest uppercase text-primary">{review.role}</span>
                   </div>
-                </motion.article>
-              </AnimatedSection>
-            ))
-          )}
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
+      </div>
 
-        <AnimatedSection delay={0.4} className="mt-16 md:mt-24 text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-md rounded-full border border-white/10 shadow-2xl">
-            <Sparkles className="w-5 h-5 text-accent" />
-            <p className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-              OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
-            </p>
-          </div>
-        </AnimatedSection>
+      <div className="flex justify-center gap-6 mt-12">
+         <button onClick={prev} className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300">
+           <ChevronLeft className="w-8 h-8" />
+         </button>
+         <button onClick={next} className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300">
+           <ChevronRight className="w-8 h-8" />
+         </button>
+      </div>
+
+      <div className="text-center mt-24">
+        <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
+          <Sparkles className="w-5 h-5 text-accent" />
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
+             OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
+          </p>
+        </div>
       </div>
     </section>
   );
