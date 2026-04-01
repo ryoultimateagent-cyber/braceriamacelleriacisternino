@@ -29,7 +29,7 @@ const Hero = () => {
           className="text-white font-black tracking-tighter mb-4 leading-[0.9] text-[clamp(2.5rem,12vw,6.5rem)] font-display uppercase italic"
         >
           BELVEDERE<span className="text-primary">.</span>
-        </motion.h1>
+        </h1>
         
         <p 
           className="text-white opacity-90 font-bold mb-12 max-w-2xl text-[clamp(1rem,2vw,1.2rem)] font-display leading-[1.2] uppercase tracking-[0.3em]"
