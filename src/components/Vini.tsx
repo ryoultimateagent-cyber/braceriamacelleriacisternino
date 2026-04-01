@@ -10,8 +10,8 @@ const Vini = () => {
     offset: ["start end", "end start"]
   });
   
-  const imageY = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
 
   return (
     <section id="vini" ref={ref} className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden">
