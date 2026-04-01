@@ -53,17 +53,17 @@ const Recensioni = () => {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, scale: 0.8, x: isLeft ? -300 : isRight ? 300 : 0, rotateY: isLeft ? 25 : isRight ? -25 : 0 }}
+                  initial={{ opacity: 0, scale: 0.8, x: isLeft ? -100 : isRight ? 100 : 0, rotateY: isLeft ? 15 : isRight ? -15 : 0 }}
                   animate={{ 
-                    opacity: isCenter ? 1 : 0.4, 
-                    scale: isCenter ? 1 : 0.88, 
-                    x: isLeft ? -400 : isRight ? 400 : 0,
-                    rotateY: isLeft ? 25 : isRight ? -25 : 0,
+                    opacity: isCenter ? 1 : 0.3, 
+                    scale: isCenter ? 1 : 0.85, 
+                    x: isLeft ? (window.innerWidth < 1024 ? "-85%" : "-110%") : isRight ? (window.innerWidth < 1024 ? "85%" : "110%") : 0,
+                    rotateY: isLeft ? 15 : isRight ? -15 : 0,
                     z: isCenter ? 0 : -100
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-12 lg:p-16 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-8 lg:p-16 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
                   onClick={() => !isCenter && setIndex(i)}
                 >
                   <Quote className="w-20 h-20 text-primary/10 mb-8" />
