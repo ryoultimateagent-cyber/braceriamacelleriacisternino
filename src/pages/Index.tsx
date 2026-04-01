@@ -9,8 +9,8 @@ import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Prenota from "@/components/Prenota";
 import Footer from "@/components/Footer";
-import FloatingShapes from "@/components/FloatingShapes";
-import ErrorBoundary from "@/components/ErrorBoundary";
+// ... keep existing imports
+
 
 const Index = () => {
   return (
@@ -18,9 +18,8 @@ const Index = () => {
       <Header />
       
       <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden relative">
-        <ErrorBoundary fallback={null}>
-          <FloatingShapes />
-        </ErrorBoundary>
+// ... keep existing code
+
         
         <Hero />
         

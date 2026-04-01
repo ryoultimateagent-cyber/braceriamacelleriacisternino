@@ -10,8 +10,8 @@ const Vini = () => {
     offset: ["start end", "end start"]
   });
   
-  const imageY = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
 
   return (
     <section id="vini" ref={ref} className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden">
@@ -56,7 +56,7 @@ const Vini = () => {
 
           <div className="relative mt-12 lg:mt-0">
             <motion.div 
-              style={{ y: imageY, rotate }}
+              style={{ y: imageY }}
               className="relative aspect-[3/4] w-full max-w-xl ml-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group"
             >
               <img 
