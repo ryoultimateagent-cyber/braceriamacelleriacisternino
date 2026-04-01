@@ -1,10 +1,8 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { FileText, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-import AnimatedSection from "./AnimatedSection";
-import SectionHeader from "./SectionHeader";
 import { Button } from "@/components/ui/button";
 
 // Import images
@@ -128,10 +126,22 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="section-container py-24 md:py-32 bg-transparent relative overflow-hidden"
+      className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden"
       aria-label="I nostri servizi"
     >
-      {/* Hidden SVG for Clip Paths */}
+      {/* Background Separators */}
+      <div className="absolute inset-0 flex justify-between px-[10%] pointer-events-none opacity-10">
+        {[1, 2, 3, 4].map(i => (
+          <motion.div 
+            key={i}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            transition={{ duration: 1.5, delay: i * 0.2 }}
+            className="w-[1px] h-full bg-white origin-top"
+          />
+        ))}
+      </div>
+
       <svg className="absolute w-0 h-0 invisible pointer-events-none" aria-hidden="true">
         <defs>
           <clipPath id="clip-original">
@@ -146,138 +156,101 @@ const Menu = () => {
         </defs>
       </svg>
 
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16 md:mb-24">
-          <AnimatedSection>
-            <span className="text-primary text-xs font-bold uppercase tracking-[0.4em] mb-4 block">QUALITÀ E ACCOGLIENZA</span>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight leading-none uppercase">
-              I NOSTRI <br /> <span className="text-primary italic">SERVIZI</span>
-            </h2>
-            <div className="h-1.5 w-24 bg-primary mx-auto mt-8 rounded-full shadow-[0_0_15px_rgba(255,61,0,0.5)]" />
-          </AnimatedSection>
+      <div className="section-container relative z-10">
+        <div className="mb-24 space-y-4">
+          <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">QUALITÀ E ACCOGLIENZA</span>
+          <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+            I NOSTRI <br /> <span className="text-primary">SERVIZI</span>
+          </h2>
         </div>
 
-        {/* Interactive Menu Container */}
         <div 
           ref={containerRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 max-w-7xl mx-auto items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center"
         >
-          {/* Menu List */}
-          <AnimatedSection delay={0.2} className="order-2 lg:order-1">
-            <div className="space-y-4">
-              {menuItems.map((item, index) => (
-                <article
-                  key={index}
-                  onMouseEnter={() => handleItemHover(index)}
-                  onClick={() => handleItemHover(index)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      handleItemHover(index);
-                    }
-                  }}
-                  className="group"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Scopri di più su: ${item.name}`}
-                >
-                  <div className={cn(
-                    "flex items-start gap-6 p-8 transition-all duration-500 rounded-3xl border-2",
-                    activeIndex === index 
-                      ? "bg-white/5 border-primary/50 shadow-2xl scale-[1.02]" 
-                      : "bg-transparent border-transparent hover:bg-white/5"
+          <div className="space-y-4">
+            {menuItems.map((item, index) => (
+              <article
+                key={index}
+                onMouseEnter={() => handleItemHover(index)}
+                className="group cursor-pointer"
+                role="button"
+                tabIndex={0}
+              >
+                <div className={cn(
+                  "flex items-start gap-8 p-10 transition-all duration-700 rounded-[2rem] border-2",
+                  activeIndex === index 
+                    ? "bg-white/5 border-primary shadow-[0_0_50px_rgba(204,0,0,0.15)] scale-[1.02]" 
+                    : "bg-transparent border-transparent hover:bg-white/5"
+                )}>
+                  <span className={cn(
+                    "text-3xl lg:text-5xl font-black transition-colors duration-500 italic",
+                    activeIndex === index ? "text-primary" : "text-white/10"
                   )}>
-                    {/* Number */}
-                    <span className={cn(
-                      "text-2xl lg:text-4xl font-black transition-colors duration-300",
-                      activeIndex === index ? "text-primary" : "text-white/10 group-hover:text-primary/30"
-                    )}>
-                      {item.num}
-                    </span>
-                    
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-3">
-                        <h3 className={cn(
-                          "text-xl lg:text-2xl font-black transition-colors duration-300 uppercase tracking-tight",
-                          activeIndex === index ? "text-white" : "text-white/40 group-hover:text-white"
-                        )}>
-                          {item.name}
-                        </h3>
-                        {activeIndex === index && (
-                          <motion.div 
-                            initial={{ x: -10, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                          >
-                            <ArrowRight className="text-primary w-6 h-6" />
-                          </motion.div>
-                        )}
-                      </div>
-                      <p className={cn(
-                        "text-base lg:text-lg leading-relaxed transition-all duration-500 font-medium",
-                        activeIndex === index 
-                          ? "text-white/60 opacity-100" 
-                          : "text-white/20 opacity-0 max-h-0 overflow-hidden"
+                    {item.num}
+                  </span>
+                  
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className={cn(
+                        "text-2xl lg:text-4xl font-black transition-colors duration-500 uppercase italic tracking-tighter",
+                        activeIndex === index ? "text-white" : "text-white/40 group-hover:text-white"
                       )}>
-                        {item.desc}
-                      </p>
+                        {item.name}
+                      </h3>
+                      {activeIndex === index && (
+                        <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+                          <ArrowRight className="text-primary w-8 h-8" />
+                        </motion.div>
+                      )}
                     </div>
+                    <p className={cn(
+                      "text-lg lg:text-xl leading-relaxed transition-all duration-700 font-medium",
+                      activeIndex === index ? "text-white/60" : "text-white/0 opacity-0 max-h-0 overflow-hidden"
+                    )}>
+                      {item.desc}
+                    </p>
                   </div>
-                </article>
-              ))}
-            </div>
-          </AnimatedSection>
+                </div>
+              </article>
+            ))}
+          </div>
 
-          {/* Animated Visual */}
-          <AnimatedSection delay={0.4} className="order-1 lg:order-2 flex justify-center lg:sticky lg:top-40 h-fit">
-            <div className="relative w-full max-w-lg aspect-square">
-              {/* Image Container */}
-              <div className="absolute inset-0 z-20 rounded-[3rem] overflow-hidden border-4 border-white/10 shadow-2xl">
+          <div className="flex justify-center lg:sticky lg:top-40 h-fit">
+            <div className="relative w-full max-w-xl aspect-square">
+              <div className="absolute inset-0 z-20 rounded-[4rem] overflow-hidden border border-white/10">
                 <AnimatePresence mode="wait">
                   <motion.img 
                     key={activeIndex}
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.9, opacity: 0 }}
-                    transition={{ duration: 0.6, ease: "circOut" }}
+                    initial={{ scale: 1.2, opacity: 0, rotate: 5 }}
+                    animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                    exit={{ scale: 0.8, opacity: 0, rotate: -5 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     src={menuItems[activeIndex].image} 
                     alt={menuItems[activeIndex].name}
-                    loading="lazy"
-                    width="512"
-                    height="512"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover grayscale brightness-50"
                   />
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-                <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
               </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -top-12 -right-12 w-64 h-64 border-[30px] border-primary/5 rounded-full" />
-              <div className="absolute -bottom-12 -left-12 w-48 h-48 border-[20px] border-accent/10 rounded-full" />
+              
+              {/* Floating Shapes Background */}
+              <div className="absolute -z-10 -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
+              <div className="absolute -z-10 -bottom-20 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" />
             </div>
-          </AnimatedSection>
+          </div>
         </div>
 
-        {/* Action Button */}
-        <AnimatedSection delay={0.6} className="text-center mt-24">
+        <div className="text-center mt-32">
           <Button 
             asChild 
-            size="lg" 
-            className="h-16 px-12 bg-white text-black hover:bg-white/90 font-black uppercase tracking-widest text-sm shadow-2xl rounded-2xl active:scale-95 transition-all"
+            className="h-20 px-16 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-lg rounded-full active:scale-95 transition-all shadow-[0_20px_60px_rgba(255,255,255,0.1)]"
           >
-            <a
-              href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4"
-            >
-              <FileText className="w-5 h-5" />
+            <a href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               SCARICA IL MENÙ DIGITALE
             </a>
           </Button>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

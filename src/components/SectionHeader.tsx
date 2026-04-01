@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import AnimatedSection from "./AnimatedSection";
+import { motion } from "framer-motion";
 
 interface SectionHeaderProps {
   subtitle?: string;
@@ -25,26 +25,35 @@ const SectionHeader = ({
       className
     )}>
       {subtitle && (
-        <AnimatedSection 
-          animation="fade-up" 
-          className="mb-4 block text-primary text-xs font-bold uppercase tracking-[0.4em]"
+        <motion.span 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-4 block text-primary text-xs font-black uppercase tracking-[0.4em] italic"
         >
           {subtitle}
-        </AnimatedSection>
+        </motion.span>
       )}
-      <AnimatedSection 
-        animation="fade-up" 
-        delay={0.1}
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1 }}
+        className={cn("text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic", titleClassName)}
       >
-        <h2 className={cn("text-4xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-[1.1]", titleClassName)}>
-          {title}
-        </h2>
-      </AnimatedSection>
-      <div className={cn(
-        "h-1.5 w-20 bg-primary mt-8 rounded-full",
-        align === "center" && "mx-auto",
-        align === "right" && "ml-auto"
-      )} />
+        {title}
+      </motion.h2>
+      <motion.div 
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        className={cn(
+          "h-1.5 w-24 bg-primary mt-10 rounded-full origin-left",
+          align === "center" && "mx-auto origin-center",
+          align === "right" && "ml-auto origin-right"
+        )} 
+      />
     </div>
   );
 };

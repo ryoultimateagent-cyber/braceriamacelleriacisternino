@@ -2,180 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font imports moved to index.html for better performance */
-
-/* Design System - Modern AI-Inspired (Draftly Style) */
-
 @layer base {
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
   :root {
-    /* Color Palette - Neutrals (DARK THEME DEFAULT) */
-    --background: 0 0% 5%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
-
-    /* Brand Colors - Sophisticated Red & Gold */
-    --primary: 0 72% 51%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 12%;
+    --primary: 0 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 9%;
     --secondary-foreground: 0 0% 98%;
-    
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
-    
-    --accent: 43 96% 58%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 15%;
     --accent-foreground: 0 0% 98%;
-    
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 72% 51%;
-    --radius: 0.75rem;
-
-    /* Custom variables for the fire theme */
-    --ember: 10, 80%, 50%;
-    --gold: 43, 96%, 58%;
-    --copper: 25, 60%, 45%;
-    --gradient-fire: linear-gradient(to right, #FF4D00, #FFB800, #FF4D00);
-    --gradient-gold: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-
-    /* Shadows */
-    --shadow-elegant: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 100% 40%;
+    --radius: 0.5rem;
   }
 
-  .dark {
-    /* Already dark by default now, but keeping for compatibility */
-    --background: 0 0% 5%;
-    --foreground: 0 0% 98%;
-  }
-}
-
-@layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #050505;
-  }
-
-  * {
-    @apply border-border outline-none;
+    background-color: #000000;
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary overflow-x-hidden;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    line-height: 1.6;
+    @apply bg-black text-white antialiased selection:bg-primary selection:text-white overflow-x-hidden;
+    font-family: 'Satoshi', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-balance;
-    font-family: 'Cinzel', serif;
-  }
-
-  h1 { @apply text-4xl md:text-6xl lg:text-7xl; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
-  h3 { @apply text-2xl md:text-3xl; }
-  
-  /* Modern Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-background;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    @apply font-black tracking-tight uppercase italic;
   }
 }
 
 @layer components {
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    opacity: 0.035;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .conic-gradient-bg {
+    background: conic-gradient(from var(--angle), #220000, #000000 25%, #220000 50%, #000000 75%, #220000);
+    animation: rotate-conic 10s linear infinite;
+  }
+
+  .glass {
+    @apply backdrop-blur-[20px] bg-[oklch(0.15_0.01_0/0.08)] border-b border-white/10 transition-all duration-300;
+  }
+
   .section-container {
     @apply max-w-7xl mx-auto px-6 md:px-8;
   }
 
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
-  }
-
-  .btn-hover-effect {
-    @apply relative overflow-hidden transition-all duration-300 hover:shadow-lg active:scale-95;
-  }
-
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-accent;
-  }
-  
-  .led-glow {
-    box-shadow: 0 0 15px rgba(255, 61, 0, 0.5), 0 0 5px rgba(255, 184, 0, 0.3);
-  }
-}
-
-@layer components {
   .section-spacing {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-24 md:py-32 lg:py-40;
   }
 
-  .glass {
-    @apply bg-black/60 backdrop-blur-xl border border-white/10;
-  }
-  
-  .luxury-card {
-    @apply bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  .text-reveal {
+    clip-path: inset(0 100% 0 0);
+    animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
   }
 }
 
-@layer utilities {
-  .animate-ember {
-    animation: ember-rise var(--duration) linear infinite;
-    animation-delay: var(--delay);
+@keyframes rotate-conic {
+  to {
+    --angle: 360deg;
   }
+}
 
-  @keyframes ember-rise {
-    0% {
-      transform: translateY(10px) translateX(0) scale(1);
-      opacity: 0;
-    }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% {
-      transform: translateY(-100vh) translateX(var(--sway)) scale(0.2);
-      opacity: 0;
-    }
+@keyframes reveal {
+  to {
+    clip-path: inset(0 0% 0 0);
   }
+}
 
-  @keyframes rise {
-    0% {
-      transform: translateY(0) translateX(0) scale(1.2);
-      opacity: 0;
-    }
-    5% { opacity: 0.8; }
-    40% { opacity: 0.4; }
-    70% { 
-      opacity: 0;
-      transform: translateY(-70vh) translateX(var(--drift)) scale(0.5);
-    }
-    100% {
-      transform: translateY(-100vh) translateX(var(--drift)) scale(0);
-      opacity: 0;
-    }
-  }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/40 rounded-full hover:bg-primary/60 transition-colors;
+}
 
-  @keyframes flicker {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); }
-  }
-
-  .hero-glow-bottom {
-    background: radial-gradient(ellipse at bottom, rgba(204, 0, 0, 0.4) 0%, rgba(204, 0, 0, 0.1) 40%, transparent 70%);
-  }
-
-  .bg-noise {
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.05;
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

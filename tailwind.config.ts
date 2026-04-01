@@ -66,9 +66,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Cinzel", "serif"],
-        accent: ["Playfair Display", "serif"],
-        body: ["Cormorant Garamond", "serif"],
+        display: ["Cabinet Grotesk", "sans-serif"],
+        body: ["Satoshi", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
