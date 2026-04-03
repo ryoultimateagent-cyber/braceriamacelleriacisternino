@@ -3,7 +3,6 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-
 const Footer = () => {
   const year = new Date().getFullYear();
   const [email, setEmail] = useState("");
