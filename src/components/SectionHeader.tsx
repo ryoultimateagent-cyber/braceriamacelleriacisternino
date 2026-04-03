@@ -18,7 +18,7 @@ const SectionHeader = ({
 }: SectionHeaderProps) => {
   return (
     <div className={cn(
-      "mb-12 md:mb-16",
+      "mb-12", // Reduced from mb-12/16 to mb-12 as per plan
       align === "center" && "text-center",
       align === "left" && "text-left",
       align === "right" && "text-right",
@@ -39,7 +39,8 @@ const SectionHeader = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1 }}
-        className={cn("text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic", titleClassName)}
+        // Uniform titles: text-3xl md:text-4xl lg:text-5xl
+        className={cn("text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-[0.9] uppercase italic", titleClassName)}
       >
         {title}
       </motion.h2>
@@ -49,7 +50,7 @@ const SectionHeader = ({
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.8 }}
         className={cn(
-          "h-1.5 w-24 bg-primary mt-10 rounded-full origin-left",
+          "h-1 w-16 bg-primary mt-6 rounded-full origin-left", // Reduced size and margin
           align === "center" && "mx-auto origin-center",
           align === "right" && "ml-auto origin-right"
         )} 
