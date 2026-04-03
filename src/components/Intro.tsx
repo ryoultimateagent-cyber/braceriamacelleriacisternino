@@ -114,9 +114,9 @@ const Intro = () => {
               />
               
               {/* Floating Badge */}
-              <div className="absolute -bottom-10 -left-10 z-20 bg-primary p-12 rounded-full shadow-2xl border-[12px] border-[#080808]">
+              <div className="absolute -bottom-10 -left-10 z-20 bg-primary p-8 rounded-full shadow-2xl border-[12px] border-[#080808]">
                 <div className="flex flex-col items-center">
-                  <span className="text-white text-5xl font-black italic leading-none">38</span>
+                  <span className="text-white text-4xl font-black italic leading-none">38</span>
                   <span className="text-white/80 text-[10px] font-black uppercase tracking-widest mt-1">ANNI</span>
                 </div>
               </div>
