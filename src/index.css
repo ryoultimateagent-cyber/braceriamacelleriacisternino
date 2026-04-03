@@ -113,30 +113,36 @@
 
 /* Fire and LED Effects */
 @keyframes fire-flicker {
-  0%, 100% { opacity: 0.8; filter: blur(2px) brightness(1); }
-  33% { opacity: 0.9; filter: blur(3px) brightness(1.1); }
-  66% { opacity: 0.7; filter: blur(2px) brightness(0.9); }
+  0%, 100% { opacity: 0.8; filter: blur(3px) brightness(1.2); transform: scale(1); }
+  33% { opacity: 1; filter: blur(5px) brightness(1.6); transform: scale(1.03); }
+  66% { opacity: 0.7; filter: blur(3px) brightness(0.9); transform: scale(0.97); }
+}
+
+@keyframes fire-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
 }
 
 @keyframes led-pulse {
-  0%, 100% { opacity: 0.6; box-shadow: 0 0 10px #ff4400, 0 0 20px rgba(255, 68, 0, 0.5); }
-  50% { opacity: 1; box-shadow: 0 0 20px #ff4400, 0 0 40px rgba(255, 68, 0, 0.8); }
+  0%, 100% { opacity: 0.7; box-shadow: 0 0 20px #ff4400, 0 0 40px rgba(255, 68, 0, 0.5); }
+  50% { opacity: 1; box-shadow: 0 0 40px #ff4400, 0 0 80px rgba(255, 68, 0, 0.9); }
 }
 
 .led-divider {
-  height: 2px;
+  height: 3px;
   width: 100%;
   background: linear-gradient(90deg, transparent, #ff4400, #ffbb00, #ff4400, transparent);
   position: relative;
-  animation: led-pulse 3s infinite ease-in-out;
+  animation: led-pulse 2.5s infinite ease-in-out;
 }
 
 .led-divider::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: led-sweep 3s infinite linear;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: led-sweep 2s infinite linear;
 }
 
 @keyframes led-sweep {
@@ -147,19 +153,43 @@
 .fire-effect {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 120%, rgba(255, 80, 0, 0.3) 0%, rgba(255, 40, 0, 0.1) 40%, transparent 70%);
+  background: radial-gradient(circle at 50% 110%, rgba(255, 100, 0, 0.5) 0%, rgba(255, 50, 0, 0.2) 50%, transparent 85%);
   mix-blend-mode: screen;
   pointer-events: none;
+  animation: fire-flicker 4s infinite ease-in-out;
 }
 
 .fire-glow-card {
-  box-shadow: 0 0 15px rgba(255, 68, 0, 0.05);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 68, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 68, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 68, 0, 0.15);
+  position: relative;
+}
+
+.fire-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, #ff4400, #ffbb00, transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s;
+  filter: blur(8px);
+}
+
+.fire-glow-card:hover::before {
+  opacity: 0.8;
+  animation: rotate-fire 3s linear infinite;
+}
+
+@keyframes rotate-fire {
+  from { filter: blur(8px) hue-rotate(0deg); }
+  to { filter: blur(12px) hue-rotate(20deg); }
 }
 
 .fire-glow-card:hover {
-  box-shadow: 0 0 50px rgba(255, 68, 0, 0.4);
-  border-color: rgba(255, 68, 0, 0.6);
-  transform: translateY(-5px);
+  box-shadow: 0 0 60px rgba(255, 68, 0, 0.6), inset 0 0 30px rgba(255, 68, 0, 0.3);
+  border-color: rgba(255, 68, 0, 0.9);
+  transform: translateY(-12px) scale(1.03);
 }
