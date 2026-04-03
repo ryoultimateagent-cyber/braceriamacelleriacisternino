@@ -57,7 +57,7 @@ const DoveSiamo = () => {
           </div>
 
           <div className="relative group">
-            <div className="aspect-square lg:aspect-[4/3] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl relative">
+            <div className="aspect-square lg:aspect-[4/3] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.0!2d17.1234!3d40.8491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347d9c0e2a3c3c3%3A0x1234567890abcdef!2sVia%20Giuseppe%20Verdi%205C%2C%2070017%20Putignano%20BA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
                 width="100%"

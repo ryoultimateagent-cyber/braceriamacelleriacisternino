@@ -57,7 +57,7 @@ const Vini = () => {
           <div className="relative mt-12 lg:mt-0">
             <motion.div 
               style={{ y: imageY }}
-              className="relative aspect-[3/4] w-full max-w-xl ml-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group fire-glow-card"
+              className="relative aspect-[3/4] w-full max-w-xl ml-auto rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group fire-glow-card"
             >
               <img 
                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" 

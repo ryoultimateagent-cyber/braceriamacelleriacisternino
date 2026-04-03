@@ -73,7 +73,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`group relative h-full w-full overflow-hidden rounded-[3rem] bg-black border border-white/10 transition-all duration-300 fire-glow-card ${item.large ? 'col-span-1 lg:col-span-2 lg:row-span-2' : ''}`}
+      className={`group relative h-full w-full overflow-hidden rounded-[2rem] bg-black border border-white/10 transition-all duration-300 fire-glow-card ${item.large ? 'col-span-1 lg:col-span-2 lg:row-span-2' : ''}`}
     >
       <div 
         style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}

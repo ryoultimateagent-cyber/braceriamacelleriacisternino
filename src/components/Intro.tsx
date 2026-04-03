@@ -63,7 +63,7 @@ const Intro = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="text-white/50 text-xl md:text-2xl font-medium leading-relaxed max-w-2xl italic"
+                className="text-white/50 text-lg md:text-xl font-medium leading-relaxed max-w-2xl italic"
               >
                 Al Belvedere non serviamo solo carne. Celebriamo un rito che affonda le radici nella nostra terra, Putignano, portando in tavola l'anima della Puglia.
               </motion.p>
