@@ -157,9 +157,9 @@ const Menu = () => {
       </svg>
 
       <div className="section-container relative z-10">
-        <div className="mb-24 space-y-4">
+        <div className="mb-16 space-y-4">
           <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">QUALITÀ E ACCOGLIENZA</span>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
             I NOSTRI <br /> <span className="text-primary">SERVIZI</span>
           </h2>
         </div>
