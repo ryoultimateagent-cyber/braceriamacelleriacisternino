@@ -13,10 +13,10 @@ import Sparks from "@/components/Sparks";
 import React from "react";
 
 const GlowingSeparator = () => (
-  <div className="h-48 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
+  <div className="h-24 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
     <div className="led-divider" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[150px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-950/20 via-black/40 to-transparent" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[100px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-950/10 via-black/40 to-transparent" />
   </div>
 );
 
