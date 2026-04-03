@@ -1,6 +1,7 @@
 import { Star, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import SectionHeader from "./SectionHeader";
 
 const reviews = [
   {
@@ -27,21 +28,23 @@ const Recensioni = () => {
   const prev = () => setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
 
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section id="recensioni" className="py-16 md:py-24 lg:py-28 bg-black relative overflow-hidden">
-      <div className="section-container mb-16 text-center">
-        <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic mb-4">VOCI D'ECCELLENZA</span>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
-          I NOSTRI <br /> <span className="text-primary">OSPITI</span>
-        </h2>
+    <section id="recensioni" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+      <div className="section-container mb-12 text-center">
+        <SectionHeader 
+          subtitle="VOCI D'ECCELLENZA"
+          title="I NOSTRI OSPITI"
+          align="center"
+          className="mb-0"
+        />
       </div>
 
-      <div className="relative h-[450px] flex items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-7xl px-8 flex items-center justify-center">
+      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-5xl px-4 flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {reviews.map((review, i) => {
               const isCenter = i === index;
@@ -57,26 +60,26 @@ const Recensioni = () => {
                   animate={{ 
                     opacity: isCenter ? 1 : 0.4, 
                     scale: isCenter ? 1 : 0.9, 
-                    x: isLeft ? (window.innerWidth < 1024 ? "-90%" : "-105%") : isRight ? (window.innerWidth < 1024 ? "90%" : "105%") : 0,
+                    x: isLeft ? (window.innerWidth < 768 ? "-85%" : "-100%") : isRight ? (window.innerWidth < 768 ? "85%" : "100%") : 0,
                     zIndex: isCenter ? 20 : 10
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-6 lg:p-10 rounded-[3rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  className={`absolute w-full max-w-xl bg-white/5 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-white/10 shadow-xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
                   onClick={() => !isCenter && setIndex(i)}
                 >
-                  <Quote className="w-20 h-20 text-primary/10 mb-8" />
-                  <div className="flex gap-1.5 text-accent mb-10">
+                  <Quote className="w-12 h-12 text-primary/10 mb-6" />
+                  <div className="flex gap-1 text-primary/40 mb-8">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-6 h-6 fill-current" />
+                      <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-xl lg:text-2xl font-black italic text-white leading-tight mb-8">
+                  <p className="text-lg lg:text-xl font-bold italic text-white leading-tight mb-8">
                     "{review.text}"
                   </p>
-                  <div className="pt-10 border-t border-white/10 w-full">
-                    <h4 className="text-xl font-black italic uppercase text-white">{review.author}</h4>
-                    <span className="text-[10px] font-black tracking-widest uppercase text-primary">{review.role}</span>
+                  <div className="pt-8 border-t border-white/5 w-full">
+                    <h4 className="text-lg font-black italic uppercase text-white">{review.author}</h4>
+                    <span className="text-[9px] font-black tracking-widest uppercase text-primary/50">{review.role}</span>
                   </div>
                 </motion.div>
               );
@@ -85,19 +88,19 @@ const Recensioni = () => {
         </div>
       </div>
 
-      <div className="flex justify-center gap-6 mt-12">
-         <button onClick={prev} className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300">
-           <ChevronLeft className="w-8 h-8" />
+      <div className="flex justify-center gap-4 mt-8">
+         <button onClick={prev} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300">
+           <ChevronLeft className="w-5 h-5" />
          </button>
-         <button onClick={next} className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300">
-           <ChevronRight className="w-8 h-8" />
+         <button onClick={next} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300">
+           <ChevronRight className="w-5 h-5" />
          </button>
       </div>
 
-      <div className="text-center mt-24">
-        <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
-          <Sparkles className="w-5 h-5 text-accent" />
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
+      <div className="text-center mt-12">
+        <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 rounded-full border border-white/5">
+          <Sparkles className="w-4 h-4 text-primary" />
+          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40">
              OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
           </p>
         </div>
