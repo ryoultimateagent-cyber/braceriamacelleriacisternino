@@ -42,7 +42,7 @@ const Galleria = () => {
             key={i}
             whileHover={{ scale: 1.02 }}
             onClick={() => setSelectedIndex(i)}
-            className="flex-shrink-0 w-[80vw] md:w-[60vw] lg:w-[45vw] aspect-[16/9] rounded-[3rem] overflow-hidden border border-white/10 snap-center relative group cursor-pointer"
+            className="flex-shrink-0 w-[80vw] md:w-[60vw] lg:w-[45vw] aspect-[16/9] rounded-[3rem] overflow-hidden border border-white/10 snap-center relative group cursor-pointer fire-glow-card"
           >
             <img 
               src={img.src} 

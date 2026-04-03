@@ -35,7 +35,7 @@ const Storia = () => {
         {timelineData.map((item, i) => (
           <div key={i} className={`flex flex-col lg:flex-row gap-16 md:gap-32 items-center ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
             <div className="w-full lg:w-1/2 group relative">
-                <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700 group-hover:scale-[1.02]">
+                <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700 group-hover:scale-[1.02] fire-glow-card">
                   <img 
                     src={i === 0 ? "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200" : i === 1 ? "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200" : "https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?auto=format&fit=crop&q=80&w=1200"} 
                     alt={item.title} 

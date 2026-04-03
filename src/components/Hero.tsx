@@ -15,16 +15,21 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover scale-110 opacity-60 mix-blend-screen grayscale-[20%]"
+          className="w-full h-full object-cover scale-110 opacity-80 mix-blend-screen grayscale-[10%]"
         >
           <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc4c0490795415309923838048995a5f17849e7a&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
         </video>
         
+        {/* Fire Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,40,0,0.25)_0%,transparent_60%)] z-10 animate-pulse" />
+        <div className="fire-effect z-10" />
+        
         {/* Dynamic Glows */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.8)_100%)] z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.9)_100%)] z-20" />
         
         {/* Bottom Ember Glow */}
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-red-950/40 via-orange-950/10 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/30 via-orange-950/10 to-transparent z-20" />
       </div>
 
       {/* Noise Overlay */}
