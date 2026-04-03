@@ -119,3 +119,50 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Fire and LED Effects */
+@keyframes fire-flicker {
+  0%, 100% { opacity: 0.8; filter: blur(2px) brightness(1); }
+  33% { opacity: 0.9; filter: blur(3px) brightness(1.1); }
+  66% { opacity: 0.7; filter: blur(2px) brightness(0.9); }
+}
+
+.fire-effect {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 120%, rgba(255, 80, 0, 0.3) 0%, rgba(255, 40, 0, 0.1) 40%, transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.fire-glow-card {
+  box-shadow: 0 0 20px rgba(255, 68, 0, 0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fire-glow-card:hover {
+  box-shadow: 0 0 40px rgba(255, 68, 0, 0.4);
+  border-color: rgba(255, 68, 0, 0.5);
+}
+
+.led-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #ff4400, #ffbb00, #ff4400, transparent);
+  box-shadow: 0 0 10px #ff4400, 0 0 20px rgba(255, 68, 0, 0.5);
+  position: relative;
+  opacity: 0.6;
+}
+
+.led-divider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: led-sweep 4s infinite linear;
+}
+
+@keyframes led-sweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
