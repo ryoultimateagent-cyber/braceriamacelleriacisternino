@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
-const Spark = ({ delay, x, y, size, duration, color }: { delay: number; x: number; y: number; size: number; duration: number; color: string }) => {
+const Spark = ({ delay, xPct, yPct, size, duration, color }: { delay: number; xPct: number; yPct: number; size: number; duration: number; color: string }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0, x, y }}
+      initial={{ opacity: 0, scale: 0, x: `${xPct}%`, y: `${yPct}%` }}
       animate={{ 
         opacity: [0, 1, 0],
         scale: [0, 1.2, 0.5],
-        y: y - 100 - Math.random() * 200,
-        x: x + (Math.random() - 0.5) * 100
+        y: [`${yPct}%`, `${yPct - 10}%`],
+        x: [`${xPct}%`, `${xPct + (Math.random() - 0.5) * 5}%`]
       }}
       transition={{
         duration: duration,
@@ -36,8 +36,8 @@ const Sparks = () => {
     return Array.from({ length: 40 }).map((_, i) => ({
       id: i,
       delay: Math.random() * 10,
-      x: Math.random() * 100 + "%",
-      y: Math.random() * 100 + "%",
+      xPct: Math.random() * 100,
+      yPct: Math.random() * 100,
       size: Math.random() * 3 + 1,
       duration: 3 + Math.random() * 4,
       color: i % 2 === 0 ? '#ff4d00' : '#ffae00'
