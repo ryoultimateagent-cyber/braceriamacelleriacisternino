@@ -52,7 +52,7 @@ const Intro = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-6xl md:text-7xl lg:text-[10rem] font-black text-white tracking-tighter leading-[0.8] uppercase italic"
+                className="text-5xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.8] uppercase italic"
               >
                 PURO <br />
                 <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>CARATTERE</span>
