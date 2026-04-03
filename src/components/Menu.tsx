@@ -184,7 +184,7 @@ const Menu = () => {
                     : "bg-transparent border-transparent hover:bg-white/5"
                 )}>
                   <span className={cn(
-                    "text-3xl lg:text-5xl font-black transition-colors duration-500 italic",
+                    "text-2xl lg:text-3xl font-black transition-colors duration-500 italic",
                     activeIndex === index ? "text-primary" : "text-white/10"
                   )}>
                     {item.num}
