@@ -2,7 +2,7 @@ import { Globe, Share2, ArrowUp } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import logoImg from "@/assets/logo-cisternino.jpg";
+
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -26,9 +26,6 @@ const Footer = () => {
           
           <div className="lg:col-span-1 space-y-6">
             <div className="space-y-4">
-              <div className="h-12 w-12 rounded-full overflow-hidden border border-primary/20">
-                <img src={logoImg} alt="Logo Belvedere" className="w-full h-full object-cover" />
-              </div>
               <div className="space-y-1">
                 <h2 className="text-xl font-black italic tracking-tighter leading-none uppercase">
                   BELVEDERE<span className="text-primary">.</span>
