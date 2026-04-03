@@ -85,7 +85,7 @@ const Header = () => {
             
             <Button 
               asChild 
-              className="rounded-full px-8 h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter"
+              className="rounded-full px-6 h-10 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter"
             >
               <a href="tel:+390804058608" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />

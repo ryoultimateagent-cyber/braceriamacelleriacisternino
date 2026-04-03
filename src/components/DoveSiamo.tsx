@@ -47,7 +47,7 @@ const DoveSiamo = () => {
             </div>
 
             <div className="pt-12 border-t border-white/10">
-               <Button asChild size="lg" className="h-20 px-12 bg-primary hover:bg-primary/90 text-white font-black italic uppercase tracking-tighter rounded-[2rem] shadow-[0_20px_50px_rgba(204,0,0,0.3)] text-xl">
+               <Button asChild size="lg" className="h-16 px-12 bg-primary hover:bg-primary/90 text-white font-black italic uppercase tracking-tighter rounded-[2rem] shadow-[0_20px_50px_rgba(204,0,0,0.3)] text-lg">
                  <a href="https://maps.google.com/?q=Via+Giuseppe+Verdi+5C+Putignano+Italy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
                    <Navigation className="w-6 h-6" />
                    CALCOLA PERCORSO

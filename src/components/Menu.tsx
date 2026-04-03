@@ -244,7 +244,7 @@ const Menu = () => {
         <div className="text-center mt-32">
           <Button 
             asChild 
-            className="h-20 px-16 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-lg rounded-full active:scale-95 transition-all shadow-[0_20px_60px_rgba(255,255,255,0.1)]"
+            className="h-16 px-16 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-base rounded-full active:scale-95 transition-all shadow-[0_20px_60px_rgba(255,255,255,0.1)]"
           >
             <a href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               SCARICA IL MENÙ DIGITALE

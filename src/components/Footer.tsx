@@ -35,7 +35,7 @@ const Footer = () => {
           
           <div className="lg:col-span-1 space-y-10">
             <div className="space-y-6">
-              <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-primary/20 shadow-[0_0_30px_rgba(204,0,0,0.3)]">
+              <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-primary/20 shadow-[0_0_30px_rgba(204,0,0,0.3)]">
                 <img src={logoImg} alt="Logo Belvedere" className="w-full h-full object-cover" />
               </div>
               <div className="space-y-2">

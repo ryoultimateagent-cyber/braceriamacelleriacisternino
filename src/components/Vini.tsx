@@ -45,7 +45,7 @@ const Vini = () => {
 
             <Button 
               asChild 
-              className="h-20 px-12 bg-primary hover:bg-primary/90 text-white font-black italic uppercase tracking-tighter rounded-full shadow-[0_20px_50px_rgba(204,0,0,0.3)] text-xl group"
+              className="h-16 px-12 bg-primary hover:bg-primary/90 text-white font-black italic uppercase tracking-tighter rounded-full shadow-[0_20px_50px_rgba(204,0,0,0.3)] text-lg group"
             >
               <a href="#prenota" className="flex items-center gap-4">
                 <Wine className="w-6 h-6 transition-transform group-hover:rotate-12" />
