@@ -26,7 +26,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="storia" className="relative bg-[#080808] overflow-hidden py-32 md:py-48">
+    <section id="storia" className="relative bg-[#080808] overflow-hidden py-20 md:py-28">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-red-950/10 to-transparent pointer-events-none" />
       <div className="absolute -left-20 top-40 w-64 h-64 bg-orange-600/5 blur-[120px] rounded-full pointer-events-none" />
@@ -52,7 +52,7 @@ const Intro = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-5xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.8] uppercase italic"
+                className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic"
               >
                 PURO <br />
                 <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>CARATTERE</span>
@@ -63,7 +63,7 @@ const Intro = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="text-white/50 text-xl md:text-2xl font-medium leading-relaxed max-w-2xl italic"
+                className="text-white/50 text-lg md:text-xl font-medium leading-relaxed max-w-2xl italic"
               >
                 Al Belvedere non serviamo solo carne. Celebriamo un rito che affonda le radici nella nostra terra, Putignano, portando in tavola l'anima della Puglia.
               </motion.p>
@@ -114,9 +114,9 @@ const Intro = () => {
               />
               
               {/* Floating Badge */}
-              <div className="absolute -bottom-10 -left-10 z-20 bg-primary p-12 rounded-full shadow-2xl border-[12px] border-[#080808]">
+              <div className="absolute -bottom-10 -left-10 z-20 bg-primary p-8 rounded-full shadow-2xl border-[12px] border-[#080808]">
                 <div className="flex flex-col items-center">
-                  <span className="text-white text-5xl font-black italic leading-none">38</span>
+                  <span className="text-white text-4xl font-black italic leading-none">38</span>
                   <span className="text-white/80 text-[10px] font-black uppercase tracking-widest mt-1">ANNI</span>
                 </div>
               </div>
@@ -124,7 +124,7 @@ const Intro = () => {
             
             {/* Background Text Decoration */}
             <div className="absolute -right-20 -bottom-20 pointer-events-none opacity-[0.03] select-none">
-              <span className="text-[20rem] font-black text-white leading-none uppercase italic">B</span>
+              <span className="text-[15rem] font-black text-white leading-none uppercase italic">B</span>
             </div>
           </div>
 

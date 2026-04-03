@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Prenota = () => {
   return (
-    <section id="prenota" className="min-h-screen py-24 md:py-32 lg:py-48 bg-black relative flex items-center justify-center overflow-hidden">
+    <section id="prenota" className="min-h-screen py-16 md:py-24 lg:py-28 bg-black relative flex items-center justify-center overflow-hidden">
       {/* Dynamic Particle Background */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(20)].map((_, i) => (
@@ -23,10 +23,10 @@ const Prenota = () => {
           <div className="space-y-12">
             <div className="space-y-6">
               <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">ASSICURA IL TUO POSTO</span>
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
                 IL GUSTO <br /> <span className="text-primary">AUTENTICO</span>
               </h2>
-              <p className="text-white/60 text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl">
+              <p className="text-white/60 text-lg lg:text-xl font-medium leading-relaxed max-w-2xl">
                 Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
               </p>
             </div>
@@ -54,9 +54,9 @@ const Prenota = () => {
           </div>
 
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-[4rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
             
-            <div className="relative bg-[#050505] p-12 md:p-20 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center">
+            <div className="relative bg-[#050505] p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl flex flex-col items-center text-center">
                <div className="w-24 h-24 rounded-3xl bg-white/5 flex items-center justify-center mb-12 relative">
                   <Phone className="w-10 h-10 text-primary" />
                   <div className="absolute inset-0 rounded-3xl border-2 border-primary animate-ping opacity-20" />
@@ -68,7 +68,7 @@ const Prenota = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="tel:+390804058608"
-                className="text-4xl md:text-5xl lg:text-6xl font-black text-primary tracking-tighter italic mb-12 hover:drop-shadow-[0_0_20px_rgba(204,0,0,0.4)] transition-all"
+                className="text-3xl md:text-4xl lg:text-5xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_20px_rgba(204,0,0,0.4)] transition-all"
                >
                  080 405 8608
                </motion.a>

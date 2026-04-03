@@ -32,15 +32,15 @@ const Recensioni = () => {
   }, []);
 
   return (
-    <section id="recensioni" className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden">
-      <div className="section-container mb-24 text-center">
+    <section id="recensioni" className="py-16 md:py-24 lg:py-28 bg-black relative overflow-hidden">
+      <div className="section-container mb-16 text-center">
         <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic mb-4">VOCI D'ECCELLENZA</span>
-        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
           I NOSTRI <br /> <span className="text-primary">OSPITI</span>
         </h2>
       </div>
 
-      <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[450px] flex items-center justify-center overflow-hidden">
         <div className="relative w-full max-w-7xl px-8 flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {reviews.map((review, i) => {
@@ -62,7 +62,7 @@ const Recensioni = () => {
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-8 lg:p-16 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-6 lg:p-10 rounded-[3rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
                   onClick={() => !isCenter && setIndex(i)}
                 >
                   <Quote className="w-20 h-20 text-primary/10 mb-8" />
@@ -71,7 +71,7 @@ const Recensioni = () => {
                       <Star key={j} className="w-6 h-6 fill-current" />
                     ))}
                   </div>
-                  <p className="text-2xl lg:text-3xl font-black italic text-white leading-tight mb-12">
+                  <p className="text-xl lg:text-2xl font-black italic text-white leading-tight mb-8">
                     "{review.text}"
                   </p>
                   <div className="pt-10 border-t border-white/10 w-full">

@@ -126,7 +126,7 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden"
+      className="py-16 md:py-24 lg:py-28 bg-black relative overflow-hidden"
       aria-label="I nostri servizi"
     >
       {/* Background Separators */}
@@ -157,9 +157,9 @@ const Menu = () => {
       </svg>
 
       <div className="section-container relative z-10">
-        <div className="mb-24 space-y-4">
+        <div className="mb-16 space-y-4">
           <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">QUALITÀ E ACCOGLIENZA</span>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
             I NOSTRI <br /> <span className="text-primary">SERVIZI</span>
           </h2>
         </div>
@@ -178,13 +178,13 @@ const Menu = () => {
                 tabIndex={0}
               >
                 <div className={cn(
-                  "flex items-start gap-8 p-10 transition-all duration-700 rounded-[2rem] border-2",
+                  "flex items-start gap-8 p-6 transition-all duration-700 rounded-[2rem] border-2",
                   activeIndex === index 
                     ? "bg-white/5 border-primary shadow-[0_0_50px_rgba(204,0,0,0.15)] scale-[1.02]" 
                     : "bg-transparent border-transparent hover:bg-white/5"
                 )}>
                   <span className={cn(
-                    "text-3xl lg:text-5xl font-black transition-colors duration-500 italic",
+                    "text-2xl lg:text-3xl font-black transition-colors duration-500 italic",
                     activeIndex === index ? "text-primary" : "text-white/10"
                   )}>
                     {item.num}
@@ -193,7 +193,7 @@ const Menu = () => {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className={cn(
-                        "text-2xl lg:text-4xl font-black transition-colors duration-500 uppercase italic tracking-tighter",
+                        "text-xl lg:text-2xl font-black transition-colors duration-500 uppercase italic tracking-tighter",
                         activeIndex === index ? "text-white" : "text-white/40 group-hover:text-white"
                       )}>
                         {item.name}
@@ -205,7 +205,7 @@ const Menu = () => {
                       )}
                     </div>
                     <p className={cn(
-                      "text-lg lg:text-xl leading-relaxed transition-all duration-700 font-medium",
+                      "text-base lg:text-lg leading-relaxed transition-all duration-700 font-medium",
                       activeIndex === index ? "text-white/60" : "text-white/0 opacity-0 max-h-0 overflow-hidden"
                     )}>
                       {item.desc}
@@ -244,7 +244,7 @@ const Menu = () => {
         <div className="text-center mt-32">
           <Button 
             asChild 
-            className="h-20 px-16 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-lg rounded-full active:scale-95 transition-all shadow-[0_20px_60px_rgba(255,255,255,0.1)]"
+            className="h-16 px-16 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-base rounded-full active:scale-95 transition-all shadow-[0_20px_60px_rgba(255,255,255,0.1)]"
           >
             <a href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               SCARICA IL MENÙ DIGITALE

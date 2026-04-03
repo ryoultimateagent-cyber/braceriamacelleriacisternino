@@ -48,7 +48,7 @@ const Header = () => {
             className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >
-            <div className="relative h-12 md:h-16 aspect-square rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors shadow-[0_0_20px_rgba(204,0,0,0.2)]">
+            <div className="relative h-10 md:h-12 aspect-square rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors shadow-[0_0_20px_rgba(204,0,0,0.2)]">
               <img 
                 src={logoImg} 
                 alt="Logo Macelleria Belvedere" 
@@ -56,7 +56,7 @@ const Header = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
+              <span className="text-lg md:text-xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                 BELVEDERE<span className="text-primary">.</span>
               </span>
               <span className="text-[9px] font-bold text-white/50 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
@@ -85,7 +85,7 @@ const Header = () => {
             
             <Button 
               asChild 
-              className="rounded-full px-8 h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter"
+              className="rounded-full px-6 h-10 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter"
             >
               <a href="tel:+390804058608" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
