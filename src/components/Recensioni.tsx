@@ -62,7 +62,7 @@ const Recensioni = () => {
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-8 lg:p-16 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-6 lg:p-10 rounded-[3rem] border border-white/10 shadow-2xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
                   onClick={() => !isCenter && setIndex(i)}
                 >
                   <Quote className="w-20 h-20 text-primary/10 mb-8" />
