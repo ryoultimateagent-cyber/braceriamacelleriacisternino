@@ -37,44 +37,48 @@ const Galleria = () => {
       </div>
 
       <div 
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto px-[8%] pb-16 no-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-6 md:px-12 max-w-7xl mx-auto"
       >
         {images.map((img, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.01 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            whileHover={{ scale: 1.02 }}
             onClick={() => setSelectedIndex(i)}
-            className="flex-shrink-0 w-[85vw] md:w-[50vw] lg:w-[40vw] aspect-[16/9] rounded-[2rem] overflow-hidden border border-white/5 snap-center relative group cursor-pointer fire-glow-card"
+            className={`
+              relative group cursor-pointer overflow-hidden rounded-[2.5rem] 
+              border border-white/10 fire-glow-card
+              ${i % 3 === 0 ? "md:col-span-2 lg:col-span-2 aspect-[16/9]" : "aspect-[4/5] md:aspect-square lg:aspect-[4/5]"}
+              ${i === 1 ? "lg:mt-12" : ""}
+              ${i === 2 ? "lg:-mt-12" : ""}
+              ${i === 4 ? "md:col-span-2 aspect-video" : ""}
+            `}
           >
             <img 
               src={img.src} 
               alt={img.title} 
-              className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+              className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 scale-105 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             
-            <div className="absolute bottom-8 left-8">
-               <h3 className="text-lg md:text-xl font-black text-white italic uppercase tracking-tighter">{img.title}</h3>
+            {/* Fire Overlay Effect */}
+            <div className="fire-effect opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+            
+            <div className="absolute bottom-8 left-8 right-8 transform group-hover:translate-y-[-8px] transition-transform duration-500">
+               <h3 className="text-xl md:text-2xl font-black text-white italic uppercase tracking-tighter drop-shadow-lg">{img.title}</h3>
             </div>
             
             <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-               <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white">
+               <div className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-xl border border-primary/30 flex items-center justify-center text-white">
                   <Maximize2 className="w-5 h-5" />
                </div>
             </div>
           </motion.div>
         ))}
-      </div>
-
-      {/* Custom Scroll Progress */}
-      <div className="section-container flex justify-center">
-         <div className="w-48 h-0.5 bg-white/5 rounded-full relative overflow-hidden">
-            <motion.div 
-              style={{ scaleX: scrollXProgress }}
-              className="absolute inset-0 bg-primary origin-left"
-            />
-         </div>
       </div>
 
       <AnimatePresence>
