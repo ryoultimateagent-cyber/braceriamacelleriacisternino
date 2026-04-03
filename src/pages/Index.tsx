@@ -13,9 +13,10 @@ import Sparks from "@/components/Sparks";
 import React from "react";
 
 const GlowingSeparator = () => (
-  <div className="h-32 w-full relative overflow-hidden pointer-events-none">
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[1px] bg-gradient-to-r from-transparent via-orange-500 via-red-600 via-yellow-400 to-transparent opacity-30 shadow-[0_0_15px_rgba(255,69,0,0.5)]" />
+  <div className="h-48 w-full relative overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[2px] bg-gradient-to-r from-transparent via-red-900 via-orange-600 via-yellow-400 via-orange-600 via-red-900 to-transparent opacity-40 blur-[1px] shadow-[0_0_30px_rgba(255,69,0,0.8)]" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[150px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-950/20 via-black/40 to-transparent" />
   </div>
 );
 
