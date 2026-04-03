@@ -69,7 +69,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-primary translate-y-0 group-hover:-translate-y-full transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
             <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
             <span className="relative z-10 text-white group-hover:text-black font-black uppercase tracking-widest text-sm transition-colors duration-500">
-              Prenota Ora
+              Prenota un tavolo
             </span>
           </a>
           
