@@ -94,7 +94,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary border border-primary/30">
           {item.category}
         </span>
-        <h3 className={`font-black text-white uppercase italic tracking-tighter mb-4 ${item.large ? 'text-3xl lg:text-5xl' : 'text-xl lg:text-2xl'}`}>
+        <h3 className={`font-black text-white uppercase italic tracking-tighter mb-4 ${item.large ? 'text-2xl lg:text-4xl' : 'text-xl lg:text-2xl'}`}>
           {item.name}
         </h3>
         {item.large && item.desc && (
