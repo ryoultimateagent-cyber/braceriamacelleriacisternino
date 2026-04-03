@@ -116,9 +116,6 @@ const Header = () => {
           >
             <div className="flex justify-between items-center mb-16">
              <div className="flex items-center gap-3">
-               <div className="h-10 w-10 rounded-full overflow-hidden border border-primary/30">
-                 <img src={logoImg} alt="" className="w-full h-full object-cover" />
-               </div>
                <span className="text-3xl font-black italic">BELVEDERE<span className="text-primary">.</span></span>
              </div>
              <button onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase opacity-50">Chiudi</button>
