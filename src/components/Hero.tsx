@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Steak3D from "./Steak3D";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
@@ -11,20 +10,28 @@ const Hero = () => {
     >
       <Steak3D />
       
-      {/* Background Image Layer */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 grayscale mix-blend-overlay"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
-
-      {/* Conic Gradient Base Layer */}
-      <div className="absolute inset-0 conic-gradient-bg opacity-30" />
+      {/* Fire Background Video Layer */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-50 grayscale mix-blend-screen"
+        >
+          <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc4c0490795415309923838048995a5f17849e7a&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
       {/* Noise Overlay */}
       <div className="hero-noise" />
 
+      {/* Fire Glow Base Layer */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10" />
+
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black z-20" />
 
       {/* Contenuto Testuale Centrato */}
       <div className="relative z-30 text-center px-6 max-w-5xl flex flex-col items-center">
