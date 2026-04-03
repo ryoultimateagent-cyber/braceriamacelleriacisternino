@@ -193,7 +193,7 @@ const Menu = () => {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className={cn(
-                        "text-2xl lg:text-4xl font-black transition-colors duration-500 uppercase italic tracking-tighter",
+                        "text-xl lg:text-2xl font-black transition-colors duration-500 uppercase italic tracking-tighter",
                         activeIndex === index ? "text-white" : "text-white/40 group-hover:text-white"
                       )}>
                         {item.name}
