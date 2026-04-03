@@ -98,7 +98,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
           {item.name}
         </h3>
         {item.large && item.desc && (
-           <p className="max-w-md text-white/60 text-lg font-medium leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+           <p className="max-w-md text-white/60 text-base font-medium leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
              {item.desc}
            </p>
         )}
