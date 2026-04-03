@@ -23,10 +23,10 @@ const Prenota = () => {
           <div className="space-y-12">
             <div className="space-y-6">
               <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">ASSICURA IL TUO POSTO</span>
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
                 IL GUSTO <br /> <span className="text-primary">AUTENTICO</span>
               </h2>
-              <p className="text-white/60 text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl">
+              <p className="text-white/60 text-lg lg:text-xl font-medium leading-relaxed max-w-2xl">
                 Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
               </p>
             </div>
