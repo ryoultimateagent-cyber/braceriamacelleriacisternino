@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const DoveSiamo = () => {
   return (
-    <section id="dovesiamo" className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden">
+    <section id="dovesiamo" className="py-16 md:py-24 lg:py-28 bg-black relative overflow-hidden">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-24 items-center">
           

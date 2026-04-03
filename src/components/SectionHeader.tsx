@@ -18,7 +18,7 @@ const SectionHeader = ({
 }: SectionHeaderProps) => {
   return (
     <div className={cn(
-      "mb-16 md:mb-24",
+      "mb-12 md:mb-16",
       align === "center" && "text-center",
       align === "left" && "text-left",
       align === "right" && "text-right",

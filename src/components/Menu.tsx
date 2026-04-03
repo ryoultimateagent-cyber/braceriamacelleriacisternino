@@ -126,7 +126,7 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="py-24 md:py-32 lg:py-48 bg-black relative overflow-hidden"
+      className="py-16 md:py-24 lg:py-28 bg-black relative overflow-hidden"
       aria-label="I nostri servizi"
     >
       {/* Background Separators */}

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Prenota = () => {
   return (
-    <section id="prenota" className="min-h-screen py-24 md:py-32 lg:py-48 bg-black relative flex items-center justify-center overflow-hidden">
+    <section id="prenota" className="min-h-screen py-16 md:py-24 lg:py-28 bg-black relative flex items-center justify-center overflow-hidden">
       {/* Dynamic Particle Background */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(20)].map((_, i) => (
