@@ -1,26 +1,24 @@
 import { motion } from "framer-motion";
-import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
-// ... keep existing imports
-
+import { ChefHat, ShieldCheck, Flame, Award, ArrowRight } from "lucide-react";
 
 const features = [
   { 
-    icon: <Flame className="w-8 h-8" />, 
+    icon: <Flame className="w-6 h-6" />, 
     title: "Brace Autentica", 
     desc: "Cottura tradizionale su legna selezionata per un sapore inconfondibile." 
   },
   { 
-    icon: <ShieldCheck className="w-8 h-8" />, 
+    icon: <ShieldCheck className="w-6 h-6" />, 
     title: "Qualità Certificata", 
     desc: "Solo carni di filiera controllata e frollature artigianali." 
   },
   { 
-    icon: <Award className="w-8 h-8" />, 
+    icon: <Award className="w-6 h-6" />, 
     title: "Eredità Familiare", 
     desc: "Passione e segreti del mestiere tramandati dal 1980." 
   },
   { 
-    icon: <ChefHat className="w-8 h-8" />, 
+    icon: <ChefHat className="w-6 h-6" />, 
     title: "Maestria al Taglio", 
     desc: "Macellai esperti che conoscono ogni segreto della materia prima." 
   },
@@ -28,77 +26,109 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="storia" className="section-container section-spacing bg-transparent relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 md:gap-24 items-center">
-        
-        {/* Left: Content */}
-        <div className="space-y-12">
-          <div className="space-y-6">
-            <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block text-reveal">ECCELLENZA DAL 1986</span>
-            <h2 className="text-5xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] text-reveal uppercase italic">
-              LA FILOSOFIA <br /> 
-              <span className="text-primary">DEL GUSTO</span>
-            </h2>
-            <p className="text-white/60 text-xl font-medium leading-relaxed max-w-2xl text-reveal" style={{ animationDelay: '0.2s' }}>
-              Selezioniamo solo l'eccellenza. Per noi, la carne non è un semplice prodotto, è una vocazione che onoriamo ogni giorno con passione e dedizione.
-            </p>
-          </div>
+    <section id="storia" className="relative bg-[#080808] overflow-hidden py-32 md:py-48">
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-red-950/10 to-transparent pointer-events-none" />
+      <div className="absolute -left-20 top-40 w-64 h-64 bg-orange-600/5 blur-[120px] rounded-full pointer-events-none" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-12 border-t border-white/10">
-            {features.map((f, i) => (
-              <motion.article 
-                key={i} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i }}
-                viewport={{ once: true }}
-                className="group p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-500"
-              >
-                <div className="mb-6 p-4 inline-block rounded-2xl bg-white/5 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl">
-                  {f.icon}
-                </div>
-                <h3 className="text-white font-black uppercase tracking-tight text-lg mb-2 italic">
-                  {f.title}
-                </h3>
-                <p className="text-white/40 text-sm leading-relaxed font-medium">
-                  {f.desc}
-                </p>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-
-        {/* Right: Decorative Image or Badge */}
-        <div className="relative group flex justify-center items-center">
-          <div className="relative w-full max-w-[500px] aspect-square flex justify-center items-center">
-            {/* Elegant Placeholder for 3D Content */}
-            <div className="w-full h-full bg-white/5 rounded-full flex items-center justify-center border border-white/10 shadow-2xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <img 
-                src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                alt="Grill Specialty" 
-                className="w-[85%] h-[85%] object-cover rounded-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
-              />
-            </div>
-             
-             {/* Floating Info Badge */}
-             <motion.div 
-               initial={{ scale: 0, rotate: -15 }}
-               whileInView={{ scale: 1, rotate: 0 }}
-               viewport={{ once: true }}
-               transition={{ type: "spring", damping: 15 }}
-               className="absolute -bottom-6 -right-4 bg-primary text-white p-8 md:p-10 rounded-full shadow-[0_20px_60px_-10px_rgba(204,0,0,0.6)] flex flex-col items-center justify-center border-4 border-black z-10"
-             >
-               <span className="text-4xl md:text-5xl font-black italic leading-none mb-1">35+</span>
-               <span className="text-[10px] uppercase tracking-[0.3em] font-black italic">ANNI DI ARTE</span>
-             </motion.div>
-          </div>
+      <div className="section-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
-          {/* Decorative Circles */}
-          <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full animate-pulse" />
-          <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border border-white/5 rounded-full opacity-50" />
-        </div>
+          {/* Content Section */}
+          <div className="lg:col-span-7 space-y-16">
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4"
+              >
+                <div className="h-[2px] w-12 bg-primary" />
+                <span className="text-primary text-xs font-black uppercase tracking-[0.5em] italic">L'Eccellenza Pugliese</span>
+              </motion.div>
 
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="text-6xl md:text-7xl lg:text-[10rem] font-black text-white tracking-tighter leading-[0.8] uppercase italic"
+              >
+                PURO <br />
+                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>CARATTERE</span>
+              </motion.h2>
+
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="text-white/50 text-xl md:text-2xl font-medium leading-relaxed max-w-2xl italic"
+              >
+                Al Belvedere non serviamo solo carne. Celebriamo un rito che affonda le radici nella nostra terra, Putignano, portando in tavola l'anima della Puglia.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+              {features.map((f, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="mt-1 p-3 rounded-xl bg-white/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                      {f.icon}
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-white font-black uppercase tracking-tight text-lg italic group-hover:text-primary transition-colors">
+                        {f.title}
+                      </h3>
+                      <p className="text-white/30 text-sm leading-relaxed font-medium">
+                        {f.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Visual Section */}
+          <div className="lg:col-span-5 relative">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative aspect-[4/5] w-full group overflow-hidden rounded-2xl"
+            >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700 z-10" />
+              <img 
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                alt="Maestria Pugliese" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+              />
+              
+              {/* Floating Badge */}
+              <div className="absolute -bottom-10 -left-10 z-20 bg-primary p-12 rounded-full shadow-2xl border-[12px] border-[#080808]">
+                <div className="flex flex-col items-center">
+                  <span className="text-white text-5xl font-black italic leading-none">38</span>
+                  <span className="text-white/80 text-[10px] font-black uppercase tracking-widest mt-1">ANNI</span>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Background Text Decoration */}
+            <div className="absolute -right-20 -bottom-20 pointer-events-none opacity-[0.03] select-none">
+              <span className="text-[20rem] font-black text-white leading-none uppercase italic">B</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
