@@ -38,9 +38,9 @@ const DoveSiamo = () => {
                 </div>
                 <div className="space-y-2">
                    <h4 className="text-primary font-black text-xs uppercase tracking-widest italic">ORARI</h4>
-                   <div className="text-white text-3xl font-black italic uppercase tracking-tighter leading-tight">
+                   <div className="text-white text-2xl font-black italic uppercase tracking-tighter leading-tight">
                      Lun - Sab: 08–13 | 17–00<br />
-                     <span className="text-primary/50 text-2xl">Mar e Dom: CHIUSO</span>
+                     <span className="text-primary/50 text-xl">Mar e Dom: CHIUSO</span>
                    </div>
                 </div>
               </article>
