@@ -91,7 +91,7 @@ const Sparks = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-[10] opacity-70 h-full w-full"
+      className="fixed inset-0 pointer-events-none z-[40] opacity-70 h-full w-full"
       style={{ mixBlendMode: 'screen' }}
     />
   );
