@@ -205,7 +205,7 @@ const Menu = () => {
                       )}
                     </div>
                     <p className={cn(
-                      "text-lg lg:text-xl leading-relaxed transition-all duration-700 font-medium",
+                      "text-base lg:text-lg leading-relaxed transition-all duration-700 font-medium",
                       activeIndex === index ? "text-white/60" : "text-white/0 opacity-0 max-h-0 overflow-hidden"
                     )}>
                       {item.desc}

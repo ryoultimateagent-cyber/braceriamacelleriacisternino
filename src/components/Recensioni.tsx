@@ -71,7 +71,7 @@ const Recensioni = () => {
                       <Star key={j} className="w-6 h-6 fill-current" />
                     ))}
                   </div>
-                  <p className="text-2xl lg:text-3xl font-black italic text-white leading-tight mb-12">
+                  <p className="text-xl lg:text-2xl font-black italic text-white leading-tight mb-8">
                     "{review.text}"
                   </p>
                   <div className="pt-10 border-t border-white/10 w-full">

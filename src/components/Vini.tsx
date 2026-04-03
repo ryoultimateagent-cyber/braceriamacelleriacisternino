@@ -21,10 +21,10 @@ const Vini = () => {
           <div className="space-y-12">
             <div className="space-y-6">
               <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">L'INCONTRO PERFETTO</span>
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
                 LA NOSTRA <br /> <span className="text-primary">CANTINA</span>
               </h2>
-              <p className="text-white/60 text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl italic">
+              <p className="text-white/60 text-lg lg:text-xl font-medium leading-relaxed max-w-2xl italic">
                 "Il vino è il compagno della buona carne. Abbiamo curato una selection che celebra il territorio, dai rossi profondi ai bianchi minerali."
               </p>
             </div>
