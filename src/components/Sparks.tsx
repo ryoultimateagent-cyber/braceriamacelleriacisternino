@@ -59,7 +59,7 @@ const Sparks = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden h-full w-full opacity-40">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden h-full w-full opacity-60">
       {sparks.map((spark) => (
         <Spark key={spark.id} {...spark} />
       ))}
