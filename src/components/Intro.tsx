@@ -26,7 +26,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="storia" className="relative bg-[#080808] overflow-hidden py-32 md:py-48">
+    <section id="storia" className="relative bg-[#080808] overflow-hidden py-20 md:py-28">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-red-950/10 to-transparent pointer-events-none" />
       <div className="absolute -left-20 top-40 w-64 h-64 bg-orange-600/5 blur-[120px] rounded-full pointer-events-none" />
