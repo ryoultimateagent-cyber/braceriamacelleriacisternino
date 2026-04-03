@@ -178,7 +178,7 @@ const Menu = () => {
                 tabIndex={0}
               >
                 <div className={cn(
-                  "flex items-start gap-8 p-10 transition-all duration-700 rounded-[2rem] border-2",
+                  "flex items-start gap-8 p-6 transition-all duration-700 rounded-[2rem] border-2",
                   activeIndex === index 
                     ? "bg-white/5 border-primary shadow-[0_0_50px_rgba(204,0,0,0.15)] scale-[1.02]" 
                     : "bg-transparent border-transparent hover:bg-white/5"
