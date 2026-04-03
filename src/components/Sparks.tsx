@@ -59,8 +59,8 @@ const Sparks = () => {
     }
 
     const init = () => {
-      // Reduced count from 80 to 30 as per plan
-      particles = Array.from({ length: 30 }, () => new Particle());
+      // Increased count for better fire effect
+      particles = Array.from({ length: 120 }, () => new Particle());
     };
 
     const animate = () => {
