@@ -32,26 +32,15 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="relative z-30 flex flex-col items-center text-center px-4 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6"
-        >
-          <span className="text-orange-500/80 font-black tracking-[0.5em] text-[10px] sm:text-xs uppercase italic drop-shadow-sm">
-            DAL 1986 A PUTIGNANO
-          </span>
-        </motion.div>
-
-        <div className="relative mb-10">
+        <div className="relative mb-6">
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-white font-black tracking-tighter leading-[0.85] text-[clamp(3.5rem,15vw,9.5rem)] font-display uppercase italic drop-shadow-[0_0_30px_rgba(255,0,0,0.2)]"
+            className="text-white font-black tracking-tighter leading-tight text-[clamp(2.5rem,8vw,6rem)] font-sans uppercase"
+            style={{ textShadow: "0 0 30px rgba(255, 107, 0, 0.6)" }}
           >
-            BRACE <br />
-            <span className="text-primary">&</span> PASSIONE
+            Macelleria <br className="sm:hidden" /> Belvedere
           </motion.h1>
           
           {/* Subtle Glow behind text */}
@@ -62,9 +51,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="text-white/70 font-medium mb-16 max-w-2xl text-[clamp(1rem,2.5vw,1.4rem)] leading-relaxed uppercase tracking-wider italic"
+          className="text-white/85 font-light mb-12 max-w-2xl text-[clamp(1rem,2vw,1.5rem)] leading-relaxed"
         >
-          L'eccellenza della materia prima incontra l'anima del fuoco in un viaggio sensoriale senza tempo.
+          Tradizione, qualità e brace — dal 1986 a Putignano
         </motion.p>
 
         <motion.div 
@@ -80,7 +69,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-primary translate-y-0 group-hover:-translate-y-full transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
             <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
             <span className="relative z-10 text-white group-hover:text-black font-black uppercase tracking-widest text-sm transition-colors duration-500">
-              Prenota Ora
+              Prenota un tavolo
             </span>
           </a>
           
