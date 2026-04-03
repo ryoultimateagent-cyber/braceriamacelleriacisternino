@@ -56,7 +56,7 @@ const Header = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
+              <span className="text-lg md:text-xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                 BELVEDERE<span className="text-primary">.</span>
               </span>
               <span className="text-[9px] font-bold text-white/50 tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
