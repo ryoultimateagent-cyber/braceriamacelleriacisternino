@@ -30,19 +30,23 @@ const Sparks = () => {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 1.5 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = -(Math.random() * 1.2 + 0.3);
-        this.opacity = Math.random() * 0.3 + 0.1;
-        this.color = Math.random() > 0.5 ? '#ff4400' : '#ffbb00';
+        this.size = Math.random() * 2.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.speedY = -(Math.random() * 2.5 + 0.5);
+        this.opacity = Math.random() * 0.6 + 0.2;
+        this.color = Math.random() > 0.4 ? '#ff4400' : (Math.random() > 0.5 ? '#ffbb00' : '#ffffff');
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.y < 0) {
-          this.y = canvas.height;
+        this.opacity -= 0.0015;
+        
+        if (this.y < 0 || this.opacity <= 0) {
+          this.y = canvas.height + 10;
           this.x = Math.random() * canvas.width;
+          this.opacity = Math.random() * 0.6 + 0.2;
+          this.speedY = -(Math.random() * 2.5 + 0.5);
         }
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
