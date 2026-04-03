@@ -110,7 +110,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
       
       {/* Animated Gradient Border */}
       <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute inset-[-1px] rounded-[3rem] border border-primary/50" />
+        <div className="absolute inset-[-1px] rounded-[2rem] border border-primary/50" />
       </div>
     </motion.div>
   );

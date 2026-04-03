@@ -71,7 +71,7 @@ const DoveSiamo = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
               
               <div className="absolute top-12 right-12 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-                <div className="bg-white/10 backdrop-blur-xl p-8 rounded-[2rem] border border-white/20">
+                <div className="bg-white/10 backdrop-blur-xl p-6 rounded-[2rem] border border-white/20">
                   <ExternalLink className="text-primary w-10 h-10" />
                 </div>
               </div>

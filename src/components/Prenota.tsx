@@ -54,9 +54,9 @@ const Prenota = () => {
           </div>
 
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-[4rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
             
-            <div className="relative bg-[#050505] p-12 md:p-20 rounded-[4rem] border border-white/10 shadow-2xl flex flex-col items-center text-center">
+            <div className="relative bg-[#050505] p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl flex flex-col items-center text-center">
                <div className="w-24 h-24 rounded-3xl bg-white/5 flex items-center justify-center mb-12 relative">
                   <Phone className="w-10 h-10 text-primary" />
                   <div className="absolute inset-0 rounded-3xl border-2 border-primary animate-ping opacity-20" />

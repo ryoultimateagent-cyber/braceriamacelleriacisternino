@@ -66,7 +66,7 @@ const Vini = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
               
-              <div className="absolute -bottom-10 -left-10 bg-primary text-white p-12 rounded-[3rem] shadow-2xl flex flex-col items-center border-4 border-black">
+              <div className="absolute -bottom-10 -left-10 bg-primary text-white p-8 rounded-[3rem] shadow-2xl flex flex-col items-center border-4 border-black">
                  <Star className="w-10 h-10 mb-2 fill-current" />
                  <span className="text-[10px] font-black uppercase tracking-widest italic">CRU SELECTION</span>
               </div>

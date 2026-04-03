@@ -124,7 +124,7 @@ const Intro = () => {
             
             {/* Background Text Decoration */}
             <div className="absolute -right-20 -bottom-20 pointer-events-none opacity-[0.03] select-none">
-              <span className="text-[20rem] font-black text-white leading-none uppercase italic">B</span>
+              <span className="text-[15rem] font-black text-white leading-none uppercase italic">B</span>
             </div>
           </div>
 
