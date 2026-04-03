@@ -218,7 +218,7 @@ const Menu = () => {
 
           <div className="flex justify-center lg:sticky lg:top-40 h-fit">
             <div className="relative w-full max-w-xl aspect-square">
-              <div className="absolute inset-0 z-20 rounded-[4rem] overflow-hidden border border-white/10">
+              <div className="absolute inset-0 z-20 rounded-[4rem] overflow-hidden border border-white/10 fire-glow-card">
                 <AnimatePresence mode="wait">
                   <motion.img 
                     key={activeIndex}
