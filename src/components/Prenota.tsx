@@ -23,7 +23,7 @@ const Prenota = () => {
           <div className="space-y-12">
             <div className="space-y-6">
               <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">ASSICURA IL TUO POSTO</span>
-              <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
                 IL GUSTO <br /> <span className="text-primary">AUTENTICO</span>
               </h2>
               <p className="text-white/60 text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl">
@@ -68,7 +68,7 @@ const Prenota = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="tel:+390804058608"
-                className="text-5xl md:text-6xl lg:text-7xl font-black text-primary tracking-tighter italic mb-12 hover:drop-shadow-[0_0_20px_rgba(204,0,0,0.4)] transition-all"
+                className="text-4xl md:text-5xl lg:text-6xl font-black text-primary tracking-tighter italic mb-12 hover:drop-shadow-[0_0_20px_rgba(204,0,0,0.4)] transition-all"
                >
                  080 405 8608
                </motion.a>

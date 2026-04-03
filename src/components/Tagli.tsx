@@ -94,7 +94,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary border border-primary/30">
           {item.category}
         </span>
-        <h3 className={`font-black text-white uppercase italic tracking-tighter mb-4 ${item.large ? 'text-4xl lg:text-6xl' : 'text-2xl lg:text-3xl'}`}>
+        <h3 className={`font-black text-white uppercase italic tracking-tighter mb-4 ${item.large ? 'text-3xl lg:text-5xl' : 'text-xl lg:text-2xl'}`}>
           {item.name}
         </h3>
         {item.large && item.desc && (
@@ -121,7 +121,7 @@ const Tagli = () => {
     <section id="brace" className="section-container section-spacing bg-transparent relative">
       <div className="mb-24 space-y-4">
         <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block text-reveal italic">SELEZIONE DI QUALITÀ</span>
-        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] text-reveal uppercase italic">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] text-reveal uppercase italic">
           LE NOSTRE <br /> <span className="text-primary">SPECIALITÀ</span>
         </h2>
       </div>

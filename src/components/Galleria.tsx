@@ -28,7 +28,7 @@ const Galleria = () => {
     <section id="galleria" className="py-24 md:py-32 lg:py-48 bg-black overflow-hidden relative">
       <div className="section-container mb-24">
         <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic mb-4">VISIONI DEL GUSTO</span>
-        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
           GALLERIA <br /> <span className="text-primary">VISIVA</span>
         </h2>
       </div>
