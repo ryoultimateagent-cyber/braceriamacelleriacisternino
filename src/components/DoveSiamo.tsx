@@ -11,7 +11,7 @@ const DoveSiamo = () => {
           <div className="space-y-16">
             <div className="space-y-6">
               <span className="text-primary text-xs font-black uppercase tracking-[0.4em] block italic">VIENI A TROVARCI</span>
-              <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-[0.9] uppercase italic">
                 DOVE <br /> <span className="text-primary">SIAMO</span>
               </h2>
             </div>
