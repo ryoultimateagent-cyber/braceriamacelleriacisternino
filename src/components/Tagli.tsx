@@ -89,7 +89,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
 
       <div 
         style={{ transform: "translateZ(100px)" }}
-        className="absolute inset-0 z-10 flex flex-col justify-end p-8 lg:p-12"
+        className="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-10"
       >
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary border border-primary/30">
           {item.category}
