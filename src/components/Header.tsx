@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import logoImg from "@/assets/logo-cisternino.jpg";
+
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
