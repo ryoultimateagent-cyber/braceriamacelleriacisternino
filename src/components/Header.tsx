@@ -48,7 +48,7 @@ const Header = () => {
             className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >
-            <div className="relative h-12 md:h-16 aspect-square rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors shadow-[0_0_20px_rgba(204,0,0,0.2)]">
+            <div className="relative h-10 md:h-12 aspect-square rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors shadow-[0_0_20px_rgba(204,0,0,0.2)]">
               <img 
                 src={logoImg} 
                 alt="Logo Macelleria Belvedere" 
