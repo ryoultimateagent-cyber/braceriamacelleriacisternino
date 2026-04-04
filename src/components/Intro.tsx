@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const features = [
   { 
