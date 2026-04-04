@@ -118,8 +118,8 @@ const Intro = () => {
               
               <div className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black">
                 <div className="flex flex-col items-center">
-                  <span className="text-white text-[60px] md:text-[80px] lg:text-[96px] font-bold italic leading-none tracking-[-3px]">38</span>
-                  <span className="text-white/50 text-[11px] font-medium uppercase tracking-[0.15em] mt-0.5">ANNI</span>
+                  <span className="text-white text-[50px] md:text-[70px] lg:text-[80px] font-bold italic leading-none tracking-[-3px]">38</span>
+                  <span className="text-white/50 text-[10px] font-medium uppercase tracking-[0.15em] mt-0.5">ANNI</span>
                 </div>
               </div>
             </motion.div>

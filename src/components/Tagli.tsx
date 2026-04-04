@@ -137,7 +137,7 @@ const Tagli = () => {
             >
               <div className="flex flex-col gap-1 flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <h3 className="text-[22px] font-semibold text-white tracking-[-0.3px] uppercase italic group-hover:text-primary transition-colors">
+                  <h3 className="text-[20px] font-semibold text-white tracking-[-0.3px] uppercase italic group-hover:text-primary transition-colors">
                     {item.name}
                   </h3>
                   <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/40">
