@@ -49,14 +49,16 @@ const Prenota = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500"
+              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500 overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/10 transition-colors" />
+              
               <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 relative group-hover:bg-primary/10 transition-colors">
                 <MessageCircle className="w-6 h-6 text-primary" />
                 <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/50 transition-colors" />
               </div>
               
-              <h3 className="text-xs font-bold text-white/50 uppercase tracking-[0.2em] mb-4 italic">WHATSAPP</h3>
+              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mb-4 italic">WHATSAPP</h3>
               
               <motion.a
                 whileHover={{ scale: 1.05 }}
@@ -64,11 +66,11 @@ const Prenota = () => {
                 href="https://wa.me/390804058608"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors"
+                className="text-2xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors uppercase"
               >
                 SCRIVICI ORA
               </motion.a>
-              <p className="text-[10px] text-white/30 uppercase tracking-widest italic">Risposta rapida</p>
+              <p className="text-[10px] text-white/30 uppercase tracking-[0.2em] italic font-medium">RISPOSTA IMMEDIATA</p>
             </motion.div>
 
             {/* Call Box */}
@@ -77,24 +79,26 @@ const Prenota = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500"
+              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500 overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/10 transition-colors" />
+              
               <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 relative group-hover:bg-primary/10 transition-colors">
                 <Phone className="w-6 h-6 text-primary" />
                 <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/50 transition-colors" />
               </div>
               
-              <h3 className="text-xs font-bold text-white/50 uppercase tracking-[0.2em] mb-4 italic">CHIAMATA</h3>
+              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mb-4 italic">CHIAMATA</h3>
               
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="tel:+390804058608"
-                className="text-xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors"
+                className="text-2xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors"
               >
                 080 405 8608
               </motion.a>
-              <p className="text-[10px] text-white/30 uppercase tracking-widest italic">Prenota un tavolo</p>
+              <p className="text-[10px] text-white/30 uppercase tracking-[0.2em] italic font-medium">PRENOTA UN TAVOLO</p>
             </motion.div>
           </div>
         </div>
