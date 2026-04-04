@@ -82,9 +82,9 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
            src={item.image} 
            alt={item.name} 
            variants={{
-             hover: { y: -30, scale: 1.1, filter: "grayscale(0) brightness(1)", opacity: 1 }
+             hover: { y: -25, scale: 1.15, filter: "grayscale(0) brightness(1.1)", opacity: 1 }
            }}
-           initial={{ y: 0, scale: 1, filter: "grayscale(1) brightness(0.5)", opacity: 0.5 }}
+           initial={{ y: 25, scale: 1.1, filter: "grayscale(1) brightness(0.4)", opacity: 0.6 }}
            transition={{ duration: 0.8, ease: "easeOut" }}
            className="h-full w-full object-cover"
         />
