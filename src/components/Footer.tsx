@@ -19,21 +19,21 @@ const Footer = () => {
   };
 
   return (
-    <footer role="contentinfo" className="py-12 bg-transparent text-white relative overflow-hidden border-t border-white/5">
+    <footer role="contentinfo" className="py-20 bg-transparent text-white relative overflow-hidden border-t border-white/5">
       <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-8">
             <div className="space-y-4">
-              <div className="space-y-1">
-                <h2 className="text-xl font-black italic tracking-tighter leading-none uppercase">
+              <div className="space-y-2">
+                <h2 className="text-2xl font-black italic tracking-tighter leading-none uppercase">
                   BELVEDERE<span className="text-primary">.</span>
                 </h2>
-                <p className="text-[11px] text-white/35 uppercase tracking-[0.15em] font-medium italic">DAL 1986 — PUTIGNANO</p>
+                <p className="text-[10px] text-white/30 uppercase tracking-[0.25em] font-bold italic">ECCELLENZA DAL 1986 — PUTIGNANO</p>
               </div>
             </div>
-            <p className="text-white/50 text-[14px] font-normal leading-relaxed italic">
-              Una tradizione di famiglia dedicata alla selezione delle migliori carni e alla brace autentica.
+            <p className="text-white/40 text-[13px] font-normal leading-relaxed italic max-w-xs">
+              Un'esperienza sensoriale dove il fuoco incontra la materia prima d'eccellenza. Tradizione e innovazione sulla brace.
             </p>
             <div className="flex gap-4">
               {[Share2, Globe].map((Icon, i) => (
