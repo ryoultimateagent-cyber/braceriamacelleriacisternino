@@ -89,15 +89,8 @@ const Menu = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16">
-          <Button 
-            asChild 
-            className="h-14 px-12 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-sm rounded-full transition-all shadow-xl"
-          >
-            <Link to="/menu">
-              GUARDA IL NOSTRO MENÙ
-            </Link>
-          </Button>
+        <div className="text-center mt-16 opacity-0 pointer-events-none">
+          {/* Menu button hidden per user request */}
         </div>
       </div>
     </section>

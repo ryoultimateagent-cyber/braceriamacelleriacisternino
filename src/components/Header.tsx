@@ -18,7 +18,6 @@ const Header = () => {
 
   const navLinks = [
     { href: "/#storia", label: "La Nostra Storia" },
-    { href: "/menu", label: "Il Menù" },
     { href: "/#brace", label: "La Brace" },
     { href: "/#vini", label: "Vini" },
     { href: "/#galleria", label: "Galleria" },
