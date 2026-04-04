@@ -50,7 +50,7 @@ const Prenota = () => {
                   <div className="absolute inset-0 rounded-2xl border-2 border-primary animate-pulse opacity-20" />
                </div>
                
-               <h3 className="text-xl font-black text-white italic uppercase tracking-tighter mb-6">CHIAMA ORA</h3>
+               <h3 className="text-[17px] font-semibold text-white italic uppercase tracking-tighter mb-6">CHIAMA ORA</h3>
                
                <motion.a
                 whileHover={{ scale: 1.02 }}
