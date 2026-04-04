@@ -51,7 +51,9 @@ const Index = () => {
             <Tagli />
           </div>
           <GlowingSeparator />
-          {/* Menu section removed per user request */}
+          <div className="py-8 md:py-10 lg:py-12">
+            <Menu />
+          </div>
           <div className="py-8 md:py-10 lg:py-12">
             <Vini />
           </div>
