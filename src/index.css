@@ -3,75 +3,51 @@
 @tailwind utilities;
 
 @layer base {
-  @property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-  }
-
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --primary: 0 100% 40%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 100% 40%;
-    --radius: 0.5rem;
+    --background: 45 30% 95%;
+    --foreground: 0 0% 11%;
+    --card: 45 30% 95%;
+    --card-foreground: 0 0% 11%;
+    --popover: 45 30% 95%;
+    --popover-foreground: 0 0% 11%;
+    --primary: 0 0% 11%;
+    --primary-foreground: 45 20% 98%;
+    --secondary: 48 16% 91%;
+    --secondary-foreground: 0 0% 11%;
+    --muted: 48 16% 91%;
+    --muted-foreground: 60 1% 37%;
+    --accent: 48 16% 91%;
+    --accent-foreground: 0 0% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 20% 98%;
+    --border: 48 16% 91%;
+    --input: 48 16% 91%;
+    --ring: 0 0% 11%;
+    --radius: 6px;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #0a0000;
   }
 
   body {
-    background-color: #0a0000;
-    color: #ffffff;
-    @apply antialiased selection:bg-primary selection:text-white overflow-x-hidden;
-    font-family: 'Satoshi', sans-serif;
-    background: linear-gradient(135deg, #0a0000 0%, #0d0805 50%, #080008 100%);
-    background-attachment: fixed;
-  }
-
-  #root {
-    position: relative;
-    z-index: 1;
+    background-color: #f7f4ed;
+    color: #1c1c1c;
+    @apply antialiased selection:bg-primary selection:text-primary-foreground overflow-x-hidden;
+    font-family: 'Camera Plain', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cabinet Grotesk', sans-serif;
-    @apply font-black tracking-tight uppercase italic;
+    font-family: 'Camera Plain', sans-serif;
+    @apply font-semibold tracking-[-0.02em];
   }
+
+  h1 { @apply tracking-[-0.03em]; }
 }
 
 @layer components {
-  .hero-noise {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    opacity: 0.02;
-    pointer-events: none;
-    background-image: url("https://res.cloudinary.com/dqr6id97z/image/upload/v1701718018/noise_v6m7qy.png");
-    background-repeat: repeat;
-  }
-
-  .conic-gradient-bg {
-    background: conic-gradient(from var(--angle), #110000, #000000 25%, #110000 50%, #000000 75%, #110000);
-    animation: rotate-conic 20s linear infinite;
-    will-change: transform;
-  }
-
   .glass {
-    @apply backdrop-blur-[20px] bg-[oklch(0.15_0.01_0/0.08)] border-b border-white/10 transition-all duration-300;
+    @apply backdrop-blur-[20px] bg-[#f7f4ed]/90 border-b border-[#eceae4] transition-all duration-300;
   }
 
   .section-container {
@@ -82,114 +58,33 @@
     @apply py-16 md:py-20 lg:py-24;
   }
 
-  .text-reveal {
-    clip-path: inset(0 100% 0 0);
-    animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  .btn-primary {
+    @apply bg-[#1c1c1c] text-[#fcfbf8] rounded-[6px] transition-all duration-180 hover:opacity-80 active:opacity-90;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
   }
-}
 
-@keyframes rotate-conic {
-  to {
-    --angle: 360deg;
-  }
-}
-
-@keyframes reveal {
-  to {
-    clip-path: inset(0 0% 0 0);
+  .btn-ghost {
+    @apply bg-transparent border border-[#1c1c1c]/40 text-[#1c1c1c] rounded-[6px] transition-all duration-180 hover:bg-[#1c1c1c]/5;
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-black;
+  background: #f7f4ed;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/40 rounded-full hover:bg-primary/60 transition-colors;
+  background: #eceae4;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d2cc;
 }
 
-/* Fire and LED Effects */
-@keyframes fire-flicker {
-  0%, 100% { opacity: 0.8; filter: blur(3px) brightness(1.2); transform: scale(1); }
-  33% { opacity: 1; filter: blur(5px) brightness(1.6); transform: scale(1.03); }
-  66% { opacity: 0.7; filter: blur(3px) brightness(0.9); transform: scale(0.97); }
-}
-
-@keyframes fire-rise {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  50% { opacity: 0.9; }
-  100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
-}
-
-@keyframes led-pulse {
-  0%, 100% { opacity: 0.7; box-shadow: 0 0 20px #ff4400, 0 0 40px rgba(255, 68, 0, 0.5); }
-  50% { opacity: 1; box-shadow: 0 0 40px #ff4400, 0 0 80px rgba(255, 68, 0, 0.9); }
-}
-
-.led-divider {
-  height: 3px;
-  width: 100%;
-  background: linear-gradient(90deg, transparent, #ff4400, #ffbb00, #ff4400, transparent);
-  position: relative;
-  animation: led-pulse 2.5s infinite ease-in-out;
-}
-
-.led-divider::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-  animation: led-sweep 2s infinite linear;
-}
-
-@keyframes led-sweep {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
-}
-
-.fire-effect {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 110%, rgba(255, 100, 0, 0.5) 0%, rgba(255, 50, 0, 0.2) 50%, transparent 85%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  animation: fire-flicker 4s infinite ease-in-out;
-}
-
-.fire-glow-card {
-  box-shadow: 0 0 20px rgba(255, 68, 0, 0.1);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 68, 0, 0.15);
-  position: relative;
-}
-
-.fire-glow-card::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, transparent, #ff4400, #ffbb00, transparent);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s;
-  filter: blur(8px);
-}
-
-.fire-glow-card:hover::before {
-  opacity: 0.8;
-  animation: rotate-fire 3s linear infinite;
-}
-
-@keyframes rotate-fire {
-  from { filter: blur(8px) hue-rotate(0deg); }
-  to { filter: blur(12px) hue-rotate(20deg); }
-}
-
-.fire-glow-card:hover {
-  box-shadow: 0 0 60px rgba(255, 68, 0, 0.6), inset 0 0 30px rgba(255, 68, 0, 0.3);
-  border-color: rgba(255, 68, 0, 0.9);
-  transform: translateY(-12px) scale(1.03);
+/* Focus styles */
+:focus-visible {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
