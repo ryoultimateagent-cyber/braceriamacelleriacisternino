@@ -136,19 +136,22 @@ const Tagli = () => {
               key={i}
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              whileHover={{ x: 10 }}
+              whileHover="hover"
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="flex flex-col md:flex-row md:items-center py-6 md:py-8 group cursor-pointer relative"
               style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}
             >
-              <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden mr-6 relative opacity-80 group-hover:opacity-100 transition-all duration-500">
+              <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden mr-6 relative border border-white/10 group-hover:border-primary/30 transition-colors">
                 <motion.img 
                   src={item.image} 
                   alt={item.name}
-                  whileHover={{ y: -10, scale: 1.15 }}
-                  transition={{ duration: 0.6 }}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  variants={{
+                    hover: { y: -15, scale: 1.2, filter: "grayscale(0) brightness(1.2)" }
+                  }}
+                  initial={{ y: 0, scale: 1, filter: "grayscale(1) brightness(0.7)" }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
