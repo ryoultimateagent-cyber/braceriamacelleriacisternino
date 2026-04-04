@@ -72,17 +72,20 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -15 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-black border border-white/5 transition-all duration-300 fire-glow-card"
+      className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-black border border-white/5 transition-all duration-300 fire-glow-card shadow-2xl"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img 
+        <motion.img 
            src={item.image} 
            alt={item.name} 
-           className="h-full w-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000"
+           whileHover={{ y: -20, scale: 1.1 }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
+           className="h-full w-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
       </div>
 
       <div className="absolute inset-0 z-10 flex flex-col justify-end p-8">
@@ -92,10 +95,10 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <h3 className="text-[24px] lg:text-[28px] font-bold text-white uppercase italic tracking-tighter mb-4 leading-none">
           {item.name}
         </h3>
-        <p className="max-w-md text-white/50 text-[15px] font-normal leading-[1.65] mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="max-w-md text-white/70 text-[15px] font-normal leading-[1.65] mb-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
           {item.desc}
         </p>
-        <div className="flex items-center justify-between pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="flex items-center justify-between pt-6 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
           <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">SAPER FARE</span>
           <ArrowRight className="text-primary h-6 w-6" />
         </div>
