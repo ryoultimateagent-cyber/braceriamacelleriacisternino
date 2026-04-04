@@ -39,39 +39,39 @@ const Index = () => {
         <Hero />
         
         <div className="relative z-10">
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Intro />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Storia />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Tagli />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Menu />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Vini />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Galleria />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Recensioni />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <Prenota />
           </div>
           <GlowingSeparator />
-          <div className="py-12 md:py-16 lg:py-20">
+          <div className="py-8 md:py-10 lg:py-12">
             <DoveSiamo />
           </div>
         </div>
