@@ -72,10 +72,10 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -15 }}
+      whileHover="hover"
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-black border border-white/5 transition-all duration-300 fire-glow-card shadow-2xl"
+      className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-black border border-white/5 transition-all duration-300 fire-glow-card shadow-2xl cursor-pointer"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.img 
