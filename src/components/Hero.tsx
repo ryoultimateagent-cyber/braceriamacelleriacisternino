@@ -76,13 +76,7 @@ const Hero = () => {
             </span>
           </a>
           
-          <a 
-            href="#menu" 
-            className="group relative flex items-center gap-4 text-white hover:text-primary transition-colors duration-300"
-          >
-            <span className="font-black uppercase tracking-[0.2em] text-xs">Il Nostro Menù</span>
-            <div className="w-8 h-[1px] bg-white/30 group-hover:w-12 group-hover:bg-primary transition-all duration-500" />
-          </a>
+          {/* Menu link removed per user request */}
         </motion.div>
       </div>
 
