@@ -54,7 +54,7 @@ const Footer = () => {
               {["Storia", "Brace", "Galleria", "Vini"].map((link) => (
                 <li key={link}>
                   <a 
-                    href={`#${link.toLowerCase()}`} 
+                    href={`/#${link.toLowerCase()}`} 
                     className="text-white/70 hover:text-white transition-all duration-300 font-normal uppercase tracking-widest text-[14px] leading-[2.0] block italic"
                   >
                     {link}
