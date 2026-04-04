@@ -147,9 +147,9 @@ const Tagli = () => {
                   src={item.image} 
                   alt={item.name}
                   variants={{
-                    hover: { y: -15, scale: 1.2, filter: "grayscale(0) brightness(1.2)" }
+                    hover: { y: -10, scale: 1.15, filter: "grayscale(0) brightness(1.2)", opacity: 1 }
                   }}
-                  initial={{ y: 0, scale: 1, filter: "grayscale(1) brightness(0.7)" }}
+                  initial={{ y: 15, scale: 1.1, filter: "grayscale(1) brightness(0.6)", opacity: 0.7 }}
                   transition={{ duration: 0.5 }}
                   className="w-full h-full object-cover"
                 />
