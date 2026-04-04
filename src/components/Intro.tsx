@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const features = [
   { 
@@ -40,7 +41,7 @@ const Intro = () => {
                 className="flex items-center gap-4"
               >
                 <div className="h-[1px] w-8 bg-primary" />
-                <span className="text-primary text-[10px] font-black uppercase tracking-[0.5em] italic">L'Eccellenza Pugliese</span>
+                <span className="text-primary text-[11px] font-medium uppercase tracking-[0.15em] italic opacity-50">L'Eccellenza Pugliese</span>
               </motion.div>
 
               <motion.h2 
@@ -48,7 +49,7 @@ const Intro = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-[0.9] uppercase italic"
+                className="text-[32px] md:text-[42px] lg:text-[48px] font-bold text-white tracking-[-1px] leading-none uppercase italic"
               >
                 PURO <br />
                 <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>CARATTERE</span>
@@ -59,7 +60,7 @@ const Intro = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic"
+                className="text-white/50 text-[15px] font-normal leading-[1.65] max-w-xl italic"
               >
                 Al Belvedere non serviamo solo carne. Celebriamo un rito che affonda le radici nella nostra terra, Putignano, portando in tavola l'anima della Puglia.
               </motion.p>
@@ -73,17 +74,23 @@ const Intro = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * i, duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="group"
+                  className={cn(
+                    "group transition-all duration-500 rounded-2xl border border-white/5 bg-white/5",
+                    i === 0 ? "p-8" : "p-5"
+                  )}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2.5 rounded-xl bg-white/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  <div className="flex flex-col gap-4">
+                    <div className="text-primary group-hover:text-white transition-all duration-500">
                       {f.icon}
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-white font-black uppercase tracking-tight text-base italic group-hover:text-primary transition-colors">
+                      <h3 className={cn(
+                        "text-white font-bold uppercase tracking-tight italic group-hover:text-primary transition-colors",
+                        i === 0 ? "text-[20px]" : "text-[16px]"
+                      )}>
                         {f.title}
                       </h3>
-                      <p className="text-white/30 text-xs leading-relaxed font-medium">
+                      <p className="text-white/50 text-[15px] leading-[1.65] font-normal max-w-[38ch]">
                         {f.desc}
                       </p>
                     </div>
@@ -111,8 +118,8 @@ const Intro = () => {
               
               <div className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black">
                 <div className="flex flex-col items-center">
-                  <span className="text-white text-3xl font-black italic leading-none">38</span>
-                  <span className="text-white/80 text-[8px] font-black uppercase tracking-widest mt-0.5">ANNI</span>
+                  <span className="text-white text-[60px] md:text-[80px] lg:text-[96px] font-bold italic leading-none tracking-[-3px]">38</span>
+                  <span className="text-white/50 text-[11px] font-medium uppercase tracking-[0.15em] mt-0.5">ANNI</span>
                 </div>
               </div>
             </motion.div>

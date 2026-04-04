@@ -74,12 +74,12 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-lg lg:text-xl font-bold italic text-white leading-tight mb-8">
+                  <p className="text-[16px] font-normal italic text-white/85 leading-[1.75] mb-8">
                     "{review.text}"
                   </p>
                   <div className="pt-8 border-t border-white/5 w-full">
-                    <h4 className="text-lg font-black italic uppercase text-white">{review.author}</h4>
-                    <span className="text-[9px] font-black tracking-widest uppercase text-primary/50">{review.role}</span>
+                    <h4 className="text-[13px] font-semibold italic uppercase text-white tracking-[0.10em]">{review.author}</h4>
+                    <span className="text-[11px] font-normal tracking-[0.08em] uppercase text-white/45">{review.role}</span>
                   </div>
                 </motion.div>
               );
@@ -100,7 +100,7 @@ const Recensioni = () => {
       <div className="text-center mt-12">
         <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 rounded-full border border-white/5">
           <Sparkles className="w-4 h-4 text-primary" />
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40">
+          <p className="text-[13px] font-medium uppercase tracking-[0.12em] text-white/60">
              OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
           </p>
         </div>

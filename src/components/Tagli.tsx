@@ -74,7 +74,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`group relative h-full w-full overflow-hidden rounded-[2rem] bg-black border border-white/5 transition-all duration-300 fire-glow-card ${item.large ? 'col-span-1 lg:col-span-2 lg:row-span-2' : ''}`}
+      className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-black border border-white/5 transition-all duration-300 fire-glow-card"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
@@ -85,21 +85,19 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </div>
 
-      <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 lg:p-8">
-        <span className="mb-3 inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-[9px] font-black uppercase tracking-[0.2em] text-primary border border-primary/20">
+      <div className="absolute inset-0 z-10 flex flex-col justify-end p-8">
+        <span className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-primary border border-primary/20">
           {item.category}
         </span>
-        <h3 className={`font-black text-white uppercase italic tracking-tighter mb-3 ${item.large ? 'text-xl lg:text-3xl' : 'text-lg lg:text-xl'}`}>
+        <h3 className="text-[26px] lg:text-[32px] font-bold text-white uppercase italic tracking-tighter mb-4 leading-none">
           {item.name}
         </h3>
-        {item.large && item.desc && (
-           <p className="max-w-md text-white/50 text-sm font-medium leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-             {item.desc}
-           </p>
-        )}
-        <div className="flex items-center justify-between pt-4 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <span className="text-[9px] font-black uppercase tracking-widest text-white/40">SAPER FARE</span>
-          <ArrowRight className="text-primary h-5 w-5" />
+        <p className="max-w-md text-white/50 text-[15px] font-normal leading-[1.65] mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          {item.desc}
+        </p>
+        <div className="flex items-center justify-between pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">SAPER FARE</span>
+          <ArrowRight className="text-primary h-6 w-6" />
         </div>
       </div>
     </motion.div>
@@ -107,6 +105,9 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
 };
 
 const Tagli = () => {
+  const featured = tagli[0];
+  const others = tagli.slice(1);
+
   return (
     <section id="brace" className="section-container section-spacing bg-transparent relative">
       <SectionHeader 
@@ -116,10 +117,45 @@ const Tagli = () => {
         className="mb-12"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 min-h-[500px]">
-        {tagli.map((taglio, i) => (
-          <TiltCard key={i} item={taglio} />
-        ))}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* Featured Card */}
+        <div className="lg:col-span-5 h-full">
+          <TiltCard item={featured} />
+        </div>
+
+        {/* Vertical List */}
+        <div className="lg:col-span-7 flex flex-col">
+          {others.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex flex-col md:flex-row md:items-center py-5 md:py-6 group cursor-default"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}
+            >
+              <div className="flex flex-col gap-1 flex-1">
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="text-[22px] font-semibold text-white tracking-[-0.3px] uppercase italic group-hover:text-primary transition-colors">
+                    {item.name}
+                  </h3>
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/40">
+                    {item.category}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-[14px] leading-[1.6] text-white/65 font-normal max-w-md">
+                    Esperienza artigianale e passione nel cuore di Putignano.
+                  </p>
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/35">
+                    SAPER FARE
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

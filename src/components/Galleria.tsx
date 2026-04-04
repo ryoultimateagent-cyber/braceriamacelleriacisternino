@@ -69,7 +69,7 @@ const Galleria = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
             
             <div className="absolute bottom-8 left-8 right-8 transform group-hover:translate-y-[-8px] transition-transform duration-500">
-               <h3 className="text-xl md:text-2xl font-black text-white italic uppercase tracking-tighter drop-shadow-lg">{img.title}</h3>
+               <h3 className="text-[20px] font-normal text-white italic uppercase tracking-tighter drop-shadow-lg leading-[1.25]">{img.title}</h3>
             </div>
             
             <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">

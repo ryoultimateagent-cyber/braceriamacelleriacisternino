@@ -25,8 +25,8 @@ const Prenota = () => {
                    <MapPin className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-primary font-black text-[9px] uppercase tracking-widest mb-1 italic">POSIZIONE</h4>
-                    <p className="text-white text-base font-black italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano</p>
+                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 mb-1 italic">POSIZIONE</h4>
+                    <p className="text-white text-base font-normal italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano</p>
                  </div>
               </div>
               <div className="flex items-start gap-4">
@@ -34,8 +34,8 @@ const Prenota = () => {
                    <Clock className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-primary font-black text-[9px] uppercase tracking-widest mb-1 italic">ORARI</h4>
-                    <p className="text-white text-base font-black italic uppercase tracking-tighter leading-tight">Lun - Sab: 08–13 | 17–00</p>
+                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 mb-1 italic">ORARI</h4>
+                    <p className="text-white text-base font-normal italic uppercase tracking-tighter leading-tight">Lun - Sab: 08–13 | 17–00</p>
                  </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ const Prenota = () => {
                   <div className="absolute inset-0 rounded-2xl border-2 border-primary animate-pulse opacity-20" />
                </div>
                
-               <h3 className="text-xl font-black text-white italic uppercase tracking-tighter mb-6">CHIAMA ORA</h3>
+               <h3 className="text-[17px] font-semibold text-white italic uppercase tracking-tighter mb-6">CHIAMA ORA</h3>
                
                <motion.a
                 whileHover={{ scale: 1.02 }}
@@ -64,11 +64,11 @@ const Prenota = () => {
                <div className="flex gap-6 pt-8 border-t border-white/5">
                   <div className="flex flex-col items-center">
                     <Sparkles className="w-5 h-5 text-primary/40 mb-1.5" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-white/30 italic">PREMIUM</span>
+                    <span className="text-[11px] font-normal uppercase tracking-widest text-white/50 italic">PREMIUM</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <Flame className="w-5 h-5 text-primary/40 mb-1.5" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-white/30 italic">BRACE</span>
+                    <span className="text-[11px] font-normal uppercase tracking-widest text-white/50 italic">BRACE</span>
                   </div>
                </div>
             </div>

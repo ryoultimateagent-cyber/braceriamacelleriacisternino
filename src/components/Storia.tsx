@@ -47,13 +47,13 @@ const Storia = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                 </div>
                 {/* Floating Number Background */}
-                <span className="absolute -top-12 -left-6 text-[8rem] font-black text-white/[0.03] select-none pointer-events-none italic">0{i+1}</span>
+                <span className="absolute -top-6 -left-4 text-[11px] font-normal text-white/40 tracking-[0.12em] uppercase italic select-none pointer-events-none">0{i+1}</span>
             </div>
             
             <div className={`w-full lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
-                <span className="text-primary font-black text-lg mb-3 block italic uppercase tracking-widest">{item.year}</span>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-6 uppercase italic tracking-tighter leading-tight">{item.title}</h3>
-                <p className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic">
+                <span className="text-primary font-semibold text-[16px] mb-3 block italic uppercase tracking-[0.06em]">{item.year}</span>
+                <h3 className="text-[32px] md:text-[42px] font-bold text-white mb-6 uppercase italic tracking-[-1px] leading-tight">{item.title}</h3>
+                <p className="text-white/50 text-[15px] font-normal leading-[1.65] max-w-xl italic">
                   {item.text}
                 </p>
             </div>
