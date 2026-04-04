@@ -17,13 +17,13 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#storia", label: "La Nostra Storia" },
-    { href: "#menu", label: "Il Menù" },
-    { href: "#brace", label: "La Brace" },
-    { href: "#vini", label: "Vini" },
-    { href: "#galleria", label: "Galleria" },
-    { href: "#recensioni", label: "Dicono di Noi" },
-    { href: "#dovesiamo", label: "Contatti" },
+    { href: "/#storia", label: "La Nostra Storia" },
+    { href: "/menu", label: "Il Menù" },
+    { href: "/#brace", label: "La Brace" },
+    { href: "/#vini", label: "Vini" },
+    { href: "/#galleria", label: "Galleria" },
+    { href: "/#recensioni", label: "Dicono di Noi" },
+    { href: "/#dovesiamo", label: "Contatti" },
   ];
 
   return (
@@ -44,7 +44,7 @@ const Header = () => {
         <div className="max-w-6xl mx-auto px-6 md:px-8 flex justify-between items-center">
           {/* Logo */}
           <a 
-            href="#" 
+            href="/" 
             className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >

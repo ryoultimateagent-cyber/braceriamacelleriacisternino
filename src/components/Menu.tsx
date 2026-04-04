@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import SectionHeader from "./SectionHeader";
 
 interface MenuItem {
@@ -93,9 +94,9 @@ const Menu = () => {
             asChild 
             className="h-14 px-12 bg-white text-black hover:bg-white/90 font-black uppercase tracking-tighter text-sm rounded-full transition-all shadow-xl"
           >
-            <a href="https://drive.google.com/file/d/1_LBXD8l_BNEpK1vPxeo7qVWKxIr9ePlB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-              SCARICA IL MENÙ DIGITALE
-            </a>
+            <Link to="/menu">
+              GUARDA IL NOSTRO MENÙ
+            </Link>
           </Button>
         </div>
       </div>
