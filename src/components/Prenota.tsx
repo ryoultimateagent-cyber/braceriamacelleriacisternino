@@ -34,8 +34,8 @@ const Prenota = () => {
                    <Clock className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-primary font-black text-[9px] uppercase tracking-widest mb-1 italic">ORARI</h4>
-                    <p className="text-white text-base font-black italic uppercase tracking-tighter leading-tight">Lun - Sab: 08–13 | 17–00</p>
+                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 mb-1 italic">ORARI</h4>
+                    <p className="text-white text-base font-normal italic uppercase tracking-tighter leading-tight">Lun - Sab: 08–13 | 17–00</p>
                  </div>
               </div>
             </div>
