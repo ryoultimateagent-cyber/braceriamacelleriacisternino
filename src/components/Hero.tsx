@@ -76,7 +76,15 @@ const Hero = () => {
             </span>
           </a>
           
-          {/* Menu link removed per user request */}
+          <a 
+            href="/menu" 
+            className="group relative px-10 py-4 overflow-hidden transition-all duration-500 rounded-full border border-white/20 hover:border-primary"
+          >
+            <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
+            <span className="relative z-10 text-white font-black uppercase tracking-widest text-xs transition-colors duration-500 group-hover:text-white">
+              Vedi il Menu
+            </span>
+          </a>
         </motion.div>
       </div>
 
