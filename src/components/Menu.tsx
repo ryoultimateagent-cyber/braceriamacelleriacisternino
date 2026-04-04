@@ -49,7 +49,7 @@ const Menu = () => {
   return (
     <section 
       id="menu" 
-      className="py-16 md:py-24 bg-transparent relative overflow-hidden"
+      className="py-4 md:py-8 bg-transparent relative overflow-hidden"
     >
       <div className="section-container relative z-10">
         <SectionHeader 

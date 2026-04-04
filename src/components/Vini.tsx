@@ -14,7 +14,7 @@ const Vini = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section id="vini" ref={ref} className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+    <section id="vini" ref={ref} className="py-4 md:py-8 bg-transparent relative overflow-hidden">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
