@@ -1,4 +1,4 @@
-import { Phone, Sparkles, MapPin, Clock, Flame } from "lucide-react";
+import { Phone, Sparkles, MapPin, Clock, Flame, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
