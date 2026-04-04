@@ -36,10 +36,10 @@ const DoveSiamo = () => {
                    </div>
                 </div>
                 <div className="space-y-1">
-                   <h4 className="text-primary font-black text-[10px] uppercase tracking-widest italic">ORARI</h4>
-                   <div className="text-white text-lg font-black italic uppercase tracking-tighter leading-tight">
+                   <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 italic">ORARI</h4>
+                   <div className="text-white text-[15px] font-normal italic uppercase tracking-tighter leading-tight">
                      Lun - Sab: 08–13 | 17–00<br />
-                     <span className="text-primary/50 text-base">Mar e Dom: CHIUSO</span>
+                     <span className="text-primary/50 text-[15px]">Mar e Dom: CHIUSO</span>
                    </div>
                 </div>
               </article>

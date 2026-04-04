@@ -64,11 +64,11 @@ const Prenota = () => {
                <div className="flex gap-6 pt-8 border-t border-white/5">
                   <div className="flex flex-col items-center">
                     <Sparkles className="w-5 h-5 text-primary/40 mb-1.5" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-white/30 italic">PREMIUM</span>
+                    <span className="text-[11px] font-normal uppercase tracking-widest text-white/50 italic">PREMIUM</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <Flame className="w-5 h-5 text-primary/40 mb-1.5" />
-                    <span className="text-[8px] font-black uppercase tracking-widest text-white/30 italic">BRACE</span>
+                    <span className="text-[11px] font-normal uppercase tracking-widest text-white/50 italic">BRACE</span>
                   </div>
                </div>
             </div>
