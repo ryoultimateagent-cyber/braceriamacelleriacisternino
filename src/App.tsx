@@ -23,6 +23,7 @@ const App = () => (
         <SmoothScroll>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/menu" element={<MenuPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </SmoothScroll>
