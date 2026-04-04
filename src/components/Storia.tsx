@@ -34,7 +34,7 @@ const Storia = () => {
         />
       </div>
 
-      <div className="section-container space-y-24 md:space-y-32">
+      <div className="section-container space-y-16 md:space-y-20">
         {timelineData.map((item, i) => (
           <div key={i} className={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}>
             <div className="w-full lg:w-1/2 group relative">
