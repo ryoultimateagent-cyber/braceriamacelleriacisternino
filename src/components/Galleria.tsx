@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { X, Maximize2 } from "lucide-react";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
@@ -20,15 +20,17 @@ const images = [
 
 const Galleria = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollXProgress } = useScroll({ container: scrollRef });
 
   const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
   return (
-    <section id="galleria" className="py-20 md:py-28 bg-[#f7f4ed] overflow-hidden relative">
+    <section id="galleria" className="py-16 md:py-24 bg-transparent overflow-hidden relative">
       <div className="section-container mb-12">
         <SectionHeader 
           subtitle="VISIONI DEL GUSTO"
-          title="Galleria Visiva"
+          title="GALLERIA VISIVA"
           align="left"
           className="mb-0"
         />
@@ -43,29 +45,36 @@ const Galleria = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
+            transition={{ delay: i * 0.1 }}
+            whileHover={{ scale: 1.02 }}
             onClick={() => setSelectedIndex(i)}
             className={`
-              relative group cursor-pointer overflow-hidden rounded-[12px] 
-              border border-[#eceae4] transition-all duration-300 hover:border-[#1c1c1c]/40
+              relative group cursor-pointer overflow-hidden rounded-[2.5rem] 
+              border border-white/10 fire-glow-card
               ${i % 3 === 0 ? "md:col-span-2 lg:col-span-2 aspect-[16/9]" : "aspect-[4/5] md:aspect-square lg:aspect-[4/5]"}
+              ${i === 1 ? "lg:mt-12" : ""}
+              ${i === 2 ? "lg:-mt-12" : ""}
+              ${i === 4 ? "md:col-span-2 aspect-video" : ""}
             `}
           >
             <img 
               src={img.src} 
               alt={img.title} 
-              className="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105"
+              className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 scale-105 group-hover:scale-110"
             />
             
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1c1c1c]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Fire Overlay Effect */}
+            <div className="fire-effect opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
             
-            <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-               <h3 className="text-xl font-semibold text-[#fcfbf8] tracking-[-0.02em]">{img.title}</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+            
+            <div className="absolute bottom-8 left-8 right-8 transform group-hover:translate-y-[-8px] transition-transform duration-500">
+               <h3 className="text-xl md:text-2xl font-black text-white italic uppercase tracking-tighter drop-shadow-lg">{img.title}</h3>
             </div>
             
-            <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-               <div className="w-10 h-10 rounded-[8px] bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
-                  <Maximize2 className="w-4 h-4" />
+            <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
+               <div className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-xl border border-primary/30 flex items-center justify-center text-white">
+                  <Maximize2 className="w-5 h-5" />
                </div>
             </div>
           </motion.div>
@@ -78,24 +87,20 @@ const Galleria = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-[#1c1c1c]/95 backdrop-blur-md flex items-center justify-center p-6 md:p-12"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex items-center justify-center p-6 md:p-12"
           >
-            <button 
-              onClick={closeLightbox} 
-              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[110]"
-              aria-label="Chiudi galleria"
-            >
+            <button onClick={closeLightbox} className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[110]">
               <X className="w-8 h-8" />
             </button>
             <motion.div 
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              className="max-w-5xl w-full aspect-video rounded-[16px] overflow-hidden border border-white/10 shadow-2xl relative bg-[#1c1c1c]"
+              initial={{ scale: 0.95, y: 10 }}
+              animate={{ scale: 1, y: 0 }}
+              className="max-w-5xl w-full aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative"
             >
-               <img src={images[selectedIndex].src} alt="" className="w-full h-full object-contain" />
-               <div className="absolute bottom-8 left-8 right-8 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-2xl font-semibold tracking-[-0.02em] text-white mb-2">{images[selectedIndex].title}</h3>
-                  <p className="text-base text-white/70 font-normal max-w-xl leading-relaxed">{images[selectedIndex].desc}</p>
+               <img src={images[selectedIndex].src} alt="" className="w-full h-full object-cover" />
+               <div className="absolute bottom-10 left-10 right-10">
+                  <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-white mb-2">{images[selectedIndex].title}</h3>
+                  <p className="text-base md:text-lg text-white/70 font-medium italic max-w-xl leading-relaxed">"{images[selectedIndex].desc}"</p>
                </div>
             </motion.div>
           </motion.div>

@@ -26,9 +26,9 @@ const features = [
 
 const Intro = () => {
   return (
-    <section className="relative bg-[#f7f4ed] overflow-hidden py-20 md:py-28">
+    <section className="relative bg-transparent overflow-hidden py-16 md:py-24">
       <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Content Section */}
           <div className="lg:col-span-7 space-y-12">
@@ -39,8 +39,8 @@ const Intro = () => {
                 viewport={{ once: true }}
                 className="flex items-center gap-4"
               >
-                <div className="h-[1px] w-8 bg-[#1c1c1c]" />
-                <span className="text-[#1c1c1c] text-[10px] font-medium uppercase tracking-[0.4em]">L'Eccellenza Pugliese</span>
+                <div className="h-[1px] w-8 bg-primary" />
+                <span className="text-primary text-[10px] font-black uppercase tracking-[0.5em] italic">L'Eccellenza Pugliese</span>
               </motion.div>
 
               <motion.h2 
@@ -48,10 +48,10 @@ const Intro = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-3xl md:text-5xl lg:text-[56px] font-semibold text-[#1c1c1c] tracking-[-1.5px] leading-[1.05]"
+                className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-[0.9] uppercase italic"
               >
-                Passione, qualità <br />
-                <span className="text-[#5f5f5d]">e tradizione.</span>
+                PURO <br />
+                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>CARATTERE</span>
               </motion.h2>
 
               <motion.p 
@@ -59,13 +59,13 @@ const Intro = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="text-[#5f5f5d] text-lg font-normal leading-relaxed max-w-xl"
+                className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic"
               >
                 Al Belvedere non serviamo solo carne. Celebriamo un rito che affonda le radici nella nostra terra, Putignano, portando in tavola l'anima della Puglia.
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {features.map((f, i) => (
                 <motion.div 
                   key={i} 
@@ -76,14 +76,14 @@ const Intro = () => {
                   className="group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-3 rounded-[12px] border border-[#eceae4] text-[#1c1c1c] transition-all duration-300 group-hover:bg-[#1c1c1c] group-hover:text-white group-hover:border-[#1c1c1c]">
+                    <div className="mt-1 p-2.5 rounded-xl bg-white/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
                       {f.icon}
                     </div>
-                    <div className="space-y-1.5">
-                      <h3 className="text-[#1c1c1c] font-semibold tracking-[-0.01em] text-base">
+                    <div className="space-y-1">
+                      <h3 className="text-white font-black uppercase tracking-tight text-base italic group-hover:text-primary transition-colors">
                         {f.title}
                       </h3>
-                      <p className="text-[#5f5f5d] text-sm leading-relaxed font-normal">
+                      <p className="text-white/30 text-xs leading-relaxed font-medium">
                         {f.desc}
                       </p>
                     </div>
@@ -100,18 +100,19 @@ const Intro = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative aspect-[4/5] w-full group overflow-hidden rounded-[16px] border border-[#eceae4]"
+              className="relative aspect-[4/5] w-full group overflow-hidden rounded-[2rem] border border-white/5"
             >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 z-10" />
               <img 
                 src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                 alt="Maestria Pugliese" 
-                className="w-full h-full object-cover transition-all duration-1000 scale-105 group-hover:scale-100"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
               />
               
-              <div className="absolute -bottom-4 -left-4 z-20 bg-[#1c1c1c] p-6 rounded-[12px] shadow-xl">
+              <div className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black">
                 <div className="flex flex-col items-center">
-                  <span className="text-[#fcfbf8] text-3xl font-semibold leading-none">38</span>
-                  <span className="text-[#fcfbf8]/60 text-[9px] font-medium uppercase tracking-widest mt-1">ANNI</span>
+                  <span className="text-white text-3xl font-black italic leading-none">38</span>
+                  <span className="text-white/80 text-[8px] font-black uppercase tracking-widest mt-0.5">ANNI</span>
                 </div>
               </div>
             </motion.div>

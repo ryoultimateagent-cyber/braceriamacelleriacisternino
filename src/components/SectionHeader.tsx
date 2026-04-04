@@ -18,7 +18,7 @@ const SectionHeader = ({
 }: SectionHeaderProps) => {
   return (
     <div className={cn(
-      "mb-12 md:mb-16",
+      "mb-12", // Reduced from mb-12/16 to mb-12 as per plan
       align === "center" && "text-center",
       align === "left" && "text-left",
       align === "right" && "text-right",
@@ -29,7 +29,7 @@ const SectionHeader = ({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-4 block text-[#5f5f5d] text-sm font-normal tracking-[0.1em] uppercase"
+          className="mb-4 block text-primary text-xs font-black uppercase tracking-[0.4em] italic"
         >
           {subtitle}
         </motion.span>
@@ -39,7 +39,8 @@ const SectionHeader = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1 }}
-        className={cn("text-3xl md:text-4xl lg:text-[48px] font-semibold text-[#1c1c1c] tracking-[-1.2px] leading-[1.1]", titleClassName)}
+        // Uniform titles: text-3xl md:text-4xl lg:text-5xl
+        className={cn("text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-[0.9] uppercase italic", titleClassName)}
       >
         {title}
       </motion.h2>
@@ -49,7 +50,7 @@ const SectionHeader = ({
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.8 }}
         className={cn(
-          "h-[2px] w-12 bg-[#1c1c1c] mt-6 origin-left",
+          "h-1 w-16 bg-primary mt-6 rounded-full origin-left", // Reduced size and margin
           align === "center" && "mx-auto origin-center",
           align === "right" && "ml-auto origin-right"
         )} 

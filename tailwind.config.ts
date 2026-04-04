@@ -19,6 +19,23 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        noir: "hsl(var(--noir))",
+        charcoal: "hsl(var(--charcoal))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+        },
+        ember: {
+          DEFAULT: "hsl(var(--ember))",
+          dark: "hsl(var(--ember-dark))",
+        },
+        copper: {
+          DEFAULT: "hsl(var(--copper))",
+          dark: "hsl(var(--copper-dark))",
+        },
+        wine: "hsl(var(--wine))",
+        cream: "hsl(var(--cream))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -49,8 +66,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Camera Plain", "sans-serif"],
-        body: ["Camera Plain", "sans-serif"],
+        display: ["Cabinet Grotesk", "sans-serif"],
+        body: ["Satoshi", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

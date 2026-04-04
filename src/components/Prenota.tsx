@@ -4,68 +4,71 @@ import SectionHeader from "./SectionHeader";
 
 const Prenota = () => {
   return (
-    <section id="prenota" className="py-20 md:py-28 bg-[#f7f4ed] relative flex items-center justify-center overflow-hidden">
+    <section id="prenota" className="py-16 md:py-24 bg-transparent relative flex items-center justify-center overflow-hidden">
       <div className="section-container relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-10">
             <SectionHeader 
               subtitle="ASSICURA IL TUO POSTO"
-              title="Il Gusto Autentico"
+              title="IL GUSTO AUTENTICO"
               align="left"
               className="mb-0"
             />
             
-            <p className="text-[#5f5f5d] text-lg font-normal leading-relaxed max-w-xl">
+            <p className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic">
               Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-10 border-t border-[#eceae4]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-white/5">
               <div className="flex items-start gap-4">
-                 <div className="w-12 h-12 rounded-[12px] border border-[#eceae4] flex items-center justify-center text-[#1c1c1c] shrink-0">
-                   <MapPin className="w-5 h-5" />
+                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0">
+                   <MapPin className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-[#5f5f5d] font-medium text-[10px] uppercase tracking-widest mb-1">Posizione</h4>
-                    <p className="text-[#1c1c1c] text-base font-semibold tracking-tight">Via G. Verdi 5C, Putignano</p>
+                    <h4 className="text-primary font-black text-[9px] uppercase tracking-widest mb-1 italic">POSIZIONE</h4>
+                    <p className="text-white text-base font-black italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano</p>
                  </div>
               </div>
               <div className="flex items-start gap-4">
-                 <div className="w-12 h-12 rounded-[12px] border border-[#eceae4] flex items-center justify-center text-[#1c1c1c] shrink-0">
-                   <Clock className="w-5 h-5" />
+                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0">
+                   <Clock className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-[#5f5f5d] font-medium text-[10px] uppercase tracking-widest mb-1">Orari</h4>
-                    <p className="text-[#1c1c1c] text-base font-semibold tracking-tight">Lun - Sab: 08–13 | 17–00</p>
+                    <h4 className="text-primary font-black text-[9px] uppercase tracking-widest mb-1 italic">ORARI</h4>
+                    <p className="text-white text-base font-black italic uppercase tracking-tighter leading-tight">Lun - Sab: 08–13 | 17–00</p>
                  </div>
               </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative bg-white p-10 md:p-12 rounded-[16px] border border-[#eceae4] shadow-sm flex flex-col items-center text-center">
-               <div className="w-16 h-16 rounded-[12px] border border-[#eceae4] flex items-center justify-center mb-8">
-                  <Phone className="w-7 h-7 text-[#1c1c1c]" />
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-primary/10 rounded-[2.5rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+            
+            <div className="relative bg-black/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col items-center text-center">
+               <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-8 relative">
+                  <Phone className="w-7 h-7 text-primary" />
+                  <div className="absolute inset-0 rounded-2xl border-2 border-primary animate-pulse opacity-20" />
                </div>
                
-               <h3 className="text-xl font-semibold text-[#1c1c1c] mb-6 tracking-tight">CHIAMA ORA</h3>
+               <h3 className="text-xl font-black text-white italic uppercase tracking-tighter mb-6">CHIAMA ORA</h3>
                
                <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="tel:+390804058608"
-                className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1c1c1c] tracking-[-0.03em] mb-10 transition-opacity hover:opacity-80"
+                className="text-3xl md:text-4xl lg:text-5xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.3)] transition-all"
                >
                  080 405 8608
                </motion.a>
                
-               <div className="flex gap-8 pt-10 border-t border-[#eceae4] w-full justify-center">
+               <div className="flex gap-6 pt-8 border-t border-white/5">
                   <div className="flex flex-col items-center">
-                    <Sparkles className="w-5 h-5 text-[#1c1c1c]/20 mb-2" />
-                    <span className="text-[10px] font-medium uppercase tracking-widest text-[#5f5f5d]">PREMIUM</span>
+                    <Sparkles className="w-5 h-5 text-primary/40 mb-1.5" />
+                    <span className="text-[8px] font-black uppercase tracking-widest text-white/30 italic">PREMIUM</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <Flame className="w-5 h-5 text-[#1c1c1c]/20 mb-2" />
-                    <span className="text-[10px] font-medium uppercase tracking-widest text-[#5f5f5d]">BRACE</span>
+                    <Flame className="w-5 h-5 text-primary/40 mb-1.5" />
+                    <span className="text-[8px] font-black uppercase tracking-widest text-white/30 italic">BRACE</span>
                   </div>
                </div>
             </div>
