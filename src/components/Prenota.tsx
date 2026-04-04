@@ -15,7 +15,7 @@ const Prenota = () => {
               className="mb-0"
             />
             
-            <p className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic">
+            <p className="text-white/50 text-sm md:text-base font-medium leading-relaxed max-w-xl italic">
               Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
             </p>
             

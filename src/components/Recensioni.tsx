@@ -43,7 +43,7 @@ const Recensioni = () => {
         />
       </div>
 
-      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[360px] flex items-center justify-center overflow-hidden">
         <div className="relative w-full max-w-5xl px-4 flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {reviews.map((review, i) => {

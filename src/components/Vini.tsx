@@ -26,7 +26,7 @@ const Vini = () => {
               className="mb-0"
             />
             
-            <p className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic">
+            <p className="text-white/50 text-sm md:text-base font-medium leading-relaxed max-w-xl italic">
               "Il vino è il compagno della buona carne. Abbiamo curato una selection che celebra il territorio, dai rossi profondi ai bianchi minerali."
             </p>
             
