@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="lg:col-span-1 space-y-8">
             <div className="space-y-4">
               <div className="space-y-2">
-                <h2 className="text-2xl font-black italic tracking-tighter leading-none uppercase">
+                <h2 className="text-xl font-black italic tracking-tighter leading-none uppercase">
                   BELVEDERE<span className="text-primary">.</span>
                 </h2>
                 <p className="text-[10px] text-white/30 uppercase tracking-[0.25em] font-bold italic">ECCELLENZA DAL 1986 — PUTIGNANO</p>

@@ -41,7 +41,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-white font-black tracking-tighter leading-tight text-[clamp(1.5rem,4.5vw,3rem)] font-sans uppercase italic"
+            className="text-white font-black tracking-tighter leading-tight text-[clamp(1.25rem,4vw,2.5rem)] font-sans uppercase italic"
             style={{ textShadow: "0 0 40px rgba(255, 107, 0, 0.4)" }}
           >
             Macelleria <br className="sm:hidden" /> Belvedere

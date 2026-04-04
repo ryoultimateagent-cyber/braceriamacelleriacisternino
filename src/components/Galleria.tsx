@@ -26,7 +26,7 @@ const Galleria = () => {
   const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
   return (
-    <section id="galleria" className="py-16 md:py-24 bg-transparent overflow-hidden relative">
+    <section id="galleria" className="py-4 md:py-8 bg-transparent overflow-hidden relative">
       <div className="section-container mb-12">
         <SectionHeader 
           subtitle="VISIONI DEL GUSTO"
