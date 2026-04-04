@@ -44,7 +44,7 @@ const Header = () => {
         <div className="max-w-6xl mx-auto px-6 md:px-8 flex justify-between items-center">
           {/* Logo */}
           <a 
-            href="#" 
+            href="/" 
             className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >
