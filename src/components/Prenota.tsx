@@ -25,8 +25,8 @@ const Prenota = () => {
                    <MapPin className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-primary font-black text-[9px] uppercase tracking-widest mb-1 italic">POSIZIONE</h4>
-                    <p className="text-white text-base font-black italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano</p>
+                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 mb-1 italic">POSIZIONE</h4>
+                    <p className="text-white text-base font-normal italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano</p>
                  </div>
               </div>
               <div className="flex items-start gap-4">

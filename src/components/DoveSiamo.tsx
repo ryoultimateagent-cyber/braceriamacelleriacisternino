@@ -24,8 +24,8 @@ const DoveSiamo = () => {
                    </div>
                 </div>
                 <div className="space-y-1">
-                   <h4 className="text-primary font-black text-[10px] uppercase tracking-widest italic">INDIRIZZO</h4>
-                   <p className="text-white text-lg font-black italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano (BA)</p>
+                   <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 italic">INDIRIZZO</h4>
+                   <p className="text-white text-[15px] font-normal italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano (BA)</p>
                 </div>
               </article>
 
