@@ -74,12 +74,12 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-lg lg:text-xl font-bold italic text-white leading-tight mb-8">
+                  <p className="text-[16px] font-normal italic text-white/85 leading-[1.75] mb-8">
                     "{review.text}"
                   </p>
                   <div className="pt-8 border-t border-white/5 w-full">
-                    <h4 className="text-lg font-black italic uppercase text-white">{review.author}</h4>
-                    <span className="text-[9px] font-black tracking-widest uppercase text-primary/50">{review.role}</span>
+                    <h4 className="text-[13px] font-semibold italic uppercase text-white tracking-[0.10em]">{review.author}</h4>
+                    <span className="text-[11px] font-normal tracking-[0.08em] uppercase text-white/45">{review.role}</span>
                   </div>
                 </motion.div>
               );
