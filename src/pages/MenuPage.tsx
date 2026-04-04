@@ -10,7 +10,7 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Navbar />
+      <Header />
       
       <main className="pt-32 pb-20 px-4">
         <div className="max-w-4xl mx-auto">
