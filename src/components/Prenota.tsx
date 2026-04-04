@@ -41,37 +41,61 @@ const Prenota = () => {
             </div>
           </div>
 
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-primary/10 rounded-[2.5rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+            <div className="absolute -inset-10 bg-primary/10 rounded-[3rem] blur-3xl opacity-20 pointer-events-none" />
             
-            <div className="relative bg-black/40 backdrop-blur-md p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col items-center text-center">
-               <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-8 relative">
-                  <Phone className="w-7 h-7 text-primary" />
-                  <div className="absolute inset-0 rounded-2xl border-2 border-primary animate-pulse opacity-20" />
-               </div>
-               
-               <h3 className="text-[17px] font-semibold text-white italic uppercase tracking-tighter mb-6">CHIAMA ORA</h3>
-               
-               <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+            {/* WhatsApp Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 relative group-hover:bg-primary/10 transition-colors">
+                <MessageCircle className="w-6 h-6 text-primary" />
+                <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/50 transition-colors" />
+              </div>
+              
+              <h3 className="text-xs font-bold text-white/50 uppercase tracking-[0.2em] mb-4 italic">WHATSAPP</h3>
+              
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://wa.me/390804058608"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors"
+              >
+                SCRIVICI ORA
+              </motion.a>
+              <p className="text-[10px] text-white/30 uppercase tracking-widest italic">Risposta rapida</p>
+            </motion.div>
+
+            {/* Call Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 relative group-hover:bg-primary/10 transition-colors">
+                <Phone className="w-6 h-6 text-primary" />
+                <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/50 transition-colors" />
+              </div>
+              
+              <h3 className="text-xs font-bold text-white/50 uppercase tracking-[0.2em] mb-4 italic">CHIAMATA</h3>
+              
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="tel:+390804058608"
-                className="text-2xl md:text-3xl lg:text-4xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.3)] transition-all"
-               >
-                 080 405 8608
-               </motion.a>
-               
-               <div className="flex gap-6 pt-8 border-t border-white/5">
-                  <div className="flex flex-col items-center">
-                    <Sparkles className="w-5 h-5 text-primary/40 mb-1.5" />
-                    <span className="text-[11px] font-normal uppercase tracking-widest text-white/50 italic">PREMIUM</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <Flame className="w-5 h-5 text-primary/40 mb-1.5" />
-                    <span className="text-[11px] font-normal uppercase tracking-widest text-white/50 italic">BRACE</span>
-                  </div>
-               </div>
-            </div>
+                className="text-xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors"
+              >
+                080 405 8608
+              </motion.a>
+              <p className="text-[10px] text-white/30 uppercase tracking-widest italic">Prenota un tavolo</p>
+            </motion.div>
           </div>
         </div>
       </div>
