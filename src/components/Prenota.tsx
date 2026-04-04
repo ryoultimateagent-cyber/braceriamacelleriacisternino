@@ -56,7 +56,7 @@ const Prenota = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="tel:+390804058608"
-                className="text-3xl md:text-4xl lg:text-5xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.3)] transition-all"
+                className="text-2xl md:text-3xl lg:text-4xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.3)] transition-all"
                >
                  080 405 8608
                </motion.a>

@@ -38,7 +38,7 @@ const Vini = () => {
                 { label: "BOLLICINE", note: "Metodo Classico" }
               ].map((item, i) => (
                 <div key={i} className="group border-l-2 border-white/5 pl-5 py-2 hover:border-primary transition-all duration-500">
-                  <h4 className="text-white text-[26px] font-bold tracking-[-0.5px] uppercase italic group-hover:text-primary transition-colors mb-1.5">{item.label}</h4>
+                  <h4 className="text-white text-[22px] font-bold tracking-[-0.5px] uppercase italic group-hover:text-primary transition-colors mb-1.5">{item.label}</h4>
                   <p className="text-white/45 text-[11px] font-normal tracking-[0.14em] uppercase italic">{item.note}</p>
                 </div>
               ))}
