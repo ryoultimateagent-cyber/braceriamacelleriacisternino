@@ -56,7 +56,7 @@ const DoveSiamo = () => {
           </div>
 
           <div className="relative group">
-            <div className="aspect-square lg:aspect-video rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl relative">
+            <div className="aspect-square lg:aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl relative">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.0!2d17.1234!3d40.8491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347d9c0e2a3c3c3%3A0x1234567890abcdef!2sVia%20Giuseppe%20Verdi%205C%2C%2070017%20Putignano%20BA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
                 width="100%"
@@ -65,9 +65,9 @@ const DoveSiamo = () => {
                 allowFullScreen
                 loading="lazy"
                 title="Mappa Belvedere"
-                className="absolute inset-0 w-full h-full grayscale brightness-50 contrast-125 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                className="absolute inset-0 w-full h-full grayscale brightness-[0.3] contrast-[1.2] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 ease-in-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
               
               <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
                 <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
