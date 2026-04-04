@@ -22,7 +22,7 @@ const reviews = [
 ];
 
 const Recensioni = () => {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
 
   const next = () => setIndex((prev) => (prev + 1) % reviews.length);
   const prev = () => setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
@@ -33,75 +33,67 @@ const Recensioni = () => {
   }, []);
 
   return (
-    <section id="recensioni" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+    <section id="recensioni" className="py-20 md:py-28 bg-[#f7f4ed] relative overflow-hidden">
       <div className="section-container mb-12 text-center">
         <SectionHeader 
           subtitle="VOCI D'ECCELLENZA"
-          title="I NOSTRI OSPITI"
+          title="Dicono di Noi"
           align="center"
           className="mb-0"
         />
       </div>
 
-      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-5xl px-4 flex items-center justify-center">
-          <AnimatePresence mode="popLayout">
-            {reviews.map((review, i) => {
-              const isCenter = i === index;
-              const isLeft = i === (index - 1 + reviews.length) % reviews.length;
-              const isRight = i === (index + 1) % reviews.length;
-
-              if (!isCenter && !isLeft && !isRight) return null;
-
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.9, x: isLeft ? -50 : isRight ? 50 : 0 }}
-                  animate={{ 
-                    opacity: isCenter ? 1 : 0.4, 
-                    scale: isCenter ? 1 : 0.9, 
-                    x: isLeft ? (window.innerWidth < 768 ? "-85%" : "-100%") : isRight ? (window.innerWidth < 768 ? "85%" : "100%") : 0,
-                    zIndex: isCenter ? 20 : 10
-                  }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-xl bg-white/5 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-white/10 shadow-xl flex flex-col items-center text-center ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
-                  onClick={() => !isCenter && setIndex(i)}
-                >
-                  <Quote className="w-12 h-12 text-primary/10 mb-6" />
-                  <div className="flex gap-1 text-primary/40 mb-8">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-lg lg:text-xl font-bold italic text-white leading-tight mb-8">
-                    "{review.text}"
-                  </p>
-                  <div className="pt-8 border-t border-white/5 w-full">
-                    <h4 className="text-lg font-black italic uppercase text-white">{review.author}</h4>
-                    <span className="text-[9px] font-black tracking-widest uppercase text-primary/50">{review.role}</span>
-                  </div>
-                </motion.div>
-              );
-            })}
+      <div className="relative h-[450px] md:h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-5xl px-6 flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-2xl bg-[#f7f4ed] p-10 md:p-12 rounded-[16px] border border-[#eceae4] shadow-sm flex flex-col items-center text-center"
+            >
+              <Quote className="w-10 h-10 text-[#1c1c1c]/5 mb-8" />
+              <div className="flex gap-1 text-[#1c1c1c] mb-8">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <p className="text-xl md:text-2xl font-normal text-[#1c1c1c] leading-snug mb-10 tracking-[-0.01em]">
+                "{reviews[index].text}"
+              </p>
+              <div className="pt-8 border-t border-[#eceae4] w-full max-w-[200px]">
+                <h4 className="text-lg font-semibold text-[#1c1c1c] mb-1">{reviews[index].author}</h4>
+                <span className="text-[10px] font-medium tracking-widest uppercase text-[#5f5f5d]">{reviews[index].role}</span>
+              </div>
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>
 
       <div className="flex justify-center gap-4 mt-8">
-         <button onClick={prev} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300">
+         <button 
+           onClick={prev} 
+           className="w-12 h-12 rounded-full border border-[#eceae4] flex items-center justify-center text-[#1c1c1c]/40 hover:text-[#1c1c1c] hover:bg-[#1c1c1c]/5 transition-all duration-300"
+           aria-label="Recensione precedente"
+         >
            <ChevronLeft className="w-5 h-5" />
          </button>
-         <button onClick={next} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300">
+         <button 
+           onClick={next} 
+           className="w-12 h-12 rounded-full border border-[#eceae4] flex items-center justify-center text-[#1c1c1c]/40 hover:text-[#1c1c1c] hover:bg-[#1c1c1c]/5 transition-all duration-300"
+           aria-label="Recensione successiva"
+         >
            <ChevronRight className="w-5 h-5" />
          </button>
       </div>
 
       <div className="text-center mt-12">
-        <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 rounded-full border border-white/5">
-          <Sparkles className="w-4 h-4 text-primary" />
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40">
-             OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
+        <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#1c1c1c]/[0.02] rounded-full border border-[#eceae4]">
+          <Sparkles className="w-4 h-4 text-[#1c1c1c]" />
+          <p className="text-[10px] font-medium uppercase tracking-[0.1em] text-[#5f5f5d]">
+             Oltre <span className="text-[#1c1c1c] font-semibold">1.000 recensioni</span> a 5 stelle
           </p>
         </div>
       </div>
