@@ -27,13 +27,13 @@ const features = [
 
 const Intro = () => {
   return (
-    <section className="relative bg-transparent overflow-hidden py-16 md:py-24">
+    <section className="relative bg-transparent overflow-hidden py-4 md:py-8">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Content Section */}
-          <div className="lg:col-span-7 space-y-12">
-            <div className="space-y-6">
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-4">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -43,13 +43,13 @@ const Intro = () => {
                 <div className="h-[1px] w-8 bg-primary" />
                 <span className="text-primary text-[11px] font-medium uppercase tracking-[0.15em] italic opacity-50">L'Eccellenza Pugliese</span>
               </motion.div>
-
+ 
               <motion.h2 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-[28px] md:text-[36px] lg:text-[42px] font-bold text-white tracking-[-1px] leading-none uppercase italic"
+                className="text-[24px] md:text-[30px] lg:text-[34px] font-bold text-white tracking-[-1px] leading-none uppercase italic"
               >
                 PURO <br />
                 <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>CARATTERE</span>
@@ -118,7 +118,7 @@ const Intro = () => {
               
               <div className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black">
                 <div className="flex flex-col items-center">
-                  <span className="text-white text-[50px] md:text-[70px] lg:text-[80px] font-bold italic leading-none tracking-[-3px]">38</span>
+                  <span className="text-white text-[40px] md:text-[50px] lg:text-[60px] font-bold italic leading-none tracking-[-3px]">38</span>
                   <span className="text-white/50 text-[10px] font-medium uppercase tracking-[0.15em] mt-0.5">ANNI</span>
                 </div>
               </div>

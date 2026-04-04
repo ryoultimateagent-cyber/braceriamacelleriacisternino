@@ -4,7 +4,7 @@ import SectionHeader from "./SectionHeader";
 
 const DoveSiamo = () => {
   return (
-    <section id="dovesiamo" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+    <section id="dovesiamo" className="py-4 md:py-8 bg-transparent relative overflow-hidden">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

@@ -33,7 +33,7 @@ const Recensioni = () => {
   }, []);
 
   return (
-    <section id="recensioni" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+    <section id="recensioni" className="py-4 md:py-8 bg-transparent relative overflow-hidden">
       <div className="section-container mb-12 text-center">
         <SectionHeader 
           subtitle="VOCI D'ECCELLENZA"

@@ -4,7 +4,7 @@ import SectionHeader from "./SectionHeader";
 
 const Prenota = () => {
   return (
-    <section id="prenota" className="py-16 md:py-24 bg-transparent relative flex items-center justify-center overflow-hidden">
+    <section id="prenota" className="py-4 md:py-8 bg-transparent relative flex items-center justify-center overflow-hidden">
       <div className="section-container relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-10">
