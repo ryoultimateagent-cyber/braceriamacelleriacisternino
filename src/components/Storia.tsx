@@ -24,8 +24,8 @@ const Storia = () => {
   const containerRef = useRef(null);
 
   return (
-    <section id="storia" ref={containerRef} className="py-16 md:py-24 bg-transparent relative overflow-hidden">
-      <div className="section-container mb-12">
+    <section id="storia" ref={containerRef} className="py-12 md:py-16 bg-transparent relative overflow-hidden">
+      <div className="section-container mb-10">
         <SectionHeader 
           subtitle="CHI SIAMO"
           title="TRADIZIONE E QUALITÀ"
