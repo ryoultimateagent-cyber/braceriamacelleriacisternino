@@ -100,7 +100,7 @@ const Recensioni = () => {
       <div className="text-center mt-12">
         <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 rounded-full border border-white/5">
           <Sparkles className="w-4 h-4 text-primary" />
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40">
+          <p className="text-[13px] font-medium uppercase tracking-[0.12em] text-white/60">
              OLTRE <span className="text-primary">1.000 RECENSIONI</span> A 5 STELLE
           </p>
         </div>

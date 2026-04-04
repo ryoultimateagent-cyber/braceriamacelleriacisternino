@@ -30,7 +30,7 @@ const Vini = () => {
               "Il vino è il compagno della buona carne. Abbiamo curato una selection che celebra il territorio, dai rossi profondi ai bianchi minerali."
             </p>
             
-            <div className="grid grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
               {[
                 { label: "PRIMITIVO", note: "Anima di Manduria" },
                 { label: "NEGROAMARO", note: "Sole del Salento" },
@@ -38,8 +38,8 @@ const Vini = () => {
                 { label: "BOLLICINE", note: "Metodo Classico" }
               ].map((item, i) => (
                 <div key={i} className="group border-l-2 border-white/5 pl-5 py-2 hover:border-primary transition-all duration-500">
-                  <h4 className="text-white/40 font-black uppercase tracking-widest text-[10px] mb-0.5 group-hover:text-primary transition-colors italic">{item.label}</h4>
-                  <p className="text-white/20 text-[9px] uppercase tracking-widest font-black italic">{item.note}</p>
+                  <h4 className="text-white text-[26px] font-bold tracking-[-0.5px] uppercase italic group-hover:text-primary transition-colors mb-1.5">{item.label}</h4>
+                  <p className="text-white/45 text-[11px] font-normal tracking-[0.14em] uppercase italic">{item.note}</p>
                 </div>
               ))}
             </div>
