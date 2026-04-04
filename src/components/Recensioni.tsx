@@ -43,7 +43,7 @@ const Recensioni = () => {
         />
       </div>
 
-      <div className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[360px] flex items-center justify-center overflow-hidden">
         <div className="relative w-full max-w-5xl px-4 flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {reviews.map((review, i) => {
@@ -74,7 +74,7 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-[16px] font-normal italic text-white/85 leading-[1.75] mb-8">
+                  <p className="text-[15px] font-normal italic text-white/85 leading-[1.75] mb-8">
                     "{review.text}"
                   </p>
                   <div className="pt-8 border-t border-white/5 w-full">

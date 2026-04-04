@@ -35,13 +35,13 @@ const Hero = () => {
       <div className="hero-noise opacity-[0.02]" />
 
       {/* Main Content */}
-      <div className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl">
-        <div className="relative mb-8">
+      <div className="relative z-30 flex flex-col items-center text-center px-4 max-w-4xl">
+        <div className="relative mb-6">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-white font-black tracking-tighter leading-tight text-[clamp(1.8rem,5vw,3.5rem)] font-sans uppercase italic"
+            className="text-white font-black tracking-tighter leading-tight text-[clamp(1.5rem,4.5vw,3rem)] font-sans uppercase italic"
             style={{ textShadow: "0 0 40px rgba(255, 107, 0, 0.4)" }}
           >
             Macelleria <br className="sm:hidden" /> Belvedere

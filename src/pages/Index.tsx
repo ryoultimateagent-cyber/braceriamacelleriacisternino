@@ -14,7 +14,7 @@ import Sparks from "@/components/Sparks";
 import React from "react";
 
 const GlowingSeparator = () => (
-  <div className="h-16 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
+  <div className="h-12 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
     <div className="led-divider" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
@@ -39,39 +39,39 @@ const Index = () => {
         <Hero />
         
         <div className="relative z-10">
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Intro />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Storia />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Tagli />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Menu />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Vini />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Galleria />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Recensioni />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <Prenota />
           </div>
           <GlowingSeparator />
-          <div className="py-16 md:py-24 lg:py-32">
+          <div className="py-12 md:py-16 lg:py-20">
             <DoveSiamo />
           </div>
         </div>

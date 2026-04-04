@@ -15,7 +15,7 @@ const Prenota = () => {
               className="mb-0"
             />
             
-            <p className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic">
+            <p className="text-white/50 text-sm md:text-base font-medium leading-relaxed max-w-xl italic">
               Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
             </p>
             
@@ -56,7 +56,7 @@ const Prenota = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="tel:+390804058608"
-                className="text-3xl md:text-4xl lg:text-5xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.3)] transition-all"
+                className="text-2xl md:text-3xl lg:text-4xl font-black text-primary tracking-tighter italic mb-8 hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.3)] transition-all"
                >
                  080 405 8608
                </motion.a>

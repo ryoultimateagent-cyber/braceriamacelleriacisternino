@@ -89,7 +89,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-primary border border-primary/20">
           {item.category}
         </span>
-        <h3 className="text-[26px] lg:text-[32px] font-bold text-white uppercase italic tracking-tighter mb-4 leading-none">
+        <h3 className="text-[24px] lg:text-[28px] font-bold text-white uppercase italic tracking-tighter mb-4 leading-none">
           {item.name}
         </h3>
         <p className="max-w-md text-white/50 text-[15px] font-normal leading-[1.65] mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -137,7 +137,7 @@ const Tagli = () => {
             >
               <div className="flex flex-col gap-1 flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <h3 className="text-[22px] font-semibold text-white tracking-[-0.3px] uppercase italic group-hover:text-primary transition-colors">
+                  <h3 className="text-[20px] font-semibold text-white tracking-[-0.3px] uppercase italic group-hover:text-primary transition-colors">
                     {item.name}
                   </h3>
                   <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/40">
