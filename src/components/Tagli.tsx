@@ -81,9 +81,12 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <motion.img 
            src={item.image} 
            alt={item.name} 
-           whileHover={{ y: -20, scale: 1.1 }}
+           variants={{
+             hover: { y: -30, scale: 1.1, filter: "grayscale(0) brightness(1)", opacity: 1 }
+           }}
+           initial={{ y: 0, scale: 1, filter: "grayscale(1) brightness(0.5)", opacity: 0.5 }}
            transition={{ duration: 0.8, ease: "easeOut" }}
-           className="h-full w-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
       </div>
