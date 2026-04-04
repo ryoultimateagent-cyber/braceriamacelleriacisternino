@@ -16,6 +16,17 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { href: "/#storia", label: "La Nostra Storia" },
     { href: "/menu", label: "Il Nostro Menu" },
@@ -91,6 +102,8 @@ const Header = () => {
           <button
             className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 z-50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             <motion.span
               animate={isMobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}

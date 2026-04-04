@@ -24,8 +24,14 @@ const reviews = [
 const Recensioni = () => {
   const [index, setIndex] = useState(1);
 
-  const next = () => setIndex((prev) => (prev + 1) % reviews.length);
-  const prev = () => setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  const next = () => {
+    if (reviews.length === 0) return;
+    setIndex((prev) => (prev + 1) % reviews.length);
+  };
+  const prev = () => {
+    if (reviews.length === 0) return;
+    setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
 
   useEffect(() => {
     const timer = setInterval(next, 6000);
