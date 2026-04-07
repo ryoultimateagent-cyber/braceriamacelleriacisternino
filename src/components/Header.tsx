@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
+import logoBelvedere from "@/assets/logo-belvedere.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -56,9 +57,10 @@ const Header = () => {
           {/* Logo */}
           <a 
             href="/" 
-            className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
+            className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >
+            <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                 BELVEDERE<span className="text-primary">.</span>
@@ -129,8 +131,9 @@ const Header = () => {
           >
             <div className="flex justify-between items-center mb-16">
              <div className="flex items-center gap-3">
+               <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-12 w-auto object-contain brightness-0 invert" />
                <span className="text-3xl font-black italic">BELVEDERE<span className="text-primary">.</span></span>
-             </div>
+              </div>
              <button onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase opacity-50">Chiudi</button>
             </div>
             
