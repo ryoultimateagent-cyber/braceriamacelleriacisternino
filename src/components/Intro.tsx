@@ -75,7 +75,7 @@ const Intro = () => {
                   transition={{ delay: 0.1 * i, duration: 0.6 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "group transition-all duration-500 rounded-2xl border border-white/5 bg-white/5",
+                    "group transition-all duration-500 rounded-2xl border border-white/5 bg-white/5 fire-glow-card",
                     i === 0 ? "p-8" : "p-5"
                   )}
                 >
@@ -107,7 +107,7 @@ const Intro = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative aspect-[4/5] w-full group overflow-hidden rounded-[2rem] border border-white/5"
+              className="relative aspect-[4/5] w-full group overflow-hidden rounded-[2rem] border border-white/5 fire-glow-card"
             >
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 z-10" />
               <img 
