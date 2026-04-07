@@ -1,6 +1,6 @@
 import { Star, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SectionHeader from "./SectionHeader";
 
 const reviews = [
@@ -24,19 +24,20 @@ const reviews = [
 const Recensioni = () => {
   const [index, setIndex] = useState(1);
 
-  const next = () => {
+  const next = useCallback(() => {
     if (reviews.length === 0) return;
     setIndex((prev) => (prev + 1) % reviews.length);
-  };
-  const prev = () => {
+  }, []);
+
+  const prev = useCallback(() => {
     if (reviews.length === 0) return;
     setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
-  };
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [next]);
 
   return (
     <section id="recensioni" className="py-4 md:py-8 bg-transparent relative overflow-hidden">
