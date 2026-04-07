@@ -25,6 +25,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Cinematic Fire Video */}
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
@@ -33,7 +34,7 @@ const Hero = () => {
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
         </video>
-        
+
         {/* Fire Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,40,0,0.15)_0%,transparent_60%)] z-10 animate-pulse" />
