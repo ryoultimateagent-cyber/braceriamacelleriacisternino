@@ -34,9 +34,9 @@ const Recensioni = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [next]);
 
   return (
     <section id="recensioni" className="py-4 md:py-8 bg-transparent relative overflow-hidden">
