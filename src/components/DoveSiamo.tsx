@@ -60,7 +60,7 @@ const DoveSiamo = () => {
           </div>
 
           <div className="relative group">
-            <div className="aspect-square lg:aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl relative">
+            <div className="aspect-square lg:aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl relative fire-glow-card">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1505.518608246875!2d17.1243765!3d40.849123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347d105dfd5c80b%3A0x7d2870196238b14e!2sMacelleria%20Belvedere!5e0!3m2!1sit!2sit!4v1714578000000!5m2!1sit!2sit"
                 width="100%"
