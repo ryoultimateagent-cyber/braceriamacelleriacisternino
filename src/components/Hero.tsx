@@ -17,7 +17,7 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover scale-110 opacity-60 mix-blend-screen grayscale-[10%]"
         >
-          <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc4c0490795415309923838048995a5f17849e7a&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+          <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
         </video>
         
         {/* Fire Overlays */}
