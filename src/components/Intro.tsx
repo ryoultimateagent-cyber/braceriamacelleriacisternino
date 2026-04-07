@@ -107,7 +107,7 @@ const Intro = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="relative aspect-[4/5] w-full group overflow-hidden rounded-[2rem] border border-white/5"
+              className="relative aspect-[4/5] w-full group overflow-hidden rounded-[2rem] border border-white/5 fire-glow-card"
             >
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 z-10" />
               <img 

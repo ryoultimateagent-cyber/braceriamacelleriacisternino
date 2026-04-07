@@ -160,36 +160,37 @@
 }
 
 .fire-glow-card {
-  box-shadow: 0 0 20px rgba(255, 68, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2), inset 0 0 10px rgba(255, 0, 0, 0.05);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 68, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.2);
   position: relative;
 }
 
 .fire-glow-card::before {
   content: '';
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, transparent, #ff4400, #ffbb00, transparent);
+  inset: -1px;
+  background: linear-gradient(45deg, transparent, #ff0000, #ff4400, transparent);
   border-radius: inherit;
   z-index: -1;
-  opacity: 0;
+  opacity: 0.15;
   transition: opacity 0.5s;
-  filter: blur(8px);
+  filter: blur(10px);
 }
 
 .fire-glow-card:hover::before {
   opacity: 0.8;
   animation: rotate-fire 3s linear infinite;
+  filter: blur(15px);
 }
 
 @keyframes rotate-fire {
-  from { filter: blur(8px) hue-rotate(0deg); }
-  to { filter: blur(12px) hue-rotate(20deg); }
+  from { filter: blur(15px) hue-rotate(0deg); }
+  to { filter: blur(20px) hue-rotate(15deg); }
 }
 
 .fire-glow-card:hover {
-  box-shadow: 0 0 60px rgba(255, 68, 0, 0.6), inset 0 0 30px rgba(255, 68, 0, 0.3);
-  border-color: rgba(255, 68, 0, 0.9);
-  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.5), inset 0 0 25px rgba(255, 0, 0, 0.2);
+  border-color: rgba(255, 0, 0, 0.8);
+  transform: translateY(-8px) scale(1.02);
 }
