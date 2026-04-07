@@ -53,44 +53,27 @@ const Header = () => {
           <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-pulse" />
         )}
 
-        <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col items-center gap-4">
-          <div className="w-full flex justify-between items-center lg:justify-center">
-            {/* Logo */}
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between h-16 md:h-20">
+          {/* Logo Section (Left) */}
+          <div className="flex items-center">
             <a 
               href="/" 
               className="group flex items-center gap-2 md:gap-3 transition-transform duration-300 hover:scale-105"
               aria-label="Home - Macelleria Belvedere"
             >
-              <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-6 md:h-8 w-auto object-contain brightness-0 invert" />
+              <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-8 md:h-10 w-auto object-contain brightness-0 invert" />
               <div className="flex flex-col">
-                <span className="text-sm md:text-lg font-black text-white tracking-tighter leading-none font-display uppercase italic">
+                <span className="text-sm md:text-xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                   BELVEDERE<span className="text-primary">.</span>
                 </span>
-                <span className="text-[7px] md:text-[8px] font-bold text-white/50 tracking-[0.3em] md:tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
+                <span className="text-[7px] md:text-[9px] font-bold text-white/50 tracking-[0.3em] md:tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
               </div>
             </a>
-
-            {/* Mobile Toggle */}
-            <button
-              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 z-50"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
-              aria-expanded={isMobileMenuOpen}
-            >
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-                className="w-6 h-0.5 bg-white block rounded-full"
-              />
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
-                className="w-6 h-0.5 bg-white block rounded-full"
-              />
-            </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
-            <ul className="flex items-center gap-8">
+          {/* Desktop Navigation (Center/Right) */}
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
+            <ul className="flex items-center gap-6 xl:gap-10">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -106,7 +89,7 @@ const Header = () => {
             
             <Button 
               asChild 
-              className="rounded-full px-5 h-9 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-xs"
+              className="rounded-full px-6 h-10 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-xs"
             >
               <a href="tel:+390804058608" className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
@@ -114,6 +97,23 @@ const Header = () => {
               </a>
             </Button>
           </nav>
+
+          {/* Mobile Toggle (Right) */}
+          <button
+            className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 z-50 ml-auto"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <motion.span
+              animate={isMobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+              className="w-6 h-0.5 bg-white block rounded-full"
+            />
+            <motion.span
+              animate={isMobileMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+              className="w-6 h-0.5 bg-white block rounded-full"
+            />
+          </button>
         </div>
       </motion.header>
 
