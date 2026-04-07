@@ -30,7 +30,7 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover scale-110 opacity-60 mix-blend-screen grayscale-[10%]"
+          className="w-full h-full object-cover scale-110 opacity-35 mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
         </video>
@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,40,0,0.15)_0%,transparent_60%)] z-10 animate-pulse" />
         
         {/* Dynamic Glows */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.7)_100%)] z-20" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_10%,_rgba(0,0,0,0.9)_100%)] z-20" />
         
         {/* Bottom Ember Glow */}
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/20 via-orange-950/5 to-transparent z-20" />
