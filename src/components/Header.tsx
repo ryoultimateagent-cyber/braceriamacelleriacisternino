@@ -57,9 +57,10 @@ const Header = () => {
           {/* Logo */}
           <a 
             href="/" 
-            className="group flex items-center gap-4 transition-transform duration-300 hover:scale-105"
+            className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105"
             aria-label="Home - Macelleria Belvedere"
           >
+            <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
             <div className="flex flex-col">
               <span className="text-lg md:text-xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                 BELVEDERE<span className="text-primary">.</span>
