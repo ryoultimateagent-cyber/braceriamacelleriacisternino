@@ -49,7 +49,7 @@ const Prenota = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500 overflow-hidden"
+              className="relative bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col items-center text-center group hover:border-primary/30 transition-all duration-500 overflow-hidden fire-glow-card"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/10 transition-colors" />
               
