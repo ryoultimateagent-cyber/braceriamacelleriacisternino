@@ -1,6 +1,7 @@
 import { MapPin, Clock, Navigation, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeader from "./SectionHeader";
+import logoBelvedere from "@/assets/logo-belvedere.png";
 
 const DoveSiamo = () => {
   return (
