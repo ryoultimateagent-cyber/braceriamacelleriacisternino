@@ -10,12 +10,15 @@ const DoveSiamo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           <div className="space-y-12">
-            <SectionHeader 
-              subtitle="VIENI A TROVARCI"
-              title="DOVE SIAMO"
-              align="left"
-              className="mb-0"
-            />
+            <div className="flex items-center gap-5">
+              <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-16 w-auto object-contain brightness-0 invert" />
+              <SectionHeader 
+                subtitle="VIENI A TROVARCI"
+                title="DOVE SIAMO"
+                align="left"
+                className="mb-0"
+              />
+            </div>
 
             <div className="space-y-8">
               <article className="flex items-start gap-6 group">

@@ -26,6 +26,7 @@ const Footer = () => {
           
           <div className="lg:col-span-1 space-y-8">
             <div className="space-y-4">
+              <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-14 w-auto object-contain brightness-0 invert" />
               <div className="space-y-2">
                 <h2 className="text-xl font-black italic tracking-tighter leading-none uppercase">
                   BELVEDERE<span className="text-primary">.</span>
