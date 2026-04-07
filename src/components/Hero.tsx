@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(error => {
+          console.log("Video play failed:", error);
+        });
+      }
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section 
       id="hero"
