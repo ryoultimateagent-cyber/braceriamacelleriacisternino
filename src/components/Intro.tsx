@@ -75,7 +75,7 @@ const Intro = () => {
                   transition={{ delay: 0.1 * i, duration: 0.6 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "group transition-all duration-500 rounded-2xl border border-white/5 bg-white/5",
+                    "group transition-all duration-500 rounded-2xl border border-white/5 bg-white/5 fire-glow-card",
                     i === 0 ? "p-8" : "p-5"
                   )}
                 >
