@@ -130,9 +130,9 @@ const Header = () => {
             className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-2xl flex flex-col p-10 lg:hidden"
           >
             <div className="flex justify-between items-center mb-16">
-             <div className="flex items-center gap-3">
-               <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-12 w-auto object-contain brightness-0 invert" />
-               <span className="text-3xl font-black italic">BELVEDERE<span className="text-primary">.</span></span>
+              <div className="flex items-center gap-2">
+                <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-10 w-auto object-contain brightness-0 invert" />
+                <span className="text-2xl font-black italic">BELVEDERE<span className="text-primary">.</span></span>
               </div>
              <button onClick={() => setIsMobileMenuOpen(false)} className="text-white text-sm font-bold tracking-widest uppercase opacity-50">Chiudi</button>
             </div>
