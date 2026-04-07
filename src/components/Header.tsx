@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
+import logoBelvedere from "@/assets/logo-belvedere.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
