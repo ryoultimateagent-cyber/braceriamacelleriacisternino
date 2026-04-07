@@ -1,6 +1,6 @@
 import { Star, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SectionHeader from "./SectionHeader";
 
 const reviews = [
