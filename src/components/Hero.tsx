@@ -30,7 +30,7 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover scale-110 opacity-40 mix-blend-screen grayscale-[20%] contrast-125 brightness-90"
+          className="w-full h-full object-cover scale-110 opacity-35 mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
         </video>
