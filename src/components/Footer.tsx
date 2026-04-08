@@ -6,18 +6,6 @@ import logoBelvedere from "@/assets/logo-belvedere.png";
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    toast.success("Iscrizione avvenuta con successo!");
-    setEmail("");
-  };
 
   return (
     <footer role="contentinfo" className="py-10 bg-transparent text-white relative overflow-hidden border-t border-white/5">
