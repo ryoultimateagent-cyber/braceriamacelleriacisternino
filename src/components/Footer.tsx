@@ -5,7 +5,10 @@ import { useState } from "react";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 
 const Footer = () => {
-  const year = new Date().getFullYear();
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
 
   return (
     <footer role="contentinfo" className="py-10 bg-transparent text-white relative overflow-hidden border-t border-white/5">
