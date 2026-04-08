@@ -3,6 +3,7 @@ import logoBelvedere from "@/assets/logo-belvedere.png";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
