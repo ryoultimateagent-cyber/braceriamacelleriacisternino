@@ -1,7 +1,5 @@
 import { Globe, Share2, ArrowUp } from "lucide-react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import logoBelvedere from "@/assets/logo-belvedere.png";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 
 const Footer = () => {
