@@ -1,6 +1,6 @@
 import { Globe, Share2, ArrowUp } from "lucide-react";
 import logoBelvedere from "@/assets/logo-belvedere.png";
-import logoBelvedere from "@/assets/logo-belvedere.png";
+
 
 const Footer = () => {
   const year = new Date().getFullYear();
