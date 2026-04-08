@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer role="contentinfo" className="py-10 bg-transparent text-white relative overflow-hidden border-t border-white/5">
       <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
           
           <div className="lg:col-span-1 space-y-8">
             <div className="space-y-4">
