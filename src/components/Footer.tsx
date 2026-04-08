@@ -73,25 +73,6 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white opacity-45 italic">NEWSLETTER</h3>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input 
-                type="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="LA TUA EMAIL" 
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-[10px] font-bold italic placeholder:text-white/20 focus:border-primary/50 outline-none transition-all focus:bg-white/10" 
-                required
-              />
-              <Button 
-                type="submit"
-                className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-black italic uppercase tracking-[0.2em] text-[10px] rounded-2xl transition-all shadow-lg shadow-primary/10"
-              >
-                ISCRIVITI
-              </Button>
-            </form>
-          </div>
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
