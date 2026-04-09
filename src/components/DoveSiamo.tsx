@@ -23,27 +23,27 @@ const DoveSiamo = () => {
             <div className="space-y-8">
               <article className="flex items-start gap-6 group">
                 <div className="shrink-0">
-                   <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-white/5">
-                     <MapPin className="w-7 h-7" />
+                   <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-white/5">
+                     <MapPin className="w-8 h-8" />
                    </div>
                 </div>
                 <div className="space-y-1">
-                   <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 italic">INDIRIZZO</h4>
-                   <p className="text-white text-[15px] font-normal italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano (BA)</p>
+                   <h4 className="text-white text-[12px] font-bold uppercase tracking-[0.2em] opacity-40 italic">INDIRIZZO</h4>
+                   <p className="text-white text-lg md:text-xl font-black italic uppercase tracking-tighter leading-none">Via G. Verdi 5C, Putignano (BA)</p>
                 </div>
               </article>
 
               <article className="flex items-start gap-6 group">
                 <div className="shrink-0">
-                   <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-white/5">
-                     <Clock className="w-7 h-7" />
+                   <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-white/5">
+                     <Clock className="w-8 h-8" />
                    </div>
                 </div>
                 <div className="space-y-1">
-                   <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 italic">ORARI</h4>
-                   <div className="text-white text-[15px] font-normal italic uppercase tracking-tighter leading-tight">
+                   <h4 className="text-white text-[12px] font-bold uppercase tracking-[0.2em] opacity-40 italic">ORARI</h4>
+                   <div className="text-white text-lg md:text-xl font-black italic uppercase tracking-tighter leading-none">
                      Lun - Sab: 08–13 | 17–00<br />
-                     <span className="text-primary/50 text-[15px]">Mar e Dom: CHIUSO</span>
+                     <span className="text-primary/70">Mar e Dom: CHIUSO</span>
                    </div>
                 </div>
               </article>

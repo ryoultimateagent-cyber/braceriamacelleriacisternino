@@ -50,8 +50,8 @@ const Recensioni = () => {
         />
       </div>
 
-      <div className="relative h-[360px] flex items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-5xl px-4 flex items-center justify-center">
+      <div className="relative h-[450px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-6xl px-4 flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {reviews.map((review, i) => {
               const isCenter = i === index;
@@ -72,7 +72,7 @@ const Recensioni = () => {
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-xl bg-white/5 backdrop-blur-xl p-8 lg:p-10 rounded-[2.5rem] border border-white/10 shadow-xl flex flex-col items-center text-center fire-glow-card ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] border border-white/10 shadow-xl flex flex-col items-center text-center fire-glow-card ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
                   onClick={() => !isCenter && setIndex(i)}
                 >
                   <Quote className="w-12 h-12 text-primary/10 mb-6" />
@@ -81,7 +81,7 @@ const Recensioni = () => {
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-[15px] font-normal italic text-white/85 leading-[1.75] mb-8">
+                  <p className="text-lg md:text-xl lg:text-2xl font-normal italic text-white/90 leading-relaxed mb-10">
                     "{review.text}"
                   </p>
                   <div className="pt-8 border-t border-white/5 w-full">
