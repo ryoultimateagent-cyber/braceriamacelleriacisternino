@@ -24,6 +24,16 @@ const GiocoPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background relative overflow-hidden">
+      <Helmet>
+        <title>🥩 Steak Challenge – Macelleria Belvedere</title>
+        <meta name="description" content="Riesci a cuocere la bistecca perfetta? Mettiti alla prova con il gioco ufficiale della Macelleria Belvedere!" />
+        <meta property="og:title" content="🥩 Steak Challenge – Macelleria Belvedere" />
+        <meta property="og:description" content="Riesci a cuocere la bistecca perfetta? Mettiti alla prova con il gioco ufficiale della Macelleria Belvedere!" />
+        <meta property="og:image" content="https://macelleriabelvedere.it/og-image.jpg" />
+        <meta property="og:url" content="https://macelleriabelvedere.it/gioco" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* Ambient Glows */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-[10%] -left-[10%] w-[40%] h-[40%] bg-red-900/10 blur-[120px] rounded-full animate-pulse" />
