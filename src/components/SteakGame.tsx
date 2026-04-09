@@ -58,7 +58,48 @@ const SteakGame = () => {
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState<typeof COOKING_LEVELS[0] | null>(null);
   const [direction, setDirection] = useState(1);
+  const [leaderboard, setLeaderboard] = useState<ScoreEntry[]>([]);
+  const [playerName, setPlayerName] = useState("");
+  const [showNameInput, setShowNameInput] = useState(false);
+  const [lastScore, setLastScore] = useState(0);
   const requestRef = useRef<number>();
+
+  useEffect(() => {
+    const saved = localStorage.getItem('steak-leaderboard');
+    if (saved) {
+      try {
+        setLeaderboard(JSON.parse(saved));
+      } catch (e) {
+        console.error("Failed to parse leaderboard", e);
+      }
+    }
+  }, []);
+
+  const calculateScore = (finalProgress: number) => {
+    // Perfect point is 32.5 (center of "Al Sangue")
+    const distance = Math.abs(finalProgress - 32.5);
+    // Max distance is roughly 67.5 (to 100) or 32.5 (to 0). 
+    // Let's normalize score so 32.5 gives 100, and it drops off.
+    const score = Math.max(0, Math.round(100 - (distance * 2.5)));
+    return score;
+  };
+
+  const saveScore = (name: string, score: number) => {
+    const newEntry: ScoreEntry = {
+      name: name || "Grigliatore Anonimo",
+      score,
+      date: new Date().toLocaleDateString('it-IT')
+    };
+    
+    const newLeaderboard = [...leaderboard, newEntry]
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5); // Keep top 5
+    
+    setLeaderboard(newLeaderboard);
+    localStorage.setItem('steak-leaderboard', JSON.stringify(newLeaderboard));
+    setShowNameInput(false);
+    toast.success("Punteggio salvato in classifica!");
+  };
 
   const animate = () => {
     setProgress((prev) => {
