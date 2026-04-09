@@ -131,7 +131,16 @@ const SteakGame = () => {
     const finalResult = COOKING_LEVELS.find(
       level => progress >= level.min && progress <= level.max
     );
-    setResult(finalResult || COOKING_LEVELS[COOKING_LEVELS.length - 1]);
+    const finalLevel = finalResult || COOKING_LEVELS[COOKING_LEVELS.length - 1];
+    setResult(finalLevel);
+    
+    const calculatedScore = calculateScore(progress);
+    setLastScore(calculatedScore);
+    
+    // Only show name input if score is decent (above 60)
+    if (calculatedScore > 60) {
+      setTimeout(() => setShowNameInput(true), 1500);
+    }
   };
 
   useEffect(() => {
