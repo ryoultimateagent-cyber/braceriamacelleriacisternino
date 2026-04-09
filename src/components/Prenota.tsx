@@ -63,7 +63,7 @@ const Prenota = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://wa.me/390804058608"
+                href="https://wa.me/393495319286"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-2xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors uppercase"
