@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import MenuPage from "./pages/MenuPage";
@@ -19,29 +20,31 @@ import CookieConsent from "@/components/CookieConsent";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <LoadingScreen />
-      <CustomCursor />
-      <CookieConsent />
-      <BrowserRouter>
-        <SmoothScroll>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <LoadingScreen />
+        <CustomCursor />
+        <CookieConsent />
+        <BrowserRouter>
+          <SmoothScroll>
 
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/menu" element={<MenuPage />} />
-            <Route path="/gioco" element={<GiocoPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/cookies" element={<CookiePage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/menu" element={<MenuPage />} />
+              <Route path="/gioco" element={<GiocoPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/cookies" element={<CookiePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
 
-        </SmoothScroll>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+          </SmoothScroll>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
