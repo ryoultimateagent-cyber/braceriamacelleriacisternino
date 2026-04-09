@@ -61,12 +61,12 @@ const Header = () => {
               className="group flex items-center gap-2 md:gap-3 transition-transform duration-300 hover:scale-105"
               aria-label="Home - Macelleria Belvedere"
             >
-              <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-8 md:h-10 w-auto object-contain brightness-0 invert" />
+              <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
               <div className="flex flex-col">
-                <span className="text-sm md:text-xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
+                <span className="text-lg md:text-2xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                   BELVEDERE<span className="text-primary">.</span>
                 </span>
-                <span className="text-[7px] md:text-[9px] font-bold text-white/50 tracking-[0.3em] md:tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-white/50 tracking-[0.3em] md:tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
               </div>
             </a>
           </div>
