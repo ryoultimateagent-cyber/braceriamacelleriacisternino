@@ -7,9 +7,14 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import MenuPage from "./pages/MenuPage";
 import GiocoPage from "./pages/GiocoPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import CookiePage from "./pages/CookiePage";
 import LoadingScreen from "@/components/LoadingScreen";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+
+import CookieConsent from "@/components/CookieConsent";
+
 
 const queryClient = new QueryClient();
 
@@ -20,14 +25,19 @@ const App = () => (
       <Sonner />
       <LoadingScreen />
       <CustomCursor />
+      <CookieConsent />
       <BrowserRouter>
         <SmoothScroll>
+
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/gioco" element={<GiocoPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/cookies" element={<CookiePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+
         </SmoothScroll>
       </BrowserRouter>
     </TooltipProvider>
