@@ -10,6 +10,8 @@ import GiocoPage from "./pages/GiocoPage";
 import LoadingScreen from "@/components/LoadingScreen";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import CookieConsent from "@/components/CookieConsent";
+
 
 const queryClient = new QueryClient();
 
