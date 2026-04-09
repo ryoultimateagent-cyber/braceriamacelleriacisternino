@@ -122,6 +122,7 @@ const SteakGame = () => {
     setResult(null);
     setProgress(0);
     setDirection(1);
+    setShowNameInput(false);
   };
 
   const handleStop = () => {
