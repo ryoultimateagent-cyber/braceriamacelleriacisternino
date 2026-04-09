@@ -64,6 +64,10 @@ const Index = () => {
           </div>
           <GlowingSeparator />
           <div className="py-8 md:py-10 lg:py-12">
+            <SteakGame />
+          </div>
+          <GlowingSeparator />
+          <div className="py-8 md:py-10 lg:py-12">
             <Recensioni />
           </div>
           <GlowingSeparator />
