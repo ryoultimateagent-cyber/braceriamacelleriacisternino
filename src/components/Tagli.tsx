@@ -95,10 +95,10 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
         <span className="mb-4 inline-block w-fit rounded-full bg-primary/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-primary border border-primary/20">
           {item.category}
         </span>
-        <h3 className="text-[24px] lg:text-[28px] font-bold text-white uppercase italic tracking-tighter mb-4 leading-none">
+        <h3 className="text-[28px] lg:text-[34px] font-black text-white uppercase italic tracking-tighter mb-6 leading-[0.9]">
           {item.name}
         </h3>
-        <p className="max-w-md text-white/70 text-[15px] font-normal leading-[1.65] mb-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+        <p className="max-w-md text-white/70 text-base md:text-lg font-normal leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 italic">
           {item.desc}
         </p>
         <div className="flex items-center justify-between pt-6 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
@@ -157,7 +157,7 @@ const Tagli = () => {
 
               <div className="flex flex-col gap-1 flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <h3 className="text-[20px] font-semibold text-white tracking-[-0.3px] uppercase italic group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-[22px] md:text-[28px] font-black text-white tracking-tighter uppercase italic group-hover:text-primary transition-colors duration-300 leading-none">
                     {item.name}
                   </h3>
                   <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/40 group-hover:text-primary/70 transition-colors">
@@ -165,7 +165,7 @@ const Tagli = () => {
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-[14px] leading-[1.6] text-white/55 font-normal max-w-md group-hover:text-white/80 transition-colors">
+                  <p className="text-base md:text-lg leading-relaxed text-white/60 font-normal max-w-md group-hover:text-white/80 transition-colors italic">
                     Esperienza artigianale e passione nel cuore di Putignano.
                   </p>
                   <div className="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
