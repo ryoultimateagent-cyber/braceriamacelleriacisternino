@@ -51,9 +51,9 @@ const Storia = () => {
             </div>
             
             <div className={`w-full lg:w-1/2 ${i % 2 !== 0 ? "lg:text-right" : "lg:text-left"}`}>
-                <span className="text-primary font-semibold text-[14px] mb-2 block italic uppercase tracking-[0.06em]">{item.year}</span>
-                <h3 className="text-[22px] md:text-[28px] font-bold text-white mb-4 uppercase italic tracking-[-1px] leading-tight">{item.title}</h3>
-                <p className="text-white/50 text-[15px] font-normal leading-[1.65] max-w-xl italic">
+                <span className="text-primary font-bold text-base mb-2 block italic uppercase tracking-wider">{item.year}</span>
+                <h3 className="text-[28px] md:text-[38px] lg:text-[44px] font-black text-white mb-6 uppercase italic tracking-tighter leading-[0.9]">{item.title}</h3>
+                <p className="text-white/60 text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl italic">
                   {item.text}
                 </p>
             </div>

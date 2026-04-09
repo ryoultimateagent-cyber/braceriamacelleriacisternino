@@ -75,11 +75,11 @@
   }
 
   .section-container {
-    @apply max-w-6xl mx-auto px-6 md:px-8;
+    @apply max-w-7xl mx-auto px-6 md:px-12;
   }
-
+  
   .section-spacing {
-    @apply py-8 md:py-10 lg:py-12;
+    @apply py-6 md:py-10 lg:py-14;
   }
 
   .text-reveal {

@@ -77,10 +77,10 @@ const Menu = () => {
                 </span>
                 
                 <div className="space-y-2.5">
-                  <h3 className="text-[17px] font-semibold text-white uppercase italic tracking-[0.04em] group-hover:text-primary transition-colors">
+                  <h3 className="text-[20px] md:text-[24px] font-black text-white uppercase italic tracking-tighter group-hover:text-primary transition-colors leading-none">
                     {item.name}
                   </h3>
-                  <p className="text-[14px] leading-[1.60] text-white/70 font-normal">
+                  <p className="text-base leading-relaxed text-white/60 font-normal italic">
                     {item.desc}
                   </p>
                 </div>
