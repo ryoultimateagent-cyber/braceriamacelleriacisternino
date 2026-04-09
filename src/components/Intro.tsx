@@ -49,10 +49,10 @@ const Intro = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-[24px] md:text-[30px] lg:text-[34px] font-bold text-white tracking-[-1px] leading-none uppercase italic"
+                className="text-[32px] md:text-[42px] lg:text-[54px] font-black text-white tracking-tighter leading-[0.9] uppercase italic"
               >
                 PURO <br />
-                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>CARATTERE</span>
+                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.3)' }}>CARATTERE</span>
               </motion.h2>
 
               <motion.p 
