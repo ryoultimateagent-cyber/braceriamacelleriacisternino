@@ -29,7 +29,7 @@ const SectionHeader = ({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-2 block text-primary text-[14px] font-semibold uppercase tracking-[0.06em] italic"
+          className="mb-2 block text-primary text-[14px] font-semibold uppercase tracking-[0.06em] italic whitespace-nowrap"
         >
           {subtitle}
         </motion.span>
