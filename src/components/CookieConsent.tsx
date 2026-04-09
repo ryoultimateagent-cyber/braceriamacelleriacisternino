@@ -64,8 +64,13 @@ const CookieConsent = () => {
                   i cookie o configurare le tue preferenze. Consulta la nostra{" "}
                   <a href="/privacy" className="text-primary hover:underline underline-offset-4">
                     Privacy Policy
+                  </a>{" "}
+                  e{" "}
+                  <a href="/cookies" className="text-primary hover:underline underline-offset-4">
+                    Cookie Policy
                   </a>.
                 </p>
+
                 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
