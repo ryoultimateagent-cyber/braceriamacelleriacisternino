@@ -78,7 +78,7 @@ const Header = () => {
                 <li key={link.href} className="flex-shrink-0">
                   <a
                     href={link.href}
-                    className="text-[10px] xl:text-xs font-black uppercase tracking-widest text-white/80 hover:text-white transition-all duration-300 relative group overflow-hidden whitespace-nowrap"
+                    className="text-[10px] xl:text-xs font-black uppercase tracking-wider xl:tracking-widest text-white/80 hover:text-white transition-all duration-300 relative group overflow-hidden whitespace-nowrap"
                   >
                     <span className="relative z-10">{link.label}</span>
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0" />
