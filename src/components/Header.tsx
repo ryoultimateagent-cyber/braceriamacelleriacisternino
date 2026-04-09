@@ -53,16 +53,16 @@ const Header = () => {
           <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-pulse" />
         )}
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between flex-nowrap h-16 md:h-20">
           {/* Logo Section (Left) */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <a 
               href="/" 
               className="group flex items-center gap-2 md:gap-3 transition-transform duration-300 hover:scale-105"
               aria-label="Home - Macelleria Belvedere"
             >
               <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
-              <div className="flex flex-col">
+              <div className="flex flex-col whitespace-nowrap">
                 <span className="text-lg md:text-2xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                   BELVEDERE<span className="text-primary">.</span>
                 </span>
@@ -72,13 +72,13 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation (Center/Right) */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
-            <ul className="flex items-center gap-6 xl:gap-10">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-12">
+            <ul className="flex items-center gap-4 xl:gap-8 flex-nowrap">
               {navLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="flex-shrink-0">
                   <a
                     href={link.href}
-                    className="text-xs font-black uppercase tracking-widest text-white/80 hover:text-white transition-all duration-300 relative group overflow-hidden"
+                    className="text-[10px] xl:text-xs font-black uppercase tracking-wider xl:tracking-widest text-white/80 hover:text-white transition-all duration-300 relative group overflow-hidden whitespace-nowrap"
                   >
                     <span className="relative z-10">{link.label}</span>
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0" />
@@ -89,7 +89,7 @@ const Header = () => {
             
             <Button 
               asChild 
-              className="rounded-full px-8 h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-sm"
+              className="rounded-full px-6 xl:px-8 h-10 xl:h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-sm flex-shrink-0"
             >
               <a href="tel:+390804058608" className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
