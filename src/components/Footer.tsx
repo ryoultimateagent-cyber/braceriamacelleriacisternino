@@ -108,9 +108,24 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 text-center md:text-left italic">
-            © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <p className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 text-center md:text-left italic">
+              © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
+            </p>
+            <a 
+              href="/privacy" 
+              className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 hover:opacity-100 transition-opacity italic"
+            >
+              PRIVACY POLICY
+            </a>
+            <a 
+              href="/cookies" 
+              className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 hover:opacity-100 transition-opacity italic"
+            >
+              COOKIE POLICY
+            </a>
+          </div>
+
           
           <button
             onClick={scrollToTop}
