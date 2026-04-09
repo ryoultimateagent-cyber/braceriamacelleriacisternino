@@ -91,6 +91,17 @@ const Footer = () => {
                   080 405 8608
                 </a>
               </div>
+              <div className="space-y-1">
+                <p className="text-[10px] font-normal uppercase tracking-[0.12em] text-white opacity-40 italic">WHATSAPP</p>
+                <a 
+                  href="https://wa.me/390804058608" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-primary transition-colors font-normal text-[14px] tracking-tighter italic"
+                >
+                  +39 080 405 8608
+                </a>
+              </div>
             </div>
           </div>
 
