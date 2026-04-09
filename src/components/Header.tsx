@@ -55,7 +55,7 @@ const Header = () => {
 
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between flex-nowrap h-16 md:h-20">
           {/* Logo Section (Left) */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <a 
               href="/" 
               className="group flex items-center gap-2 md:gap-3 transition-transform duration-300 hover:scale-105"
