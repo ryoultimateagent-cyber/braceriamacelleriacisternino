@@ -70,7 +70,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="text-white/80 font-medium mb-12 max-w-xl text-base md:text-lg leading-relaxed italic"
+          className="text-white/90 font-medium mb-16 max-w-2xl text-lg md:text-2xl leading-relaxed italic"
         >
           Tradizione, qualità e brace — dal 1986 a Putignano
         </motion.p>
