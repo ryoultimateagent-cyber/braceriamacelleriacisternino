@@ -78,7 +78,7 @@ const Header = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[10px] font-black uppercase tracking-widest text-white/70 hover:text-white transition-all duration-300 relative group overflow-hidden"
+                    className="text-xs font-black uppercase tracking-widest text-white/80 hover:text-white transition-all duration-300 relative group overflow-hidden"
                   >
                     <span className="relative z-10">{link.label}</span>
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0" />
@@ -89,7 +89,7 @@ const Header = () => {
             
             <Button 
               asChild 
-              className="rounded-full px-6 h-10 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-xs"
+              className="rounded-full px-8 h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-sm"
             >
               <a href="tel:+390804058608" className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
