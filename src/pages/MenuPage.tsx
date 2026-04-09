@@ -106,7 +106,7 @@ const MenuPage = () => {
             <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-4">Sei Pronto a Gustare?</h3>
             <p className="text-white/50 italic mb-8 max-w-md mx-auto">Prenota il tuo tavolo per assicurarti la migliore esperienza nella nostra braceria.</p>
             <Button asChild className="rounded-full px-10 h-14 bg-primary text-white font-black italic uppercase tracking-tighter shadow-lg hover:shadow-primary/40 transition-all">
-              <a href="tel:+390804058608">Prenota Ora</a>
+              <a href="tel:+393495319286">Prenota Ora</a>
             </Button>
           </div>
         </div>

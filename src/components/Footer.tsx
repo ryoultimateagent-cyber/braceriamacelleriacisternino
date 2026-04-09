@@ -44,7 +44,7 @@ const Footer = () => {
               {[
                 { Icon: Facebook, href: "https://www.facebook.com/macelleriabelvedere" },
                 { Icon: Instagram, href: "https://www.instagram.com/macelleriabelvedere" },
-                { Icon: MessageCircle, href: "https://wa.me/390804058608" }
+                { Icon: MessageCircle, href: "https://wa.me/393495319286" }
               ].map((social, i) => (
                 <a 
                   key={i}
@@ -85,21 +85,21 @@ const Footer = () => {
               <div className="space-y-1">
                 <p className="text-[10px] font-normal uppercase tracking-[0.12em] text-white opacity-40 italic">TELEFONO</p>
                 <a 
-                  href="tel:+390804058608" 
+                  href="tel:+393495319286" 
                   className="text-white hover:text-primary transition-colors font-normal text-[14px] tracking-tighter italic"
                 >
-                  080 405 8608
+                  +39 349 531 9286
                 </a>
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] font-normal uppercase tracking-[0.12em] text-white opacity-40 italic">WHATSAPP</p>
                 <a 
-                  href="https://wa.me/390804058608" 
+                  href="https://wa.me/393495319286" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-primary transition-colors font-normal text-[14px] tracking-tighter italic"
                 >
-                  +39 080 405 8608
+                  +39 349 531 9286
                 </a>
               </div>
             </div>

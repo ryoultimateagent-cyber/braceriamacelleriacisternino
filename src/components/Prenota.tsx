@@ -63,7 +63,7 @@ const Prenota = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://wa.me/390804058608"
+                href="https://wa.me/393495319286"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-2xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors uppercase"
@@ -93,10 +93,10 @@ const Prenota = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="tel:+390804058608"
+                href="tel:+393495319286"
                 className="text-2xl font-black text-white tracking-tighter italic mb-2 hover:text-primary transition-colors"
               >
-                080 405 8608
+                +39 349 531 9286
               </motion.a>
               <p className="text-[10px] text-white/30 uppercase tracking-[0.2em] italic font-medium">PRENOTA UN TAVOLO</p>
             </motion.div>
