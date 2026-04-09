@@ -33,8 +33,11 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/gioco" element={<GiocoPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/cookies" element={<CookiePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+
         </SmoothScroll>
       </BrowserRouter>
     </TooltipProvider>
