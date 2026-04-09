@@ -5,6 +5,7 @@ import Tagli from "@/components/Tagli";
 import Menu from "@/components/Menu";
 import Vini from "@/components/Vini";
 import Galleria from "@/components/Galleria";
+import SteakGame from "@/components/SteakGame";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Prenota from "@/components/Prenota";
@@ -60,6 +61,10 @@ const Index = () => {
           <GlowingSeparator />
           <div className="py-8 md:py-10 lg:py-12">
             <Galleria />
+          </div>
+          <GlowingSeparator />
+          <div className="py-8 md:py-10 lg:py-12">
+            <SteakGame />
           </div>
           <GlowingSeparator />
           <div className="py-8 md:py-10 lg:py-12">
