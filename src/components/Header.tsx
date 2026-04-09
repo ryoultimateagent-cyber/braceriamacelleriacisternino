@@ -62,7 +62,7 @@ const Header = () => {
               aria-label="Home - Macelleria Belvedere"
             >
               <img src={logoBelvedere} alt="Logo Macelleria Belvedere" className="h-10 md:h-12 w-auto object-contain brightness-0 invert" />
-              <div className="flex flex-col">
+              <div className="flex flex-col whitespace-nowrap">
                 <span className="text-lg md:text-2xl font-black text-white tracking-tighter leading-none font-display uppercase italic">
                   BELVEDERE<span className="text-primary">.</span>
                 </span>
