@@ -20,29 +20,31 @@ import CookieConsent from "@/components/CookieConsent";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <LoadingScreen />
-      <CustomCursor />
-      <CookieConsent />
-      <BrowserRouter>
-        <SmoothScroll>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <LoadingScreen />
+        <CustomCursor />
+        <CookieConsent />
+        <BrowserRouter>
+          <SmoothScroll>
 
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/menu" element={<MenuPage />} />
-            <Route path="/gioco" element={<GiocoPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/cookies" element={<CookiePage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/menu" element={<MenuPage />} />
+              <Route path="/gioco" element={<GiocoPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/cookies" element={<CookiePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
 
-        </SmoothScroll>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+          </SmoothScroll>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
