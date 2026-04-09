@@ -22,8 +22,10 @@ const App = () => (
       <Sonner />
       <LoadingScreen />
       <CustomCursor />
+      <CookieConsent />
       <BrowserRouter>
         <SmoothScroll>
+
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/menu" element={<MenuPage />} />
