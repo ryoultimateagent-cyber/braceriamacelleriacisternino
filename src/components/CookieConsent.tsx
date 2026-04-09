@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ShieldCheck, Cookie } from "lucide-react";
+import { Cookie } from "lucide-react";
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,19 +10,25 @@ const CookieConsent = () => {
     if (!consent) {
       const timer = setTimeout(() => {
         setIsVisible(true);
-      }, 2000); // Show after 2 seconds
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleAccept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
+  const handleAcceptAll = () => {
+    localStorage.setItem("cookie-consent", "all");
     setIsVisible(false);
   };
 
-  const handleDecline = () => {
-    localStorage.setItem("cookie-consent", "declined");
+  const handleDeclineAll = () => {
+    localStorage.setItem("cookie-consent", "none");
     setIsVisible(false);
+  };
+
+  const handlePreferences = () => {
+    // Per una reale conformità GDPR questo dovrebbe aprire un menu granulare
+    // Ma per ora implementiamo la struttura richiesta
+    console.log("Mostra preferenze cookie");
   };
 
   return (
@@ -32,60 +38,48 @@ const CookieConsent = () => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed bottom-6 left-6 right-6 z-[100] md:left-auto md:right-8 md:max-w-md"
+          className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-8"
         >
-          <div className="glass border border-white/10 p-6 rounded-2xl shadow-2xl relative overflow-hidden group">
+          <div className="max-w-6xl mx-auto glass border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden bg-black/90 backdrop-blur-2xl">
             {/* Background Glow */}
-            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-colors duration-500" />
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 blur-3xl rounded-full" />
             
-            <div className="flex items-start gap-4 relative z-10">
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                <Cookie className="w-6 h-6 text-primary" />
+            <div className="flex flex-col lg:flex-row items-center gap-8 relative z-10">
+              <div className="flex items-center gap-4 flex-1">
+                <div className="hidden sm:flex flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/20 items-center justify-center border border-primary/20">
+                  <Cookie className="w-8 h-8 text-primary" />
+                </div>
+                
+                <div className="text-left">
+                  <p className="text-sm md:text-base text-gray-200 leading-relaxed font-medium">
+                    Questo sito utilizza cookie tecnici e, previo consenso, 
+                    cookie di profilazione e analitici. Per saperne di più leggi la{" "}
+                    <a href="/cookie-policy" className="text-primary hover:underline underline-offset-4 font-bold decoration-2">
+                      Cookie Policy
+                    </a>.
+                  </p>
+                </div>
               </div>
-              
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-black uppercase italic tracking-tight flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-primary" />
-                    Cookie & Privacy
-                  </h3>
-                  <button 
-                    onClick={() => setIsVisible(false)}
-                    className="text-muted-foreground hover:text-white transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                  Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito, 
-                  analizzare il traffico e personalizzare i contenuti. Puoi scegliere di accettare tutti 
-                  i cookie o configurare le tue preferenze. Consulta la nostra{" "}
-                  <a href="/privacy" className="text-primary hover:underline underline-offset-4">
-                    Privacy Policy
-                  </a>{" "}
-                  e{" "}
-                  <a href="/cookies" className="text-primary hover:underline underline-offset-4">
-                    Cookie Policy
-                  </a>.
-                </p>
 
-                
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <button
-                    onClick={handleAccept}
-                    className="flex-1 bg-primary hover:bg-primary/80 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] text-sm uppercase italic tracking-wider"
-                  >
-                    Accetta Tutto
-                  </button>
-                  <button
-                    onClick={handleDecline}
-                    className="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 text-sm uppercase italic tracking-wider"
-                  >
-                    Rifiuta
-                  </button>
-                </div>
+              <div className="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+                <button
+                  onClick={handlePreferences}
+                  className="flex-1 lg:flex-none px-6 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-gray-400 hover:text-white transition-colors border border-white/10 rounded-xl hover:bg-white/5"
+                >
+                  Preferenze
+                </button>
+                <button
+                  onClick={handleDeclineAll}
+                  className="flex-1 lg:flex-none px-8 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-white bg-white/10 border border-white/20 rounded-xl hover:bg-white/20 transition-all"
+                >
+                  Rifiuta
+                </button>
+                <button
+                  onClick={handleAcceptAll}
+                  className="flex-1 lg:flex-none px-8 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-white bg-primary rounded-xl hover:bg-primary/80 transition-all shadow-[0_10px_30px_rgba(234,56,76,0.3)] hover:scale-105 active:scale-95"
+                >
+                  Accetta tutti
+                </button>
               </div>
             </div>
           </div>
