@@ -176,13 +176,13 @@ const SteakGame = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   className="text-center flex flex-col items-center"
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-4xl">{result.emoji}</span>
-                    <h3 className={`text-2xl font-black italic uppercase ${result.color.replace('bg-', 'text-')}`}>
+                  <div className="flex flex-col items-center gap-3 mb-2">
+                    <span className="text-5xl mb-2">{result.emoji}</span>
+                    <h3 className={`text-3xl md:text-4xl font-black italic uppercase drop-shadow-[0_0_15px_rgba(255,0,0,0.5)] ${result.color === 'bg-red-600' || result.color === 'bg-orange-500' ? 'text-white' : result.color.replace('bg-', 'text-')}`}>
                       {result.label}
                     </h3>
                   </div>
-                  <p className="text-lg font-medium italic text-zinc-300 max-w-md">
+                  <p className="text-lg md:text-xl font-medium italic text-zinc-300 max-w-lg leading-tight px-4">
                     "{result.comment}"
                   </p>
                 </motion.div>
