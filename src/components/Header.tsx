@@ -86,12 +86,10 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-...
-88:             </ul>
             
             <Button 
               asChild 
-              className="rounded-full px-8 h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-sm"
+              className="rounded-full px-6 xl:px-8 h-10 xl:h-12 bg-primary hover:bg-primary/90 text-white font-black transition-all shadow-lg hover:shadow-primary/40 uppercase italic tracking-tighter text-sm flex-shrink-0"
             >
               <a href="tel:+390804058608" className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
