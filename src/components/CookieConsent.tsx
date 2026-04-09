@@ -63,7 +63,7 @@ const CookieConsent = () => {
                 </button>
                 <button
                   onClick={handleDeclineAll}
-                  className="flex-1 lg:flex-none px-8 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-all"
+                  className="flex-1 lg:flex-none px-8 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-white bg-white/20 hover:bg-white/30 border border-white/20 rounded-xl transition-all"
                 >
                   Rifiuta
                 </button>
