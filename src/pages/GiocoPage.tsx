@@ -3,6 +3,7 @@ import { ArrowLeft, Share2 } from "lucide-react";
 import SteakGame from "@/components/SteakGame";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 
 const GiocoPage = () => {
   const handleShare = async () => {
