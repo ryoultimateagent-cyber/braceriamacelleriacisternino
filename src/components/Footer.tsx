@@ -1,4 +1,4 @@
-import { Globe, Share2, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, ArrowUp } from "lucide-react";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 
 
@@ -28,13 +28,19 @@ const Footer = () => {
               Un'esperienza sensoriale dove il fuoco incontra la materia prima d'eccellenza. Tradizione e innovazione sulla brace.
             </p>
             <div className="flex gap-4">
-              {[Share2, Globe].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/macelleriabelvedere" },
+                { Icon: Instagram, href: "https://www.instagram.com/macelleriabelvedere" },
+                { Icon: MessageCircle, href: "https://wa.me/390804058608" }
+              ].map((social, i) => (
                 <a 
                   key={i}
-                  href="#" 
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary transition-all duration-500"
+                  href={social.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary transition-all duration-500 group"
                 >
-                  <Icon className="w-5 h-5" />
+                  <social.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
               ))}
             </div>
