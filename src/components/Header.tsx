@@ -53,7 +53,7 @@ const Header = () => {
           <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-pulse" />
         )}
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between flex-nowrap h-16 md:h-20">
           {/* Logo Section (Left) */}
           <div className="flex items-center">
             <a 
