@@ -85,10 +85,10 @@ const Footer = () => {
               <div className="space-y-1">
                 <p className="text-[10px] font-normal uppercase tracking-[0.12em] text-white opacity-40 italic">TELEFONO</p>
                 <a 
-                  href="tel:+390804058608" 
+                  href="tel:+393495319286" 
                   className="text-white hover:text-primary transition-colors font-normal text-[14px] tracking-tighter italic"
                 >
-                  080 405 8608
+                  +39 349 531 9286
                 </a>
               </div>
               <div className="space-y-1">
