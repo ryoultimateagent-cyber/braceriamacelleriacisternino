@@ -5,6 +5,7 @@ import Tagli from "@/components/Tagli";
 import Menu from "@/components/Menu";
 import Vini from "@/components/Vini";
 import Galleria from "@/components/Galleria";
+import SteakGame from "@/components/SteakGame";
 import Recensioni from "@/components/Recensioni";
 import DoveSiamo from "@/components/DoveSiamo";
 import Prenota from "@/components/Prenota";
