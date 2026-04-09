@@ -7,9 +7,12 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import MenuPage from "./pages/MenuPage";
 import GiocoPage from "./pages/GiocoPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import CookiePage from "./pages/CookiePage";
 import LoadingScreen from "@/components/LoadingScreen";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
+
 import CookieConsent from "@/components/CookieConsent";
 
 
