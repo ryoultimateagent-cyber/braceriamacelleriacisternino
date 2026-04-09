@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Flame, RotateCcw, Play, Square } from 'lucide-react';
+import { Flame, RotateCcw, Play, Square, Trophy, User } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import { toast } from 'sonner';
+
+type ScoreEntry = {
+  name: string;
+  score: number;
+  date: string;
+};
 
 const COOKING_LEVELS = [
   { 
