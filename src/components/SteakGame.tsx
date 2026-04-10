@@ -161,7 +161,7 @@ const SteakGame = () => {
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [isPlaying, direction]);
+  }, [isPlaying]);
 
   return (
     <section className="section-container relative z-10 py-20 overflow-hidden">
