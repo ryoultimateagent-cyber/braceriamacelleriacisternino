@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 
+const MotionLink = motion(Link);
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -138,7 +140,7 @@ const Header = () => {
             
             <nav className="flex flex-col gap-6">
               {navLinks.map((link, index) => (
-                <Link
+                <MotionLink
                   key={link.href}
                   to={link.href}
                   initial={{ opacity: 0, x: 20 }}
@@ -148,7 +150,7 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
-                </Link>
+                </MotionLink>
               ))}
             </nav>
 
