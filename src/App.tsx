@@ -23,12 +23,12 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <LoadingScreen />
-        <CustomCursor />
-        <CookieConsent />
         <BrowserRouter>
+          <Toaster />
+          <Sonner />
+          <LoadingScreen />
+          <CustomCursor />
+          <CookieConsent />
           <SmoothScroll>
 
             <Routes>
