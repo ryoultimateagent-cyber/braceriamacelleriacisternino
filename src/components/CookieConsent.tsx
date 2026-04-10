@@ -73,9 +73,9 @@ const CookieConsent = () => {
                   <p className="text-sm md:text-base text-gray-100 leading-relaxed font-medium">
                     Questo sito utilizza cookie tecnici e, previo consenso, 
                     cookie di profilazione e analitici. Per saperne di più leggi la{" "}
-                    <a href="/cookies" className="text-primary hover:underline underline-offset-4 font-bold decoration-2 transition-all">
+                    <Link to="/cookies" className="text-primary hover:underline underline-offset-4 font-bold decoration-2 transition-all">
                       Cookie Policy
-                    </a>.
+                    </Link>.
                   </p>
                 </div>
 
