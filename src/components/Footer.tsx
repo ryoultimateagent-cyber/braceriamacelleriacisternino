@@ -1,4 +1,5 @@
 import { MessageCircle, ArrowUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 
 const Facebook = (props: any) => (
@@ -112,18 +113,18 @@ const Footer = () => {
             <p className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 text-center md:text-left italic">
               © {year} BELVEDERE. TUTTI I DIRITTI RISERVATI.
             </p>
-            <a 
-              href="/privacy" 
+            <Link 
+              to="/privacy" 
               className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 hover:opacity-100 transition-opacity italic"
             >
               PRIVACY POLICY
-            </a>
-            <a 
-              href="/cookies" 
+            </Link>
+            <Link 
+              to="/cookies" 
               className="text-[11px] font-normal uppercase tracking-[0.12em] text-white opacity-35 hover:opacity-100 transition-opacity italic"
             >
               COOKIE POLICY
-            </a>
+            </Link>
           </div>
 
           

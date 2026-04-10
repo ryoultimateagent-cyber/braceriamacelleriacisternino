@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Flame, RotateCcw, Play, Square, Trophy, User } from 'lucide-react';
+import { RotateCcw, Play, Square, Trophy, User } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import { toast } from 'sonner';
 
@@ -58,6 +58,8 @@ const SteakGame = () => {
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState<typeof COOKING_LEVELS[0] | null>(null);
   const [direction, setDirection] = useState(1);
+  const directionRef = useRef(1);
+  const progressRef = useRef(0);
   const [leaderboard, setLeaderboard] = useState<ScoreEntry[]>([]);
   const [playerName, setPlayerName] = useState("");
   const [showNameInput, setShowNameInput] = useState(false);
@@ -102,18 +104,21 @@ const SteakGame = () => {
   };
 
   const animate = () => {
-    setProgress((prev) => {
-      let next = prev + 1.2 * direction;
-      if (next >= 100) {
-        setDirection(-1);
-        return 100;
-      }
-      if (next <= 0) {
-        setDirection(1);
-        return 0;
-      }
-      return next;
-    });
+    const nextProgress = progressRef.current + 1.2 * directionRef.current;
+    
+    if (nextProgress >= 100) {
+      directionRef.current = -1;
+      setDirection(-1);
+      progressRef.current = 100;
+    } else if (nextProgress <= 0) {
+      directionRef.current = 1;
+      setDirection(1);
+      progressRef.current = 0;
+    } else {
+      progressRef.current = nextProgress;
+    }
+    
+    setProgress(progressRef.current);
     requestRef.current = requestAnimationFrame(animate);
   };
 
@@ -121,7 +126,9 @@ const SteakGame = () => {
     setIsPlaying(true);
     setResult(null);
     setProgress(0);
+    progressRef.current = 0;
     setDirection(1);
+    directionRef.current = 1;
     setShowNameInput(false);
   };
 
@@ -129,13 +136,14 @@ const SteakGame = () => {
     setIsPlaying(false);
     if (requestRef.current) cancelAnimationFrame(requestRef.current);
     
+    const finalProgress = progressRef.current;
     const finalResult = COOKING_LEVELS.find(
-      level => progress >= level.min && progress <= level.max
+      level => finalProgress >= level.min && finalProgress <= level.max
     );
     const finalLevel = finalResult || COOKING_LEVELS[COOKING_LEVELS.length - 1];
     setResult(finalLevel);
     
-    const calculatedScore = calculateScore(progress);
+    const calculatedScore = calculateScore(finalProgress);
     setLastScore(calculatedScore);
     
     // Only show name input if score is decent (above 60)
@@ -153,7 +161,7 @@ const SteakGame = () => {
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [isPlaying, direction]);
+  }, [isPlaying]);
 
   return (
     <section className="section-container relative z-10 py-20 overflow-hidden">

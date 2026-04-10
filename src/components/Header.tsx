@@ -3,7 +3,10 @@ import { Phone } from "lucide-react";
 import logoBelvedere from "@/assets/logo-belvedere.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
+
+const MotionLink = motion(Link);
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,8 +59,8 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between flex-nowrap h-16 md:h-20">
           {/* Logo Section (Left) */}
           <div className="flex items-center flex-shrink-0">
-            <a 
-              href="/" 
+            <Link 
+              to="/" 
               className="group flex items-center gap-2 md:gap-3 transition-transform duration-300 hover:scale-105"
               aria-label="Home - Macelleria Belvedere"
             >
@@ -68,7 +71,7 @@ const Header = () => {
                 </span>
                 <span className="text-[8px] md:text-[10px] font-bold text-white/50 tracking-[0.3em] md:tracking-[0.4em] uppercase leading-none mt-1">DAL 1986</span>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation (Center/Right) */}
@@ -76,13 +79,13 @@ const Header = () => {
             <ul className="flex items-center gap-4 xl:gap-8 flex-nowrap">
               {navLinks.map((link) => (
                 <li key={link.href} className="flex-shrink-0">
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-[10px] xl:text-xs font-black uppercase tracking-wider xl:tracking-widest text-white/80 hover:text-white transition-all duration-300 relative group overflow-hidden whitespace-nowrap"
                   >
                     <span className="relative z-10">{link.label}</span>
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -137,9 +140,9 @@ const Header = () => {
             
             <nav className="flex flex-col gap-6">
               {navLinks.map((link, index) => (
-                <motion.a
+                <MotionLink
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + index * 0.06 }}
@@ -147,7 +150,7 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
-                </motion.a>
+                </MotionLink>
               ))}
             </nav>
 
