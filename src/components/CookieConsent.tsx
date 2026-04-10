@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, X, Check, ShieldCheck, BarChart3, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
