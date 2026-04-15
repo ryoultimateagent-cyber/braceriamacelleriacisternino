@@ -1,33 +1,90 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView, Variants } from 'framer-motion';
 
-const ScrollReveal = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+type AnimationVariant = 'fade-up' | 'fade-down' | 'fade-left' | 'fade-right' | 'scale' | 'blur-in';
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
+interface ScrollRevealProps {
+  children: React.ReactNode;
+  className?: string;
+  variant?: AnimationVariant;
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  once?: boolean;
+  staggerChildren?: number;
+}
 
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+const variants: Record<AnimationVariant, Variants> = {
+  'fade-up': {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  },
+  'fade-down': {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0 }
+  },
+  'fade-left': {
+    hidden: { opacity: 0, x: 30 },
+    visible: { opacity: 1, x: 0 }
+  },
+  'fade-right': {
+    hidden: { opacity: 0, x: -30 },
+    visible: { opacity: 1, x: 0 }
+  },
+  'scale': {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 }
+  },
+  'blur-in': {
+    hidden: { opacity: 0, filter: 'blur(10px)' },
+    visible: { opacity: 1, filter: 'blur(0px)' }
+  }
+};
+
+const ScrollReveal: React.FC<ScrollRevealProps> = ({ 
+  children, 
+  className = "", 
+  variant = 'fade-up',
+  delay = 0,
+  duration = 0.8,
+  threshold = 0.1,
+  once = true,
+  staggerChildren = 0
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once, amount: threshold });
+
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: staggerChildren,
+        delayChildren: delay
+      }
+    }
+  };
+
+  const childVariants = variants[variant];
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className={`${className} transition-all duration-1000 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={staggerChildren ? containerVariants : childVariants}
+      transition={{ duration, delay, ease: [0.215, 0.61, 0.355, 1] }}
+      className={className}
     >
-      {children}
-    </div>
+      {staggerChildren ? (
+        React.Children.map(children, (child) => (
+          <motion.div variants={childVariants}>
+            {child}
+          </motion.div>
+        ))
+      ) : (
+        children
+      )}
+    </motion.div>
   );
 };
 

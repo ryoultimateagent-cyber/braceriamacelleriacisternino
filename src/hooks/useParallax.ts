@@ -1,15 +1,7 @@
-import { useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
+import { useScroll, useTransform, useSpring, UseScrollOptions } from "framer-motion";
 import { useRef } from "react";
 
-interface UseParallaxOptions {
-  distance?: number;
-  direction?: "y" | "x";
-  springConfig?: {
-    stiffness: number;
-    damping: number;
-    restDelta: number;
-  };
-}
+type ScrollOffset = UseScrollOptions["offset"];
 
 export const useParallax = (
   distance: number = 50,
@@ -29,7 +21,7 @@ export const useParallax = (
 };
 
 export const useScrollProgress = (
-  offset: [string, string] = ["start end", "end start"]
+  offset: ScrollOffset = ["start end", "end start"]
 ) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
