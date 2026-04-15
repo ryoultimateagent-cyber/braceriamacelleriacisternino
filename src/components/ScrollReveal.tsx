@@ -77,7 +77,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     >
       {staggerChildren ? (
         React.Children.map(children, (child) => (
-          <motion.div variants={childVariants}>
+          <motion.div variants={childVariants} transition={{ duration }}>
             {child}
           </motion.div>
         ))

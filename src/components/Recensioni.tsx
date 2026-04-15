@@ -1,6 +1,7 @@
 import { Star, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import SectionHeader from "./SectionHeader";
 
 const reviews = [
@@ -23,6 +24,7 @@ const reviews = [
 
 const Recensioni = () => {
   const [index, setIndex] = useState(1);
+  const isMobile = useIsMobile();
 
   const next = useCallback(() => {
     if (reviews.length === 0) return;
@@ -40,7 +42,7 @@ const Recensioni = () => {
   }, [next]);
 
   return (
-    <section id="recensioni" className="py-4 md:py-8 bg-transparent relative overflow-hidden">
+    <section id="recensioni" className="py-4 md:py-8 bg-transparent relative overflow-hidden" role="region" aria-label="Carosello recensioni">
       <div className="section-container mb-12 text-center">
         <SectionHeader 
           subtitle="VOCI D'ECCELLENZA"
@@ -50,7 +52,7 @@ const Recensioni = () => {
         />
       </div>
 
-      <div className="relative h-[450px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[450px] flex items-center justify-center overflow-hidden" aria-live="polite">
         <div className="relative w-full max-w-6xl px-4 flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {reviews.map((review, i) => {
@@ -67,12 +69,13 @@ const Recensioni = () => {
                   animate={{ 
                     opacity: isCenter ? 1 : 0.4, 
                     scale: isCenter ? 1 : 0.9, 
-                    x: isLeft ? (window.innerWidth < 768 ? "-85%" : "-100%") : isRight ? (window.innerWidth < 768 ? "85%" : "100%") : 0,
+                    x: isLeft ? (isMobile ? "-85%" : "-100%") : isRight ? (isMobile ? "85%" : "100%") : 0,
                     zIndex: isCenter ? 20 : 10
                   }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] border border-white/10 shadow-xl flex flex-col items-center text-center fire-glow-card ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  className={`absolute w-full max-w-2xl bg-white/5 backdrop-blur-xl p-10 lg:p-14 rounded-[3rem] border border-white/10 shadow-xl flex flex-col items-center text-center fire-glow-card focus-visible:ring-2 focus-visible:ring-primary ${isCenter ? 'z-20' : 'z-10 cursor-pointer'}`}
+                  tabIndex={isCenter ? 0 : -1}
                   onClick={() => !isCenter && setIndex(i)}
                 >
                   <Quote className="w-12 h-12 text-primary/10 mb-6" />
@@ -86,7 +89,7 @@ const Recensioni = () => {
                   </p>
                   <div className="pt-8 border-t border-white/5 w-full">
                     <h4 className="text-[13px] font-semibold italic uppercase text-white tracking-[0.10em]">{review.author}</h4>
-                    <span className="text-[11px] font-normal tracking-[0.08em] uppercase text-white/45">{review.role}</span>
+                    <span className="text-[11px] font-normal tracking-[0.08em] uppercase text-white/65">{review.role}</span>
                   </div>
                 </motion.div>
               );
@@ -96,10 +99,18 @@ const Recensioni = () => {
       </div>
 
       <div className="flex justify-center gap-4 mt-8">
-         <button onClick={prev} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300">
+         <button 
+           onClick={prev} 
+           className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary"
+           aria-label="Recensione precedente"
+         >
            <ChevronLeft className="w-5 h-5" />
          </button>
-         <button onClick={next} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300">
+         <button 
+           onClick={next} 
+           className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-primary transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary"
+           aria-label="Recensione successiva"
+         >
            <ChevronRight className="w-5 h-5" />
          </button>
       </div>

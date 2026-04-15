@@ -113,7 +113,8 @@ const CookieConsent = () => {
                   </h3>
                   <button 
                     onClick={() => setShowPreferences(false)}
-                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-primary"
+                    aria-label="Chiudi preferenze"
                   >
                     <X className="w-5 h-5 text-gray-400" />
                   </button>
@@ -123,7 +124,13 @@ const CookieConsent = () => {
                   <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col gap-4">
                     <div className="flex justify-between items-start">
                       <ShieldCheck className="w-6 h-6 text-primary" />
-                      <div className="w-12 h-6 bg-primary/20 rounded-full relative">
+                      <div 
+                        className="w-12 h-6 bg-primary/20 rounded-full relative cursor-not-allowed opacity-70"
+                        role="switch"
+                        aria-checked="true"
+                        aria-disabled="true"
+                        aria-label="Cookie necessari (sempre attivi)"
+                      >
                         <div className="absolute right-1 top-1 w-4 h-4 bg-primary rounded-full" />
                       </div>
                     </div>
@@ -135,7 +142,12 @@ const CookieConsent = () => {
 
                   <div 
                     onClick={() => togglePreference('analytics')}
-                    className={`cursor-pointer bg-white/5 border transition-all p-5 rounded-2xl flex flex-col gap-4 ${preferences.analytics ? 'border-primary/50' : 'border-white/10'}`}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePreference('analytics'); } }}
+                    tabIndex={0}
+                    role="switch"
+                    aria-checked={preferences.analytics}
+                    aria-label="Attiva cookie analitici"
+                    className={`cursor-pointer bg-white/5 border transition-all p-5 rounded-2xl flex flex-col gap-4 focus-visible:ring-2 focus-visible:ring-primary outline-none ${preferences.analytics ? 'border-primary/50' : 'border-white/10'}`}
                   >
                     <div className="flex justify-between items-start">
                       <BarChart3 className="w-6 h-6 text-primary" />
@@ -151,7 +163,12 @@ const CookieConsent = () => {
 
                   <div 
                     onClick={() => togglePreference('marketing')}
-                    className={`cursor-pointer bg-white/5 border transition-all p-5 rounded-2xl flex flex-col gap-4 ${preferences.marketing ? 'border-primary/50' : 'border-white/10'}`}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePreference('marketing'); } }}
+                    tabIndex={0}
+                    role="switch"
+                    aria-checked={preferences.marketing}
+                    aria-label="Attiva cookie marketing"
+                    className={`cursor-pointer bg-white/5 border transition-all p-5 rounded-2xl flex flex-col gap-4 focus-visible:ring-2 focus-visible:ring-primary outline-none ${preferences.marketing ? 'border-primary/50' : 'border-white/10'}`}
                   >
                     <div className="flex justify-between items-start">
                       <Settings className="w-6 h-6 text-primary" />
@@ -169,13 +186,13 @@ const CookieConsent = () => {
                 <div className="flex flex-col sm:flex-row justify-end gap-4">
                   <button
                     onClick={() => setShowPreferences(false)}
-                    className="px-6 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-gray-400 hover:text-white transition-all"
+                    className="px-6 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-gray-400 hover:text-white transition-all focus-visible:ring-2 focus-visible:ring-primary rounded-xl"
                   >
                     Indietro
                   </button>
                   <button
                     onClick={handleSavePreferences}
-                    className="px-8 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-white bg-primary rounded-xl hover:bg-primary/90 transition-all shadow-[0_10px_25px_rgba(234,56,76,0.3)]"
+                    className="px-8 py-4 text-xs md:text-sm font-black uppercase italic tracking-widest text-white bg-primary rounded-xl hover:bg-primary/90 transition-all shadow-[0_10px_25px_rgba(234,56,76,0.3)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                   >
                     Salva preferenze
                   </button>

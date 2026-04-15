@@ -181,7 +181,14 @@ const SteakGame = () => {
           </div>
 
           {/* Cooking Bar Container */}
-          <div className="w-full h-12 bg-zinc-900/80 rounded-full border border-white/10 relative overflow-hidden flex">
+          <div 
+            className="w-full h-12 bg-zinc-900/80 rounded-full border border-white/10 relative overflow-hidden flex"
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="Livello di cottura"
+          >
             {COOKING_LEVELS.map((level, idx) => (
               <div 
                 key={idx}
@@ -207,7 +214,7 @@ const SteakGame = () => {
             {!isPlaying && !result ? (
               <button
                 onClick={handleStart}
-                className="group relative px-8 py-4 bg-primary text-white font-black italic uppercase rounded-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3 overflow-hidden"
+                className="group relative px-8 py-4 bg-primary text-white font-black italic uppercase rounded-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3 overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <Play className="w-5 h-5 fill-current" />
@@ -216,7 +223,7 @@ const SteakGame = () => {
             ) : isPlaying ? (
               <button
                 onClick={handleStop}
-                className="group relative px-10 py-5 bg-white text-black font-black italic uppercase rounded-xl transition-all hover:scale-110 active:scale-95 flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+                className="group relative px-10 py-5 bg-white text-black font-black italic uppercase rounded-xl transition-all hover:scale-110 active:scale-95 flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.4)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <Square className="w-5 h-5 fill-current" />
                 <span>STOP!</span>
@@ -224,7 +231,7 @@ const SteakGame = () => {
             ) : (
               <button
                 onClick={handleStart}
-                className="group px-6 py-3 bg-zinc-800 text-white font-bold italic uppercase rounded-xl transition-all hover:bg-zinc-700 flex items-center gap-2"
+                className="group px-6 py-3 bg-zinc-800 text-white font-bold italic uppercase rounded-xl transition-all hover:bg-zinc-700 flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Riprova</span>
@@ -273,13 +280,15 @@ const SteakGame = () => {
                         placeholder="Il tuo nome"
                         value={playerName}
                         onChange={(e) => setPlayerName(e.target.value)}
-                        className="w-full bg-black/50 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:border-primary outline-none transition-colors"
+                        className="w-full bg-black/50 border border-white/10 rounded-lg py-2 pl-10 pr-4 text-sm focus:border-primary outline-none transition-colors focus-visible:ring-2 focus-visible:ring-primary"
+                        aria-label="Il tuo nome per la classifica"
                         autoFocus
                       />
                     </div>
                     <button
                       onClick={() => saveScore(playerName, lastScore)}
-                      className="bg-primary hover:bg-primary/90 text-white font-black italic uppercase px-4 py-2 rounded-lg text-xs"
+                      disabled={!playerName.trim()}
+                      className="bg-primary hover:bg-primary/90 text-white font-black italic uppercase px-4 py-2 rounded-lg text-xs disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                     >
                       Salva
                     </button>

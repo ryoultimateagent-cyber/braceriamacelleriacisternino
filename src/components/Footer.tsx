@@ -38,7 +38,7 @@ const Footer = () => {
                 <p className="text-[10px] text-white/30 uppercase tracking-[0.25em] font-bold italic">ECCELLENZA DAL 1986 — PUTIGNANO</p>
               </div>
             </div>
-            <p className="text-white/40 text-[13px] font-normal leading-relaxed italic max-w-xs">
+            <p className="text-white/60 text-[13px] font-normal leading-relaxed italic max-w-xs">
               Un'esperienza sensoriale dove il fuoco incontra la materia prima d'eccellenza. Tradizione e innovazione sulla brace.
             </p>
             <div className="flex gap-4">
@@ -47,13 +47,14 @@ const Footer = () => {
                 { Icon: Instagram, href: "https://www.instagram.com/macelleriabelvedere" },
                 { Icon: MessageCircle, href: "https://wa.me/393495319286" }
               ].map((social, i) => (
-                <a 
-                  key={i}
-                  href={social.href} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary transition-all duration-500 group"
-                >
+                  <a 
+                    key={i}
+                    href={social.href} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary transition-all duration-500 group"
+                    aria-label={social.href.includes('facebook') ? 'Facebook' : social.href.includes('instagram') ? 'Instagram' : 'WhatsApp'}
+                  >
                   <social.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
               ))}
@@ -65,12 +66,12 @@ const Footer = () => {
             <ul className="space-y-1">
               {["Storia", "Brace", "Galleria", "Vini"].map((link) => (
                 <li key={link}>
-                  <a 
-                    href={`/#${link.toLowerCase()}`} 
-                    className="text-white/70 hover:text-white transition-all duration-300 font-normal uppercase tracking-widest text-[14px] leading-[2.0] block italic"
+                  <Link 
+                    to={`/#${link.toLowerCase()}`} 
+                    className="text-white/60 hover:text-white transition-all duration-300 font-normal uppercase tracking-widest text-[14px] leading-[2.0] block italic focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
                   >
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

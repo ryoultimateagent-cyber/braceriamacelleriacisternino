@@ -102,7 +102,7 @@ const TiltCard = ({ item }: { item: typeof tagli[0] }) => {
           {item.desc}
         </p>
         <div className="flex items-center justify-between pt-6 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">SAPER FARE</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white/65">SAPER FARE</span>
           <ArrowRight className="text-primary h-6 w-6" />
         </div>
       </div>
@@ -130,7 +130,7 @@ const Tagli = () => {
         </div>
 
         {/* Vertical List */}
-        <div className="lg:col-span-7 flex flex-col">
+        <div className="lg:col-span-7 flex flex-col gap-4 mt-8 lg:mt-0">
           {others.map((item, i) => (
             <motion.div
               key={i}
@@ -160,7 +160,7 @@ const Tagli = () => {
                   <h3 className="text-[22px] md:text-[28px] font-black text-white tracking-tighter uppercase italic group-hover:text-primary transition-colors duration-300 leading-none">
                     {item.name}
                   </h3>
-                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/40 group-hover:text-primary/70 transition-colors">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/65 group-hover:text-primary/70 transition-colors">
                     {item.category}
                   </span>
                 </div>
@@ -169,7 +169,7 @@ const Tagli = () => {
                     Esperienza artigianale e passione nel cuore di Putignano.
                   </p>
                   <div className="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
-                    <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/35">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/60">
                       SAPER FARE
                     </span>
                     <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
