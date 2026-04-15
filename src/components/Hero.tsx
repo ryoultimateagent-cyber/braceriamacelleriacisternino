@@ -1,8 +1,19 @@
 import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,11 +29,15 @@ const Hero = () => {
 
   return (
     <section 
+      ref={containerRef}
       id="hero"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
       {/* Background Cinematic Layer */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <motion.div 
+        style={{ y: videoY }}
+        className="absolute inset-0 z-0 overflow-hidden"
+      >
         {/* Cinematic Fire Video */}
         <video
           ref={videoRef}
@@ -44,16 +59,19 @@ const Hero = () => {
         
         {/* Bottom Ember Glow */}
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/20 via-orange-950/5 to-transparent z-20" />
-      </div>
+      </motion.div>
 
       {/* Noise Overlay */}
       <div className="hero-noise opacity-[0.02]" />
 
       {/* Main Content */}
-      <div className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl">
+      <motion.div 
+        style={{ y: contentY, opacity: contentOpacity, scale: contentScale }}
+        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl"
+      >
         <div className="relative mb-8">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="text-white font-black tracking-tighter leading-[0.9] text-[clamp(2.5rem,10vw,6rem)] font-sans uppercase italic"
@@ -101,16 +119,29 @@ const Hero = () => {
             </span>
           </a>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-4"
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent" />
+        <div className="relative w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent">
+          <motion.div 
+            animate={{ 
+              y: [0, 40, 0],
+              opacity: [0, 1, 0]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-0 left-[-1px] w-[3px] h-3 bg-primary rounded-full blur-[1px]"
+          />
+        </div>
         <span className="text-[9px] text-white/40 uppercase tracking-[0.4em] italic vertical-text">Scroll</span>
       </motion.div>
     </section>
