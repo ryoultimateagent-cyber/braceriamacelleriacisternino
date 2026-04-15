@@ -46,7 +46,7 @@ const Hero = () => {
           className="w-full h-full object-cover mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
-        </video>
+        </motion.video>
 
         {/* Fire Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-10" />
@@ -117,7 +117,7 @@ const Hero = () => {
             </span>
           </a>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div 
