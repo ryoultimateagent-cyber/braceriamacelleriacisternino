@@ -90,7 +90,7 @@ const CinematicSection = ({
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.15 }}
+        viewport={{ once: false, amount: 0.02 }}
         variants={variants}
         transition={{
           duration: 1.2,
