@@ -65,7 +65,7 @@ const SectionHeader = ({
         whileInView="visible"
         viewport={{ once: true }}
         className={cn(
-          "text-[32px] md:text-[42px] lg:text-[52px] font-black text-white tracking-tighter leading-[0.9] uppercase italic flex flex-wrap",
+          "text-[32px] md:text-[42px] lg:text-[52px] font-black text-white tracking-tighter leading-[0.9] uppercase italic flex flex-wrap overflow-hidden",
           align === "center" && "justify-center",
           align === "right" && "justify-end",
           titleClassName
