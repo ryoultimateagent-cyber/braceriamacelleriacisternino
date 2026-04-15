@@ -26,9 +26,9 @@ const CinematicSection = ({
 
   // Parallax calculations
   const y = useTransform(scrollYProgress, [0, 1], [0, parallaxAmount * 2.5]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.7, 1, 1, 0.7]);
-  const blur = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], ["30px", "0px", "0px", "30px"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.4, 1, 1, 0.4]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.95, 1, 1, 0.95]);
+  const blur = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], ["5px", "0px", "0px", "5px"]);
   
   // Animation variants
   const getVariants = () => {
