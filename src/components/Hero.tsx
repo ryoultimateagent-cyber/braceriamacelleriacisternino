@@ -1,44 +1,39 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
 
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-  const videoOpacity = useTransform(scrollYProgress, [0, 1], [0.4, 0.05]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const contentRotateX = useTransform(scrollYProgress, [0, 1], [0, 10]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  // Removed redundant video reset interval as loop is already enabled on the video tag.
-  // This reduces CPU overhead from constant setInterval calls.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(error => {
+          console.log("Video play failed:", error);
+        });
+      }
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section 
       id="hero"
-      ref={containerRef}
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent perspective-1000"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Background Cinematic Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Cinematic Fire Video */}
-        <motion.video
+        <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          style={{ scale: videoScale, opacity: videoOpacity }}
-          className="w-full h-full object-cover mix-blend-screen grayscale-[10%] contrast-125 brightness-100 blur-[0.5px]"
+          className="w-full h-full object-cover scale-110 opacity-35 mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
-        </motion.video>
+        </video>
 
         {/* Fire Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-10" />
@@ -55,23 +50,20 @@ const Hero = () => {
       <div className="hero-noise opacity-[0.02]" />
 
       {/* Main Content */}
-      <motion.div 
-        style={{ y: contentY, opacity: contentOpacity, rotateX: contentRotateX }}
-        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl heat-distortion"
-      >
+      <div className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl">
         <div className="relative mb-8">
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-white font-black tracking-tighter leading-[0.85] text-[clamp(3rem,15vw,8.5rem)] font-sans uppercase italic relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="text-white font-black tracking-tighter leading-[0.9] text-[clamp(2.5rem,10vw,6rem)] font-sans uppercase italic"
+            style={{ textShadow: "0 0 60px rgba(255, 107, 0, 0.5)" }}
           >
-            <span className="relative z-10 block">Macelleria</span>
-            <span className="relative z-10 block text-primary bg-clip-text text-transparent bg-gradient-to-b from-primary via-orange-500 to-yellow-500 filter drop-shadow-[0_0_30px_rgba(255,68,0,0.5)]">Belvedere</span>
-            
-            {/* Extreme Glow behind text */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(255,68,0,0.2)_0%,transparent_70%)] -z-10 animate-pulse mix-blend-screen" />
+            Macelleria <br className="sm:hidden" /> Belvedere
           </motion.h1>
+          
+          {/* Subtle Glow behind text */}
+          <div className="absolute -inset-10 bg-red-600/5 blur-[80px] -z-10 animate-pulse" />
         </div>
         
         <motion.p 
@@ -109,7 +101,7 @@ const Hero = () => {
             </span>
           </a>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll Indicator */}
       <motion.div 

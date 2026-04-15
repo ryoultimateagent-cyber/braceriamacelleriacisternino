@@ -61,9 +61,8 @@ const Vini = () => {
               className="relative aspect-[3/4] w-full max-w-md ml-auto rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group fire-glow-card"
             >
               <img 
-                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" 
                 alt="Vini d'Eccellenza" 
-                loading="lazy"
                 className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />

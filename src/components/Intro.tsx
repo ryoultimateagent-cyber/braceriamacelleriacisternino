@@ -27,7 +27,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section id="intro" className="relative bg-transparent overflow-hidden py-4 md:py-8">
+    <section className="relative bg-transparent overflow-hidden py-4 md:py-8">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -49,10 +49,10 @@ const Intro = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-[42px] md:text-[62px] lg:text-[84px] font-black text-white tracking-tighter leading-[0.8] uppercase italic"
+                className="text-[32px] md:text-[42px] lg:text-[54px] font-black text-white tracking-tighter leading-[0.9] uppercase italic"
               >
                 PURO <br />
-                <span className="fire-text-gradient">CARATTERE</span>
+                <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.3)' }}>CARATTERE</span>
               </motion.h2>
 
               <motion.p 

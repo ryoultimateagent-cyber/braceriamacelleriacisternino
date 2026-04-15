@@ -1,4 +1,3 @@
-import CinematicSection from "@/components/CinematicSection";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
@@ -14,76 +13,58 @@ import Prenota from "@/components/Prenota";
 import Storia from "@/components/Storia";
 import Footer from "@/components/Footer";
 import Sparks from "@/components/Sparks";
-import FireBackground from "@/components/FireBackground";
-import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
 
-const GlowingSeparator = React.memo(() => {
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  
-  const scaleX = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 1, 1, 0]);
-
-  return (
-    <div ref={ref} className="h-6 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-      <motion.div style={{ scaleX }} className="led-divider origin-center" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
-    </div>
-  );
-});
-
-GlowingSeparator.displayName = "GlowingSeparator";
+const GlowingSeparator = () => (
+  <div className="h-12 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+    <div className="led-divider" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
+  </div>
+);
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col relative bg-black overflow-x-hidden">
-      <FireBackground />
+    <div className="min-h-screen flex flex-col relative bg-transparent overflow-x-hidden">
       <Header />
       
       <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden relative">
         <Sparks />
+        
+        {/* Ambient Glows */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <div className="absolute top-[10%] -left-[10%] w-[40%] h-[40%] bg-red-900/10 blur-[120px] rounded-full animate-pulse" />
+          <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-orange-900/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-[70%] -left-[10%] w-[40%] h-[40%] bg-amber-900/5 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        </div>
 
         <Hero />
         
         <div className="relative z-10">
-          <CinematicSection variant="fadeUp" parallaxAmount={-40}>
+          <div className="py-8 md:py-10 lg:py-12">
             <Intro />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          
-          <CinematicSection variant="slideLeft" parallaxAmount={30} id="storia">
+          <div className="py-8 md:py-10 lg:py-12">
             <Storia />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          
-          <CinematicSection variant="fadeScale" parallaxAmount={-20}>
+          <div className="py-8 md:py-10 lg:py-12">
             <Tagli />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          
-          <CinematicSection variant="blurIn" parallaxAmount={25} id="menu">
+          <div className="py-8 md:py-10 lg:py-12">
             <Menu />
-          </CinematicSection>
-          
-          <CinematicSection variant="fadeUp" parallaxAmount={-15}>
+          </div>
+          <div className="py-8 md:py-10 lg:py-12">
             <Vini />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          
-          <CinematicSection variant="clipReveal" parallaxAmount={40} id="galleria">
+          <div className="py-8 md:py-10 lg:py-12">
             <Galleria />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          <div className="py-2 md:py-4">
+          <div className="py-8 md:py-10 lg:py-12">
             <div className="section-container relative z-10">
               <div className="max-w-2xl mx-auto bg-black/40 backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
@@ -110,21 +91,17 @@ const Index = () => {
             </div>
           </div>
           <GlowingSeparator />
-          <CinematicSection variant="fadeUp" parallaxAmount={20}>
+          <div className="py-8 md:py-10 lg:py-12">
             <Recensioni />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          
-          <CinematicSection variant="clipReveal" parallaxAmount={-30} id="prenota">
+          <div className="py-8 md:py-10 lg:py-12">
             <Prenota />
-          </CinematicSection>
-          
+          </div>
           <GlowingSeparator />
-          
-          <CinematicSection variant="fadeUp" parallaxAmount={15}>
+          <div className="py-8 md:py-10 lg:py-12">
             <DoveSiamo />
-          </CinematicSection>
+          </div>
         </div>
       </main>
       

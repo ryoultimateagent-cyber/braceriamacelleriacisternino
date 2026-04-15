@@ -51,7 +51,7 @@ const MenuPage = () => {
     <div className="min-h-screen bg-black text-white flex flex-col selection:bg-primary/30">
       <Header />
       
-      <main className="flex-grow pt-24 pb-12 px-6">
+      <main className="flex-grow pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-start mb-8">
             <Button asChild variant="ghost" className="text-white/60 hover:text-white hover:bg-white/5 gap-2 -ml-4">
@@ -69,7 +69,7 @@ const MenuPage = () => {
             className="mb-16"
           />
 
-          <div className="space-y-12">
+          <div className="space-y-20">
             {menuData.map((section, idx) => (
               <motion.section 
                 key={idx}
