@@ -38,7 +38,7 @@ const DoveSiamo = () => {
                    </div>
                 </div>
                 <div className="space-y-2">
-                   <h4 className="text-white text-[12px] font-bold uppercase tracking-[0.2em] opacity-40 italic">INDIRIZZO</h4>
+                   <h4 className="text-white text-[12px] font-bold uppercase tracking-[0.2em] opacity-65 italic">INDIRIZZO</h4>
                    <p className="text-white text-xl md:text-2xl font-black italic uppercase tracking-tighter leading-none">Via G. Verdi 5C, <br className="hidden sm:block" /> Putignano (BA)</p>
                 </div>
               </article>
@@ -50,7 +50,7 @@ const DoveSiamo = () => {
                    </div>
                 </div>
                 <div className="space-y-2">
-                   <h4 className="text-white text-[12px] font-bold uppercase tracking-[0.2em] opacity-40 italic">ORARI</h4>
+                   <h4 className="text-white text-[12px] font-bold uppercase tracking-[0.2em] opacity-65 italic">ORARI</h4>
                    <div className="text-white text-xl md:text-2xl font-black italic uppercase tracking-tighter leading-none">
                      Lun - Sab: 08–13 | 17–00<br />
                      <span className="text-primary/70 text-lg md:text-xl">Mar e Dom: CHIUSO</span>

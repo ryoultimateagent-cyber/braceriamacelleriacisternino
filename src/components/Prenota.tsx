@@ -20,7 +20,7 @@ const Prenota = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-white/50 text-base md:text-lg font-medium leading-relaxed max-w-xl italic"
+              className="text-white/70 text-base md:text-lg font-medium leading-relaxed max-w-xl italic"
             >
               Nel cuore di Putignano, un tempio dedicato alla brace vi aspetta. Lasciatevi avvolgere dal calore del fuoco e dall'accoglienza di chi ama quello che fa dal 1986.
             </motion.p>
@@ -31,7 +31,7 @@ const Prenota = () => {
                    <MapPin className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 mb-1 italic">POSIZIONE</h4>
+                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-65 mb-1 italic">POSIZIONE</h4>
                     <p className="text-white text-lg font-black italic uppercase tracking-tighter leading-tight">Via G. Verdi 5C, Putignano</p>
                  </div>
               </div>
@@ -40,7 +40,7 @@ const Prenota = () => {
                    <Clock className="w-6 h-6" />
                  </div>
                  <div>
-                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-50 mb-1 italic">ORARI</h4>
+                    <h4 className="text-white text-[11px] font-medium uppercase tracking-[0.15em] opacity-65 mb-1 italic">ORARI</h4>
                     <p className="text-white text-lg font-black italic uppercase tracking-tighter leading-tight">Lun - Sab: 08–13 | 17–00</p>
                  </div>
               </div>
@@ -68,7 +68,7 @@ const Prenota = () => {
                 <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/50 transition-colors" />
               </motion.div>
               
-              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mb-4 italic">WHATSAPP</h3>
+              <h3 className="text-[10px] font-bold text-white/65 uppercase tracking-[0.3em] mb-4 italic">WHATSAPP</h3>
               
               <motion.a
                 whileHover={{ scale: 1.05 }}
@@ -80,7 +80,7 @@ const Prenota = () => {
               >
                 SCRIVICI ORA
               </motion.a>
-              <p className="text-[10px] text-white/30 uppercase tracking-[0.2em] italic font-medium">RISPOSTA IMMEDIATA</p>
+              <p className="text-[10px] text-white/60 uppercase tracking-[0.2em] italic font-medium">RISPOSTA IMMEDIATA</p>
             </motion.div>
 
             {/* Call Box */}
@@ -101,7 +101,7 @@ const Prenota = () => {
                 <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/50 transition-colors" />
               </motion.div>
               
-              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mb-4 italic">CHIAMATA</h3>
+              <h3 className="text-[10px] font-bold text-white/65 uppercase tracking-[0.3em] mb-4 italic">CHIAMATA</h3>
               
               <motion.a
                 whileHover={{ scale: 1.05 }}
@@ -111,7 +111,7 @@ const Prenota = () => {
               >
                 +39 080 405 8608
               </motion.a>
-              <p className="text-[10px] text-white/30 uppercase tracking-[0.2em] italic font-medium">PRENOTA UN TAVOLO</p>
+              <p className="text-[10px] text-white/60 uppercase tracking-[0.2em] italic font-medium">PRENOTA UN TAVOLO</p>
             </motion.div>
           </div>
         </div>

@@ -47,7 +47,7 @@ const Intro = () => {
                 className="flex items-center gap-4"
               >
                 <div className="h-[1px] w-8 bg-primary" />
-                <span className="text-primary text-[11px] font-medium uppercase tracking-[0.15em] italic opacity-50">L'Eccellenza Pugliese</span>
+                <span className="text-primary text-[11px] font-medium uppercase tracking-[0.15em] italic opacity-70">L'Eccellenza Pugliese</span>
               </motion.div>
  
               <motion.h2 
@@ -100,7 +100,7 @@ const Intro = () => {
                       )}>
                         {f.title}
                       </h3>
-                      <p className="text-white/50 text-[15px] leading-[1.65] font-normal max-w-[38ch]">
+                      <p className="text-white/65 text-[15px] leading-[1.65] font-normal max-w-[38ch]">
                         {f.desc}
                       </p>
                     </div>
@@ -130,7 +130,7 @@ const Intro = () => {
               <motion.div 
                 ref={badgeRef}
                 style={{ y: badgeY }}
-                className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black"
+                className="absolute bottom-2 left-2 sm:-bottom-6 sm:-left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black"
               >
                 <div className="flex flex-col items-center">
                   <span className="text-white text-[40px] md:text-[50px] lg:text-[60px] font-bold italic leading-none tracking-[-3px]">38</span>
