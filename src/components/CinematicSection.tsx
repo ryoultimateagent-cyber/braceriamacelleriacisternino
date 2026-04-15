@@ -23,10 +23,6 @@ const CinematicSection = ({
     offset: ["start end", "end start"],
   });
 
-  const isInView = useInView(ref, {
-    once: false,
-    amount: 0.2,
-  });
 
   // Parallax calculations
   const y = useTransform(scrollYProgress, [0, 1], [0, parallaxAmount * 2.5]);
