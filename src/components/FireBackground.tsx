@@ -14,7 +14,7 @@ const FireBackground = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
         style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2000&auto=format&fit=crop")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=60&w=1200&auto=format&fit=crop")',
           opacity: isLoaded ? 0.15 : 0
         }}
       />
