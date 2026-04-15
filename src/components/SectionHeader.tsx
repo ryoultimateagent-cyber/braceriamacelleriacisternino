@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface SectionHeaderProps {
   subtitle?: string;
@@ -16,9 +16,34 @@ const SectionHeader = ({
   titleClassName,
   align = "center" 
 }: SectionHeaderProps) => {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const letterVariants: Variants = {
+    hidden: { opacity: 0, y: 20, rotateX: -90 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      rotateX: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100
+      }
+    }
+  };
+
   return (
     <div className={cn(
-      "mb-8 md:mb-12",
+      "mb-8 md:mb-12 overflow-hidden",
       align === "center" && "text-center",
       align === "left" && "text-left",
       align === "right" && "text-right",
@@ -35,22 +60,40 @@ const SectionHeader = ({
         </motion.span>
       )}
       <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-        className={cn("text-[32px] md:text-[42px] lg:text-[52px] font-black text-white tracking-tighter leading-[0.9] uppercase italic", titleClassName)}
+        className={cn(
+          "text-[32px] md:text-[42px] lg:text-[52px] font-black text-white tracking-tighter leading-[0.9] uppercase italic flex flex-wrap",
+          align === "center" && "justify-center",
+          align === "right" && "justify-end",
+          titleClassName
+        )}
       >
-        {title}
+        {title.split(" ").map((word, wordIndex) => (
+          <span key={wordIndex} className="inline-flex mr-[0.2em] whitespace-nowrap">
+            {word.split("").map((char, charIndex) => (
+              <motion.span
+                key={charIndex}
+                variants={letterVariants}
+                className="inline-block"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </span>
+        ))}
       </motion.h2>
       <motion.div 
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.8 }}
+        transition={{ delay: 0.6, duration: 1, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "h-[2px] w-16 bg-primary mt-6 rounded-full origin-left",
+          "h-[2px] w-24 bg-primary mt-6 rounded-full",
           align === "center" && "mx-auto origin-center",
+          align === "left" && "origin-left",
           align === "right" && "ml-auto origin-right"
         )} 
       />
