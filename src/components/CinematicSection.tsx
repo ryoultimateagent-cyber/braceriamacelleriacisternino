@@ -35,37 +35,37 @@ const CinematicSection = ({
     switch (variant) {
       case "fadeUp":
         return {
-          hidden: { opacity: 0, y: 120, filter: "blur(10px)" },
+          hidden: { opacity: 0, y: 40, filter: "blur(4px)" },
           visible: { opacity: 1, y: 0, filter: "blur(0px)" },
         };
       case "fadeScale":
         return {
-          hidden: { opacity: 0, scale: 0.7, filter: "blur(15px)" },
+          hidden: { opacity: 0, scale: 0.9, filter: "blur(8px)" },
           visible: { opacity: 1, scale: 1, filter: "blur(0px)" },
         };
       case "slideLeft":
         return {
-          hidden: { opacity: 0, x: -200, rotateY: 15 },
+          hidden: { opacity: 0, x: -60, rotateY: 5 },
           visible: { opacity: 1, x: 0, rotateY: 0 },
         };
       case "slideRight":
         return {
-          hidden: { opacity: 0, x: 200, rotateY: -15 },
+          hidden: { opacity: 0, x: 60, rotateY: -5 },
           visible: { opacity: 1, x: 0, rotateY: 0 },
         };
       case "clipReveal":
         return {
-          hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0, scale: 1.1 },
+          hidden: { clipPath: "inset(40% 0% 0% 0%)", opacity: 0, scale: 1.05 },
           visible: { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, scale: 1 },
         };
       case "blurIn":
         return {
-          hidden: { opacity: 0, filter: "blur(40px)", scale: 0.8 },
+          hidden: { opacity: 0, filter: "blur(20px)", scale: 0.95 },
           visible: { opacity: 1, filter: "blur(0px)", scale: 1 },
         };
       default:
         return {
-          hidden: { opacity: 0, y: 80 },
+          hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
         };
     }
