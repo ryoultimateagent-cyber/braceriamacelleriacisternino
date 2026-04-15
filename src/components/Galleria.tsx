@@ -44,9 +44,13 @@ const GalleryItem = ({ img, i, onClick }: { img: typeof images[0], i: number, on
       }}
       whileHover={{ scale: 1.02 }}
       onClick={onClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`Visualizza ${img.title}`}
       className={`
         relative group cursor-pointer overflow-hidden rounded-[2.5rem] 
-        border border-white/10 fire-glow-card
+        border border-white/10 fire-glow-card focus-visible:ring-2 focus-visible:ring-primary outline-none
         ${i % 3 === 0 ? "md:col-span-2 lg:col-span-2 aspect-[16/9]" : "aspect-[4/5] md:aspect-square lg:aspect-[4/5]"}
         ${i === 1 ? "lg:mt-12" : ""}
         ${i === 2 ? "lg:-mt-12" : ""}
