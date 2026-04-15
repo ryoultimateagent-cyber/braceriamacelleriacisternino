@@ -85,7 +85,7 @@ const CinematicSection = ({
         perspective: 1000,
         willChange: "transform, opacity, filter, clip-path",
       }}
-      className={cn("relative overflow-hidden py-20 md:py-32", className)}
+      className={cn("relative overflow-hidden py-1 md:py-2", className)}
     >
       <motion.div
         initial="hidden"
