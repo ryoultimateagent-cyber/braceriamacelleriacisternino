@@ -81,7 +81,7 @@ const Index = () => {
           </CinematicSection>
           
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          <div className="py-2 md:py-4">
             <div className="section-container relative z-10">
               <div className="max-w-2xl mx-auto bg-black/40 backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
