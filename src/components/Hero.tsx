@@ -16,17 +16,8 @@ const Hero = () => {
   const contentRotateX = useTransform(scrollYProgress, [0, 1], [0, 10]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play().catch(error => {
-          console.log("Video play failed:", error);
-        });
-      }
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
+  // Removed redundant video reset interval as loop is already enabled on the video tag.
+  // This reduces CPU overhead from constant setInterval calls.
 
   return (
     <section 
