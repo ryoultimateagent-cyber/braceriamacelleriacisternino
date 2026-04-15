@@ -30,11 +30,11 @@ const Sparks = () => {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2.5 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.speedY = -(Math.random() * 2.5 + 0.5);
-        this.opacity = Math.random() * 0.6 + 0.2;
-        this.color = Math.random() > 0.4 ? '#ff4400' : (Math.random() > 0.5 ? '#ffbb00' : '#ffffff');
+        this.size = Math.random() * 3 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = -(Math.random() * 3.5 + 1);
+        this.opacity = Math.random() * 0.8 + 0.2;
+        this.color = Math.random() > 0.4 ? '#ff5500' : (Math.random() > 0.5 ? '#ffaa00' : '#ffcc00');
       }
 
       update() {
@@ -64,7 +64,7 @@ const Sparks = () => {
 
     const init = () => {
       // Increased count for better fire effect
-      particles = Array.from({ length: 120 }, () => new Particle());
+      particles = Array.from({ length: 180 }, () => new Particle());
     };
 
     const animate = () => {

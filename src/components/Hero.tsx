@@ -43,7 +43,7 @@ const Hero = () => {
           loop
           playsInline
           style={{ scale: videoScale, opacity: videoOpacity }}
-          className="w-full h-full object-cover mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
+          className="w-full h-full object-cover mix-blend-screen grayscale-[10%] contrast-125 brightness-100 blur-[0.5px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
         </motion.video>
@@ -65,7 +65,7 @@ const Hero = () => {
       {/* Main Content */}
       <motion.div 
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl"
+        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl heat-distortion"
       >
         <div className="relative mb-8">
           <motion.h1 
