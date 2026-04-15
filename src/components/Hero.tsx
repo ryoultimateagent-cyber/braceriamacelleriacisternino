@@ -101,7 +101,8 @@ const Hero = () => {
         >
           <a 
             href="#prenota" 
-            className="group relative px-10 py-4 overflow-hidden transition-all duration-500 rounded-full border border-primary bg-primary"
+            className="group relative px-10 py-4 sm:px-10 sm:py-5 overflow-hidden transition-all duration-500 rounded-full border border-primary bg-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            aria-label="Prenota un tavolo"
           >
             <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
             <span className="relative z-10 text-white group-hover:text-black font-black uppercase tracking-widest text-xs transition-colors duration-500">
@@ -111,7 +112,8 @@ const Hero = () => {
           
           <a 
             href="/menu" 
-            className="group relative px-10 py-4 overflow-hidden transition-all duration-500 rounded-full border border-white/20 hover:border-primary"
+            className="group relative px-10 py-4 sm:px-10 sm:py-5 overflow-hidden transition-all duration-500 rounded-full border border-white/20 hover:border-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            aria-label="Vedi il menu"
           >
             <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.76, 0, 0.24, 1]" />
             <span className="relative z-10 text-white font-black uppercase tracking-widest text-xs transition-colors duration-500 group-hover:text-white">
@@ -142,7 +144,7 @@ const Hero = () => {
             className="absolute top-0 left-[-1px] w-[3px] h-3 bg-primary rounded-full blur-[1px]"
           />
         </div>
-        <span className="text-[9px] text-white/40 uppercase tracking-[0.4em] italic vertical-text">Scroll</span>
+        <span className="text-[9px] text-white/60 uppercase tracking-[0.4em] italic vertical-text">Scroll</span>
       </motion.div>
     </section>
   );

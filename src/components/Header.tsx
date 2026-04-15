@@ -50,6 +50,7 @@ const Header = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled ? "glass py-1.5" : "bg-transparent py-3"
         }`}
+        role="banner"
       >
         {/* Animated bottom border gradient */}
         {isScrolled && (
@@ -75,7 +76,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation (Center/Right) */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-12">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-12" aria-label="Menu di navigazione">
             <ul className="flex items-center gap-4 xl:gap-8 flex-nowrap">
               {navLinks.map((link) => (
                 <li key={link.href} className="flex-shrink-0">
@@ -129,6 +130,8 @@ const Header = () => {
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-2xl flex flex-col p-10 lg:hidden"
+            role="navigation"
+            aria-label="Menu principale"
           >
             <div className="flex justify-between items-center mb-16">
               <div className="flex items-center gap-2">
