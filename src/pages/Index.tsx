@@ -28,7 +28,7 @@ const GlowingSeparator = () => {
   const scaleX = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 1, 1, 0]);
 
   return (
-    <div ref={ref} className="h-12 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
+    <div ref={ref} className="h-6 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
       <motion.div style={{ scaleX }} className="led-divider origin-center" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
