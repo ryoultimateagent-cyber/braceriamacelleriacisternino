@@ -25,7 +25,7 @@ const GlowingSeparator = () => {
     offset: ["start end", "end start"]
   });
   
-  const scaleX = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const scaleX = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 1, 1, 0]);
 
   return (
     <div ref={ref} className="h-12 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
@@ -48,35 +48,35 @@ const Index = () => {
         <Hero />
         
         <div className="relative z-10">
-          <CinematicSection variant="fadeUp" parallaxAmount={20}>
+          <CinematicSection variant="fadeUp" parallaxAmount={-40}>
             <Intro />
           </CinematicSection>
           
           <GlowingSeparator />
           
-          <CinematicSection variant="slideLeft" id="storia">
+          <CinematicSection variant="slideLeft" parallaxAmount={30} id="storia">
             <Storia />
           </CinematicSection>
           
           <GlowingSeparator />
           
-          <CinematicSection variant="fadeScale">
+          <CinematicSection variant="fadeScale" parallaxAmount={-20}>
             <Tagli />
           </CinematicSection>
           
           <GlowingSeparator />
           
-          <CinematicSection variant="blurIn" id="menu">
+          <CinematicSection variant="blurIn" parallaxAmount={25} id="menu">
             <Menu />
           </CinematicSection>
           
-          <CinematicSection variant="fadeUp">
+          <CinematicSection variant="fadeUp" parallaxAmount={-15}>
             <Vini />
           </CinematicSection>
           
           <GlowingSeparator />
           
-          <CinematicSection variant="clipReveal" id="galleria">
+          <CinematicSection variant="clipReveal" parallaxAmount={40} id="galleria">
             <Galleria />
           </CinematicSection>
           
@@ -108,19 +108,19 @@ const Index = () => {
             </div>
           </div>
           <GlowingSeparator />
-          <CinematicSection variant="fadeUp">
+          <CinematicSection variant="fadeUp" parallaxAmount={20}>
             <Recensioni />
           </CinematicSection>
           
           <GlowingSeparator />
           
-          <CinematicSection variant="clipReveal" id="prenota">
+          <CinematicSection variant="clipReveal" parallaxAmount={-30} id="prenota">
             <Prenota />
           </CinematicSection>
           
           <GlowingSeparator />
           
-          <CinematicSection variant="fadeUp">
+          <CinematicSection variant="fadeUp" parallaxAmount={15}>
             <DoveSiamo />
           </CinematicSection>
         </div>

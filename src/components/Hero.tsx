@@ -10,10 +10,11 @@ const Hero = () => {
     offset: ["start start", "end start"]
   });
 
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.3]);
-  const videoOpacity = useTransform(scrollYProgress, [0, 1], [0.35, 0.1]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  const videoOpacity = useTransform(scrollYProgress, [0, 1], [0.4, 0.05]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const contentRotateX = useTransform(scrollYProgress, [0, 1], [0, 10]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,7 +32,7 @@ const Hero = () => {
     <section 
       id="hero"
       ref={containerRef}
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent perspective-1000"
     >
       {/* Background Cinematic Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -64,7 +65,7 @@ const Hero = () => {
 
       {/* Main Content */}
       <motion.div 
-        style={{ y: contentY, opacity: contentOpacity }}
+        style={{ y: contentY, opacity: contentOpacity, rotateX: contentRotateX }}
         className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl heat-distortion"
       >
         <div className="relative mb-8">
