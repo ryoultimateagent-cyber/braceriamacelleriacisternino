@@ -1,0 +1,108 @@
+import { ReactNode, useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface CinematicSectionProps {
+  children: ReactNode;
+  className?: string;
+  variant?: "fadeUp" | "fadeScale" | "slideLeft" | "slideRight" | "clipReveal" | "blurIn";
+  parallaxAmount?: number;
+  id?: string;
+}
+
+const CinematicSection = ({
+  children,
+  className,
+  variant = "fadeUp",
+  parallaxAmount = 0,
+  id,
+}: CinematicSectionProps) => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const isInView = useInView(ref, {
+    once: false,
+    amount: 0.2,
+  });
+
+  // Parallax calculations
+  const y = useTransform(scrollYProgress, [0, 1], [0, parallaxAmount]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.85, 1, 1, 0.85]);
+  const blur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], ["10px", "0px", "0px", "10px"]);
+  
+  // Animation variants
+  const getVariants = () => {
+    switch (variant) {
+      case "fadeUp":
+        return {
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0 },
+        };
+      case "fadeScale":
+        return {
+          hidden: { opacity: 0, scale: 0.9 },
+          visible: { opacity: 1, scale: 1 },
+        };
+      case "slideLeft":
+        return {
+          hidden: { opacity: 0, x: -100 },
+          visible: { opacity: 1, x: 0 },
+        };
+      case "slideRight":
+        return {
+          hidden: { opacity: 0, x: 100 },
+          visible: { opacity: 1, x: 0 },
+        };
+      case "clipReveal":
+        return {
+          hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 },
+          visible: { clipPath: "inset(0% 0% 0% 0%)", opacity: 1 },
+        };
+      case "blurIn":
+        return {
+          hidden: { opacity: 0, filter: "blur(20px)" },
+          visible: { opacity: 1, filter: "blur(0px)" },
+        };
+      default:
+        return {
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 },
+        };
+    }
+  };
+
+  const variants = getVariants();
+
+  return (
+    <motion.section
+      id={id}
+      ref={ref}
+      style={{
+        y: parallaxAmount !== 0 ? y : 0,
+        opacity: variant === "fadeUp" || variant === "blurIn" ? opacity : undefined,
+        scale: variant === "fadeScale" ? scale : undefined,
+        filter: variant === "blurIn" ? blur : undefined,
+        willChange: "transform, opacity, filter, clip-path",
+      }}
+      className={cn("relative overflow-hidden py-16 md:py-24", className)}
+    >
+      <motion.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={variants}
+        transition={{
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        {children}
+      </motion.div>
+    </motion.section>
+  );
+};
+
+export default CinematicSection;

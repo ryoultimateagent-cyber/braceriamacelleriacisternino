@@ -1,8 +1,19 @@
 import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
+  const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.3]);
+  const videoOpacity = useTransform(scrollYProgress, [0, 1], [0.35, 0.1]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,21 +30,23 @@ const Hero = () => {
   return (
     <section 
       id="hero"
+      ref={containerRef}
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Background Cinematic Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Cinematic Fire Video */}
-        <video
+        <motion.video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover scale-110 opacity-35 mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
+          style={{ scale: videoScale, opacity: videoOpacity }}
+          className="w-full h-full object-cover mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
-        </video>
+        </motion.video>
 
         {/* Fire Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-10" />
@@ -50,7 +63,10 @@ const Hero = () => {
       <div className="hero-noise opacity-[0.02]" />
 
       {/* Main Content */}
-      <div className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl">
+      <motion.div 
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl"
+      >
         <div className="relative mb-8">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +117,7 @@ const Hero = () => {
             </span>
           </a>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div 

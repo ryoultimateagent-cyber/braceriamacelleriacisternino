@@ -27,7 +27,7 @@ const features = [
 
 const Intro = () => {
   return (
-    <section className="relative bg-transparent overflow-hidden py-4 md:py-8">
+    <section id="intro" className="relative bg-transparent overflow-hidden py-4 md:py-8">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

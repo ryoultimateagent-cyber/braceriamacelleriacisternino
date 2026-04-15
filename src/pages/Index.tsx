@@ -1,3 +1,4 @@
+import CinematicSection from "@/components/CinematicSection";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
@@ -13,15 +14,26 @@ import Prenota from "@/components/Prenota";
 import Storia from "@/components/Storia";
 import Footer from "@/components/Footer";
 import Sparks from "@/components/Sparks";
+import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
 
-const GlowingSeparator = () => (
-  <div className="h-12 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-    <div className="led-divider" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
-  </div>
-);
+const GlowingSeparator = () => {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const scaleX = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
+  return (
+    <div ref={ref} className="h-12 w-full relative overflow-hidden pointer-events-none flex items-center justify-center">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <motion.div style={{ scaleX }} className="led-divider origin-center" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
+    </div>
+  );
+};
 
 const Index = () => {
   return (
@@ -41,28 +53,38 @@ const Index = () => {
         <Hero />
         
         <div className="relative z-10">
-          <div className="py-8 md:py-10 lg:py-12">
+          <CinematicSection variant="fadeUp" parallaxAmount={20}>
             <Intro />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          
+          <CinematicSection variant="slideLeft" id="storia">
             <Storia />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          
+          <CinematicSection variant="fadeScale">
             <Tagli />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          
+          <CinematicSection variant="blurIn" id="menu">
             <Menu />
-          </div>
-          <div className="py-8 md:py-10 lg:py-12">
+          </CinematicSection>
+          
+          <CinematicSection variant="fadeUp">
             <Vini />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          
+          <CinematicSection variant="clipReveal" id="galleria">
             <Galleria />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
           <div className="py-8 md:py-10 lg:py-12">
             <div className="section-container relative z-10">
@@ -91,17 +113,21 @@ const Index = () => {
             </div>
           </div>
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          <CinematicSection variant="fadeUp">
             <Recensioni />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          
+          <CinematicSection variant="clipReveal" id="prenota">
             <Prenota />
-          </div>
+          </CinematicSection>
+          
           <GlowingSeparator />
-          <div className="py-8 md:py-10 lg:py-12">
+          
+          <CinematicSection variant="fadeUp">
             <DoveSiamo />
-          </div>
+          </CinematicSection>
         </div>
       </main>
       
