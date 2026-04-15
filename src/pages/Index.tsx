@@ -18,7 +18,7 @@ import FireBackground from "@/components/FireBackground";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
 
-const GlowingSeparator = () => {
+const GlowingSeparator = React.memo(() => {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -34,7 +34,9 @@ const GlowingSeparator = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent" />
     </div>
   );
-};
+});
+
+GlowingSeparator.displayName = "GlowingSeparator";
 
 const Index = () => {
   return (

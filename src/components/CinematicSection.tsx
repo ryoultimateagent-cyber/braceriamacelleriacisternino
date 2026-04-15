@@ -1,6 +1,7 @@
-import { ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { ReactNode, useRef, useMemo } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import React from "react";
 
 interface CinematicSectionProps {
   children: ReactNode;
@@ -23,15 +24,14 @@ const CinematicSection = ({
     offset: ["start end", "end start"],
   });
 
-
   // Parallax calculations
   const y = useTransform(scrollYProgress, [0, 1], [0, parallaxAmount * 2.5]);
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.4, 1, 1, 0.4]);
   const scale = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.95, 1, 1, 0.95]);
   const blur = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], ["5px", "0px", "0px", "5px"]);
   
-  // Animation variants
-  const getVariants = () => {
+  // Animation variants memoized
+  const variants = useMemo(() => {
     switch (variant) {
       case "fadeUp":
         return {
@@ -69,28 +69,28 @@ const CinematicSection = ({
           visible: { opacity: 1, y: 0 },
         };
     }
-  };
+  }, [variant]);
 
-  const variants = getVariants();
+  const sectionStyle = useMemo(() => ({
+    y: parallaxAmount !== 0 ? y : 0,
+    opacity: (variant === "fadeUp" || variant === "blurIn" || variant === "fadeScale") ? opacity : undefined,
+    scale: variant === "fadeScale" ? scale : undefined,
+    filter: variant === "blurIn" ? blur : undefined,
+    perspective: 1000,
+    willChange: "transform, opacity, filter, clip-path",
+  }), [parallaxAmount, y, variant, opacity, scale, blur]);
 
   return (
     <motion.section
       id={id}
       ref={ref}
-      style={{
-        y: parallaxAmount !== 0 ? y : 0,
-        opacity: (variant === "fadeUp" || variant === "blurIn" || variant === "fadeScale") ? opacity : undefined,
-        scale: variant === "fadeScale" ? scale : undefined,
-        filter: variant === "blurIn" ? blur : undefined,
-        perspective: 1000,
-        willChange: "transform, opacity, filter, clip-path",
-      }}
+      style={sectionStyle}
       className={cn("relative overflow-hidden py-1 md:py-2", className)}
     >
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.02 }}
+        viewport={{ once: true, amount: 0.02 }} // Changed once: true for performance
         variants={variants}
         transition={{
           duration: 1.2,
@@ -103,4 +103,4 @@ const CinematicSection = ({
   );
 };
 
-export default CinematicSection;
+export default React.memo(CinematicSection);
