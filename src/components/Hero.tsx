@@ -43,7 +43,7 @@ const Hero = () => {
           loop
           playsInline
           style={{ scale: videoScale, opacity: videoOpacity }}
-          className="w-full h-full object-cover mix-blend-screen grayscale-[30%] contrast-110 brightness-75 blur-[1px]"
+          className="w-full h-full object-cover mix-blend-screen grayscale-[10%] contrast-125 brightness-100 blur-[0.5px]"
         >
           <source src="/videos/fire_glitch_remix.webm" type="video/webm" />
         </motion.video>
@@ -65,21 +65,21 @@ const Hero = () => {
       {/* Main Content */}
       <motion.div 
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl"
+        className="relative z-30 flex flex-col items-center text-center px-4 max-w-5xl heat-distortion"
       >
         <div className="relative mb-8">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-white font-black tracking-tighter leading-[0.9] text-[clamp(2.5rem,10vw,6rem)] font-sans uppercase italic"
-            style={{ textShadow: "0 0 60px rgba(255, 107, 0, 0.5)" }}
+            initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="text-white font-black tracking-tighter leading-[0.85] text-[clamp(3rem,15vw,8.5rem)] font-sans uppercase italic relative"
           >
-            Macelleria <br className="sm:hidden" /> Belvedere
+            <span className="relative z-10 block">Macelleria</span>
+            <span className="relative z-10 block text-primary bg-clip-text text-transparent bg-gradient-to-b from-primary via-orange-500 to-yellow-500 filter drop-shadow-[0_0_30px_rgba(255,68,0,0.5)]">Belvedere</span>
+            
+            {/* Extreme Glow behind text */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(255,68,0,0.2)_0%,transparent_70%)] -z-10 animate-pulse mix-blend-screen" />
           </motion.h1>
-          
-          {/* Subtle Glow behind text */}
-          <div className="absolute -inset-10 bg-red-600/5 blur-[80px] -z-10 animate-pulse" />
         </div>
         
         <motion.p 

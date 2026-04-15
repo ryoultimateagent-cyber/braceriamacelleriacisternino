@@ -14,6 +14,7 @@ import Prenota from "@/components/Prenota";
 import Storia from "@/components/Storia";
 import Footer from "@/components/Footer";
 import Sparks from "@/components/Sparks";
+import FireBackground from "@/components/FireBackground";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
 
@@ -37,18 +38,12 @@ const GlowingSeparator = () => {
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col relative bg-transparent overflow-x-hidden">
+    <div className="min-h-screen flex flex-col relative bg-black overflow-x-hidden">
+      <FireBackground />
       <Header />
       
       <main id="main-content" role="main" className="flex-grow space-y-0 overflow-hidden relative">
         <Sparks />
-        
-        {/* Ambient Glows */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <div className="absolute top-[10%] -left-[10%] w-[40%] h-[40%] bg-red-900/10 blur-[120px] rounded-full animate-pulse" />
-          <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-orange-900/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-[70%] -left-[10%] w-[40%] h-[40%] bg-amber-900/5 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
 
         <Hero />
         
