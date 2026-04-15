@@ -69,7 +69,7 @@ const MenuPage = () => {
             className="mb-16"
           />
 
-          <div className="space-y-20">
+          <div className="space-y-12">
             {menuData.map((section, idx) => (
               <motion.section 
                 key={idx}
