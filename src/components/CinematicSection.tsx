@@ -26,46 +26,46 @@ const CinematicSection = ({
 
   // Parallax calculations
   const y = useTransform(scrollYProgress, [0, 1], [0, parallaxAmount * 2.5]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.7, 1, 1, 0.7]);
-  const blur = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], ["30px", "0px", "0px", "30px"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.4, 1, 1, 0.4]);
+  const scale = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.95, 1, 1, 0.95]);
+  const blur = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], ["5px", "0px", "0px", "5px"]);
   
   // Animation variants
   const getVariants = () => {
     switch (variant) {
       case "fadeUp":
         return {
-          hidden: { opacity: 0, y: 120, filter: "blur(10px)" },
+          hidden: { opacity: 0, y: 40, filter: "blur(4px)" },
           visible: { opacity: 1, y: 0, filter: "blur(0px)" },
         };
       case "fadeScale":
         return {
-          hidden: { opacity: 0, scale: 0.7, filter: "blur(15px)" },
+          hidden: { opacity: 0, scale: 0.9, filter: "blur(8px)" },
           visible: { opacity: 1, scale: 1, filter: "blur(0px)" },
         };
       case "slideLeft":
         return {
-          hidden: { opacity: 0, x: -200, rotateY: 15 },
+          hidden: { opacity: 0, x: -60, rotateY: 5 },
           visible: { opacity: 1, x: 0, rotateY: 0 },
         };
       case "slideRight":
         return {
-          hidden: { opacity: 0, x: 200, rotateY: -15 },
+          hidden: { opacity: 0, x: 60, rotateY: -5 },
           visible: { opacity: 1, x: 0, rotateY: 0 },
         };
       case "clipReveal":
         return {
-          hidden: { clipPath: "inset(100% 0% 0% 0%)", opacity: 0, scale: 1.1 },
+          hidden: { clipPath: "inset(40% 0% 0% 0%)", opacity: 0, scale: 1.05 },
           visible: { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, scale: 1 },
         };
       case "blurIn":
         return {
-          hidden: { opacity: 0, filter: "blur(40px)", scale: 0.8 },
+          hidden: { opacity: 0, filter: "blur(20px)", scale: 0.95 },
           visible: { opacity: 1, filter: "blur(0px)", scale: 1 },
         };
       default:
         return {
-          hidden: { opacity: 0, y: 80 },
+          hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
         };
     }
@@ -85,12 +85,12 @@ const CinematicSection = ({
         perspective: 1000,
         willChange: "transform, opacity, filter, clip-path",
       }}
-      className={cn("relative overflow-hidden py-20 md:py-32", className)}
+      className={cn("relative overflow-hidden py-1 md:py-2", className)}
     >
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.15 }}
+        viewport={{ once: false, amount: 0.02 }}
         variants={variants}
         transition={{
           duration: 1.2,
