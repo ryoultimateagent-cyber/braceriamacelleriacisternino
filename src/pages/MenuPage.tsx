@@ -87,12 +87,12 @@ const MenuPage = () => {
                   {section.items.map((item, i) => (
                     <div key={i} className="group flex flex-col md:flex-row md:items-baseline justify-between gap-2 border-l-2 border-transparent hover:border-primary pl-4 transition-all duration-300">
                       <div className="flex-grow">
-                        <div className="flex items-baseline gap-4 mb-1">
-                          <h3 className="text-xl font-bold italic uppercase tracking-tight group-hover:text-primary transition-colors">{item.name}</h3>
+                        <div className="flex flex-wrap md:flex-nowrap items-baseline gap-x-4 mb-1">
+                          <h3 className="text-xl font-bold italic uppercase tracking-tight group-hover:text-primary transition-colors shrink-0">{item.name}</h3>
                           <div className="hidden md:block flex-grow border-b border-white/5 border-dashed mx-2" />
-                          <span className="text-primary font-black italic">{item.price}</span>
+                          <span className="text-primary font-black italic ml-auto md:ml-0">{item.price}</span>
                         </div>
-                        <p className="text-white/50 text-sm italic leading-relaxed max-w-2xl">{item.desc}</p>
+                        <p className="text-white/65 text-sm italic leading-relaxed max-w-2xl">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -104,8 +104,8 @@ const MenuPage = () => {
           <div className="mt-24 p-10 rounded-[2.5rem] bg-white/5 border border-white/10 text-center relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-primary/10 transition-colors" />
             <h3 className="text-2xl font-black italic uppercase tracking-tighter mb-4">Sei Pronto a Gustare?</h3>
-            <p className="text-white/50 italic mb-8 max-w-md mx-auto">Prenota il tuo tavolo per assicurarti la migliore esperienza nella nostra braceria.</p>
-            <Button asChild className="rounded-full px-10 h-14 bg-primary text-white font-black italic uppercase tracking-tighter shadow-lg hover:shadow-primary/40 transition-all">
+            <p className="text-white/65 italic mb-8 max-w-md mx-auto">Prenota il tuo tavolo per assicurarti la migliore esperienza nella nostra braceria.</p>
+            <Button asChild aria-label="Prenota Ora" className="rounded-full px-10 h-14 bg-primary text-white font-black italic uppercase tracking-tighter shadow-lg hover:shadow-primary/40 transition-all focus-visible:ring-2 focus-visible:ring-primary">
               <a href="tel:+390804058608">Prenota Ora</a>
             </Button>
           </div>

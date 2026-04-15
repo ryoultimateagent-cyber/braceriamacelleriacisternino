@@ -68,9 +68,10 @@ const Menu = () => {
             <motion.article
               key={index}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group cursor-pointer p-8 transition-all duration-500 rounded-[2rem] border border-white/5 bg-white/5 hover:border-primary/20 fire-glow-card h-full"
+              className="group cursor-pointer p-8 transition-all duration-500 rounded-[2rem] border border-white/5 bg-white/5 hover:border-primary/20 fire-glow-card h-full focus-visible:ring-2 focus-visible:ring-primary outline-none"
               role="button"
               tabIndex={0}
+              aria-label={`Servizio: ${item.name}`}
             >
               <div className="flex flex-col gap-y-4 h-full">
                 <span className="text-[14px] font-bold tracking-[0.10em] text-primary italic">
