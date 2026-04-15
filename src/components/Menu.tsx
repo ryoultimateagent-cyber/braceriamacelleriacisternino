@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import SectionHeader from "./SectionHeader";
+import ScrollReveal from "./ScrollReveal";
 
 interface MenuItem {
   num: string;
@@ -45,12 +46,10 @@ const menuItems: MenuItem[] = [
 ];
 
 const Menu = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section 
       id="menu" 
-      className="py-4 md:py-8 bg-transparent relative overflow-hidden"
+      className="py-24 md:py-32 bg-transparent relative overflow-hidden"
     >
       <div className="section-container relative z-10">
         <SectionHeader 
@@ -60,24 +59,26 @@ const Menu = () => {
           className="mb-12"
         />
 
-        <div 
-          ref={containerRef}
+        <ScrollReveal 
+          staggerChildren={0.1} 
+          variant="fade-up"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {menuItems.map((item, index) => (
-            <article
+            <motion.article
               key={index}
-              className="group cursor-pointer p-6 transition-all duration-500 rounded-[1.5rem] border border-white/5 bg-white/5 hover:border-primary/20"
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group cursor-pointer p-8 transition-all duration-500 rounded-[2rem] border border-white/5 bg-white/5 hover:border-primary/20 fire-glow-card h-full"
               role="button"
               tabIndex={0}
             >
-              <div className="flex flex-col gap-y-1.5">
-                <span className="text-[11px] font-normal tracking-[0.10em] text-white/35 italic">
+              <div className="flex flex-col gap-y-4 h-full">
+                <span className="text-[14px] font-bold tracking-[0.10em] text-primary italic">
                   {item.num}
                 </span>
                 
-                <div className="space-y-2.5">
-                  <h3 className="text-[20px] md:text-[24px] font-black text-white uppercase italic tracking-tighter group-hover:text-primary transition-colors leading-none">
+                <div className="space-y-3">
+                  <h3 className="text-[22px] md:text-[26px] font-black text-white uppercase italic tracking-tighter group-hover:text-primary transition-colors leading-none">
                     {item.name}
                   </h3>
                   <p className="text-base leading-relaxed text-white/60 font-normal italic">
@@ -85,15 +86,20 @@ const Menu = () => {
                   </p>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </ScrollReveal>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
           <Button asChild className="rounded-full px-12 h-14 bg-primary hover:bg-primary/90 text-white font-black italic transition-all shadow-lg hover:shadow-primary/40 uppercase tracking-widest text-sm">
             <Link to="/menu">Vedi il Menu Completo</Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

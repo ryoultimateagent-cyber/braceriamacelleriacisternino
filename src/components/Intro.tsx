@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ChefHat, ShieldCheck, Flame, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useRef } from "react";
+import { useParallax } from "@/hooks/useParallax";
 
 const features = [
   { 
@@ -26,8 +28,12 @@ const features = [
 ];
 
 const Intro = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { ref: imageRef, transform: imageY } = useParallax(30);
+  const { ref: badgeRef, transform: badgeY } = useParallax(-20);
+
   return (
-    <section className="relative bg-transparent overflow-hidden py-4 md:py-8">
+    <section ref={containerRef} className="relative bg-transparent overflow-hidden py-12 md:py-24">
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -66,23 +72,27 @@ const Intro = () => {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {features.map((f, i) => (
                 <motion.div 
                   key={i} 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * i, duration: 0.6 }}
+                  transition={{ delay: 0.1 * i, duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
                   viewport={{ once: true }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className={cn(
                     "group transition-all duration-500 rounded-2xl border border-white/5 bg-white/5 fire-glow-card",
                     i === 0 ? "p-8" : "p-5"
                   )}
                 >
                   <div className="flex flex-col gap-4">
-                    <div className="text-primary group-hover:text-white transition-all duration-500">
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="text-primary group-hover:text-white transition-all duration-500 w-fit"
+                    >
                       {f.icon}
-                    </div>
+                    </motion.div>
                     <div className="space-y-1">
                       <h3 className={cn(
                         "text-white font-bold uppercase tracking-tight italic group-hover:text-primary transition-colors",
@@ -101,12 +111,13 @@ const Intro = () => {
           </div>
 
           {/* Visual Section */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative" ref={imageRef}>
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
+              style={{ y: imageY }}
               className="relative aspect-[4/5] w-full group overflow-hidden rounded-[2rem] border border-white/5 fire-glow-card"
             >
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700 z-10" />
@@ -116,12 +127,16 @@ const Intro = () => {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
               />
               
-              <div className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black">
+              <motion.div 
+                ref={badgeRef}
+                style={{ y: badgeY }}
+                className="absolute -bottom-6 -left-6 z-20 bg-primary p-6 rounded-full shadow-2xl border-[8px] border-black"
+              >
                 <div className="flex flex-col items-center">
                   <span className="text-white text-[40px] md:text-[50px] lg:text-[60px] font-bold italic leading-none tracking-[-3px]">38</span>
                   <span className="text-white/50 text-[10px] font-medium uppercase tracking-[0.15em] mt-0.5">ANNI</span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
