@@ -1,6 +1,6 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { X, Maximize2 } from "lucide-react";
+import { X, Maximize2, ChevronLeft, ChevronRight } from "lucide-react";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -20,6 +20,13 @@ const images = [
 ];
 
 const GalleryItem = ({ img, i, onClick }: { img: typeof images[0], i: number, onClick: () => void }) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   const parallaxDistance = i % 2 === 0 ? 30 : -30;
   const { ref, transform: y } = useParallax(parallaxDistance);
 
@@ -72,8 +79,31 @@ const GalleryItem = ({ img, i, onClick }: { img: typeof images[0], i: number, on
 
 const Galleria = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
   const closeLightbox = useCallback(() => setSelectedIndex(null), []);
+
+  const nextImage = useCallback(() => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % images.length);
+    }
+  }, [selectedIndex]);
+
+  const prevImage = useCallback(() => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+    }
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex, closeLightbox, nextImage, prevImage]);
+
 
   return (
     <section id="galleria" className="py-24 md:py-32 bg-transparent overflow-hidden relative">
@@ -101,10 +131,34 @@ const Galleria = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-3xl flex items-center justify-center p-6 md:p-12"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Galleria foto"
           >
-            <button onClick={closeLightbox} className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[110]">
+            <button 
+              onClick={closeLightbox} 
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[110] focus-visible:ring-2 focus-visible:ring-primary rounded-full p-2"
+              aria-label="Chiudi galleria"
+            >
               <X className="w-8 h-8" />
             </button>
+
+            <button 
+              onClick={prevImage}
+              className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors z-[110] focus-visible:ring-2 focus-visible:ring-primary rounded-full p-2"
+              aria-label="Immagine precedente"
+            >
+              <ChevronLeft className="w-10 h-10" />
+            </button>
+
+            <button 
+              onClick={nextImage}
+              className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors z-[110] focus-visible:ring-2 focus-visible:ring-primary rounded-full p-2"
+              aria-label="Immagine successiva"
+            >
+              <ChevronRight className="w-10 h-10" />
+            </button>
+
             <motion.div 
               layoutId={`gallery-${selectedIndex}`}
               initial={{ scale: 0.95, opacity: 0 }}
@@ -112,7 +166,7 @@ const Galleria = () => {
               exit={{ scale: 0.95, opacity: 0 }}
               className="max-w-5xl w-full aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative"
             >
-               <img src={images[selectedIndex].src} alt="" className="w-full h-full object-cover" />
+               <img src={images[selectedIndex].src} alt={images[selectedIndex].title} className="w-full h-full object-cover" />
                <div className="absolute bottom-10 left-10 right-10">
                   <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-white mb-2">{images[selectedIndex].title}</h3>
                   <p className="text-base md:text-lg text-white/70 font-medium italic max-w-xl leading-relaxed">"{images[selectedIndex].desc}"</p>
